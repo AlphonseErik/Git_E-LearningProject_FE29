@@ -20,10 +20,35 @@ class Header extends Component {
                             <NavLink className="nav-link" to='/demohoc' activeClassName='bg-success' >HOC</NavLink>
                         </li>
                     </ul>
+                    <ul className="navbar-nav">{
+                        this.props.credentials ? (
+                            <li className="nav-item">
+                                <span className="nav-link text-white">Hi, {this.props.credentials.hoTen}</span>
+                            </li>) : (
+                                <li className="nav-item">
+                                    <NavLink className="nav-link" to='/login' activeClassName='bg-success' >Login</NavLink>
+                                </li>
+                            )
+                    }{
+                            this.props.credentials ? (
+                                <li className="nav-item">
+                                    <NavLink className="nav-link" to='/demohoc' activeClassName='bg-success' ></NavLink>
+                                </li>) : (
+                                    <li className="nav-item">
+                                        <NavLink className="nav-link" to='/signup' activeClassName='bg-success' >Sign Up</NavLink>
+                                    </li>
+                                )
+                        }
+
+                    </ul>
                 </div>
             </nav>
         )
     }
 }
 
-export default connect()(Header);
+const mapStateToProps = state => ({
+    credentials: state.user.credentials
+});
+
+export default connect(mapStateToProps)(Header);
