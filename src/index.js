@@ -6,7 +6,7 @@ import * as serviceWorker from "./serviceWorker";
 
 import { createStore, applyMiddleware, compose } from "redux";
 import { Provider } from "react-redux";
-import RootReducer from "./Redux/Reducer/rootReducer";
+import RootReducer from "./Redux/Reducers/rootReducer";
 import reduxThunk from 'redux-thunk';
 
 const composeEnhancers =

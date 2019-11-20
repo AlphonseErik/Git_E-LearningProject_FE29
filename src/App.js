@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import HomeScreen from "./Screens/Home/home";
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
-import Header from "./Layouts/Header";
+import Header from "./Layouts/header";
 
 
 
