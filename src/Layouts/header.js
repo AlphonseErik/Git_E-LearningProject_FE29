@@ -26,16 +26,16 @@ class Header extends Component {
                                 <span className="nav-link text-white">Hi, {this.props.credentials.hoTen}</span>
                             </li>) : (
                                 <li className="nav-item">
-                                    <NavLink className="nav-link" to='/login' activeClassName='bg-success' >Login</NavLink>
+                                    <NavLink className="nav-link" to='/login' activeClassName='bg-success'>Login</NavLink>
                                 </li>
                             )
                     }{
                             this.props.credentials ? (
                                 <li className="nav-item">
-                                    <NavLink className="nav-link" to='/demohoc' activeClassName='bg-success' ></NavLink>
+                                    <NavLink className="nav-link" to='/demohoc'></NavLink>
                                 </li>) : (
                                     <li className="nav-item">
-                                        <NavLink className="nav-link" to='/signup' activeClassName='bg-success' >Sign Up</NavLink>
+                                        <NavLink className="nav-link" to='/signup' activeClassName='bg-success'>Sign Up</NavLink>
                                     </li>
                                 )
                         }
