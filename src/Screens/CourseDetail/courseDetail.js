@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import CourseService from "../../Services/courseService";
 import reduxAction, { fetchCourseDetail } from "../../Redux/Action/action";
 import { FETCH_COURSE_DETAIL } from "../../Redux/Action/type";
+import classes from "./courseDetailStyle.module.scss"
 
 const courseService = new CourseService();
 
@@ -14,7 +15,7 @@ class CourseDetail extends Component {
 
   render() {
     return (
-      <div>
+      <div className={classes.title}>
         <h1>Course Detail</h1>
         <p>{this.props.course.tenKhoaHoc}</p>
         <p>{this.props.course.maKhoaHoc}</p>
