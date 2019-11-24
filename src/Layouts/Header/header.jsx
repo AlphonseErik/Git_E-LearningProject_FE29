@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import classes from './header.module.scss';
 
 class Header extends Component {
     render() {
@@ -36,10 +37,15 @@ class Header extends Component {
                        <i className="text-white fa fa-shopping-cart"></i>
                        </a>
                    </div>
-                    <li className="nav-item active">
-                        </li>
+                    <li className="nav-item active">                     
                         <li className="nav-item active">
-                            <a className="nav-link" href="#">Login</a>
+                            <button className="btn bg-white">
+                            <a className="text-dark" href="#">
+                                Login
+                                </a>
+                            </button>
+                           
+                        </li>
                         </li>
                         <li className="nav-item active">
                             <a className="nav-link" href="#">Sign Up</a>
