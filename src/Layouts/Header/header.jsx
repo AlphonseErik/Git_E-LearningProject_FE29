@@ -16,7 +16,7 @@ class Header extends Component {
                         <div className="input-group ml-3">
                             <input type="text" className="form-control" placeholder="Search for anything" aria-label="Recipient's username" aria-describedby="basic-addon2" />
                             <div className="input-group-append">
-                                <span className="input-group-text" id="basic-addon2"><i class="fa fa-search"></i></span>
+                                <span className="input-group-text" id="basic-addon2"><i className="fa fa-search"></i></span>
                             </div>
                             </div>
                         </li>
@@ -37,7 +37,6 @@ class Header extends Component {
                        <i className="text-white fa fa-shopping-cart"></i>
                        </a>
                    </div>
-                    <li className="nav-item active">                     
                         <li className="nav-item active">
                             <button className="btn bg-white">
                             <a className="text-dark" href="#">
@@ -46,7 +45,7 @@ class Header extends Component {
                             </button>
                            
                         </li>
-                        </li>
+                    
                         <li className="nav-item active">
                             <a className="nav-link" href="#">Sign Up</a>
                         </li>

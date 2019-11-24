@@ -1,0 +1,17 @@
+.home {
+    font-size: 20px;
+    padding-top: 40px;
+    .home_left {
+        background-color: azure;
+        padding: 70px;
+        h3 {
+            font-size: 20px;
+        }
+    }
+    .home_left_p {
+        p {
+            font-size: 15px;
+            line-height: 15px;
+        }
+    }
+}

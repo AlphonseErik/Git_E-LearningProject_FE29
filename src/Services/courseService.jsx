@@ -7,6 +7,12 @@ class CourseService {
             method: "GET"
         })
     }
+    fetchCategory(){
+        return restConnector({
+            url:'http://elearning0706.cybersoft.edu.vn/api/QuanLyKhoaHoc/LayDanhMucKhoaHoc',
+            method:"GET"
+        })
+    }
 }
 
 export default CourseService;
