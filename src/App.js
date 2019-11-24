@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import Header from "./Layouts/Header/header";
 import HomeScreen from "./Screens/Home/home";
 import SideBar from "./Layouts/SideBar/SideBar";
+import BottomSideBar from "./Layouts/SideBar/BottomSideBar";
 
 class App extends Component {
   render() {
@@ -11,6 +12,7 @@ class App extends Component {
       <BrowserRouter>
         <Header/>
         <SideBar/>
+        <BottomSideBar />
         <Switch>
           <HomeScreen/>
         </Switch>

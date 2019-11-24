@@ -1,0 +1,17 @@
+.Bottom {
+    font-size: 20px;
+    background: linear-gradient(-45deg, #EC5252 0%, #6E1A52 100%);
+    color: white;
+    display: flex;
+    ;
+    i {
+        font-size: 40px;
+    }
+    span {
+        font-size: 20px;
+        font-weight: bold;
+    }
+    p {
+        font-size: 15px;
+    }
+}
