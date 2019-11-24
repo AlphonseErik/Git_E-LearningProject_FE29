@@ -11,8 +11,16 @@ class Header extends Component {
                         <li className="nav-item active">
                             <a className="nav-link" href="#">Home<span className="sr-only">(current)</span></a>
                         </li>
-                        <li className="nav-item">
+                        <li className="nav-item active">
                             <a className="nav-link" href="#">Link</a>
+                        </li>
+                    </ul>
+                    <ul  className="navbar-nav ml-auto mt-2 mt-lg-0">
+                        <li className="nav-item active">
+                            <a className="nav-link" href="#">Login</a>
+                        </li>
+                        <li className="nav-item active">
+                            <a className="nav-link" href="#">Sign Up</a>
                         </li>
                     </ul>
                 </div>
