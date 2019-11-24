@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { connect } from "react-redux";
 import Header from "./Layouts/Header/header";
+import HomeScreen from "./Screens/Home/home";
 
 class App extends Component {
   render() {
@@ -9,6 +10,7 @@ class App extends Component {
       <BrowserRouter>
         <Header/>
         <Switch>
+          <HomeScreen/>
         </Switch>
 
       </BrowserRouter>
