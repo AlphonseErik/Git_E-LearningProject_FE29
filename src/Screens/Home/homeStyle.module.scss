@@ -1,17 +1,29 @@
 .home {
     font-size: 20px;
-    padding-top: 40px;
+    padding: 0px;
     .home_left {
         background-color: azure;
-        padding: 70px;
+        padding: 50px;
         h3 {
-            font-size: 20px;
+            font-size: 40px;
         }
     }
     .home_left_p {
         p {
             font-size: 15px;
             line-height: 15px;
+        }
+    }
+    .home_right {
+        background-color: rgb(52, 58, 64);
+        padding: 20px 50px;
+    }
+    .home_right_span {
+        span {
+            margin: 20px;
+            padding: 150px;
+            font-weight: bold;
+            color: white;
         }
     }
 }

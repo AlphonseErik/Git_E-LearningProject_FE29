@@ -1,14 +1,9 @@
+let initialState = [];
 
 
-let initialDanhMuc = [];
-
-
-export const CategoryReducer =(state =initialDanhMuc,{payload,type})=>{
-
-
+const CategoryReducer = (state = initialState, {payload,type} )=>{
     switch (type) {
-       case "FETCH_DANHMUC":{
-
+       case "FETCH_CATEGORY":{
            console.log(payload);
            state=payload;
            return [...state];
@@ -18,3 +13,5 @@ export const CategoryReducer =(state =initialDanhMuc,{payload,type})=>{
           return state;
     }
 }
+
+export default CategoryReducer;

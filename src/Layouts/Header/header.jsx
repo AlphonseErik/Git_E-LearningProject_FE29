@@ -9,10 +9,10 @@ class Header extends Component {
                 <button className="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation" />
                 <div className="collapse navbar-collapse" id="collapsibleNavId">
                     <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
-                        {/* <li className="nav-item active">
+                        <li className="nav-item active">
                             <a className="nav-link" href="#"><i className="fa fa-th mr-2"></i>Categories</a>
                         </li>
-                        <li className="nav-item">
+                        {/* <li className="nav-item">
                             <div className="input-group ml-5">
                                 <input type="text" className="form-control" placeholder="Search for anything" aria-label="Recipient's username" aria-describedby="basic-addon2" />
                                 <div className="input-group-append">
@@ -42,13 +42,33 @@ class Header extends Component {
                             </div>
                         </li>
                         <li className="nav-item active">
-                            <a className="nav-link" href="#">Login</a>
+                            <a className="nav-link" href="#" data-toggle="modal" data-target="#modelId">Login</a>
                         </li>
                         <li className="nav-item active">
-                            <a className="nav-link" href="#">Sign Up</a>
+                            <a className="nav-link" href="#" data-toggle="modal" data-target="#modelId">Sign Up</a>
                         </li>
                     </ul>
                 </div>
+                <div className="modal fade" id="modelId" tabIndex={-1} role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+                    <div className="modal-dialog" role="document">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <h5 className="modal-title">Modal title</h5>
+                                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <div className="modal-body">
+                                Body
+                                </div>
+                            <div className="modal-footer">
+                                <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" className="btn btn-primary">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </nav>
 
         )

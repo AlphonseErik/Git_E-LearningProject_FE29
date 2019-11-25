@@ -1,11 +1,11 @@
 import { combineReducers } from "redux";
 import CourseReducer from "./courseReducer";
-import  {CategoryReducer} from './CategoryReducer';
+import  CategoryReducer from './categoryReducer';
 
 const RootReducer = combineReducers({
   //toàn bộ state
   courseList: CourseReducer,
-  CategoryReducer
+  categoryList: CategoryReducer,
 });
 
 export default RootReducer;
