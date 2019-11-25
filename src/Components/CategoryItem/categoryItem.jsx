@@ -1,14 +1,12 @@
 import React, { Component } from 'react'
-import classes from "./categoryItemStyle.module.scss"
+import classes from "./categoryItemStyle.module.scss";
 
 class Category extends Component{
     render() {
         const { tenDanhMuc} = this.props.item;
 
         return (
-            <div className={classes.category}>
-                <span>{tenDanhMuc}</span>
-            </div>
+            <a className="dropdown-item" href="#tab2Id">{tenDanhMuc}</a>
         )
     }
 

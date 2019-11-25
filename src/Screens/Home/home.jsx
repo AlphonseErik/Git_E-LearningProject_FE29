@@ -22,17 +22,17 @@ const HomeScreen = props => {
             });
     }, [])
 
-    useEffect(() => {
-        courseService.fetchCategory()
-            .then(res => {
-                props.dispatch({
-                    type: "FETCH_CATEGORY",
-                    payload: res.data
-                }, console.log(res.data));
-            }).catch(err => {
-                console.log(err);
-            })
-    }, [])
+    // useEffect(() => {
+    //     courseService.fetchCategory()
+    //         .then(res => {
+    //             props.dispatch({
+    //                 type: "FETCH_CATEGORY",
+    //                 payload: res.data
+    //             }, console.log(res.data));
+    //         }).catch(err => {
+    //             console.log(err);
+    //         })
+    // }, [])
 
 
     return (
@@ -53,21 +53,6 @@ const HomeScreen = props => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-6">
-                        <div className={classes.home_right}>
-                            <div className={classes.home_right_span}>
-                                <span>This Course Category List</span>
-                            </div>
-
-                            <div className="row">
-                                {props.categoryList.map((item, index) => (
-                                    <div className="col-2" key={index}>
-                                        <Category item={item} />
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -76,7 +61,6 @@ const HomeScreen = props => {
 
 const mapStateToProps = state => ({
     courseList: state.courseList,
-    categoryList: state.categoryList,
 });
 
 

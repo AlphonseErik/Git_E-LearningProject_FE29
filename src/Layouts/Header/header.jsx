@@ -1,8 +1,25 @@
-import React, { Component } from "react";
-import classes from './header.module.scss';
+import React, { Component, useEffect } from "react";
+import classes from './headerStyle.module.scss';
+import {connect} from "react-redux";
+import CourseService from "../../Services/courseService";
+import Category from "../../Components/CategoryItem/categoryItem";
 
-class Header extends Component {
-    render() {
+const courseService = new CourseService();
+
+const Header = props => {
+
+    useEffect(() => {
+        courseService.fetchCategory()
+            .then(res => {
+                props.dispatch({
+                    type: "FETCH_CATEGORY",
+                    payload: res.data
+                }, console.log(res.data));
+            }).catch(err => {
+                console.log(err);
+            })
+    }, [])
+
         return (
             <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
                 <a className="navbar-brand" href="#"><i className="fa fa-magnet mr-2"></i>Udemy</a>
@@ -36,10 +53,11 @@ class Header extends Component {
                                 <i className="fa fa-th mr-2"></i>Category
                             </a>
                             <div className="dropdown-menu">
-                                <a className="dropdown-item" href="#tab2Id">Action</a>
-                                <a className="dropdown-item" href="#tab3Id">Another action</a>
-                                <div className="dropdown-divider" />
-                                <a className="dropdown-item" href="#tab4Id">More...</a>
+                            {props.categoryList.map((item, index) => (
+                                    <div key={index}>
+                                        <Category item={item} />
+                                    </div>
+                                ))}
                             </div>
                         </li>
 
@@ -77,7 +95,10 @@ class Header extends Component {
                 </div>
             </nav>
         )
-    }
 }
 
-export default Header;
+const mapStateToProps = state => ({
+    categoryList: state.categoryList,
+});
+
+export default connect(mapStateToProps)(Header);
