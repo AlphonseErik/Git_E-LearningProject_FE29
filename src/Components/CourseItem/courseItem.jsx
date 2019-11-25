@@ -8,7 +8,7 @@ class CourseItem extends Component {
         return (
             <div className={classes.courseItem}>
                 <img src={hinhAnh}/>
-                <p>{tenKhoaHoc}</p>
+                <h3>{tenKhoaHoc}</h3>
                 <span>{this._shortenString(moTa)}</span>
             </div>
         )

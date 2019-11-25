@@ -10,17 +10,17 @@ const courseService = new CourseService();
 
 const Header = props => {
 
-    useEffect(() => {
-        courseService.fetchCategory()
-            .then(res => {
-                props.dispatch({
-                    type: "FETCH_CATEGORY",
-                    payload: res.data
-                }, console.log(res.data));
-            }).catch(err => {
-                console.log(err);
-            })
-    }, [])
+    // useEffect(() => {
+    //     courseService.fetchCategory()
+    //         .then(res => {
+    //             props.dispatch({
+    //                 type: "FETCH_CATEGORY",
+    //                 payload: res.data
+    //             }, console.log(res.data));
+    //         }).catch(err => {
+    //             console.log(err);
+    //         })
+    // }, [])
 
     return (
         <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
@@ -54,13 +54,13 @@ const Header = props => {
                         <a className="nav-link" data-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">
                             <i className="fa fa-th mr-2"></i>Category
                             </a>
-                        <div className="dropdown-menu">
+                        {/* <div className="dropdown-menu">
                             {props.categoryList.map((item, index) => (
                                 <div key={index}>
                                     <Category item={item} />
                                 </div>
                             ))}
-                        </div>
+                        </div> */}
                     </li>
                     <li className="nav-item" >
                         <a className="nav-link">

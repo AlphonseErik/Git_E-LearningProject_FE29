@@ -60,7 +60,7 @@ const Signup = () => {
                                 <span aria-hidden="true">×</span>
                             </button>
                         </div>
-                        <form className="container">
+                        <form className="container" onSubmit={handleSubmit}>
                             <div className="form-group">
                                 <span>Tài Khoản</span>
                                 <input name="taiKhoan" type="text" className="form-control" onChange={handleChange} />

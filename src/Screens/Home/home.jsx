@@ -34,6 +34,7 @@ const HomeScreen = props => {
     //         })
     // }, [])
 
+    console.log("choosen",props.ChoosenCategory);
 
     return (
         <div className={classes.home}>
@@ -44,7 +45,7 @@ const HomeScreen = props => {
                             <CourseItem item={item} />
                         </div>
                     ))} */}
-                    <div className="col-6">
+                    <div className="col-4">
                         <div className={classes.home_left}>
                             <h3>The world’s largest selection of courses</h3>
                             <div className={classes.home_left_p}>
@@ -53,14 +54,27 @@ const HomeScreen = props => {
                             </div>
                         </div>
                     </div>
+                    <div className="col-8">
+                        <Category />
+
+                        <div className="row">
+                          {props.courseList.filter(item=>item.danhMucKhoaHoc.maDanhMucKhoahoc === props.ChoosenCategory).map((item, index) => (
+                                <div className="col-4 " key={index}>
+                                    <CourseItem item={item} />
+                                </div>
+                          ))}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     )
 }
 
+
 const mapStateToProps = state => ({
     courseList: state.courseList,
+    ChoosenCategory:state.ChoosenCategory
 });
 
 

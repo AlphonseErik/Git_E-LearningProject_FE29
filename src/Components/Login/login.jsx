@@ -28,6 +28,9 @@ const Login = () => {
         });
         console.log(state);
     }
+      let onSubmit =(e)=>{
+       e.preventDefault();
+    }
 
     return (
         <li className="nav-item active">
@@ -41,7 +44,7 @@ const Login = () => {
                                 <span aria-hidden="true">×</span>
                             </button>
                         </div>
-                        <form className="container">
+                        <form className="container" onSubmit={onSubmit}>
                             <div className="form-group">
                                 <span>Tài khoản</span>
                                 <input name="taiKhoan" className="form-control" onChange={handleChange} />
