@@ -9,9 +9,6 @@ class Header extends Component {
                 <button className="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation" />
                 <div className="collapse navbar-collapse" id="collapsibleNavId">
                     <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
-                        <li className="nav-item active">
-                            <a className="nav-link" href="#"><i className="fa fa-th mr-2"></i>Categories</a>
-                        </li>
                         {/* <li className="nav-item">
                             <div className="input-group ml-5">
                                 <input type="text" className="form-control" placeholder="Search for anything" aria-label="Recipient's username" aria-describedby="basic-addon2" />
@@ -34,12 +31,22 @@ class Header extends Component {
                         </li>
                     </ul> */}
                     <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
-                        <li className="nav-item" >
-                            <div className="mr-3 pt-2 ">
-                                <a href="#">
-                                    <i className="text-white fa fa-shopping-cart"></i>
-                                </a>
+                        <li className="nav-item active dropdown">
+                            <a className="nav-link" data-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">
+                                <i className="fa fa-th mr-2"></i>Category
+                            </a>
+                            <div className="dropdown-menu">
+                                <a className="dropdown-item" href="#tab2Id">Action</a>
+                                <a className="dropdown-item" href="#tab3Id">Another action</a>
+                                <div className="dropdown-divider" />
+                                <a className="dropdown-item" href="#tab4Id">More...</a>
                             </div>
+                        </li>
+
+                        <li className="nav-item" >
+                            <a className="nav-link">
+                                <i className="text-white fa fa-shopping-cart"></i>
+                            </a>
                         </li>
                         <li className="nav-item active">
                             <a className="nav-link" href="#" data-toggle="modal" data-target="#modelId">Login</a>
@@ -68,9 +75,7 @@ class Header extends Component {
                         </div>
                     </div>
                 </div>
-
             </nav>
-
         )
     }
 }

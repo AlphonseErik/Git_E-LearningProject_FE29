@@ -10,11 +10,12 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <Header/>
-        <SideBar/>
+        <Header />
+        <SideBar />
         <BottomSideBar />
+        
         <Switch>
-          <HomeScreen/>
+        <HomeScreen />
         </Switch>
 
       </BrowserRouter>
