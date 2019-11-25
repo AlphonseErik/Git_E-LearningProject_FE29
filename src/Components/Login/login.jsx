@@ -1,9 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 
 const Login = () => {
-    return (
 
+    let [state, setUser] = useState({
+        userLogin: {
+            taiKhoan: '',
+            matKhau: '',
+        },errors: {
+            taiKhoan: '',
+            matKhau: '',
+        }
+    });
+
+    let handleChange = (e) => {
+        let { name, value } = e.target;
+        let errorMessage = '';
+        if (value === "") {
+            errorMessage = name + ' is required!';
+        }
+        //Kiểm tra lỗi 
+        let userLoginUpdate = { ...state.userLogin, [name]: value };
+        let errorsUpdate = { ...state.errors, [name]: errorMessage };
+        setUser({
+            userLogin: userLoginUpdate,
+            errors: errorsUpdate
+        });
+        console.log(state);
+    }
+
+    return (
         <li className="nav-item active">
             <a className="nav-link" data-toggle="modal" data-target="#modelIdLogin">Login</a>
             <div className="modal fade" id="modelIdLogin" tabIndex={-1} role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
@@ -18,13 +44,13 @@ const Login = () => {
                         <form className="container">
                             <div className="form-group">
                                 <span>Tài khoản</span>
-                                <input name="taiKhoan" className="form-control"/>
-                                <span className="text text-danger"></span>
+                                <input name="taiKhoan" className="form-control" onChange={handleChange} />
+                                <span className="text text-danger">{state.errors.taiKhoan}</span>
                             </div>
                             <div className="form-group">
                                 <span>Mật khẩu</span>
-                                <input name="matKhau" className="form-control"/>
-                                <span className="text text-danger"></span>
+                                <input name="matKhau" className="form-control" onChange={handleChange} />
+                                <span className="text text-danger">{state.errors.matKhau}</span>
                             </div>
                             <div className="form-group">
                                 <button type="submit" className="btn btn-success">Login</button>
