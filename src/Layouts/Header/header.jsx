@@ -2,25 +2,27 @@ import React, { Component, useEffect } from "react";
 import classes from './headerStyle.module.scss';
 import { connect } from "react-redux";
 import CourseService from "../../Services/courseService";
-import Category from "../../Components/CategoryItem/categoryItem";
+import CategoryItemHeader from "../../Components/CategoryItemHeader/categoryItemHeader";
 import Login from "../../Components/Login/login";
 import Signup from "../../Components/Signup/signup";
+// import categoryItemChoosen from "../../Components/CategoryItemChoosen/categoryItemChoosen";
 
 const courseService = new CourseService();
 
 const Header = props => {
 
-    // useEffect(() => {
-    //     courseService.fetchCategory()
-    //         .then(res => {
-    //             props.dispatch({
-    //                 type: "FETCH_CATEGORY",
-    //                 payload: res.data
-    //             }, console.log(res.data));
-    //         }).catch(err => {
-    //             console.log(err);
-    //         })
-    // }, [])
+    useEffect(() => {
+        courseService.fetchCourse()
+            .then(res => {
+                props.dispatch({
+                    type: "FETCH_COURSE",
+                    payload: res.data,
+                }, console.log(res.data));
+            })
+            .catch(err => {
+                console.log(err);
+            });
+    }, [])
 
     return (
         <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
@@ -54,25 +56,23 @@ const Header = props => {
                         <a className="nav-link" data-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">
                             <i className="fa fa-th mr-2"></i>Category
                             </a>
-                        {/* <div className="dropdown-menu">
+                        <div className="dropdown-menu">
                             {props.categoryList.map((item, index) => (
                                 <div key={index}>
-                                    <Category item={item} />
+                                    <CategoryItemHeader item={item} />
                                 </div>
                             ))}
-                        </div> */}
+                        </div>
                     </li>
                     <li className="nav-item" >
                         <a className="nav-link">
                             <i className="text-white fa fa-shopping-cart"></i>
                         </a>
                     </li>
-                    <Login/>
-                    <Signup/>
+                    <Login />
+                    <Signup />
                 </ul>
             </div>
-
-            
         </nav>
     )
 }

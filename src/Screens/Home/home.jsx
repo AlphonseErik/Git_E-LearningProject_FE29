@@ -3,12 +3,13 @@ import CourseService from "../../Services/courseService";
 import { connect } from "react-redux"
 import CourseItem from "../../Components/CourseItem/courseItem";
 import classes from './homeStyle.module.scss';
-import Category from "../../Components/CategoryItem/categoryItem";
+import Category from "../../Components/CategoryItemChoosen/categoryItemChoosen";
 
 
 const courseService = new CourseService();
 
 const HomeScreen = props => {
+    
     useEffect(() => {
         courseService.fetchCourse()
             .then(res => {
@@ -34,7 +35,7 @@ const HomeScreen = props => {
     //         })
     // }, [])
 
-    console.log("choosen", props.ChoosenCategory);
+    // console.log("choosen", props.choosenCategoryList);
 
     return (
         <div className={classes.home}>
@@ -56,7 +57,6 @@ const HomeScreen = props => {
                     </div>
                     <div className="col-8">
                         <Category />
-
                         <div className="row">
                             {props.courseList.filter(item => item.danhMucKhoaHoc.maDanhMucKhoahoc === props.categoryChoosenList).map((item, index) => (
                                 <div className="col-4 " key={index}>

@@ -7,7 +7,7 @@ const Login = () => {
         userLogin: {
             taiKhoan: '',
             matKhau: '',
-        },errors: {
+        }, errors: {
             taiKhoan: '',
             matKhau: '',
         }
@@ -28,8 +28,8 @@ const Login = () => {
         });
         console.log(state);
     }
-      let onSubmit =(e)=>{
-       e.preventDefault();
+    let handleSubmit = (e) => {
+        e.preventDefault();
     }
 
     return (
@@ -44,7 +44,7 @@ const Login = () => {
                                 <span aria-hidden="true">×</span>
                             </button>
                         </div>
-                        <form className="container" onSubmit={onSubmit}>
+                        <form className="container" onSubmit={handleSubmit}>
                             <div className="form-group">
                                 <span>Tài khoản</span>
                                 <input name="taiKhoan" className="form-control" onChange={handleChange} />

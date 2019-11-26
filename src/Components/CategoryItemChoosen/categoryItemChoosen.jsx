@@ -1,10 +1,10 @@
-import React, { Component,useEffect } from 'react'
-import classes from "./categoryItemStyle.module.scss";
-import {connect} from 'react-redux';
+import React, { Component, useEffect } from 'react'
+import classes from "./categoryItemChoosenStyle.module.scss";
+import { connect } from 'react-redux';
 import CourseService from '../../Services/courseService';
 
 const courseService = new CourseService();
-const Category = props =>{
+const Category = props => {
     useEffect(() => {
         courseService.fetchCategory()
             .then(res => {
@@ -18,26 +18,27 @@ const Category = props =>{
     }, [])
 
     // Lấy Mã Danh Mục Lưu Store
-    let ChoosenCategory =(maDanhMuc)=>{
-          props.dispatch({
-            type:"SET_CATEGORY",
-            payload:maDanhMuc
+    let ChoosenCategory = (maDanhMuc) => {
+        props.dispatch({
+            type: "SET_CATEGORY",
+            payload: maDanhMuc
         })
-  }
+    }
     // const { tenDanhMuc} = this.props.item;
-    return (    
-        <div className={classes.categoryItem}>
-            <button className="btn-group">
+    return (
+            <div className="btn-group" className={classes.categoryItem}>
                 {
-                    props.categoryList.map((danhmuc,index)=>{
-                     return (<button className="btn" onClick={()=>ChoosenCategory(danhmuc.maDanhMuc)} key={index}> {danhmuc.tenDanhMuc} </button>)
+                    props.categoryList.map((danhmuc, index) => {
+                        return (
+                            <button className="btn btn-success" onClick={() => ChoosenCategory(danhmuc.maDanhMuc)} key={index}> {danhmuc.tenDanhMuc} </button>
+                        )
                     })
                 }
-            </button>
             </div>
-        )
+    )
 }
 const mapStateToProps = state => ({
     categoryList: state.categoryList,
 });
+
 export default connect(mapStateToProps)(Category);
