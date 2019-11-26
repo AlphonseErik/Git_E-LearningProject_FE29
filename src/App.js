@@ -15,7 +15,11 @@ class App extends Component {
         <BottomSideBar />
         
         <Switch>
-        <HomeScreen />
+        {/* <HomeScreen /> */}
+          <Route path="/home" exact component={HomeScreen}/>
+
+
+          <Route path="/" exact component={HomeScreen}/>
         </Switch>
 
       </BrowserRouter>

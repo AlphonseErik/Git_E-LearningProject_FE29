@@ -5,7 +5,7 @@ import CourseService from "../../Services/courseService";
 import CategoryItemHeader from "../../Components/CategoryItemHeader/categoryItemHeader";
 import Login from "../../Components/Login/login";
 import Signup from "../../Components/Signup/signup";
-// import categoryItemChoosen from "../../Components/CategoryItemChoosen/categoryItemChoosen";
+import { NavLink } from 'react-router-dom';
 
 const courseService = new CourseService();
 
@@ -26,7 +26,7 @@ const Header = props => {
 
     return (
         <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
-            <a className="navbar-brand" href="#"><i className="fa fa-magnet mr-2"></i>Udemy</a>
+            <NavLink className="navbar-brand" to="/home"><i className="fa fa-magnet mr-2"></i>Udemy</NavLink>
             <button className="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation" />
             <div className="collapse navbar-collapse" id="collapsibleNavId">
                 <ul className="navbar-nav mr-auto mt-2 mt-lg-0">

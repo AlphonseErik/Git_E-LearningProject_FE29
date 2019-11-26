@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { userLoginAction } from "../../Redux/Action/userAction";
 
-const Login = props => {
+const Login = (props) => {
 
-    let [state, setUser] = useState({
+    let [user, setUser] = useState({
         userLogin: {
             taiKhoan: '',
             matKhau: '',
@@ -14,38 +14,38 @@ const Login = props => {
         }
     });
 
-    let handleChange = (e) => {
+    let handleChange = e => {
         let { name, value } = e.target;
         let errorMessage = '';
         if (value === "") {
             errorMessage = name + ' is required!';
         }
         //Kiểm tra lỗi 
-        let userLoginUpdate = { ...state.userLogin, [name]: value };
-        let errorsUpdate = { ...state.errors, [name]: errorMessage };
+        let userLoginUpdate = { ...user.userLogin, [name]: value };
+        let errorsUpdate = { ...user.errors, [name]: errorMessage };
         setUser({
             userLogin: userLoginUpdate,
             errors: errorsUpdate
         });
-        console.log(state);
+        console.log(user);
     }
-    let handleSubmit = (e) => {
+    let handleSubmit = e => {
         e.preventDefault();
         let valid = true;
-        for (var errorName in state.errors) {
-            if (state.errors[errorName] !== "") //1 trong các thuộc tính state.errors ! rổng => lỗi không cho submit api
+        for (var errorName in user.errors) {
+            if (user.errors[errorName] !== "") //1 trong các thuộc tính user.errors ! rổng 
             {
                 valid = false;
             }
         }
-        for (var valueNotFind in state.userLogin) {
-            if (state.userLogin[valueNotFind] === "") //1 trong các thuộc tính state.errors ! rổng => lỗi không cho submit api
+        for (var valueNotFind in user.userLogin) {
+            if (user.userLogin[valueNotFind] === "") //2 trong các thuộc tính user.userLogin = rổng 
             {
                 valid = false;
             }
         }
-        if(valid) {
-            props.dispatch(userLoginAction(state.userLogin, props.history)); //khi submit gọi action (ajax) truyền vào data là userLogin từ người dùng
+        if (valid) {
+            props.dispatch(userLoginAction(user.userLogin, props.history)); //khi submit gọi action truyền vào data là userLogin từ người dùng
         } else {
             alert('Dữ liệu không hợp lệ!');
         }
@@ -68,12 +68,12 @@ const Login = props => {
                             <div className="form-group">
                                 <span>Tài khoản</span>
                                 <input name="taiKhoan" className="form-control" onChange={handleChange} />
-                                <span className="text text-danger">{state.errors.taiKhoan}</span>
+                                <span className="text text-danger">{user.errors.taiKhoan}</span>
                             </div>
                             <div className="form-group">
                                 <span>Mật khẩu</span>
                                 <input name="matKhau" className="form-control" onChange={handleChange} />
-                                <span className="text text-danger">{state.errors.matKhau}</span>
+                                <span className="text text-danger">{user.errors.matKhau}</span>
                             </div>
                             <div className="form-group">
                                 <button type="submit" className="btn btn-success">Login</button>
@@ -87,4 +87,4 @@ const Login = props => {
     )
 }
 
-export default connect()(Login);
+export default connect(null)(Login);

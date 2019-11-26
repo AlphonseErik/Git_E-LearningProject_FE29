@@ -1,4 +1,3 @@
-// import { FETCH_COURSE_DETAIL } from "./actionType";
 import CourseService from "../../Services/courseService";
 
 const courseService = new CourseService();
