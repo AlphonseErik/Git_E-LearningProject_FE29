@@ -2,7 +2,7 @@
 let initialChoosen = "Design";
 
 
-export const ChoosenCategory =(state = initialChoosen ,{payload,type})=>{
+const ChoosenCategory = (state = initialChoosen ,{payload,type})=>{
    switch (type) {
       case "SET_CATEGORY":{
         console.log("reducer",payload);
@@ -18,3 +18,4 @@ export const ChoosenCategory =(state = initialChoosen ,{payload,type})=>{
     
 }
 
+export default ChoosenCategory;
