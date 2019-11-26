@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
+import { makeStyles } from '@material-ui/core/styles';
+import Button from "@material-ui/core/Button";
+import TextField from "@material-ui/core/TextField";
 
 const Signup = props => {
 
@@ -22,6 +25,24 @@ const Signup = props => {
             maNhom: 'GP01'
         }
     });
+
+    const useStyles = makeStyles(theme => ({
+        root: {
+          display: 'flex',
+          flexWrap: 'wrap',
+        },
+        margin: {
+          margin: theme.spacing(1),
+        },
+        withoutLabel: {
+          marginTop: theme.spacing(3),
+        },
+        textField: {
+          width: 480,
+        },
+      }));
+
+    const classes = useStyles();
 
     let handleChange = e => {
         let { name, value } = e.target;
@@ -77,31 +98,31 @@ const Signup = props => {
                         <form className="container" onSubmit={handleSubmit}>
                             <div className="form-group">
                                 <span>Tài Khoản</span>
-                                <input name="taiKhoan" type="text" className="form-control" onChange={handleChange} />
+                                <TextField name="taiKhoan" type="text" className="form-control" onChange={handleChange} />
                                 <span className="text text-danger">{user.errors.taiKhoan}</span>
                             </div>
                             <div className="form-group">
                                 <label>Mật Khẩu</label>
-                                <input name="matKhau" type="password" className="form-control" onChange={handleChange} />
+                                <TextField name="matKhau" type="password" className="form-control" onChange={handleChange} />
                                 <span className="text text-danger">{user.errors.matKhau}</span>
                             </div>
                             <div className="form-group">
                                 <label>Họ Tên </label>
-                                <input name="hoTen" type="email" className="form-control" onChange={handleChange} />
+                                <TextField name="hoTen" type="email" className="form-control" onChange={handleChange} />
                                 <span className="text text-danger">{user.errors.hoTen}</span>
                             </div>
                             <div className="form-group">
                                 <label>Email</label>
-                                <input name="email" type="email" className="form-control" onChange={handleChange} />
+                                <TextField name="email" type="email" className="form-control" onChange={handleChange} />
                                 <span className="text text-danger">{user.errors.email}</span>
                             </div>
                             <div className="form-group">
                                 <label>Số ĐT</label>
-                                <input name="soDT" type="text" className="form-control" onChange={handleChange} />
+                                <TextField name="soDT" type="text" className="form-control" onChange={handleChange} />
                                 <span className="text text-danger">{user.errors.soDT}</span>
                             </div>
                             <div className="form-group">
-                                <button className="btn btn-success" type="submit">Đăng Ký</button>
+                                <Button color="secondary" variant="contained" type="submit">Đăng Ký</Button>
                             </div>
                         </form>
                     </div>

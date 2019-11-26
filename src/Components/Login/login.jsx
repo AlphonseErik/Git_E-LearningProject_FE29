@@ -3,9 +3,7 @@ import { connect } from "react-redux";
 import { userLoginAction } from "../../Redux/Action/userAction";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
-import FormControl from "@material-ui/core/FormControl";
 import { makeStyles } from '@material-ui/core/styles';
-// import clsx from 'clsx';
 
 const Login = (props) => {
     let [user, setUser] = useState({
@@ -20,19 +18,19 @@ const Login = (props) => {
 
     const useStyles = makeStyles(theme => ({
         root: {
-          display: 'flex',
-          flexWrap: 'wrap',
+            display: 'flex',
+            flexWrap: 'wrap',
         },
         margin: {
-          margin: theme.spacing(1),
+            margin: theme.spacing(1),
         },
         withoutLabel: {
-          marginTop: theme.spacing(3),
+            marginTop: theme.spacing(3),
         },
         textField: {
-          width: 480,
+            width: 480,
         },
-      }));
+    }));
 
     const classes = useStyles();
 
