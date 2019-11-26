@@ -57,12 +57,14 @@ const HomeScreen = props => {
               
                     
                         <Category />
+                        <div className="container">
                         <div className="row" >
                             {props.courseList.filter(item => item.danhMucKhoaHoc.maDanhMucKhoahoc === props.categoryChoosenList).map((item, index) => (
                                 <div  className="col-4 " key={index}>
                                     <CourseItem item={item} />
                                 </div>
                             ))}
+                        </div>
                         </div>
 
             </div>
