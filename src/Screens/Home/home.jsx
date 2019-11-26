@@ -9,7 +9,7 @@ import Category from "../../Components/CategoryItemChoosen/categoryItemChoosen";
 const courseService = new CourseService();
 
 const HomeScreen = props => {
-    
+
     useEffect(() => {
         courseService.fetchCourse()
             .then(res => {
@@ -40,13 +40,13 @@ const HomeScreen = props => {
     return (
         <div className={classes.home}>
             <div>
-                <div className="row">
+                
                     {/* {props.courseList.map((item, index) => (
                         <div className="col-3" key={index}>
                             <CourseItem item={item} />
                         </div>
                     ))} */}
-                    <div className="col-4">
+                 
                         <div className={classes.home_left}>
                             <h3>The world’s largest selection of courses</h3>
                             <div className={classes.home_left_p}>
@@ -54,18 +54,17 @@ const HomeScreen = props => {
                                 <p> with new additions published every month</p>
                             </div>
                         </div>
-                    </div>
-                    <div className="col-8">
+              
+                    
                         <Category />
-                        <div className="row">
+                        <div className="row" >
                             {props.courseList.filter(item => item.danhMucKhoaHoc.maDanhMucKhoahoc === props.categoryChoosenList).map((item, index) => (
-                                <div className="col-4 " key={index}>
+                                <div  className="col-4 " key={index}>
                                     <CourseItem item={item} />
                                 </div>
                             ))}
                         </div>
-                    </div>
-                </div>
+
             </div>
         </div>
     )

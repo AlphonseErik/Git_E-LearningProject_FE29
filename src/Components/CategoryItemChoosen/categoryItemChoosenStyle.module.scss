@@ -1,8 +1,21 @@
 .categoryItem {
-    font-size: 15px;
+    font-size: 22px;
+    text-align: center;
+    padding: 0 5px;
     button {
         color: brown;
         background-color: white;
+        border: none;
+        font-weight: bold;
+    }
+     :hover {
+        color: white;
+        background-color: rgb(47, 105, 47);
+        border: none;
+    }
+     :focus {
+        color: white;
+        background-color: green;
         border: none;
     }
 }

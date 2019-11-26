@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
+import { userLoginAction } from "../../Redux/Action/userAction";
 
-const Login = () => {
+const Login = props => {
 
     let [state, setUser] = useState({
         userLogin: {
@@ -30,6 +31,25 @@ const Login = () => {
     }
     let handleSubmit = (e) => {
         e.preventDefault();
+        let valid = true;
+        for (var errorName in state.errors) {
+            if (state.errors[errorName] !== "") //1 trong các thuộc tính state.errors ! rổng => lỗi không cho submit api
+            {
+                valid = false;
+            }
+        }
+        for (var valueNotFind in state.userLogin) {
+            if (state.userLogin[valueNotFind] === "") //1 trong các thuộc tính state.errors ! rổng => lỗi không cho submit api
+            {
+                valid = false;
+            }
+        }
+        if(valid) {
+            props.dispatch(userLoginAction(state.userLogin, props.history)); //khi submit gọi action (ajax) truyền vào data là userLogin từ người dùng
+        } else {
+            alert('Dữ liệu không hợp lệ!');
+        }
+
     }
 
     return (
