@@ -4,6 +4,7 @@ import { connect } from "react-redux"
 import CourseItem from "../../Components/CourseItem/courseItem";
 import classes from './homeStyle.module.scss';
 import Category from "../../Components/CategoryItemChoosen/categoryItemChoosen";
+import Container from '@material-ui/core/Container';
 
 
 const courseService = new CourseService();
@@ -38,35 +39,34 @@ const HomeScreen = props => {
     // console.log("choosen", props.choosenCategoryList);
 
     return (
-        <div className={classes.home}>
-            <div>
-                
+        <Container maxWidth="lg" >
+            <div className={classes.home}>
+                <div>
                     {/* {props.courseList.map((item, index) => (
-                        <div className="col-3" key={index}>
-                            <CourseItem item={item} />
-                        </div>
-                    ))} */}
-                 
-                        <div className={classes.home_left}>
-                            <h3>The world’s largest selection of courses</h3>
-                            <div className={classes.home_left_p}>
-                                <p>Choose from over 100,000 online video </p>
-                                <p> with new additions published every month</p>
+                            <div className="col-3" key={index}>
+                                <CourseItem item={item} />
                             </div>
+                        ))} */}
+                    <div className={classes.home_left}>
+                        <h3>The world’s largest selection of courses</h3>
+                        <div className={classes.home_left_p}>
+                            <p>Choose from over 100,000 online video </p>
+                            <p> with new additions published every month</p>
                         </div>
-              
-                    
-                        <Category />
-                        <div className="row" >
-                            {props.courseList.filter(item => item.danhMucKhoaHoc.maDanhMucKhoahoc === props.categoryChoosenList).map((item, index) => (
-                                <div  className="col-4 " key={index}>
-                                    <CourseItem item={item} />
-                                </div>
-                            ))}
-                        </div>
-
+                    </div>
+                    <Category />
+                    <div className="row" >
+                        {props.courseList.filter(item => item.danhMucKhoaHoc.maDanhMucKhoahoc === props.categoryChoosenList).map((item, index) => (
+                            <div className="col-4 " key={index}>
+                                <CourseItem item={item} />
+                            </div>
+                        ))}
+                    </div>
+                </div>
             </div>
-        </div>
+
+        </Container>
+
     )
 }
 

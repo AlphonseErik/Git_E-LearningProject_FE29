@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { userLoginAction } from "../../Redux/Action/userAction";
+import Button from "@material-ui/core/Button";
+import TextField from "@material-ui/core/TextField";
+import FormControl from "@material-ui/core/FormControl";
+import { makeStyles } from '@material-ui/core/styles';
+// import clsx from 'clsx';
 
 const Login = (props) => {
-
     let [user, setUser] = useState({
         userLogin: {
             taiKhoan: '',
@@ -13,6 +17,24 @@ const Login = (props) => {
             matKhau: '',
         }
     });
+
+    const useStyles = makeStyles(theme => ({
+        root: {
+          display: 'flex',
+          flexWrap: 'wrap',
+        },
+        margin: {
+          margin: theme.spacing(1),
+        },
+        withoutLabel: {
+          marginTop: theme.spacing(3),
+        },
+        textField: {
+          width: 480,
+        },
+      }));
+
+    const classes = useStyles();
 
     let handleChange = e => {
         let { name, value } = e.target;
@@ -33,13 +55,13 @@ const Login = (props) => {
         e.preventDefault();
         let valid = true;
         for (var errorName in user.errors) {
-            if (user.errors[errorName] !== "") //1 trong các thuộc tính user.errors ! rổng 
+            if (user.errors[errorName] !== "") //1 trong các thuộc tính user.errors ! rỗng  
             {
                 valid = false;
             }
         }
         for (var valueNotFind in user.userLogin) {
-            if (user.userLogin[valueNotFind] === "") //2 trong các thuộc tính user.userLogin = rổng 
+            if (user.userLogin[valueNotFind] === "") //2 trong các thuộc tính user.userLogin = rỗng 
             {
                 valid = false;
             }
@@ -49,7 +71,6 @@ const Login = (props) => {
         } else {
             alert('Dữ liệu không hợp lệ!');
         }
-
     }
 
     return (
@@ -64,19 +85,19 @@ const Login = (props) => {
                                 <span aria-hidden="true">×</span>
                             </button>
                         </div>
-                        <form className="container" onSubmit={handleSubmit}>
+                        <form className="container" onSubmit={handleSubmit} >
                             <div className="form-group">
-                                <span>Tài khoản</span>
-                                <input name="taiKhoan" className="form-control" onChange={handleChange} />
+                                <span>Username</span>
+                                <TextField name="taiKhoan" className="form-control" onChange={handleChange} />
                                 <span className="text text-danger">{user.errors.taiKhoan}</span>
                             </div>
                             <div className="form-group">
-                                <span>Mật khẩu</span>
-                                <input name="matKhau" className="form-control" onChange={handleChange} />
+                                <span>Password</span>
+                                <TextField name="matKhau" className="form-control" onChange={handleChange} />
                                 <span className="text text-danger">{user.errors.matKhau}</span>
                             </div>
                             <div className="form-group">
-                                <button type="submit" className="btn btn-success">Login</button>
+                                <Button type="submit" variant="contained" color="secondary">Login</Button>
                             </div>
                         </form>
                     </div>

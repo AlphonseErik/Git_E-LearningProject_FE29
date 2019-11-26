@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 
-const Signup = () => {
+const Signup = props => {
 
     const [user, setUser] = useState({
         userSignup: {
@@ -23,7 +23,7 @@ const Signup = () => {
         }
     });
 
-    let handleChange = (e) => {
+    let handleChange = e => {
         let { name, value } = e.target;
         let errorMessage = '';
         if (value === "") {
@@ -34,17 +34,31 @@ const Signup = () => {
         let errorsUpdate = { ...user.errors, [name]: errorMessage };
         setUser({
             userSignup: userSignupUpdate,
-            errors: errorsUpdate
+            errors: errorsUpdate,
         });
         console.log(user);
     };
 
-    useEffect(() => {
-        
-    }, [handleChange])
-
-    let handleSubmit = (e) => {
+    let handleSubmit = e => {
         e.preventDefault();
+        let valid = true;
+        for (var errorName in user.errors) {
+            if (user.errors[errorName] !== "") //1 trong các thuộc tính user.errors ! rỗng  
+            {
+                valid = false;
+            }
+        }
+        for (var valueNotFind in user.userLogin) {
+            if (user.userSignup[valueNotFind] === "") //2 trong các thuộc tính user.userLogin = rỗng 
+            {
+                valid = false;
+            }
+        }
+        if (valid) {
+            props.dispatch(); //khi submit gọi action truyền vào data là userLogin từ người dùng
+        } else {
+            alert('Dữ liệu không hợp lệ!');
+        }
     }
 
     return (
@@ -97,4 +111,4 @@ const Signup = () => {
     )
 }
 
-export default connect()(Signup);
+export default connect(null)(Signup);
