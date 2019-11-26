@@ -17,7 +17,7 @@ export const userLoginAction = (userLogin, history) => {
             localStorage.setItem(settings.token, res.data.accessToken);
 
             //Lưu data lên store để render lại giao diện header
-            // dispatch(reduxAction(LOGIN, res.data));
+            dispatch(reduxAction(LOGIN, res.data));
 
             //bỏ token lên header của tất cả request
             restConnector.defaults.headers['Authorization'] = "Bearer " + res.data.accessToken
