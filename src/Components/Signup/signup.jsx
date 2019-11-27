@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import { makeStyles } from '@material-ui/core/styles';
 import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
+import TextField from '@material-ui/core/TextField';
+import { makeStyles } from '@material-ui/core/styles';
+import classesStyle from "../Signup/signupStyle.module.scss"
 
 const Signup = props => {
 
@@ -27,20 +28,20 @@ const Signup = props => {
     });
 
     const useStyles = makeStyles(theme => ({
-        root: {
-          display: 'flex',
-          flexWrap: 'wrap',
-        },
-        margin: {
-          margin: theme.spacing(1),
-        },
-        withoutLabel: {
-          marginTop: theme.spacing(3),
+        container: {
+            display: 'flex',
+            flexWrap: 'wrap',
         },
         textField: {
-          width: 480,
+            marginLeft: theme.spacing(2),
+            marginRight: theme.spacing(2),
+            width: 460,
         },
-      }));
+        button: {
+            margin: theme.spacing(2),
+            marginLeft: 340,
+        },
+    }));
 
     const classes = useStyles();
 
@@ -89,40 +90,52 @@ const Signup = props => {
             <div className="modal fade" id="modelIdSignup" tabIndex={-1} role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
                 <div className="modal-dialog">
                     <div className="modal-content">
-                        <div className="modal-header">
-                            <h5 className="modal-title text-dark">Signup</h5>
-                            <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">×</span>
-                            </button>
-                        </div>
-                        <form className="container" onSubmit={handleSubmit}>
+                        <form className="container" onSubmit={handleSubmit} className={classesStyle.signupStyle}>
                             <div className="form-group">
-                                <span>Tài Khoản</span>
-                                <TextField name="taiKhoan" type="text" className="form-control" onChange={handleChange} />
-                                <span className="text text-danger">{user.errors.taiKhoan}</span>
+                                <h3 className="modal-title text-danger">Sign Up</h3>
+                                <TextField
+                                    name="taiKhoan"
+                                    label="Username"
+                                    className={classes.textField}
+                                    margin="normal"
+                                    onChange={handleChange}
+                                />
+                                <p className="text text-danger">{user.errors.taiKhoan}</p>
+                                <TextField
+                                    name="matKhau"
+                                    label="Password"
+                                    className={classes.textField}
+                                    margin="normal"
+                                    onChange={handleChange}
+                                />
+                                <p className="text text-danger">{user.errors.matKhau}</p>
+                                <TextField
+                                    name="hoTen"
+                                    label="Full Name"
+                                    className={classes.textField}
+                                    margin="normal"
+                                    onChange={handleChange}
+                                />
+                                <p className="text text-danger">{user.errors.hoTen}</p>
+                                <TextField
+                                    name="email"
+                                    label="Email"
+                                    className={classes.textField}
+                                    margin="normal"
+                                    onChange={handleChange}
+                                />
+                                <p className="text text-danger">{user.errors.email}</p>
+                                <TextField
+                                    name="soDT"
+                                    label="Telephone Number"
+                                    className={classes.textField}
+                                    margin="normal"
+                                    onChange={handleChange}
+                                />
+                                <p className="text text-danger">{user.errors.soDT}</p>
                             </div>
                             <div className="form-group">
-                                <label>Mật Khẩu</label>
-                                <TextField name="matKhau" type="password" className="form-control" onChange={handleChange} />
-                                <span className="text text-danger">{user.errors.matKhau}</span>
-                            </div>
-                            <div className="form-group">
-                                <label>Họ Tên </label>
-                                <TextField name="hoTen" type="email" className="form-control" onChange={handleChange} />
-                                <span className="text text-danger">{user.errors.hoTen}</span>
-                            </div>
-                            <div className="form-group">
-                                <label>Email</label>
-                                <TextField name="email" type="email" className="form-control" onChange={handleChange} />
-                                <span className="text text-danger">{user.errors.email}</span>
-                            </div>
-                            <div className="form-group">
-                                <label>Số ĐT</label>
-                                <TextField name="soDT" type="text" className="form-control" onChange={handleChange} />
-                                <span className="text text-danger">{user.errors.soDT}</span>
-                            </div>
-                            <div className="form-group">
-                                <Button color="secondary" variant="contained" type="submit">Đăng Ký</Button>
+                                <Button color="secondary" variant="contained" type="submit" className={classes.button}>Sign Up</Button>
                             </div>
                         </form>
                     </div>

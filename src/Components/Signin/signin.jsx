@@ -4,8 +4,7 @@ import { userLoginAction } from "../../Redux/Action/userAction";
 import Button from "@material-ui/core/Button";
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
-import classesStyle from "../Login/loginStyle.module.scss";
-import { Icon } from "@material-ui/core";
+import classesStyle from "../Login/signinStyle.module.scss";
 
 const Login = (props) => {
     let [user, setUser] = useState({
@@ -26,10 +25,11 @@ const Login = (props) => {
         textField: {
             marginLeft: theme.spacing(2),
             marginRight: theme.spacing(2),
-            width: 430,
+            width: 450,
         },
         button: {
             margin: theme.spacing(2),
+            marginLeft: 390,
           },
     }));
 
@@ -74,7 +74,7 @@ const Login = (props) => {
 
     return (
         <li className="nav-item active">
-            <a className="nav-link" data-toggle="modal" data-target="#modelIdLogin">Login</a>
+            <a className="nav-link" data-toggle="modal" data-target="#modelIdLogin">Sign In</a>
             <div className="modal fade" id="modelIdLogin" role="dialog" aria-labelledby="modelTitleId">
                 <div className="modal-dialog" role="document">
                     <div className="modal-content">
@@ -88,7 +88,7 @@ const Login = (props) => {
                                     margin="normal"
                                     onChange={handleChange}
                                 />
-                                <span className="text text-danger">{user.errors.taiKhoan}</span>
+                                <p className="text text-danger">{user.errors.taiKhoan}</p>
                                 <TextField
                                     name="matKhau"
                                     label="Password"
@@ -98,10 +98,10 @@ const Login = (props) => {
                                     margin="normal"
                                     onChange={handleChange}
                                 />
-                                <span className="text text-danger">{user.errors.matKhau}</span>
+                                <p className="text text-danger">{user.errors.matKhau}</p>
                             </div>
                             <div className="form-group">
-                                <Button type="submit" variant="contained" color="secondary" className={classes.button}>Login</Button>
+                                <Button type="submit" variant="contained" color="secondary" className={classes.button}>Sign In</Button>
                             </div>
                         </form>
                     </div>
