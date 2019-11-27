@@ -70,12 +70,12 @@ const HomeScreen = props => {
                                 autoplayTimeout={5000}
                                 nav> */}
 
-                                {props.courseList.filter(item => item.danhMucKhoaHoc.maDanhMucKhoahoc === props.categoryChoosenList).map((item, index) => (
-                                    <div className="bg-dark" key={index}>
-                                        <CourseItem item={item} />
-                                    </div>
+                            {props.courseList.filter(item => item.danhMucKhoaHoc.maDanhMucKhoahoc === props.categoryChoosenList).map((item, index) => (
+                                <div className="bg-dark" key={index}>
+                                    <CourseItem item={item} />
+                                </div>
 
-                                ))}
+                            ))}
                             {/* </OwlCarousel> */}
                         </div>
                     </div>

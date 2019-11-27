@@ -1,5 +1,5 @@
 import React, { Component, useEffect } from "react";
-import classes from './headerStyle.module.scss';
+// import classesStyle from './headerStyle.module.scss';
 import { connect } from "react-redux";
 import CourseService from "../../Services/courseService";
 import CategoryItemHeader from "../../Components/CategoryItemHeader/categoryItemHeader";
@@ -30,14 +30,26 @@ const Header = props => {
             <button className="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation" />
             <div className="collapse navbar-collapse" id="collapsibleNavId">
                 <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
-                    {/* <li className="nav-item">
-                            <div className="input-group ml-5">
-                                <input type="text" className="form-control" placeholder="Search for anything" aria-label="Recipient's username" aria-describedby="basic-addon2" />
-                                <div className="input-group-append">
-                                    <span className="input-group-text" id="basic-addon2"><i className="fa fa-search"></i></span>
+                    <li className="nav-item active dropdown">
+                        <a className="nav-link" data-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">
+                            <i className="fa fa-th mr-2"></i>Category
+                            </a>
+                        <div className="dropdown-menu">
+                            {props.categoryList.map((item, index) => (
+                                <div key={index}>
+                                    <CategoryItemHeader item={item} />
                                 </div>
+                            ))}
+                        </div>
+                    </li>
+                    {/* <li className="nav-item">
+                        <div className="input-group ml-5">
+                            <input type="text" className="form-control" placeholder="Search for anything" aria-label="Recipient's username" aria-describedby="basic-addon2" />
+                            <div className="input-group-append">
+                                    <span className="input-group-text" id="basic-addon2"><i className="fa fa-search"></i></span>
                             </div>
-                        </li> */}
+                        </div>
+                    </li> */}
                 </ul>
                 {/* <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
                         <li className="nav-item">
@@ -51,24 +63,7 @@ const Header = props => {
                             </div>
                         </li>
                     </ul> */}
-                <ul className="navbar-nav ml-auto">
-                    <li className="nav-item active dropdown">
-                        <a className="nav-link" data-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">
-                            <i className="fa fa-th mr-2"></i>Category
-                            </a>
-                        <div className="dropdown-menu">
-                            {props.categoryList.map((item, index) => (
-                                <div key={index}>
-                                    <CategoryItemHeader item={item} />
-                                </div>
-                            ))}
-                        </div>
-                    </li>
-                    <li className="nav-item" >
-                        <a className="nav-link">
-                            <i className="text-white fa fa-shopping-cart"></i>
-                        </a>
-                    </li>
+                <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
                     {
                         props.credentials ? (
                             <li className="nav-item dropdown">
@@ -77,8 +72,14 @@ const Header = props => {
                                     Hi, {props.credentials.hoTen}
                                 </a>
                                 <div className="dropdown-menu">
-                                    <span className="dropdown-item">Profile</span>
-                                    <span className="dropdown-item" >Logout</span>
+                                    <div className="headerStyle__userLogin">
+                                        <div>
+                                            <span className="dropdown-item">Profile</span>
+                                        </div>
+                                        <div>
+                                            <span className="dropdown-item">Logout</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </li>
                         ) : (
@@ -92,6 +93,13 @@ const Header = props => {
                                 <Signup />
                             )
                     }
+                    <li className="nav-item" >
+                        <div className=" mr-5">
+                            <a className="nav-link active">
+                                <i className="text-white fa fa-shopping-cart"></i>
+                            </a>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </nav>
