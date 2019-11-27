@@ -4,7 +4,7 @@ import { userLoginAction } from "../../Redux/Action/userAction";
 import Button from "@material-ui/core/Button";
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
-import classesStyle from "../Login/signinStyle.module.scss";
+import classesStyle from "../Login/loginStyle.module.scss";
 
 const Login = (props) => {
     let [user, setUser] = useState({

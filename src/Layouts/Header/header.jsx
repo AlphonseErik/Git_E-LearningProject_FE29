@@ -3,7 +3,7 @@ import classes from './headerStyle.module.scss';
 import { connect } from "react-redux";
 import CourseService from "../../Services/courseService";
 import CategoryItemHeader from "../../Components/CategoryItemHeader/categoryItemHeader";
-import Signin from "../../Components/Signin/signin";
+import Signin from "../../Components/Login/login";
 import Signup from "../../Components/Signup/signup";
 import { NavLink } from 'react-router-dom';
 
