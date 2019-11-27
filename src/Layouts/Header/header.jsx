@@ -3,7 +3,7 @@ import classes from './headerStyle.module.scss';
 import { connect } from "react-redux";
 import CourseService from "../../Services/courseService";
 import CategoryItemHeader from "../../Components/CategoryItemHeader/categoryItemHeader";
-import Signin from "../../Components/Login/login";
+import Login from "../../Components/Login/login";
 import Signup from "../../Components/Signup/signup";
 import { NavLink } from 'react-router-dom';
 
@@ -69,7 +69,7 @@ const Header = props => {
                             <i className="text-white fa fa-shopping-cart"></i>
                         </a>
                     </li>
-                    <Signin />
+                    <Login />
                     <Signup />
                 </ul>
             </div>
