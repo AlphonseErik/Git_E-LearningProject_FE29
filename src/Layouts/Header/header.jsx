@@ -51,7 +51,7 @@ const Header = props => {
                             </div>
                         </li>
                     </ul> */}
-                <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
+                <ul className="navbar-nav">
                     <li className="nav-item active dropdown">
                         <a className="nav-link" data-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">
                             <i className="fa fa-th mr-2"></i>Category
@@ -69,8 +69,23 @@ const Header = props => {
                             <i className="text-white fa fa-shopping-cart"></i>
                         </a>
                     </li>
-                    <Login />
-                    <Signup />
+                    {
+                        props.credentials ? (
+                            <li className="nav-item">
+                                <span className="nav-link text-white">Hi, {props.credentials.hoTen}</span>
+                            </li>
+                        ) : (
+                                <Login />
+                            )
+                    }{
+                        props.credentials ? (
+                            <li className="nav-item">
+                                <span className="nav-link text-white"></span>
+                            </li>
+                        ) : (
+                                <Signup />
+                            )
+                    }
                 </ul>
             </div>
         </nav>

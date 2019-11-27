@@ -66,7 +66,8 @@ function Login(props){
             }
         }
         if (valid) {
-            props.dispatch(userLoginAction(user.userLogin, props.history)); //khi submit gọi action truyền vào data là userLogin từ người dùng
+            props.dispatch(userLoginAction(user.userLogin, props.history));
+             //khi submit gọi action truyền vào data là userLogin từ người dùng
         } else {
             alert('Dữ liệu không hợp lệ!');
         }
