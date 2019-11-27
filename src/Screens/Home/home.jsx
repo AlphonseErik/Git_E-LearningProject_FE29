@@ -26,7 +26,7 @@ const HomeScreen = props => {
             .catch(err => {
                 console.log(err);
             });
-    }, [])
+    }, [props.credentials]);
 
     // useEffect(() => {
     //     courseService.fetchCategory()
@@ -91,6 +91,7 @@ const HomeScreen = props => {
 const mapStateToProps = state => ({
     courseList: state.courseList,
     categoryChoosenList: state.categoryChoosenList,
+    credentials: state.user.credentials,
 });
 
 
