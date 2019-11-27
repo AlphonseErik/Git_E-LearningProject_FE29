@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
 import CourseReducer from "./courseReducer";
-import CategoryReducer from './CategoryReducer';
+import CategoryReducer from './categoryReducer';
 import ChoosenCategoryReducer from './categoryChoosenReducer';
 import UserReducer from "./userReducer";
 
