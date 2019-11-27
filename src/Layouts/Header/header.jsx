@@ -79,6 +79,7 @@ const Header = props => {
 
 const mapStateToProps = state => ({
     categoryList: state.categoryList,
+    credentials: state.user.credentials
 });
 
 export default connect(mapStateToProps)(Header);

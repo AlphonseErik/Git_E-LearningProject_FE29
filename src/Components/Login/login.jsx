@@ -6,7 +6,7 @@ import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import classesStyle from "../Login/loginStyle.module.scss";
 
-const Login = (props) => {
+function Login(props){
     let [user, setUser] = useState({
         userLogin: {
             taiKhoan: '',
