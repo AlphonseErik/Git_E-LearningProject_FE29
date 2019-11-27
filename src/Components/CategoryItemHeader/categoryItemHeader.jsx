@@ -23,7 +23,9 @@ const CategoryItemHeader = props => {
 
     return (
         <div className={classes.categoryItem}>
-            <a className="dropdown-item" href="#tab2Id">{tenDanhMuc}</a>
+            <div className={classes.categoryItem__dropDown}>
+                <span className="dropdown-item" >{tenDanhMuc}</span>
+            </div>
         </div>
     )
 }

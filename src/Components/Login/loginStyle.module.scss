@@ -1,5 +1,7 @@
-.login {
-    textField: {
-        marginLeft: theme.spacing(1), marginRight: theme.spacing(1), width: 200,
+.loginStyle {
+    div {
+        h3 {
+            text-align: center
+        }
     }
 }

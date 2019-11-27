@@ -1,3 +1,13 @@
 .categoryItem {
-    font-size: 20px;
+    font-size: 15px;
+    &__dropDown {
+         :hover {
+            background-color: rgb(83, 86, 90);
+            color: white;
+        }
+         :focus {
+            background-color: rgb(58, 61, 65);
+            color: white;
+        }
+    }
 }

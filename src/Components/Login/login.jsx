@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { userLoginAction } from "../../Redux/Action/userAction";
 import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
+import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
+import classesStyle from "../Login/loginStyle.module.scss";
+import { Icon } from "@material-ui/core";
 
 const Login = (props) => {
     let [user, setUser] = useState({
@@ -17,19 +19,18 @@ const Login = (props) => {
     });
 
     const useStyles = makeStyles(theme => ({
-        root: {
+        container: {
             display: 'flex',
             flexWrap: 'wrap',
         },
-        margin: {
-            margin: theme.spacing(1),
-        },
-        withoutLabel: {
-            marginTop: theme.spacing(3),
-        },
         textField: {
-            width: 480,
+            marginLeft: theme.spacing(2),
+            marginRight: theme.spacing(2),
+            width: 430,
         },
+        button: {
+            margin: theme.spacing(2),
+          },
     }));
 
     const classes = useStyles();
@@ -74,28 +75,33 @@ const Login = (props) => {
     return (
         <li className="nav-item active">
             <a className="nav-link" data-toggle="modal" data-target="#modelIdLogin">Login</a>
-            <div className="modal fade" id="modelIdLogin" tabIndex={-1} role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+            <div className="modal fade" id="modelIdLogin" role="dialog" aria-labelledby="modelTitleId">
                 <div className="modal-dialog" role="document">
                     <div className="modal-content">
-                        <div className="modal-header">
-                            <h5 className="modal-title">Login</h5>
-                            <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">×</span>
-                            </button>
-                        </div>
-                        <form className="container" onSubmit={handleSubmit} >
+                        <form className="container" onSubmit={handleSubmit} className={classesStyle.loginStyle}>
                             <div className="form-group">
-                                <span>Username</span>
-                                <TextField name="taiKhoan" className="form-control" onChange={handleChange} />
+                                <h3 className="text text-danger">Sign In</h3>
+                                <TextField
+                                    name="taiKhoan"
+                                    label="Username"
+                                    className={classes.textField}
+                                    margin="normal"
+                                    onChange={handleChange}
+                                />
                                 <span className="text text-danger">{user.errors.taiKhoan}</span>
-                            </div>
-                            <div className="form-group">
-                                <span>Password</span>
-                                <TextField name="matKhau" className="form-control" onChange={handleChange} />
+                                <TextField
+                                    name="matKhau"
+                                    label="Password"
+                                    className={classes.textField}
+                                    type="password"
+                                    autoComplete="current-password"
+                                    margin="normal"
+                                    onChange={handleChange}
+                                />
                                 <span className="text text-danger">{user.errors.matKhau}</span>
                             </div>
                             <div className="form-group">
-                                <Button type="submit" variant="contained" color="secondary">Login</Button>
+                                <Button type="submit" variant="contained" color="secondary" className={classes.button}>Login</Button>
                             </div>
                         </form>
                     </div>
