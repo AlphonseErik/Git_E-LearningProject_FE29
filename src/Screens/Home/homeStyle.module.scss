@@ -1,6 +1,7 @@
 .home {
     font-size: 20px;
     padding-top: 40px;
+    background-color: #fff;
     .home_left {
         background-color: azure;
         padding: 50px;
@@ -25,5 +26,18 @@
             font-weight: bold;
             color: white;
         }
+    }
+    .owl-nav {
+        background-color: yellow;
+        button {
+            background-color: yellow;
+            border-radius: 50%;
+        }
+    }
+    .owl-stage {
+        width: 100%;
+    }
+    .navClass {
+        background-color: red;
     }
 }

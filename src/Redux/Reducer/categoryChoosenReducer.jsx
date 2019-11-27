@@ -1,5 +1,5 @@
 
-let initialChoosen = "Design";
+let initialChoosen = "BackEnd";
 
 
 const ChoosenCategory = (state = initialChoosen, { payload, type }) => {

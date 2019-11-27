@@ -5,6 +5,10 @@ import CourseItem from "../../Components/CourseItem/courseItem";
 import classes from './homeStyle.module.scss';
 import Category from "../../Components/CategoryItemChoosen/categoryItemChoosen";
 import Container from '@material-ui/core/Container';
+import OwlCarousel from 'react-owl-carousel';
+import 'owl.carousel/dist/assets/owl.carousel.css';
+import 'owl.carousel/dist/assets/owl.theme.default.css';
+
 
 
 const courseService = new CourseService();
@@ -55,12 +59,25 @@ const HomeScreen = props => {
                         </div>
                     </div>
                     <Category />
-                    <div className="row" >
+                    <div>
+                    <div className="row" >           
+                        <OwlCarousel  className="owl-theme"
+                                        loop
+                                        items={4}
+                                        autoplay={true}
+                                        margin={20}
+
+                                        autoplayTimeout={5000}
+                                        nav>
+                                      
                         {props.courseList.filter(item => item.danhMucKhoaHoc.maDanhMucKhoahoc === props.categoryChoosenList).map((item, index) => (
-                            <div className="col-4 " key={index}>
-                                <CourseItem item={item} />
+                            <div className="bg-dark" key={index}>
+                                <CourseItem item={item}/>
                             </div>
+
                         ))}
+                        </OwlCarousel>      
+                    </div>
                     </div>
                 </div>
             </div>

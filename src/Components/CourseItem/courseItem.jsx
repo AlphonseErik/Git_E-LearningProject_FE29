@@ -3,20 +3,28 @@ import classes from "./courseItemStyle.module.scss";
 
 class CourseItem extends Component {
     render() {
-        const { hinhAnh, tenKhoaHoc, moTa } = this.props.item;
+        const { hinhAnh, tenKhoaHoc, moTa,luotXem } = this.props.item;
 
         return (
-            <div className={classes.courseItem}>
-                <img src={hinhAnh}/>
-                <h3>{tenKhoaHoc}</h3>
-                <span>{this._shortenString(moTa)}</span>
-            </div>
+                <div className={classes.courseItem}>
+                <div className={classes.card}>
+                <img className="card-img-top" src={hinhAnh} alt="s" />
+                <div className="card-body text-left">
+                <h4 className="card-title">{tenKhoaHoc}</h4>
+                <span className="card-text">{this._shortenString(moTa)}</span>
+                <h5 className="mt-1">Lượt xem: {luotXem}</h5>
+
+                </div>
+                </div>
+
+                </div>
+           
         )
     }
 
     _shortenString = (string) => {
-        if (string && string.length > 20) {
-          return string.substr(0, 20) + "..."
+        if (string && string.length > 40) {
+          return string.substr(0, 40) + " ..."
         }
         return string;
       }
