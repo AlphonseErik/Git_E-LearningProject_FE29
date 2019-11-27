@@ -22,7 +22,7 @@ const Header = props => {
             .catch(err => {
                 console.log(err);
             });
-    }, [])
+    }, []);
 
     return (
         <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
@@ -51,7 +51,7 @@ const Header = props => {
                             </div>
                         </li>
                     </ul> */}
-                <ul className="navbar-nav">
+                <ul className="navbar-nav ml-auto">
                     <li className="nav-item active dropdown">
                         <a className="nav-link" data-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">
                             <i className="fa fa-th mr-2"></i>Category
@@ -71,16 +71,22 @@ const Header = props => {
                     </li>
                     {
                         props.credentials ? (
-                            <li className="nav-item">
-                                <span className="nav-link text-white">Hi, {props.credentials.hoTen}</span>
+                            <li className="nav-item dropdown">
+                                {/* <span className="nav-link text-white">Hi, {props.credentials.hoTen}</span> */}
+                                <a className="nav-link active" data-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">
+                                    Hi, {props.credentials.hoTen}
+                                </a>
+                                <div className="dropdown-menu">
+                                    <span className="dropdown-item">Profile</span>
+                                    <span className="dropdown-item" >Logout</span>
+                                </div>
                             </li>
                         ) : (
                                 <Login />
                             )
                     }{
                         props.credentials ? (
-                            <li className="nav-item">
-                                <span className="nav-link text-white"></span>
+                            <li className="nav-item ">
                             </li>
                         ) : (
                                 <Signup />
