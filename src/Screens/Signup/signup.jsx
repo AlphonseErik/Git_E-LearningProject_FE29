@@ -28,19 +28,15 @@ const Signup = props => {
     });
 
     const useStyles = makeStyles(theme => ({
-        container: {
-            display: 'flex',
-            flexWrap: 'wrap',
-        },
         textField: {
-            marginLeft: theme.spacing(2),
-            marginRight: theme.spacing(2),
-            width: 460,
+            width: 400,
+            fontSize: 16,
         },
         button: {
-            margin: theme.spacing(2),
-            marginLeft: 340,
-        },
+            width: 200,
+            height: 50,
+            fontSize: 16,
+        }
     }));
 
     const classes = useStyles();
@@ -84,53 +80,34 @@ const Signup = props => {
     }
 
     return (
-
         <form className="container" onSubmit={handleSubmit} className={classesStyle.signupStyle}>
             <div className="form-group">
-                <h3 className="modal-title text-danger">Sign Up</h3>
-                <TextField
-                    name="taiKhoan"
-                    label="Username"
-                    className={classes.textField}
-                    margin="normal"
-                    onChange={handleChange}
-                />
-                <p className="text text-danger">{user.errors.taiKhoan}</p>
-                <TextField
-                    name="matKhau"
-                    label="Password"
-                    className={classes.textField}
-                    margin="normal"
-                    onChange={handleChange}
-                />
-                <p className="text text-danger">{user.errors.matKhau}</p>
-                <TextField
-                    name="hoTen"
-                    label="Full Name"
-                    className={classes.textField}
-                    margin="normal"
-                    onChange={handleChange}
-                />
-                <p className="text text-danger">{user.errors.hoTen}</p>
-                <TextField
-                    name="email"
-                    label="Email"
-                    className={classes.textField}
-                    margin="normal"
-                    onChange={handleChange}
-                />
-                <p className="text text-danger">{user.errors.email}</p>
-                <TextField
-                    name="soDT"
-                    label="Telephone Number"
-                    className={classes.textField}
-                    margin="normal"
-                    onChange={handleChange}
-                />
-                <p className="text text-danger">{user.errors.soDT}</p>
+                <h2 className="text-danger text-center">Sign Up</h2>
+                <div className="text-center">
+                    <TextField variant="outlined" name="taiKhoan" label="Username" className={classes.textField} margin="normal" onChange={handleChange} />
+                    <p className="text text-danger">{user.errors.taiKhoan}</p>
+                </div>
+                <div className="text-center">
+                    <TextField variant="outlined" name="matKhau" label="Password" className={classes.textField} margin="normal" onChange={handleChange} />
+                    <p className="text text-danger">{user.errors.matKhau}</p>
+                </div>
+                <div className="text-center">
+                    <TextField variant="outlined" name="hoTen" label="Full Name" className={classes.textField} margin="normal" onChange={handleChange} />
+                    <p className="text text-danger">{user.errors.hoTen}</p>
+                </div>
+                <div className="text-center">
+                    <TextField variant="outlined" name="email" label="Email" className={classes.textField} margin="normal" onChange={handleChange} />
+                    <p className="text text-danger">{user.errors.email}</p>
+                </div>
+                <div className="text-center">
+                    <TextField variant="outlined" name="soDT" label="Telephone Number" className={classes.textField} margin="normal" onChange={handleChange} />
+                    <p className="text text-danger">{user.errors.soDT}</p>
+                </div>
             </div>
             <div className="form-group">
-                <Button color="secondary" variant="contained" type="submit" className={classes.button}>Sign Up</Button>
+                <div className="text-center">
+                    <Button color="secondary" variant="contained" type="submit" className={classes.button}>Sign Up</Button>
+                </div>
             </div>
         </form>
 

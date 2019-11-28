@@ -5,6 +5,7 @@ import Button from "@material-ui/core/Button";
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import classesStyle from "../Login/loginStyle.module.scss";
+import { Container } from "@material-ui/core";
 // import UserProfile from "../../Screens/UserProfile/userProfile";
 
 function Login(props) {
@@ -19,19 +20,15 @@ function Login(props) {
     });
 
     const useStyles = makeStyles(theme => ({
-        container: {
-            display: 'flex',
-            flexWrap: 'wrap',
-        },
         textField: {
-            marginLeft: theme.spacing(2),
-            marginRight: theme.spacing(2),
-            width: 450,
+            width: 400,
+            fontSize: 16,
         },
         button: {
-            margin: theme.spacing(2),
-            marginLeft: 390,
-        },
+            width: 200,
+            height: 50,
+            fontSize: 16,
+        }
     }));
 
     const classes = useStyles();
@@ -76,32 +73,31 @@ function Login(props) {
     }
 
     return (
-        <form className="container" onSubmit={handleSubmit} className={classesStyle.loginStyle}>
-            <div className="form-group">
-                <h3 className="text text-danger">Sign In</h3>
-                <TextField
-                    name="taiKhoan"
-                    label="Username"
-                    className={classes.textField}
-                    margin="normal"
-                    onChange={handleChange}
-                />
-                <p className="text text-danger">{user.errors.taiKhoan}</p>
-                <TextField
-                    name="matKhau"
-                    label="Password"
-                    className={classes.textField}
-                    type="password"
-                    autoComplete="current-password"
-                    margin="normal"
-                    onChange={handleChange}
-                />
-                <p className="text text-danger">{user.errors.matKhau}</p>
-            </div>
-            <div className="form-group">
-                <Button type="submit" variant="contained" color="secondary" className={classes.button}>Sign In</Button>
-            </div>
-        </form>
+        <Container>
+            <form className="container" onSubmit={handleSubmit} className={classesStyle.loginStyle} autoComplete="on">
+                <div className="form-group card-block">
+                    <div className="text-center">
+                        <h2 className="text text-danger"><i class="fa fa-lock"></i> Sign In</h2>
+                        {/* <hr className="mt-2 mb-2" /> */}
+                    </div>
+                    <div className="text-center">
+                        <TextField variant="outlined" name="taiKhoan" label="Username" onChange={handleChange} className={classes.textField} margin="normal" />
+                        <p className="text text-danger">{user.errors.taiKhoan}</p>
+                    </div>
+                    <div className="text-center">
+                        <TextField variant="outlined" name="matKhau" label="Password" className={classes.textField} type="password" autoComplete="current-password" margin="normal" onChange={handleChange}
+                        />
+                        <p className="text text-danger">{user.errors.matKhau}</p>
+                    </div>
+
+                </div>
+                <div className="form-group">
+                    <div className="text-center">
+                        <Button type="submit" color="secondary" variant="contained" className={classes.button}>Sign In</Button>
+                    </div>
+                </div>
+            </form>
+        </Container>
     )
 }
 
