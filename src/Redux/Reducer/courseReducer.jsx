@@ -1,8 +1,10 @@
+import { FETCH_COURSES } from "../Action/actionType";
+
 let initialState = [];
 
 const CourseReducer = (state = initialState, { type, payload }) => {
     switch(type){
-        case "FETCH_COURSE": {
+        case FETCH_COURSES: {
             state = payload;
             return [...state];
         }

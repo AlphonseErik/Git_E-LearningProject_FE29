@@ -3,10 +3,8 @@ import React, { Component, useEffect } from "react";
 import { connect } from "react-redux";
 import CourseService from "../../Services/courseService";
 import CategoryItemHeader from "../../Components/CategoryItemHeader/categoryItemHeader";
-import Login from "../../Screens/Login/login";
-import Signup from "../../Screens/Signup/signup";
 import { NavLink } from 'react-router-dom';
-import UserProfile from "../../Screens/UserProfile/userProfile";
+import { FETCH_COURSES } from "../../Redux/Action/actionType";
 
 const courseService = new CourseService();
 
@@ -16,14 +14,14 @@ const Header = props => {
         courseService.fetchCourse()
             .then(res => {
                 props.dispatch({
-                    type: "FETCH_COURSE",
+                    type: FETCH_COURSES,
                     payload: res.data,
                 }, console.log(res.data));
             })
             .catch(err => {
                 console.log(err);
             });
-    }, [[props.credentials]]);
+    }, [props.credentials]);
 
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -82,7 +80,7 @@ const Header = props => {
                                 <div className="dropdown-menu">
                                     <div className="headerStyle__userLogin">
                                         <div>
-                                            <NavLink to="/userprofile" className="dropdown-item">Profile</NavLink>
+                                            <NavLink to="/profile" className="dropdown-item">Profile</NavLink>
                                         </div>
                                         <div>
                                             <span className="dropdown-item">Logout</span>

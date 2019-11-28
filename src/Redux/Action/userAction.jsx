@@ -1,4 +1,4 @@
-import { type, LOGIN } from './actionType';
+import { type, LOGIN, UPDATE_USER } from './actionType';
 import { settings } from '../../config/settings';
 import reduxAction from "./action";
 import { restConnector } from '../../Services';
@@ -25,6 +25,26 @@ export const userLoginAction = (userLogin, history) => {
             restConnector.defaults.headers['Authorization'] = "Bearer " + res.data.accessToken;
 
             history.push('./');
+        }).catch(error => {
+            console.log(error.promise.data);
+        })
+    }
+}
+
+export const userUpdateAction = (userProfile, history) => {
+    return dispatch => {
+        //Gọi ajax backend thông qua api đưa data userLogin về server
+        restConnector({
+            method: 'PUT',
+            url: '/api/quanlynguoidung/capnhatthongtinnguoidung',
+            data: userProfile,
+        }).then(res => {
+            console.log(res.data);
+
+            //Lưu data lên store để render lại giao diện header
+            dispatch(reduxAction(UPDATE_USER, res.data));
+
+            history.push('./home');
         }).catch(error => {
             console.log(error.promise.data);
         })

@@ -16,15 +16,15 @@ class App extends Component {
     return (
       <BrowserRouter>
         <Header />
-        
-        <Switch>
-        {/* <HomeScreen /> */}
-          <Route path="/home" exact component={HomeScreen}/>
-          <PrivateRoute path="/userprofile" Component={UserProfile}/>
-          <Route path="/login" exact component={Login}/>
-          <Route path="/signup" exact component={Signup}/>
 
-          <Route path="/" exact component={HomeScreen}/>
+        <Switch>
+          {/* <HomeScreen /> */}
+          <Route path="/home" exact component={HomeScreen} />
+          <PrivateRoute path="/profile" Component={UserProfile} />
+          <Route path="/login" exact component={Login} />
+          <Route path="/signup" exact component={Signup} />
+
+          <Route path="/" exact component={HomeScreen} />
         </Switch>
 
       </BrowserRouter>

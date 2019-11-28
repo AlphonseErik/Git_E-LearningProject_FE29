@@ -57,7 +57,7 @@ function Login(props) {
                 valid = false;
             }
         }
-        for (var valueNotFind in user.userLogin) {
+        for (let valueNotFind in user.userLogin) {
             if (user.userLogin[valueNotFind] === "") //2 trong các thuộc tính user.userLogin = rỗng 
             {
                 valid = false;
@@ -77,7 +77,7 @@ function Login(props) {
             <form className="container" onSubmit={handleSubmit} className={classesStyle.loginStyle} autoComplete="on">
                 <div className="form-group card-block">
                     <div className="text-center">
-                        <h2 className="text text-danger"><i class="fa fa-lock"></i> Sign In</h2>
+                        <h2 className="text text-danger"><i className="fa fa-lock"></i> Sign In</h2>
                         {/* <hr className="mt-2 mb-2" /> */}
                     </div>
                     <div className="text-center">

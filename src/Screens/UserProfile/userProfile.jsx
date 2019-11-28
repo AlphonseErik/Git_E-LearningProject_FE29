@@ -1,52 +1,60 @@
-import React, { useEffect } from "react";
-import CourseService from "../../Services/courseService";
-import {connect} from "react-redux";
-
-const courseService = new CourseService();
+import React, { useEffect, useState } from "react";
+import { connect } from "react-redux";
+import { userUpdateAction } from "../../Redux/Action/userAction";
 
 const UserProfile = props => {
+    const userocalStorage = JSON.parse(localStorage.getItem("userLogin"));
 
-    // useEffect(() => {
-    //     courseService.fetchCourse()
-    //         .then(res => {
-    //             props.dispatch({
-    //                 type: "FETCH_COURSE",
-    //                 payload: res.data,
-    //             }, console.log(res.data));
-    //         })
-    //         .catch(err => {
-    //             console.log(err);
-    //         });
-    // }, [[props.credentials]]);
+    let [userProfile, setUserProfile] = useState({
+        userProfile: {
+            taiKhoan: '',
+            matKhau: '',
+            hoTen: '',
+            soDT: '',
+            maLoaiNguoiDung: '',
+            maNhom: '',
+            email: '',
+        }, errors: {
+            taiKhoan: '',
+            matKhau: '',
+            hoTen: '',
+            soDT: '',
+            maLoaiNguoiDung: '',
+            maNhom: '',
+            email: '',
+        }
+    });
 
-    const userProfile = JSON.parse(localStorage.getItem("userLogin"));
-    console.log(userProfile);
-    const { hoTen, soDT, taiKhoan, email } = userProfile
-    console.log({ hoTen });
+    const updateUser = e => {
+        e.preventDefault();
+        props.dispatch(userUpdateAction(props.userProfile, props.history));
+    }
 
     return (
-        <div className="container">
-            <h3 className="text text-danger">Your Profile</h3>
-            <div className="form-group">
-                <span>Username</span>
-                <input name="taiKhoan" className="form-control"/>{taiKhoan}
+        <form onSubmit={updateUser}>
+            <div className="container">
+                <h3 className="text text-danger">Your Profile</h3>
+                <div className="form-group">
+                    <span>Username</span>
+                    <input name="taiKhoan" className="form-control" />
+                </div>
+                <div className="form-group">
+                    <span>Full Name</span>
+                    <input name="hoTen" className="form-control" />
+                </div>
+                <div className="form-group">
+                    <span>Telephone Number</span>
+                    <input name="soDT" className="form-control" />
+                </div>
+                <div className="form-group">
+                    <span>Email</span>
+                    <input name="email" className="form-control" />
+                </div>
+                <div className="form-group">
+                    <button className="btn btn-success" type="submit">Edit</button>
+                </div>
             </div>
-            <div className="form-group">
-                <span>Full Name</span>
-                <input name="hoTen" className="form-control"/>{hoTen}
-            </div>
-            <div className="form-group">
-                <span>Telephone Number</span>
-                <input name="soDT" className="form-control"/>{soDT}
-            </div>
-            <div className="form-group">
-                <span>Email</span>
-                <input name="email" className="form-control"/>{email}
-            </div>
-            <div className="form-group">
-                <button className="btn btn-success">Edit</button>
-            </div>
-        </div>
+        </form>
     )
 }
 
