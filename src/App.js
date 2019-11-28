@@ -8,19 +8,22 @@ import BottomSideBar from "./Layouts/SideBar/BottomSideBar";
 import { restConnector } from "./Services";
 import reduxAction from "./Redux/Action/action";
 import { LOGIN } from "./Redux/Action/actionType";
+import UserProfile from "./Screens/UserProfile/userProfile";
+import Login from "./Screens/Login/login";
+import Signup from "./Screens/Signup/signup";
 
 class App extends Component {
   render() {
     return (
       <BrowserRouter>
         <Header />
-        <SideBar />
-        <BottomSideBar />
         
         <Switch>
         {/* <HomeScreen /> */}
           <Route path="/home" exact component={HomeScreen}/>
-
+          <Route path="/userprofile" exact component={UserProfile}/>
+          <Route path="/login" exact component={Login}/>
+          <Route path="/signup" exact component={Signup}/>
 
           <Route path="/" exact component={HomeScreen}/>
         </Switch>

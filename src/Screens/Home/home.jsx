@@ -5,6 +5,8 @@ import CourseItem from "../../Components/CourseItem/courseItem";
 import classes from './homeStyle.module.scss';
 import Category from "../../Components/CategoryItemChoosen/categoryItemChoosen";
 import Container from '@material-ui/core/Container';
+import SideBar from "../../Layouts/SideBar/SideBar";
+import BottomSideBar from "../../Layouts/SideBar/BottomSideBar";
 // import OwlCarousel from 'react-owl-carousel';
 // import 'owl.carousel/dist/assets/owl.carousel.css';
 // import 'owl.carousel/dist/assets/owl.theme.default.css';
@@ -43,47 +45,49 @@ const HomeScreen = props => {
     // console.log("choosen", props.choosenCategoryList);
 
     return (
-        <Container maxWidth="lg" >
-            <div className={classes.home}>
-                <div>
-                    {/* {props.courseList.map((item, index) => (
-                            <div className="col-3" key={index}>
-                                <CourseItem item={item} />
-                            </div>
-                        ))} */}
-                    <div className={classes.home_left}>
-                        <h3>The world’s largest selection of courses</h3>
-                        <div className={classes.home_left_p}>
-                            <p>Choose from over 100,000 online video </p>
-                            <p> with new additions published every month</p>
-                        </div>
-                    </div>
-                    <Category />
+        <div>
+            <SideBar />
+            <BottomSideBar />
+            <Container maxWidth="lg" >
+                <div className={classes.home}>
                     <div>
-                        <div className="row" >
-                            {/* <OwlCarousel className="owl-theme"
-                                loop
-                                items={4}
-                                autoplay={true}
-                                margin={20}
+                        {/* {props.courseList.map((item, index) => (
+                        <div className="col-3" key={index}>
+                            <CourseItem item={item} />
+                        </div>
+                    ))} */}
+                        <div className={classes.home_left}>
+                            <h3>The world’s largest selection of courses</h3>
+                            <div className={classes.home_left_p}>
+                                <p>Choose from over 100,000 online video </p>
+                                <p> with new additions published every month</p>
+                            </div>
+                        </div>
+                        <Category />
+                        <div>
+                            <div className="row" >
+                                {/* <OwlCarousel className="owl-theme"
+                            loop
+                            items={4}
+                            autoplay={true}
+                            margin={20}
 
-                                autoplayTimeout={5000}
-                                nav> */}
+                            autoplayTimeout={5000}
+                            nav> */}
 
-                            {props.courseList.filter(item => item.danhMucKhoaHoc.maDanhMucKhoahoc === props.categoryChoosenList).map((item, index) => (
-                                <div className="bg-dark" key={index}>
-                                    <CourseItem item={item} />
-                                </div>
+                                {props.courseList.filter(item => item.danhMucKhoaHoc.maDanhMucKhoahoc === props.categoryChoosenList).map((item, index) => (
+                                    <div className="bg-dark" key={index}>
+                                        <CourseItem item={item} />
+                                    </div>
 
-                            ))}
-                            {/* </OwlCarousel> */}
+                                ))}
+                                {/* </OwlCarousel> */}
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
-        </Container>
-
+            </Container>
+        </div>
     )
 }
 

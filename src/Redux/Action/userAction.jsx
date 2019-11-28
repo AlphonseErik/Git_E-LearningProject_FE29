@@ -22,8 +22,9 @@ export const userLoginAction = (userLogin, history) => {
             dispatch(reduxAction(LOGIN, res.data));
 
             //bỏ token lên header của tất cả request
-            restConnector.defaults.headers['Authorization'] = "Bearer " + res.data.accessToken
+            restConnector.defaults.headers['Authorization'] = "Bearer " + res.data.accessToken;
 
+            history.push('./');
         }).catch(error => {
             console.log(error.promise.data);
         })
