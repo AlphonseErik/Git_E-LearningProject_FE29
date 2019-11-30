@@ -1,7 +1,8 @@
 export const settings = {
     userLogin: 'userLogin',
     token: 'accessToken',
-    maNhom: 'maNhom',
+    taiKhoan: 'taiKhoan',
     maLoaiNguoiDung: 'maLoaiNguoiDung',
-    domain: 'http://elearning0706.cybersoft.edu.vn'
+    domain: 'http://elearning0706.cybersoft.edu.vn',
+    userProfile: 'userProfile',
 }

@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import { userLoginAction } from "../../Redux/Action/userAction";
+import { userLoginAction, userDetail } from "../../Redux/Action/userAction";
 import Button from "@material-ui/core/Button";
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import classesStyle from "../Login/loginStyle.module.scss";
 import { Container } from "@material-ui/core";
+import { GET_USER_INFO } from "../../Redux/Action/actionType";
 // import UserProfile from "../../Screens/UserProfile/userProfile";
 
 function Login(props) {
@@ -64,6 +65,7 @@ function Login(props) {
             }
         }
         if (valid) {
+            // console.log(props);
             props.dispatch(userLoginAction(user.userLogin, props.history));
             //khi submit gọi action truyền vào data là userLogin từ người dùng
             //  location.reload(true);
