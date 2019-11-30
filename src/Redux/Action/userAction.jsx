@@ -26,7 +26,7 @@ export const userLoginAction = (userLogin, history) => {
 
             history.push('./');
         }).catch(error => {
-            console.log(error.promise.data);
+            console.log(error.response.data);
         })
     }
 }
@@ -46,7 +46,7 @@ export const userUpdateAction = (userProfile, history) => {
 
             history.push('./home');
         }).catch(error => {
-            console.log(error.promise.data);
+            console.log(error.response.data);
         })
     }
 }
