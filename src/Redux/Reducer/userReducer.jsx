@@ -1,8 +1,8 @@
-import { LOGIN, UPDATE_USER } from '../Action/actionType'
+import { LOGIN, UPDATE_USER, USER_INFO } from '../Action/actionType'
 
 let initialState = {
     // users: [];
-    // userDetail: {},
+    userDetail: {},
     credentials: null
 }
 
@@ -11,6 +11,10 @@ const UserReducer = (state = initialState, { type, payload }) => {
         case LOGIN: {
             state.credentials = payload;
             return { ...state }
+        }
+        case USER_INFO:{
+            state.userDetail = payload;
+            return {...state};
         }
         case UPDATE_USER:{
             // const index = state.findIndex(item => item.username === payload.username);

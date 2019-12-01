@@ -1,21 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { userUpdateAction, userLoginAction, userDetail } from "../../Redux/Action/userAction";
-import UserService from "../../Services/userService";
-import { GET_USER_INFO } from "../../Redux/Action/actionType";
+// import UserService from "../../Services/userService";
+// import { GET_USER_INFO, USER_INFO } from "../../Redux/Action/actionType";
+import { settings } from "../../config/settings";
+// import { restConnector } from "../../Services";
+// import reduxAction from "../../Redux/Action/action";
 
 // const userService = new UserService();
 
 const UserProfile = props => {
-    // let accessToken = localStorage.getItem("accessToken");
-    // console.log(accessToken);
 
-    useEffect(() => {
-        let userAccess = localStorage.getItem("taiKhoan");
-        props.dispatch(userDetail(userAccess));
-    },[]);
-
-    const userLocalStorage = JSON.parse(localStorage.getItem("userLogin"));
+    const userLocalStorage = JSON.parse(localStorage.getItem(settings.userProfile));
 
     const { taiKhoan, hoTen, soDT, email } = userLocalStorage;
 
@@ -89,8 +85,6 @@ const UserProfile = props => {
                     <button className="btn btn-success" type="submit">Edit</button>
                 </div>
             </div>
-
-
         </form>
     )
 }

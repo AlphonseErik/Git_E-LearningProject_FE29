@@ -1,8 +1,9 @@
-import { type, LOGIN, UPDATE_USER, GET_USER_INFO } from './actionType';
+import { type, LOGIN, UPDATE_USER, USER_INFO } from './actionType';
 import { settings } from '../../config/settings';
 import reduxAction from "./action";
 import { restConnector } from '../../Services';
 
+//Đăng nhập
 export const userLoginAction = (userLogin, history) => {
     return dispatch => {
         //Gọi ajax backend thông qua api đưa data userLogin về server
@@ -29,8 +30,9 @@ export const userLoginAction = (userLogin, history) => {
             console.log(error.response.data);
         })
     }
-}
+};
 
+//Lấy dữ liệu người dùng trên api
 export const userDetail = (userAccess) => {
     return dispatch => {
         restConnector({
@@ -48,7 +50,7 @@ export const userDetail = (userAccess) => {
             localStorage.setItem(settings.userProfile, JSON.stringify(res.data));
 
             //Lưu data lên store để render lại giao diện header
-            dispatch(reduxAction(GET_USER_INFO, res.data.taiKhoan));
+            dispatch(reduxAction(USER_INFO, res.data.taiKhoan));
 
             //bỏ token lên header của tất cả request
 
@@ -58,6 +60,7 @@ export const userDetail = (userAccess) => {
     }
 };
 
+//Cập nhật dữ liệu người dùng
 export const userUpdateAction = (userProfile, history) => {
     return dispatch => {
         //Gọi ajax backend thông qua api đưa data userProfile về server

@@ -5,7 +5,7 @@ import Header from "./Layouts/Header/header";
 import HomeScreen from "./Screens/Home/home";
 import { restConnector } from "./Services";
 import reduxAction from "./Redux/Action/action";
-import { LOGIN } from "./Redux/Action/actionType";
+import { LOGIN, USER_INFO } from "./Redux/Action/actionType";
 import UserProfile from "./Screens/UserProfile/userProfile";
 import Login from "./Screens/Login/login";
 import Signup from "./Screens/Signup/signup";
@@ -35,10 +35,12 @@ class App extends Component {
   componentDidMount() {
     const userLoginStr = localStorage.getItem('userLogin');
     const userAccessToken = localStorage.getItem('accessToken');
+    const userDetailStr = localStorage.getItem('userDetail');
     if (userLoginStr && userAccessToken) {
       restConnector.defaults.headers['Authorization'] = "Bearer " + userAccessToken;
 
       this.props.dispatch(reduxAction(LOGIN, JSON.parse(userLoginStr)));
+      this.props.dispatch(reduxAction(USER_INFO, JSON.parse(userDetailStr)));
     }
   }
 }

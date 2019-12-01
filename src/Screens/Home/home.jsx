@@ -7,6 +7,7 @@ import Category from "../../Components/CategoryItemChoosen/categoryItemChoosen";
 import Container from '@material-ui/core/Container';
 import SideBar from "../../Layouts/SideBar/SideBar";
 import BottomSideBar from "../../Layouts/SideBar/BottomSideBar";
+import { userDetail } from "../../Redux/Action/userAction";
 // import OwlCarousel from 'react-owl-carousel';
 // import 'owl.carousel/dist/assets/owl.carousel.css';
 // import 'owl.carousel/dist/assets/owl.theme.default.css';
@@ -28,7 +29,11 @@ const HomeScreen = props => {
             .catch(err => {
                 console.log(err);
             });
-    }, [props.credentials]);
+        //Lấy dữ liệu userDetail từ api
+        let userAccess = localStorage.getItem("taiKhoan");
+        props.dispatch(userDetail(userAccess));
+
+    }, []);
 
     // useEffect(() => {
     //     courseService.fetchCategory()
