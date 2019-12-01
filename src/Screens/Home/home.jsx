@@ -31,8 +31,9 @@ const HomeScreen = props => {
             });
         //Lấy dữ liệu userDetail từ api
         let userAccess = localStorage.getItem("taiKhoan");
-        props.dispatch(userDetail(userAccess));
-
+        if(userAccess !== null){
+            props.dispatch(userDetail(userAccess));
+        }
     }, []);
 
     // useEffect(() => {
