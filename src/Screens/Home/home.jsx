@@ -8,6 +8,7 @@ import Container from '@material-ui/core/Container';
 import SideBar from "../../Layouts/SideBar/SideBar";
 import BottomSideBar from "../../Layouts/SideBar/BottomSideBar";
 import { userDetail } from "../../Redux/Action/userAction";
+import { settings } from "../../config/settings";
 // import OwlCarousel from 'react-owl-carousel';
 // import 'owl.carousel/dist/assets/owl.carousel.css';
 // import 'owl.carousel/dist/assets/owl.theme.default.css';
@@ -30,8 +31,9 @@ const HomeScreen = props => {
                 console.log(err);
             });
         //Lấy dữ liệu userDetail từ api
-        let userAccess = localStorage.getItem("taiKhoan");
-        if(userAccess !== null){
+        let userAccess = localStorage.getItem(settings.taiKhoan);
+        let userProfile = localStorage.getItem("userProfile");
+        if(userAccess && !userProfile){
             props.dispatch(userDetail(userAccess));
         }
     }, []);
