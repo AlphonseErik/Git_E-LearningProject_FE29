@@ -7,13 +7,13 @@ import { GET_USER_INFO } from "../../Redux/Action/actionType";
 // const userService = new UserService();
 
 const UserProfile = props => {
-    let accessToken = localStorage.getItem("accessToken");
-    console.log(accessToken);
-    let userName = localStorage.getItem("taiKhoan");
+    // let accessToken = localStorage.getItem("accessToken");
+    // console.log(accessToken);
 
     useEffect(() => {
-        props.dispatch(userDetail(accessToken, userName));
-    });
+        let userAccess = localStorage.getItem("taiKhoan");
+        props.dispatch(userDetail(userAccess));
+    },[]);
 
     const userLocalStorage = JSON.parse(localStorage.getItem("userLogin"));
 
@@ -25,7 +25,7 @@ const UserProfile = props => {
             matKhau: '',
             hoTen: hoTen,
             soDT: soDT,
-            maLoaiNguoiDung: 'HV',
+            maLoaiNguoiDung: 'GV',
             maNhom: 'GP01',
             email: email,
         }, errors: {
@@ -33,7 +33,7 @@ const UserProfile = props => {
             matKhau: '',
             hoTen: '',
             soDT: '',
-            maLoaiNguoiDung: 'HV',
+            maLoaiNguoiDung: 'GV',
             maNhom: 'GP01',
             email: '',
         }

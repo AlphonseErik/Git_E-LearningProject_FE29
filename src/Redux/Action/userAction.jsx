@@ -31,33 +31,31 @@ export const userLoginAction = (userLogin, history) => {
     }
 }
 
-export const userDetail = (accessToken, userLogin ) => {
+export const userDetail = (userAccess) => {
     return dispatch => {
-        // console.log(userLogin);
         restConnector({
             method: 'POST',
             url: '/api/quanlynguoidung/thongtintaikhoan',
-            data: userLogin,
-            headers : {
-                "Authorization": "Bearer " +  accessToken
+            headers: {
+                "Authorization": "Bearer " + localStorage.getItem(settings.token),
+            },
+            data:{
+                "taiKhoan": userAccess,
             }
-    }).then(res => {
-        console.log(res.data);
-        // //Đăng nhập thành công => Lưu thông tin user và token vào localstorage để request về những api yêu cầu token
-        localStorage.setItem(settings.userProfile, JSON.stringify(res.data));
-        // localStorage.setItem(settings.token, res.data.accessToken);
-        // localStorage.setItem(settings.maNhom, res.data.maNhom);
-        // localStorage.setItem(settings.maLoaiNguoiDung, res.data.maLoaiNguoiDung);
+        }).then(res => {
+            console.log(res.data);
+            // //Đăng nhập thành công => Lưu thông tin user và token vào localstorage để request về những api yêu cầu token
+            localStorage.setItem(settings.userProfile, JSON.stringify(res.data));
 
-        //Lưu data lên store để render lại giao diện header
-        dispatch(reduxAction(GET_USER_INFO, res.data));
+            //Lưu data lên store để render lại giao diện header
+            dispatch(reduxAction(GET_USER_INFO, res.data.taiKhoan));
 
-        //bỏ token lên header của tất cả request
+            //bỏ token lên header của tất cả request
 
-    }).catch(error => {
-        console.log(error.response.data);
-    })
-  }
+        }).catch(error => {
+            console.log(error.response.data);
+        })
+    }
 };
 
 export const userUpdateAction = (userProfile, history) => {
