@@ -13,6 +13,7 @@ export const userLoginAction = (userLogin, history) => {
             data: userLogin,
         }).then(res => {
             console.log(res.data);
+            // alert('Đăng nhập thành công');
             //Đăng nhập thành công => Lưu thông tin user và token vào localstorage để request về những api yêu cầu token
             localStorage.setItem(settings.userLogin, JSON.stringify(res.data));
             localStorage.setItem(settings.token, res.data.accessToken);
@@ -28,6 +29,7 @@ export const userLoginAction = (userLogin, history) => {
             history.push('./');
         }).catch(error => {
             console.log(error.response.data);
+            alert('Lỗi: ' + error.response.data)
         })
     }
 };

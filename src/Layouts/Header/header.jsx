@@ -4,9 +4,34 @@ import { connect } from "react-redux";
 import CourseService from "../../Services/courseService";
 import CategoryItemHeader from "../../Components/CategoryItemHeader/categoryItemHeader";
 import { NavLink } from 'react-router-dom';
-import { FETCH_COURSES } from "../../Redux/Action/actionType";
+import { FETCH_COURSES, LOGIN } from "../../Redux/Action/actionType";
+import { makeStyles } from '@material-ui/core/styles';
+import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
+import Button from '@material-ui/core/Button';
+import List from '@material-ui/core/List';
+import Divider from '@material-ui/core/Divider';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+// import InboxIcon from '@material-ui/icons/MoveToInbox';
+// import MailIcon from '@material-ui/icons/Mail';
+import PersonIcon from '@material-ui/icons/Person';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+
 
 const courseService = new CourseService();
+
+const useStyles = makeStyles({
+    list: {
+        width: 250,
+    },
+    fullList: {
+        width: 'auto',
+    },
+    link: {
+        decoration: 'none',
+    }
+});
 
 const Header = props => {
 
@@ -21,7 +46,56 @@ const Header = props => {
             .catch(err => {
                 console.log(err);
             });
-    }, [props.credentials]);
+    }, []);
+
+    const classes = useStyles();
+
+    const [state, setState] = React.useState({
+        top: false,
+        left: false,
+        bottom: false,
+        right: false,
+    });
+
+    const toggleDrawer = (side, open) => event => {
+        if (event && event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+            return;
+        }
+
+        setState({ ...state, [side]: open });
+    };
+
+    const sideList = side => (
+        <div className={classes.list} role="presentation" onClick={toggleDrawer(side, false)} onKeyDown={toggleDrawer(side, false)}>
+            {/* {['Profile', 'Logout'].map((text, index) => (
+                    <ListItem button key={text}>
+                        <ListItemIcon>{index % 2 === 0 ? <PersonIcon/> : <ExitToAppIcon />}</ListItemIcon>
+                        <ListItemText primary={text} />
+                    </ListItem>
+                ))} */}
+            <List>
+                <NavLink to="./user/profile">
+                    <ListItem button key="Profile">
+                        <ListItemIcon>
+                            <PersonIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Profile" />
+                    </ListItem>
+                </NavLink>
+            </List>
+            <List>
+                <NavLink className={classes.link} to="./login" onClick={() => { localStorage.clear(); props.dispatch(LOGIN, props.credentials) }}>
+                    <ListItem>
+                        <ListItemIcon>
+                            <ExitToAppIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Logout" />
+                    </ListItem>
+                </NavLink>
+            </List>
+            <Divider />
+        </div>
+    );
 
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -73,20 +147,8 @@ const Header = props => {
                     {
                         props.credentials ? (
                             <li className="nav-item dropdown">
-                                {/* <span className="nav-link text-white">Hi, {props.credentials.hoTen}</span> */}
-                                <a className="nav-link active" data-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">
-                                    Hi, {props.credentials.hoTen}
-                                </a>
-                                <div className="dropdown-menu">
-                                    <div className="headerStyle__userLogin">
-                                        <div>
-                                            <NavLink to="/profile" className="dropdown-item">Profile</NavLink>
-                                        </div>
-                                        <div>
-                                            <span className="dropdown-item">Logout</span>
-                                        </div>
-                                    </div>
-                                </div>
+                                <a className="nav-link active" href="#" onClick={toggleDrawer('right', true)}>Hi, {props.credentials.hoTen}</a>
+                                <SwipeableDrawer anchor="right" open={state.right} onClose={toggleDrawer('right', false)} onOpen={toggleDrawer('right', true)}> {sideList('right')} </SwipeableDrawer>
                             </li>
                         ) : (
                                 <li className="nav-item active" >

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useEffect } from "react";
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { connect } from "react-redux";
 import Header from "./Layouts/Header/header";
@@ -10,39 +10,41 @@ import UserProfile from "./Screens/UserProfile/userProfile";
 import Login from "./Screens/Login/login";
 import Signup from "./Screens/Signup/signup";
 import PrivateRoute from "./HOC/Auth"
+import UserScreen from "./Screens/UserScreen/userScreen";
+import Notfound from "./Screens/NotFound/notFound";
 
-class App extends Component {
-  render() {
-    return (
-      <BrowserRouter>
-        <Header />
+const App = props => {
 
-        <Switch>
-          {/* <HomeScreen /> */}
-          <Route path="/home" exact component={HomeScreen} />
-          <PrivateRoute path="/profile" Component={UserProfile} />
-          <Route path="/login" exact component={Login} />
-          <Route path="/signup" exact component={Signup} />
-
-          <Route path="/" exact component={HomeScreen} />
-        </Switch>
-
-      </BrowserRouter>
-
-    )
-  }
-
-  componentDidMount() {
+  useEffect(() => {
     const userLoginStr = localStorage.getItem('userLogin');
     const userAccessToken = localStorage.getItem('accessToken');
     const userDetailStr = localStorage.getItem('userDetail');
     if (userLoginStr && userAccessToken) {
       restConnector.defaults.headers['Authorization'] = "Bearer " + userAccessToken;
 
-      this.props.dispatch(reduxAction(LOGIN, JSON.parse(userLoginStr)));
-      this.props.dispatch(reduxAction(USER_INFO, JSON.parse(userDetailStr)));
+      props.dispatch(reduxAction(LOGIN, JSON.parse(userLoginStr)));
+      props.dispatch(reduxAction(USER_INFO, JSON.parse(userDetailStr)));
     }
-  }
+  },[]);
+
+  return (
+    <BrowserRouter>
+      <Header />
+      <Switch>
+        {/* <HomeScreen /> */}
+        <Route path="/home" component={HomeScreen} />
+        <PrivateRoute path="/user" Component={UserScreen} />
+        {/* <Route path="/user/profile" component={UserProfile} /> */}
+        <Route path="/login" component={Login} />
+        <Route path="/signup" component={Signup} />
+
+        <Route path="/" component={HomeScreen} />
+        <Route component={Notfound} />
+      </Switch>
+
+    </BrowserRouter>
+
+  )
 }
 
 export default connect()(App);
