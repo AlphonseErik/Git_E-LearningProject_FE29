@@ -33,7 +33,7 @@ const HomeScreen = props => {
         //Lấy dữ liệu userDetail từ api
         let userAccess = localStorage.getItem(settings.taiKhoan);
         let userProfile = localStorage.getItem("userProfile");
-        if(userAccess && !userProfile){
+        if (userAccess && !userProfile) {
             props.dispatch(userDetail(userAccess));
         }
     }, []);
@@ -56,23 +56,24 @@ const HomeScreen = props => {
         <div>
             <SideBar />
             <BottomSideBar />
-            <Container maxWidth="lg" >
-                <div className={classes.home}>
-                    <div>
-                        {/* {props.courseList.map((item, index) => (
+            {/* <Container maxWidth="lg" > */}
+            <div className={classes.home}>
+                <div>
+                    {/* {props.courseList.map((item, index) => (
                         <div className="col-3" key={index}>
                             <CourseItem item={item} />
                         </div>
                     ))} */}
-                        <div className={classes.home_left}>
-                            <h3>The world’s largest selection of courses</h3>
-                            <div className={classes.home_left_p}>
-                                <p>Choose from over 100,000 online video </p>
-                                <p> with new additions published every month</p>
-                            </div>
+                    <div className={classes.home__name}>
+                        <h1>The world’s largest selection of courses</h1>
+                        <div className={classes.home__p}>
+                            <p>Choose from over 100,000 online video </p>
+                            <p> with new additions published every month</p>
                         </div>
-                        <Category />
-                        <div>
+                    </div>
+                    <Category />
+                    <div>
+                        <div className="container">
                             <div className="row" >
                                 {/* <OwlCarousel className="owl-theme"
                             loop
@@ -84,7 +85,7 @@ const HomeScreen = props => {
                             nav> */}
 
                                 {props.courseList.filter(item => item.danhMucKhoaHoc.maDanhMucKhoahoc === props.categoryChoosenList).map((item, index) => (
-                                    <div className="bg-dark" key={index}>
+                                    <div key={index}>
                                         <CourseItem item={item} />
                                     </div>
 
@@ -94,7 +95,8 @@ const HomeScreen = props => {
                         </div>
                     </div>
                 </div>
-            </Container>
+            </div>
+            {/* </Container> */}
         </div>
     )
 }

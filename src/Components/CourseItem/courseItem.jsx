@@ -6,19 +6,18 @@ class CourseItem extends Component {
     const { hinhAnh, tenKhoaHoc, moTa, luotXem } = this.props.item;
 
     return (
-      <div className={classes.courseItem}>
-        <div className={classes.card}>
-          <img className="card-img-top" src={hinhAnh} alt="s" />
-          <div className="card-body text-left">
-            <h4 className="card-title">{tenKhoaHoc}</h4>
-            <span className="card-text">{this._shortenString(moTa)}</span>
-            <h5 className="mt-1">Lượt xem: {luotXem}</h5>
-
+      <div className="container">
+        <div className={classes.courseItem}>
+          <div className={classes.card}>
+            <img className="card-img-top" src={hinhAnh} />
+            <div className="card-body text-left">
+              <h4 className="card-title">{tenKhoaHoc}</h4>
+              <span className="card-text">{this._shortenString(moTa)}</span>
+              <h5 className="mt-1">Lượt xem: {luotXem}</h5>
+            </div>
           </div>
         </div>
-
       </div>
-
     )
   }
 

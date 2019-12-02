@@ -1,18 +1,22 @@
 .home {
     font-size: 20px;
-    padding-top: 40px;
+    color: #ff1744;
     background-color: #fff;
-    .home_left {
+    text-align: center;
+    .home__name {
         background-color: azure;
-        padding: 50px;
-        h3 {
-            font-size: 40px;
-        }
+        padding: 70px;
+        // h3 {
+        //     font-size: 40px;
+        // }
     }
-    .home_left_p {
+    .home__p {
         p {
-            font-size: 15px;
-            line-height: 15px;
+            font-size: 20px;
+            // line-height: 15px;
+            padding: 15px;
+            // padding-top: 20px;
+            color: #d50000;
         }
     }
     .home_right {
