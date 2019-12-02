@@ -52,7 +52,7 @@ function Login(props) {
     let handleSubmit = e => {
         e.preventDefault();
         let valid = true;
-        for (var errorName in user.errors) {
+        for (let errorName in user.errors) {
             if (user.errors[errorName] !== "") //1 trong các thuộc tính user.errors ! rỗng  
             {
                 valid = false;

@@ -4,26 +4,26 @@ import Button from "@material-ui/core/Button";
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import classesStyle from "../Signup/signupStyle.module.scss"
+import { userSignupAction } from "../../Redux/Action/userAction";
 
-const Signup = props => {
-
+function Signup(props) {
     const [user, setUser] = useState({
         userSignup: {
             taiKhoan: '',
             matKhau: '',
             hoTen: '',
-            email: '',
             soDT: '',
             maLoaiNguoiDung: 'HV',
-            maNhom: 'GP01'
+            maNhom: 'GP01',
+            email: '',
         }, errors: {
             taiKhoan: '',
             matKhau: '',
             hoTen: '',
-            email: '',
             soDT: '',
-            maLoaiNguoiDung: 'HV',
-            maNhom: 'GP01'
+            // maLoaiNguoiDung: 'HV',
+            // maNhom: 'GP01',
+            email: '',
         }
     });
 
@@ -60,20 +60,20 @@ const Signup = props => {
     let handleSubmit = e => {
         e.preventDefault();
         let valid = true;
-        for (var errorName in user.errors) {
+        for (let errorName in user.errors) {
             if (user.errors[errorName] !== "") //1 trong các thuộc tính user.errors ! rỗng  
             {
                 valid = false;
             }
         }
-        for (var valueNotFind in user.userLogin) {
+        for (let valueNotFind in user.userSignup) {
             if (user.userSignup[valueNotFind] === "") //2 trong các thuộc tính user.userLogin = rỗng 
             {
                 valid = false;
             }
         }
         if (valid) {
-            props.dispatch(); //khi submit gọi action truyền vào data là userLogin từ người dùng
+            props.dispatch(userSignupAction(user.userSignup, props.history)); //khi submit gọi action truyền vào data là userLogin từ người dùng
         } else {
             alert('Dữ liệu không hợp lệ!');
         }
@@ -103,6 +103,10 @@ const Signup = props => {
                     <TextField variant="outlined" name="soDT" label="Telephone Number" className={classes.textField} margin="normal" onChange={handleChange} />
                     <p className="text text-danger">{user.errors.soDT}</p>
                 </div>
+                {/* <div className="text-center">
+                    <TextField variant="outlined" name="maNhom" label="Group Code" className={classes.textField} margin="normal" onChange={handleChange} />
+                    <p className="text text-danger">{user.errors.soDT}</p>
+                </div> */}
             </div>
             <div className="form-group">
                 <div className="text-center">
