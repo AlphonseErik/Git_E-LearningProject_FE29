@@ -22,7 +22,7 @@ const useStyles = makeStyles(theme => ({
     textField: {
         marginLeft: theme.spacing(1),
         marginRight: theme.spacing(1),
-        width: 200,
+        width: 250,
     },
 }));
 
@@ -79,10 +79,10 @@ const UserProfile = props => {
                     <TextField name="hoTen" label="Full Name" defaultValue={hoTen} className={classes.textField} margin="normal" InputProps={{ readOnly: true }} />
                 </div>
                 <div className="form-group">
-                    <TextField name="soDT" label="Telephone Number" defaultValue={soDT} className={classes.textField} margin="normal" InputProps={{ readOnly: true }} />
+                    <TextField name="email" label="Email" defaultValue={email} className={classes.textField} margin="normal" InputProps={{ readOnly: true, }} />
                 </div>
                 <div className="form-group">
-                    <TextField name="email" label="Telephone Number" defaultValue={email} className={classes.textField} margin="normal" InputProps={{ readOnly: true, }} />
+                    <TextField name="soDT" label="Telephone Number" defaultValue={soDT} className={classes.textField} margin="normal" InputProps={{ readOnly: true }} />
                 </div>
             </div>
         </div>

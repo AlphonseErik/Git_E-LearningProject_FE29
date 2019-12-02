@@ -18,7 +18,6 @@ import ListItemText from '@material-ui/core/ListItemText';
 import PersonIcon from '@material-ui/icons/Person';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
-
 const courseService = new CourseService();
 
 const useStyles = makeStyles({
@@ -28,9 +27,6 @@ const useStyles = makeStyles({
     fullList: {
         width: 'auto',
     },
-    link: {
-        decoration: 'none',
-    }
 });
 
 const Header = props => {
@@ -74,7 +70,7 @@ const Header = props => {
                     </ListItem>
                 ))} */}
             <List>
-                <NavLink to="./user/profile">
+                <NavLink style={{color: '#0277bd', textDecoration: 'none' }} to="/user/profile">
                     <ListItem button key="Profile">
                         <ListItemIcon>
                             <PersonIcon />
@@ -84,8 +80,18 @@ const Header = props => {
                 </NavLink>
             </List>
             <List>
-                <NavLink className={classes.link} to="./login" onClick={() => { localStorage.clear(); props.dispatch(LOGIN, props.credentials) }}>
-                    <ListItem>
+                <NavLink style={{color: '#0277bd', textDecoration: 'none' }} to="./">
+                    <ListItem button key="Course">
+                        <ListItemIcon>
+                            <ExitToAppIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Course" />
+                    </ListItem>
+                </NavLink>
+            </List>
+            <List>
+                <NavLink style={{color: '#0277bd', textDecoration: 'none' }} to="./login" onClick={() => { localStorage.clear(); props.dispatch(LOGIN, props.credentials) }}>
+                    <ListItem button key="Logout">
                         <ListItemIcon>
                             <ExitToAppIcon />
                         </ListItemIcon>

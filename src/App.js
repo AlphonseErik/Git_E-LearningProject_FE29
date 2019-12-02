@@ -34,7 +34,7 @@ const App = props => {
         {/* <HomeScreen /> */}
         <Route path="/home" component={HomeScreen} />
         <PrivateRoute path="/user" Component={UserScreen} />
-        {/* <Route path="/user/profile" component={UserProfile} /> */}
+        <PrivateRoute path="/user/profile" Component={UserProfile} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
 
