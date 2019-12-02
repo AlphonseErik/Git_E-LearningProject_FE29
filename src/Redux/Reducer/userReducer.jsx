@@ -2,7 +2,7 @@ import { LOGIN, UPDATE_USER, USER_INFO, SIGNUP } from '../Action/actionType'
 
 let initialState = {
     // users: [];
-    userDetail: {},
+    userDetail: null,
     credentials: null
 }
 

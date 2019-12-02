@@ -7,9 +7,12 @@ import { makeStyles } from '@material-ui/core/styles';
 import classesStyle from "../Login/loginStyle.module.scss";
 import { Container } from "@material-ui/core";
 import { GET_USER_INFO } from "../../Redux/Action/actionType";
-// import UserProfile from "../../Screens/UserProfile/userProfile";
+import { settings } from "../../config/settings";
+// import HomeScreen from "../../Screens/Home/home";
+import { Route, Redirect } from "react-router-dom";
 
 function Login(props) {
+
     let [user, setUser] = useState({
         userLogin: {
             taiKhoan: '',
@@ -70,7 +73,7 @@ function Login(props) {
             //khi submit gọi action truyền vào data là userLogin từ người dùng
             //  location.reload(true);
         } else {
-            alert('Dữ liệu không hợp lệ!');
+            alert('Please check your Email and Password');
         }
     }
 
@@ -103,4 +106,8 @@ function Login(props) {
     )
 }
 
-export default connect(null)(Login);
+const mapStateToProp = state => ({
+    credentials: state.user.credentials,
+});
+
+export default connect(mapStateToProp)(Login);

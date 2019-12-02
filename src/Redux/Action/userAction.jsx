@@ -13,12 +13,6 @@ export const userSignupAction = (userSignup, history) => {
             data: userSignup,
         }).then(res => {
             console.log(res.data);
-            // alert('Đăng nhập thành công');
-            //Đăng nhập thành công => Lưu thông tin user và token vào localstorage để request về những api yêu cầu token
-            // localStorage.setItem(settings.userLogin, JSON.stringify(res.data));
-            // localStorage.setItem(settings.token, res.data.accessToken);
-            // localStorage.setItem(settings.taiKhoan, res.data.taiKhoan);
-            // localStorage.setItem(settings.maLoaiNguoiDung, res.data.maLoaiNguoiDung);
 
             //Lưu data lên store để render lại giao diện header
             dispatch(reduxAction(SIGNUP, res.data));
