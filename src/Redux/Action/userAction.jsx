@@ -73,7 +73,8 @@ export const userDetail = (userAccess) => {
             }
         }).then(res => {
             console.log(res.data);
-            // //Đăng nhập thành công => Lưu thông tin user và token vào localstorage để request về những api yêu cầu token
+            //Đăng nhập thành công => Lưu thông tin user và token vào localstorage để request về những api yêu cầu token
+            localStorage.removeItem("userProfile");
             localStorage.setItem(settings.userProfile, JSON.stringify(res.data));
 
             //Lưu data lên store để render lại giao diện header
@@ -97,13 +98,15 @@ export const userUpdateAction = (userProfile, history) => {
             data: userProfile,
         }).then(res => {
             console.log(res.data);
-            // localStorage.setItem(settings.userLogin, JSON.stringify(res.data));
+            // localStorage.removeItem(settings.userProfile);
             localStorage.setItem(settings.userProfile, JSON.stringify(res.data));
             //Lưu data lên store để render lại giao diện header
-            dispatch(reduxAction(UPDATE_USER, res.data));
+            dispatch(reduxAction(USER_INFO, res.data));
+            // dispatch(reduxAction(UPDATE_USER, res.data));
             // restConnector.defaults.headers['Authorization'] = "Bearer " + res.data.accessToken;
 
-            history.push('./');
+            // history.push('./');
+            alert('User profile is update success!');
         }).catch(error => {
             console.log(error.response.data);
         })

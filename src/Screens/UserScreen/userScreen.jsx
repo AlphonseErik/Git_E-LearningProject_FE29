@@ -56,7 +56,7 @@ const UserScreen = props => {
 
     return (
         <React.Fragment>
-            <Container>
+            {/* <Container> */}
                 <div className={classes.root}>
                     <Tabs orientation="vertical" variant="scrollable" value={value} onChange={handleChange} aria-label="Vertical tabs example" className={classes.tabs}>
                         <Tab label="Profile" {...a11yProps(0)} />
@@ -73,7 +73,7 @@ const UserScreen = props => {
                         Item Three
                     </TabPanel>
                 </div>
-            </Container>
+            {/* </Container> */}
         </React.Fragment>
     )
 }

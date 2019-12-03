@@ -31,6 +31,7 @@ const HomeScreen = props => {
         //Lấy dữ liệu userDetail từ api
         let userAccess = localStorage.getItem(settings.taiKhoan);
         let userProfile = localStorage.getItem("userProfile");
+        // let userProfileEdit = localStorage.getItem(settings.userProfileEdit);
         if (userAccess && !userProfile) {
             props.dispatch(userDetail(userAccess));
         }
