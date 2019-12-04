@@ -12,6 +12,7 @@ import Signup from "./Screens/Signup/signup";
 import PrivateRoute from "./HOC/Auth"
 import UserScreen from "./Screens/UserScreen/userScreen";
 import Notfound from "./Screens/NotFound/notFound";
+import Giohang from "./Components/GioHang/Giohang";
 
 const App = props => {
 
@@ -29,7 +30,7 @@ const App = props => {
 
   return (
     <BrowserRouter>
-      <Header />
+      <Header /> 
       <Switch>
         {/* <HomeScreen /> */}
         <Route path="/home" component={HomeScreen} />
@@ -40,6 +41,7 @@ const App = props => {
 
         <Route path="/" component={HomeScreen} />
         <Route component={Notfound} />
+        <Route exact path="/giohang" component={Giohang}/>
       </Switch>
 
     </BrowserRouter>

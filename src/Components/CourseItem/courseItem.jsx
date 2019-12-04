@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import classes from "./courseItemStyle.module.scss";
 import Popup from 'reactjs-popup';
+import {connect} from 'react-redux';
 
 
 class CourseItem extends Component {
@@ -8,7 +9,8 @@ class CourseItem extends Component {
 
   ThemGioHang = (khoahoc)=>{
       this.props.dispatch({
-         
+         type:"THEM_KHOA_HOC",
+         payload:khoahoc
       })
   }
   render() {
@@ -43,7 +45,7 @@ class CourseItem extends Component {
             <h5 className="mt-1">Lượt xem: {luotXem}</h5>
             <h2>Học viên ghi danh : {soLuongHocVien} </h2>
             <div className="pb-3">
-            <button className="btn btn-danger">Thêm Khóa Học</button>
+            <button className="btn btn-danger" onClick={()=>{this.ThemGioHang(this.props.item)}}>Thêm Khóa Học</button>
             </div>
              </div>
          </div>
@@ -70,4 +72,4 @@ class CourseItem extends Component {
   }
 }
 
-export default CourseItem;
+export default connect()(CourseItem);

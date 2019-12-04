@@ -4,6 +4,7 @@ import CategoryReducer from './CategoryReducer';
 import ChoosenCategoryReducer from './categoryChoosenReducer';
 import UserReducer from "./userReducer";
 import UpdateUserReducer from "./updateUserReducer";
+import {GioHangReducer} from './GioHangReducer';
 
 const RootReducer = combineReducers({
   //toàn bộ state
@@ -12,6 +13,7 @@ const RootReducer = combineReducers({
   categoryChoosenList: ChoosenCategoryReducer,
   user: UserReducer,
   updatingUser: UpdateUserReducer,
+  GioHangReducer
 });
 
 export default RootReducer;

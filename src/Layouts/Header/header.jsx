@@ -185,9 +185,9 @@ const Header = props => {
                             )
                     }
                  
-                        <div className={classes.giohang}>
+                        <NavLink to="/giohang">
                       
-                        <IconButton arial-lable="cart"color="secondary" >
+                        < IconButton arial-lable="cart"color="secondary" >
                                 <StyledBadge1 badgeContent={4}color="secondary">
                                      <ShoppingCartIcon />
                                 </StyledBadge1>
@@ -195,7 +195,7 @@ const Header = props => {
                         </IconButton>
                            
                       
-                        </div>
+                        </NavLink>
                   
                 </ul>
             </div>
