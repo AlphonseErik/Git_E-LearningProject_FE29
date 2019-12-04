@@ -17,6 +17,13 @@ import ListItemText from '@material-ui/core/ListItemText';
 // import MailIcon from '@material-ui/icons/Mail';
 import PersonIcon from '@material-ui/icons/Person';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import classmodule from './headerStyle.module.scss';
+import   {Badge} from '@material-ui/core'
+import { withStyles } from "@material-ui/styles";
+import IconButton from '@material-ui/core/IconButton';
+
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+
 
 const courseService = new CourseService();
 
@@ -28,6 +35,12 @@ const useStyles = makeStyles({
         width: 'auto',
     },
 });
+const StyledBadge1 = withStyles(theme=>({
+    badge:{
+        right:-3,
+        padding:'0 4px'
+    },
+}))(Badge)
 
 const Header = props => {
 
@@ -171,13 +184,19 @@ const Header = props => {
                                 </li>
                             )
                     }
-                    <li className="nav-item" >
-                        <div className=" mr-5">
-                            <a className="nav-link active">
-                                <i className="text-white fa fa-shopping-cart"></i>
-                            </a>
+                 
+                        <div className={classes.giohang}>
+                      
+                        <IconButton arial-lable="cart"color="secondary" >
+                                <StyledBadge1 badgeContent={4}color="secondary">
+                                     <ShoppingCartIcon />
+                                </StyledBadge1>
+
+                        </IconButton>
+                           
+                      
                         </div>
-                    </li>
+                  
                 </ul>
             </div>
         </nav >

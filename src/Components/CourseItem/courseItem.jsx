@@ -4,38 +4,50 @@ import Popup from 'reactjs-popup';
 
 
 class CourseItem extends Component {
+  
+
+  ThemGioHang = (khoahoc)=>{
+      this.props.dispatch({
+         
+      })
+  }
   render() {
-    const { hinhAnh, tenKhoaHoc, moTa, luotXem,ngayTao } = this.props.item;
+    const { hinhAnh, tenKhoaHoc, moTa, luotXem,ngayTao,nguoiTao,soLuongHocVien } = this.props.item;
    
     return (
-      <Popup  trigger={  <div className="container" >
-      <div className={classes.courseItem}>
-        <div className={classes.card}>
+      <Popup   trigger={<div className="container">
+          <div className={classes.courseItem}>
+          <a className={classes.classA} href="#">
+
+            <div className={classes.card}>
+         
           <img className="card-img-top" src={hinhAnh} />
           <div className="card-body text-left">
-            <p className="card-title">{this._shortenStringTenKhoaHoc(tenKhoaHoc)}</p>
-            <span className="card-text">{this._shortenString(moTa)}</span>
-            <h5 className="mt-1">Lượt xem: {luotXem}</h5>
-            <button className="btn btn-success">Thêm chi tiết</button>
-            
+            <p className="card-title text-left">{this._shortenStringTenKhoaHoc(tenKhoaHoc)}</p>
+            <h4 className={classes.classTacGia}>Tác giả: {nguoiTao.hoTen}</h4>
+            <button className="btn btn-success">Xem chi tiết</button>
           </div>
+         
         </div>
+        </a>
+
       </div>
-    </div>} position={["top center", "bottom right", "bottom left"]} on={"hover"}>
-      <div  style={{height:300,width:300}}>
-    <div className={classes.coursePopup}>
-        <div className={classes.cardPopup}>
-          <img className="card-img-top" src={hinhAnh} />
-          <div className="card-body text-left">
-            <p className="card-title">{tenKhoaHoc}</p>
-            <span className="card-text">{moTa}</span>
+    </div>} position={['top left' ,'top right', 'bottom right' ,'bottom left' ,'right center', 'left center', 'top center', 'bottom center', 'center center']}  on={"hover"}>
+         <div className={classes.popup}>
+         <div className="card text-left container">
+           <div className={classes.PopupCard}>
+             <img src={hinhAnh} width={260}height={200} />
+            <p className={classes.PopupNgayTao} >Ngày tạo: {ngayTao}</p>
+            <h3>{tenKhoaHoc}</h3>
+            <h4>{moTa}</h4>
             <h5 className="mt-1">Lượt xem: {luotXem}</h5>
-            <button className="btn btn-success">Thêm chi tiết</button>
-            
-          </div>
-        </div>
-      </div>
-      </div>
+            <h2>Học viên ghi danh : {soLuongHocVien} </h2>
+            <div className="pb-3">
+            <button className="btn btn-danger">Thêm Khóa Học</button>
+            </div>
+             </div>
+         </div>
+         </div>
            </Popup>
            
     
