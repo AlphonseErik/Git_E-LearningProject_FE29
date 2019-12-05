@@ -1,7 +1,7 @@
-import { LOGIN, UPDATE_USER, USER_INFO, SIGNUP } from '../Action/actionType'
+import { LOGIN, USER_INFO, SIGNUP, UPDATE_USER_INFO } from '../Action/actionType'
 
 let initialState = {
-    // users: [];
+    users: [],
     userDetail: null,
     credentials: null
 }
@@ -10,13 +10,13 @@ const UserReducer = (state = initialState, { type, payload }) => {
     switch (type) {
         case LOGIN: {
             state.credentials = payload;
-            return { ...state }
+            return { ...state };
         }
         case USER_INFO:{
             state.userDetail = payload;
             return {...state};
         }
-        case UPDATE_USER:{
+        case UPDATE_USER_INFO:{
             state.credentials = payload;
             return {...state};
         }

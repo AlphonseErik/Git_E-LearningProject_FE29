@@ -40,13 +40,12 @@ const CourseItem = props => {
               <div className="card-body text-left">
                 <p className="card-title text-left">{_shortenStringTenKhoaHoc(tenKhoaHoc)}</p>
                 <h4 className={classes.classTacGia}>Tác giả: {nguoiTao.hoTen}</h4>
-                <button className="btn btn-success">Xem chi tiết</button>
               </div>
             </div>
           </a>
         </div>
       </div>}
-      position={['top left', 'top right', 'bottom right', 'bottom left', 'right center', 'left center', 'top center', 'bottom center', 'center center']} on={"hover","focus"}>
+      position={['top left', 'top right', 'bottom right', 'bottom left', 'right center', 'left center', 'top center', 'bottom center', 'center center']} on={"hover"}>
       <div className={classes.popup}>
         <div className="card text-left container">
           <div className={classes.PopupCard}>
@@ -56,8 +55,9 @@ const CourseItem = props => {
             <h4>{moTa}</h4>
             <h5 className="mt-1">Lượt xem: {luotXem}</h5>
             <h2>Học viên ghi danh : {soLuongHocVien} </h2>
-            <div className="pb-3">
-              <button className="btn btn-danger" onClick={() => { addToCart(props.item) }}>Thêm Khóa Học</button>
+            <div className="container">
+              <button className="btn btn-success">Detail</button>
+              <button className="btn btn-danger" onClick={() => { addToCart(props.item) }}>Add To Cart</button>
             </div>
           </div>
         </div>

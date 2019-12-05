@@ -1,4 +1,4 @@
-import { type, LOGIN, UPDATE_USER, USER_INFO, SIGNUP } from './actionType';
+import { type, LOGIN, UPDATE_USER, USER_INFO, SIGNUP, UPDATE_USER_INFO, ADD_CART_ITEM } from './actionType';
 import { settings } from '../../config/settings';
 import reduxAction from "./action";
 import { restConnector } from '../../Services';
@@ -68,7 +68,7 @@ export const userDetail = (userAccess) => {
             headers: {
                 "Authorization": "Bearer " + localStorage.getItem(settings.token),
             },
-            data:{
+            data: {
                 "taiKhoan": userAccess,
             }
         }).then(res => {
@@ -78,7 +78,7 @@ export const userDetail = (userAccess) => {
             localStorage.setItem(settings.userProfile, JSON.stringify(res.data));
 
             //Lưu data lên store để render lại giao diện header
-            dispatch(reduxAction(USER_INFO, res.data.taiKhoan));
+            dispatch(reduxAction(UPDATE_USER_INFO, res.data.taiKhoan));
 
             //bỏ token lên header của tất cả request
 
@@ -95,6 +95,9 @@ export const userUpdateAction = (userProfile, history) => {
         restConnector({
             method: 'PUT',
             url: '/api/quanlynguoidung/capnhatthongtinnguoidung',
+            headers: {
+                "Authorization": "Bearer " + localStorage.getItem(settings.token),
+            },
             data: userProfile,
         }).then(res => {
             console.log(res.data);
@@ -112,3 +115,31 @@ export const userUpdateAction = (userProfile, history) => {
         })
     }
 }
+
+//Đăng ký khóa học
+export const courseRegisting = (courseRegister) => {
+    return dispatch => {
+        restConnector({
+            method: 'POST',
+            url: '/api/quanlykhoahoc/dangkykhoahoc',
+            headers: {
+                "Authorization": "Bearer " + localStorage.getItem(settings.token),
+            },
+            data: courseRegister,
+        }).then(res => {
+            console.log(res.data);
+            //Đăng nhập thành công => Lưu thông tin user và token vào localstorage để request về những api yêu cầu token
+            // localStorage.removeItem("userProfile");
+            userDetail(settings.taiKhoan);
+            localStorage.setItem(settings.userProfile, JSON.stringify(res.data));
+
+            //Lưu data lên store để render lại giao diện header
+            dispatch(reduxAction(ADD_CART_ITEM, res.data.taiKhoan));
+
+            //bỏ token lên header của tất cả request
+
+        }).catch(error => {
+            console.log(error.response.data);
+        })
+    }
+};

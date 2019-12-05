@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import CourseService from "../../Services/courseService";
 import CategoryItemHeader from "../../Components/CategoryItemHeader/categoryItemHeader";
 import { NavLink } from 'react-router-dom';
-import { FETCH_COURSES, LOGIN } from "../../Redux/Action/actionType";
+import { FETCH_COURSES, LOGIN, ADD_CART_ITEM, CART_ITEM } from "../../Redux/Action/actionType";
 import { makeStyles } from '@material-ui/core/styles';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import Button from '@material-ui/core/Button';
@@ -56,6 +56,12 @@ const Header = props => {
                 console.log(err);
             });
     }, []);
+
+    // useEffect(()=>{
+    //     if(props.cartItem){
+    //         props.dispatch(CART_ITEM, props.payload);
+    //     }
+    // });
 
     const classes = useStyles();
 
@@ -187,9 +193,20 @@ const Header = props => {
                     <li className="nav-item ">
                         <NavLink to="/user/cartitem">
                             <IconButton arial-lable="cart">
-                                <StyledBadge1 badgeContent={1} color="secondary">
-                                    <ShoppingCartIcon/>
-                                </StyledBadge1>
+                                {
+                                    props.cartItem ? (
+                                        <StyledBadge1 badgeContent={props.cartItem + "1"} color="secondary">
+                                            <ShoppingCartIcon />
+                                        </StyledBadge1>
+                                    ) : (
+                                            <StyledBadge1 badgeContent={0} color="secondary">
+                                                <ShoppingCartIcon />
+                                            </StyledBadge1>
+                                        )
+                                }
+                                {/* <StyledBadge1 badgeContent={0} color="secondary">
+                                    <ShoppingCartIcon />
+                                </StyledBadge1> */}
                             </IconButton>
                         </NavLink>
                     </li>
@@ -201,7 +218,8 @@ const Header = props => {
 
 const mapStateToProps = state => ({
     categoryList: state.categoryList,
-    credentials: state.user.credentials
+    credentials: state.user.credentials,
+    cartItem: state.cartItem,
 });
 
 export default connect(mapStateToProps)(Header);

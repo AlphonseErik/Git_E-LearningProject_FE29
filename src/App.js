@@ -6,13 +6,14 @@ import HomeScreen from "./Screens/Home/home";
 import { restConnector } from "./Services";
 import reduxAction from "./Redux/Action/action";
 import { LOGIN, USER_INFO } from "./Redux/Action/actionType";
-import UserProfile from "./Screens/UserProfile/userProfile";
+import UserProfile from "./Screens/UserScreen/UserProfile/userProfile";
 import Login from "./Screens/Login/login";
 import Signup from "./Screens/Signup/signup";
 import PrivateRoute from "./HOC/Auth"
 import UserScreen from "./Screens/UserScreen/userScreen";
 import Notfound from "./Screens/NotFound/notFound";
 import CartItem from "./Components/CartItem/cartItem";
+import Cart from "./Screens/Cart/cart";
 
 const App = props => {
 
@@ -36,7 +37,7 @@ const App = props => {
         <Route path="/home" component={HomeScreen} />
         <PrivateRoute path="/user" Component={UserScreen} />
         <PrivateRoute path="/user/profile" Component={UserProfile} />
-        <PrivateRoute path="/user/cartitem" Component={CartItem}/>
+        <PrivateRoute path="/cart" Component={Cart}/>
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
 
