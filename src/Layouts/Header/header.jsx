@@ -18,7 +18,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import PersonIcon from '@material-ui/icons/Person';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import classmodule from './headerStyle.module.scss';
-import   {Badge} from '@material-ui/core'
+import { Badge } from '@material-ui/core'
 import { withStyles } from "@material-ui/styles";
 import IconButton from '@material-ui/core/IconButton';
 
@@ -35,10 +35,10 @@ const useStyles = makeStyles({
         width: 'auto',
     },
 });
-const StyledBadge1 = withStyles(theme=>({
-    badge:{
-        right:-3,
-        padding:'0 4px'
+const StyledBadge1 = withStyles(theme => ({
+    badge: {
+        right: -3,
+        padding: '0 4px'
     },
 }))(Badge)
 
@@ -83,7 +83,7 @@ const Header = props => {
                     </ListItem>
                 ))} */}
             <List>
-                <NavLink style={{color: '#0277bd', textDecoration: 'none' }} to="/user/profile">
+                <NavLink style={{ color: '#0277bd', textDecoration: 'none' }} to="/user/profile">
                     <ListItem button key="Profile">
                         <ListItemIcon>
                             <PersonIcon />
@@ -93,7 +93,7 @@ const Header = props => {
                 </NavLink>
             </List>
             <List>
-                <NavLink style={{color: '#0277bd', textDecoration: 'none' }} to="./">
+                <NavLink style={{ color: '#0277bd', textDecoration: 'none' }} to="./">
                     <ListItem button key="Course">
                         <ListItemIcon>
                             <ExitToAppIcon />
@@ -103,7 +103,7 @@ const Header = props => {
                 </NavLink>
             </List>
             <List>
-                <NavLink style={{color: '#0277bd', textDecoration: 'none' }} to="./login" onClick={() => { localStorage.clear(); props.dispatch(LOGIN, props.credentials) }}>
+                <NavLink style={{ color: '#0277bd', textDecoration: 'none' }} to="./login" onClick={() => { localStorage.clear(); props.dispatch(LOGIN, props.credentials) }}>
                     <ListItem button key="Logout">
                         <ListItemIcon>
                             <ExitToAppIcon />
@@ -184,19 +184,15 @@ const Header = props => {
                                 </li>
                             )
                     }
-                 
-                        <NavLink to="/giohang">
-                      
-                        < IconButton arial-lable="cart"color="secondary" >
-                                <StyledBadge1 badgeContent={4}color="secondary">
-                                     <ShoppingCartIcon />
+                    <li className="nav-item ">
+                        <NavLink to="/user/cartitem">
+                            <IconButton arial-lable="cart">
+                                <StyledBadge1 badgeContent={1} color="secondary">
+                                    <ShoppingCartIcon/>
                                 </StyledBadge1>
-
-                        </IconButton>
-                           
-                      
+                            </IconButton>
                         </NavLink>
-                  
+                    </li>
                 </ul>
             </div>
         </nav >

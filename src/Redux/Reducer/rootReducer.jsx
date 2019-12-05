@@ -1,10 +1,10 @@
 import { combineReducers } from "redux";
 import CourseReducer from "./courseReducer";
-import CategoryReducer from './CategoryReducer';
+import CategoryReducer from './categoryReducer';
 import ChoosenCategoryReducer from './categoryChoosenReducer';
 import UserReducer from "./userReducer";
 import UpdateUserReducer from "./updateUserReducer";
-import {GioHangReducer} from './GioHangReducer';
+import CartItemReducer from './cartItemReducer';
 
 const RootReducer = combineReducers({
   //toàn bộ state
@@ -13,7 +13,7 @@ const RootReducer = combineReducers({
   categoryChoosenList: ChoosenCategoryReducer,
   user: UserReducer,
   updatingUser: UpdateUserReducer,
-  GioHangReducer
+  cartItem: CartItemReducer,
 });
 
 export default RootReducer;

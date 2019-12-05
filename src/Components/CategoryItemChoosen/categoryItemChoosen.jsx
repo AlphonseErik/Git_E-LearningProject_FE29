@@ -26,15 +26,15 @@ const Category = props => {
     }
     // const { tenDanhMuc} = this.props.item;
     return (
-            <div className="btn-group" className={classes.categoryItem} >
-                {
-                    props.categoryList.map((danhmuc, index) => {
-                        return (
-                            <button  onClick={() => ChoosenCategory(danhmuc.maDanhMuc)}  key={index}> {danhmuc.tenDanhMuc} </button>
-                        )
-                    })
-                }
-            </div>
+        <div className="btn-group" className={classes.categoryItem} >
+            {
+                props.categoryList.map((danhmuc, index) => {
+                    return (
+                        <button onClick={() => ChoosenCategory(danhmuc.maDanhMuc)} key={index}> {danhmuc.tenDanhMuc} </button>
+                    )
+                })
+            }
+        </div>
     )
 }
 const mapStateToProps = state => ({

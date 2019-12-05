@@ -37,7 +37,7 @@ function UserProfile(props) {
         if (userAccess && !userProfile) {
             props.dispatch(userDetail(userAccess));
         }
-    },[]);
+    }, []);
 
     const classes = useStyles();
 
@@ -105,13 +105,10 @@ function UserProfile(props) {
 
     }
 
-
     const [disabled, setDisabled] = useState(false);
-    // const [change, setChange] = useState(true);
 
     const handleOnClickEditText = (e) => {
         setDisabled(!disabled);
-        // setChange(!change);
     }
 
     return (

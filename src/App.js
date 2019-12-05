@@ -12,7 +12,7 @@ import Signup from "./Screens/Signup/signup";
 import PrivateRoute from "./HOC/Auth"
 import UserScreen from "./Screens/UserScreen/userScreen";
 import Notfound from "./Screens/NotFound/notFound";
-import Giohang from "./Components/GioHang/Giohang";
+import CartItem from "./Components/CartItem/cartItem";
 
 const App = props => {
 
@@ -36,12 +36,12 @@ const App = props => {
         <Route path="/home" component={HomeScreen} />
         <PrivateRoute path="/user" Component={UserScreen} />
         <PrivateRoute path="/user/profile" Component={UserProfile} />
+        <PrivateRoute path="/user/cartitem" Component={CartItem}/>
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
 
         <Route path="/" component={HomeScreen} />
         <Route component={Notfound} />
-        <Route exact path="/giohang" component={Giohang}/>
       </Switch>
 
     </BrowserRouter>
