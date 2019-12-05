@@ -191,7 +191,7 @@ const Header = props => {
                             )
                     }
                     <li className="nav-item ">
-                        <NavLink to="/user/cartitem">
+                        <NavLink to="/cart">
                             <IconButton arial-lable="cart">
                                 {
                                     props.cartItem ? (
