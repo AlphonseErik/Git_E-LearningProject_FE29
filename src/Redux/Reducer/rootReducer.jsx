@@ -5,6 +5,7 @@ import ChoosenCategoryReducer from './categoryChoosenReducer';
 import UserReducer from "./userReducer";
 import UpdateUserReducer from "./updateUserReducer";
 import CartItemReducer from './cartItemReducer';
+import {CourseDetailReducer} from './CourseDetailReducer';
 
 const RootReducer = combineReducers({
   //toàn bộ state
@@ -14,6 +15,7 @@ const RootReducer = combineReducers({
   user: UserReducer,
   updatingUser: UpdateUserReducer,
   cartItem: CartItemReducer,
+  CourseDetailReducer
 });
 
 export default RootReducer;

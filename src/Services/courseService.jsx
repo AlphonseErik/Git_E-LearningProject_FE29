@@ -13,6 +13,12 @@ class CourseService {
             method:"GET"
         })
     }
+    fetchDetailKhoaHoc(courseid){
+        return restConnector({
+            url:`/api/QuanLyKhoaHoc/LayThongTinKhoaHoc?maKhoaHoc=${courseid}`,
+            method:"GET"
+        });
+    }
 }
 
 export default CourseService;

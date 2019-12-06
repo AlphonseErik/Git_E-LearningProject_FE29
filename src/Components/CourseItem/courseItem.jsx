@@ -3,6 +3,7 @@ import classes from "./courseItemStyle.module.scss";
 import Popup from 'reactjs-popup';
 import { connect } from 'react-redux';
 import { ADD_CART_ITEM } from "../../Redux/Action/actionType";
+import {NavLink} from 'react-router-dom';
 
 
 const CourseItem = props => {
@@ -21,17 +22,18 @@ const CourseItem = props => {
     return string;
   }
 
-  const _shortenString = (string) => {
-    if (string && string.length > 18) {
-      return string.substr(0, 18) + "..."
-    }
-    return string;
-  }
+  // const _shortenString = (string) => {
+  //   if (string && string.length > 18) {
+  //     return string.substr(0, 18) + "..."
+  //   }
+  //   return string;
+  // }
 
-  const { hinhAnh, tenKhoaHoc, moTa, luotXem, ngayTao, nguoiTao, soLuongHocVien } = props.item;
+  const { hinhAnh, tenKhoaHoc, moTa, luotXem, ngayTao, nguoiTao, soLuongHocVien,maKhoaHoc } = props.item;
 
   return (
     <Popup trigger={
+      <NavLink to={`/coursedetail/${maKhoaHoc}`}>
       <div className="container">
         <div className={classes.courseItem}>
           <a className={classes.classA} href="#">
@@ -44,7 +46,8 @@ const CourseItem = props => {
             </div>
           </a>
         </div>
-      </div>}
+      </div>
+      </NavLink>}
       position={['top left', 'top right', 'bottom right', 'bottom left', 'right center', 'left center', 'top center', 'bottom center', 'center center']} on={"hover"}>
       <div className={classes.popup}>
         <div className="card text-left container">
@@ -56,7 +59,7 @@ const CourseItem = props => {
             <h5 className="mt-1">Lượt xem: {luotXem}</h5>
             <h2>Học viên ghi danh : {soLuongHocVien} </h2>
             <div className="container">
-              <button className="btn btn-success">Detail</button>
+              <NavLink to={`/coursedetail/${maKhoaHoc}`} className="btn btn-success pd-2">Detail</NavLink>
               <button className="btn btn-danger" onClick={() => { addToCart(props.item) }}>Add To Cart</button>
             </div>
           </div>

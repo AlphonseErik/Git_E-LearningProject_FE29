@@ -14,6 +14,7 @@ import UserScreen from "./Screens/UserScreen/userScreen";
 import Notfound from "./Screens/NotFound/notFound";
 import CartItem from "./Components/CartItem/cartItem";
 import Cart from "./Screens/Cart/cart";
+import CourseDetail from "./Components/CourseDetail/CourseDetail";
 
 const App = props => {
 
@@ -40,7 +41,7 @@ const App = props => {
         <PrivateRoute path="/cart" Component={Cart}/>
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
-
+        <Route path ="/coursedetail/:courseid" component={CourseDetail}/>
         <Route path="/" component={HomeScreen} />
         <Route component={Notfound} />
       </Switch>

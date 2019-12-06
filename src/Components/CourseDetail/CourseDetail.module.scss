@@ -1,0 +1,24 @@
+.landingPage {
+    background: linear-gradient(#29303B, #29303B, #29303B);
+    color: #fff;
+    height: 250px;
+    .landingPage_gift,
+    .landingPage_head {
+        i {
+            font-size: 35px;
+            padding-top: 10px;
+            &:hover {
+                color: yellowgreen;
+            }
+        }
+        span {
+            margin-bottom: 20px;
+        }
+    }
+    .classstar {
+        i {
+            color: yellow;
+            margin: 0 2px;
+        }
+    }
+}
