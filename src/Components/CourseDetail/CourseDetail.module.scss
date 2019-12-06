@@ -1,3 +1,8 @@
+.headerDetail {
+    background-color: gainsboro;
+    height: 40px;
+}
+
 .landingPage {
     background: linear-gradient(#29303B, #29303B, #29303B);
     color: #fff;
@@ -19,6 +24,34 @@
         i {
             color: yellow;
             margin: 0 2px;
+        }
+    }
+}
+
+.right_course {
+    font-size: 40px;
+    position: relative;
+    width: 350px;
+    height: 550px;
+    top: -150px;
+    background-color: white;
+    box-shadow: 0 0 1px 1px rgba(20, 23, 28, .1), 0 3px 1px 0 rgba(20, 23, 28, .1);
+    img {
+        width: 95%;
+        height: 250px;
+    }
+    .cartRightItem {
+        text-align: center;
+        h2 {
+            font-size: 40px;
+            padding-top: 20px;
+            text-align: left !important;
+        }
+        p {
+            font-size: 15px;
+        }
+        button {
+            padding: 15px 110px;
         }
     }
 }

@@ -2,15 +2,21 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import { fetchCourseDetail } from '../../Redux/Action/action';
 import  classes from './CourseDetail.module.scss';
+import CustomSeparator from '../CustomSeparator/CustomSeparator';
 
 
 
  class CourseDetail extends Component {
     render() {
         console.log("detail",this.props.course);
-        let  {hinhAnh,tenKhoaHoc,maKhoaHoc,moTa,biDanh,soLuongHocVien,ngayTao} =this.props.course;
+        let  {hinhAnh,tenKhoaHoc,maKhoaHoc,moTa,biDanh,soLuongHocVien,ngayTao,danhMucKhoaHoc} =this.props.course;
         return (
             <div>
+                <div className={classes.headerDetail}>
+                    <div className="container pt-2">
+                      <CustomSeparator content={this.props.course}/>
+                      </div>
+                </div>
             <div className={classes.landingPage}>
             <div className="container">   
                     <div className="row">
@@ -59,7 +65,19 @@ import  classes from './CourseDetail.module.scss';
 
                     </div>
                     <div className="col-4">
-                         sdlkfnsdflsdmflsd
+                        <div className={classes.right_course}>
+                              <div className="cartRight text-center pt-1">
+                                   <img src={hinhAnh} />
+                              </div>
+                              <div className="container">
+                                  <div className={classes.cartRightItem}>
+                                        <h2>$9.99</h2>
+                                        
+                                        <button className="btn btn-danger">Add To Cart</button>
+                                   </div>
+                              </div>
+
+                        </div>
                     </div>
 
                 </div>

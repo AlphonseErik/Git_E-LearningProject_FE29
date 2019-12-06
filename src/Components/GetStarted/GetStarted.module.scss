@@ -1,0 +1,24 @@
+.content {
+    width: 100%;
+    text-align: left;
+    i {
+        font-size: 40px;
+        color: mediumseagreen;
+        padding-top: 40px;
+    }
+    .getMid {
+        padding: 45px 0px;
+        text-align: right;
+        line-height: 40px;
+        .itemMid {
+            text-align: center;
+            padding-left: 40px;
+            h2 {
+                font-size: 20px;
+            }
+            button {
+                text-align: center;
+            }
+        }
+    }
+}
