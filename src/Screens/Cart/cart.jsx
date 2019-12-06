@@ -1,40 +1,36 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import CartItem from '../../Components/CartItem/cartItem';
 
  class Cart extends Component {
+     renderCard =()=>{
+           
+            console.log("item",this.props.cartItem);
+            return this.props.cartItem.map((sanpham,index)=>{
+             console.log(sanpham.hinhAnh,sanpham.maKhoaHoc);   
+             return (
+                  <CartItem key={index} cartItem={sanpham}/>
+             )
+            })
+         }
+     
     render() {
-        let {hinhAnh,tenKhoaHoc,moTa}=this.props.cartItem;
-        console.log(this.props.cartItem);
+
         return (
             <div className="container">
                 <h3>Course in Cart</h3>
                 <div className="row">
                     <div className="col-8">
-                <ul className="shoping">
-
-                    <div className="item">
-                         <li>
-                            <div className="card p-2">
-                                <div className="row">
-                                <div className="col-3">
-                                    <img src={hinhAnh} width={150} height={100}/>
-                                 </div>
-                                 <div className="col-7">
-                                     <div className="pt-2"> 
-                                        <h2> {tenKhoaHoc} </h2>
-                                          <p>{moTa}</p>
-                                     </div>
-                                 </div>
-                                 <div className="col-2">
-                                      <button className="btn btn-danger mt-3">Xóa</button>
-                                 </div>
-                                 </div>
-                            </div>
-                         </li>
-                    </div>
-                </ul>
+                        {this.renderCard()}
                 </div>
                 <div className="col-4">
+                    <div>
+                      <h3>ToTal:</h3>
+
+                    </div>
+                    <div>
+                       <button className="btn btn-danger">Thanh Toán</button> 
+                    </div>
 
                 </div>
                 </div>
