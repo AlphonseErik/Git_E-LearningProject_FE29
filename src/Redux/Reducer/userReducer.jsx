@@ -12,17 +12,17 @@ const UserReducer = (state = initialState, { type, payload }) => {
             state.credentials = payload;
             return { ...state };
         }
-        case USER_INFO:{
+        case USER_INFO: {
             state.userDetail = payload;
-            return {...state};
+            return { ...state };
         }
-        case UPDATE_USER_INFO:{
+        case UPDATE_USER_INFO: {
             state.credentials = payload;
-            return {...state};
+            return { ...state };
         }
-        case SIGNUP:{
+        case SIGNUP: {
             payload = payload;
-            return {...state};
+            return { ...state };
         }
         default:
             return state;

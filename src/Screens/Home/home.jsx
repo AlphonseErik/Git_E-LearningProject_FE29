@@ -10,6 +10,11 @@ import BottomSideBar from "../../Layouts/SideBar/BottomSideBar";
 import { userDetail } from "../../Redux/Action/userAction";
 import { settings } from "../../config/settings";
 import GetStarted from "../../Components/GetStarted/getStarted";
+import StudentSay from "../../Components/StudentSay/StudentSay";
+import Footer from "../../Layouts/Footer/footer";
+// import OwlCarousel from 'react-owl-carousel';
+// import 'owl.carousel/dist/assets/owl.carousel.css';
+// import 'owl.carousel/dist/assets/owl.theme.default.css';
 
 const courseService = new CourseService();
 
@@ -96,6 +101,12 @@ const HomeScreen = props => {
             <div className="container-fluid bg-dark">          
                    <GetStarted />        
             </div>
+            
+            <div className="mt-3">
+                  <StudentSay />
+            </div>
+            
+            <Footer />
             {/* </Container> */}
         </div>
     )

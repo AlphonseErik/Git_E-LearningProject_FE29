@@ -1,12 +1,15 @@
 .categoryItem {
-    font-size: 22px;
+    font-size: 20px;
     text-align: center;
     padding: 0 5px;
+    padding-top: 15px;
     button {
-        color: brown;
+        color: lightslategray;
         background-color: white;
         border: none;
         font-weight: bold;
+        box-shadow: 0 0 1px 1px rgba(20, 23, 28, .1), 0 3px 1px 0 rgba(20, 23, 28, .1);
+        margin: 0 10px;
     }
      :hover {
         color: white;
