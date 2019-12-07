@@ -30,7 +30,9 @@ const Category = props => {
             {
                 props.categoryList.map((danhmuc, index) => {
                     return (
+                       
                         <button onClick={() => ChoosenCategory(danhmuc.maDanhMuc)} key={index}> {danhmuc.tenDanhMuc} </button>
+                       
                     )
                 })
             }

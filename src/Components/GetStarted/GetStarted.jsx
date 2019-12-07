@@ -49,7 +49,7 @@ export default class GetStarted extends Component {
                 </div>
                 </div>
 
-                <div className="row">
+                <div className="row pb-3">
                    <div className="col-3">
                         <div className="item">
                         <i class="fa fa-code"></i>

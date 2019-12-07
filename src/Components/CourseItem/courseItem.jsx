@@ -41,8 +41,10 @@ const CourseItem = props => {
               <img className="card-img-top" src={hinhAnh} />
               <div className="card-body text-left">
                 <p className="card-title text-left">{_shortenStringTenKhoaHoc(tenKhoaHoc)}</p>
-                <h4 className={classes.classTacGia}>Tác giả: {nguoiTao.hoTen}</h4>
+                   <hr></hr>
+                 <h4>{moTa}</h4>
               </div>
+            
             </div>
           </a>
         </div>
