@@ -123,7 +123,7 @@ const Header = props => {
     );
 
     return (
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <NavLink className="navbar-brand" to="/home"><i className="fa fa-magnet mr-2"></i>Udemy</NavLink>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon" />
@@ -195,7 +195,7 @@ const Header = props => {
                             <IconButton arial-lable="cart">
                                 {
                                     props.cartItem ? (
-                                        <StyledBadge1 badgeContent={props.cartItem + "1"} color="secondary">
+                                        <StyledBadge1 badgeContent={props.cartItem.length} color="secondary">
                                             <ShoppingCartIcon />
                                         </StyledBadge1>
                                     ) : (

@@ -1,21 +1,21 @@
 import { combineReducers } from "redux";
 import CourseReducer from "./courseReducer";
-import CategoryReducer from './CategoryReducer';
+import CategoryReducer from './categoryReducer';
 import ChoosenCategoryReducer from './categoryChoosenReducer';
 import UserReducer from "./userReducer";
 import UpdateUserReducer from "./updateUserReducer";
 import CartItemReducer from './cartItemReducer';
-import {CourseDetailReducer} from './CourseDetailReducer';
+import CourseDetailReducer from './courseDetailReducer';
 
 const RootReducer = combineReducers({
   //toàn bộ state
   courseList: CourseReducer,
+  courseDetail: CourseDetailReducer,
   categoryList: CategoryReducer,
   categoryChoosenList: ChoosenCategoryReducer,
   user: UserReducer,
   updatingUser: UpdateUserReducer,
   cartItem: CartItemReducer,
-  CourseDetailReducer
 });
 
 export default RootReducer;

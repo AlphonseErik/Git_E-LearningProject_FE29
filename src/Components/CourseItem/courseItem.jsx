@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import { ADD_CART_ITEM } from "../../Redux/Action/actionType";
 import {NavLink} from 'react-router-dom';
 
-
 const CourseItem = props => {
 
   const addToCart = (khoahoc) => {

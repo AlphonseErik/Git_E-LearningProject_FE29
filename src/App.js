@@ -12,7 +12,7 @@ import Signup from "./Screens/Signup/signup";
 import PrivateRoute from "./HOC/Auth"
 import UserScreen from "./Screens/UserScreen/userScreen";
 import Notfound from "./Screens/NotFound/notFound";
-import CartItem from "./Components/CartItem/cartItem";
+// import CartItem from "./Components/CartItem/cartItem";
 import Cart from "./Screens/Cart/cart";
 import CourseDetail from "./Components/CourseDetail/CourseDetail";
 
@@ -28,20 +28,21 @@ const App = props => {
       props.dispatch(reduxAction(LOGIN, JSON.parse(userLoginStr)));
       props.dispatch(reduxAction(USER_INFO, JSON.parse(userDetailStr)));
     }
-  },[]);
+  }, []);
 
   return (
     <BrowserRouter>
-      <Header /> 
+      <Header />
       <Switch>
         {/* <HomeScreen /> */}
         <Route path="/home" component={HomeScreen} />
+        <Route path="/coursedetail/:courseid" component={CourseDetail} />
         <PrivateRoute path="/user" Component={UserScreen} />
         <PrivateRoute path="/user/profile" Component={UserProfile} />
-        <PrivateRoute path="/cart" Component={Cart}/>
+        <PrivateRoute path="/cart" Component={Cart} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
-        <Route path ="/coursedetail/:courseid" component={CourseDetail}/>
+
         <Route path="/" component={HomeScreen} />
         <Route component={Notfound} />
       </Switch>

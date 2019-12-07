@@ -1,5 +1,4 @@
-import { ADD_CART_ITEM, CART_ITEM } from "../Action/actionType";
-import {DELETE_CART} from '../Action/actionType';
+import { ADD_CART_ITEM, CART_ITEM, DELETE_CART_ITEM } from "../Action/actionType";
 
 let initialCartItem = [];
 
@@ -24,7 +23,7 @@ const CartItemReducer = (state = initialCartItem, { payload, type }) => {
             state = payload;
             return [...state];
         }
-        case DELETE_CART:{
+        case DELETE_CART_ITEM:{
             console.log("payload",payload);
                   let index = state.findIndex(sp=>sp.maKhoaHoc === payload);
                    if(index !== -1){
