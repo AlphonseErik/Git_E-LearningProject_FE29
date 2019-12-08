@@ -10,7 +10,7 @@ import BottomSideBar from "../../Layouts/SideBar/BottomSideBar";
 import { userDetail } from "../../Redux/Action/userAction";
 import { settings } from "../../config/settings";
 import GetStarted from "../../Components/GetStarted/getStarted";
-import StudentSay from "../../Components/StudentSay/StudentSay";
+import StudentSay from "../../Components/StudentSay/studentSay";
 import Footer from "../../Layouts/Footer/footer";
 // import OwlCarousel from 'react-owl-carousel';
 // import 'owl.carousel/dist/assets/owl.carousel.css';
