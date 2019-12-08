@@ -43,7 +43,7 @@ export const userLoginAction = (userLogin, history) => {
             localStorage.setItem(settings.userLogin, JSON.stringify(res.data));
             localStorage.setItem(settings.token, res.data.accessToken);
             localStorage.setItem(settings.taiKhoan, res.data.taiKhoan);
-            // localStorage.setItem(settings.maLoaiNguoiDung, res.data.maLoaiNguoiDung);
+            localStorage.setItem(settings.maLoaiNguoiDung, res.data.maLoaiNguoiDung);
 
             //Lưu data lên store để render lại giao diện header
             dispatch(reduxAction(LOGIN, res.data));

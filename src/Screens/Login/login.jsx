@@ -6,10 +6,13 @@ import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import classesStyle from "../Login/loginStyle.module.scss";
 import { Container } from "@material-ui/core";
-import { GET_USER_INFO } from "../../Redux/Action/actionType";
 import { settings } from "../../config/settings";
 // import HomeScreen from "../../Screens/Home/home";
 import { Route, Redirect } from "react-router-dom";
+// import { IconButton } from "material-ui";
+// import Visibility from '@material-ui/icons/Visibility';
+// import VisibilityOff from '@material-ui/icons/VisibilityOff';
+// import clsx from 'clsx';
 
 function Login(props) {
 
@@ -22,6 +25,12 @@ function Login(props) {
             matKhau: '',
         }
     });
+
+    // const [values, setValues] = React.useState({
+    //     amount: '',
+    //     password: '',
+    //     showPassword: false,
+    //   });
 
     const useStyles = makeStyles(theme => ({
         textField: {
@@ -37,7 +46,7 @@ function Login(props) {
 
     const classes = useStyles();
 
-    let handleChange = e => {
+    const handleChange = e => {
         let { name, value } = e.target;
         let errorMessage = '';
         if (value === "") {
@@ -52,7 +61,22 @@ function Login(props) {
         });
         console.log(user);
     }
-    let handleSubmit = e => {
+
+    //showPassword
+    // const handleChangePassword = prop => event => {
+    //     setValues({ ...values, [prop]: event.target.value });
+    //   };
+
+    // const handleClickShowPassword = () => {
+    //     setValues({ ...values, showPassword: !values.showPassword });
+    //   };
+
+    //   const handleMouseDownPassword = event => {
+    //     event.preventDefault();
+    //   };
+    //   //
+
+    const handleSubmit = e => {
         e.preventDefault();
         let valid = true;
         for (let errorName in user.errors) {
@@ -68,10 +92,7 @@ function Login(props) {
             }
         }
         if (valid) {
-            // console.log(props);
             props.dispatch(userLoginAction(user.userLogin, props.history));
-            //khi submit gọi action truyền vào data là userLogin từ người dùng
-            //  location.reload(true);
         } else {
             alert('Please check your Email and Password');
         }
@@ -83,7 +104,6 @@ function Login(props) {
                 <div className="form-group card-block">
                     <div className="text-center">
                         <h2 className="text text-danger"><i className="fa fa-lock"></i> Sign In</h2>
-                        {/* <hr className="mt-2 mb-2" /> */}
                     </div>
                     <div className="text-center">
                         <TextField variant="outlined" name="taiKhoan" label="Username" onChange={handleChange} className={classes.textField} margin="normal" />
@@ -94,7 +114,6 @@ function Login(props) {
                         />
                         <p className="text text-danger">{user.errors.matKhau}</p>
                     </div>
-
                 </div>
                 <div className="form-group">
                     <div className="text-center">

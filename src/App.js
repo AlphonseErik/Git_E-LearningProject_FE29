@@ -15,6 +15,8 @@ import Notfound from "./Screens/NotFound/notFound";
 // import CartItem from "./Components/CartItem/cartItem";
 import Cart from "./Screens/Cart/cart";
 import CourseDetail from "./Components/CourseDetail/CourseDetail";
+import PrivateAdminRoute from "./HOC/AdminAuth";
+import AdminScreen from "./Screens/AdminScreen/adminScreen";
 
 const App = props => {
 
@@ -40,6 +42,7 @@ const App = props => {
         <PrivateRoute path="/user" Component={UserScreen} />
         <PrivateRoute path="/user/profile" Component={UserProfile} />
         <PrivateRoute path="/cart" Component={Cart} />
+        <PrivateAdminRoute path="/admin/adprofile" Component={AdminScreen}/>
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
 

@@ -3,22 +3,18 @@ import { Route, Redirect } from "react-router-dom";
 import { settings } from '../config/settings';
 
 //props: path, component
-class PrivateRoute extends Component {
+class PrivateAdminRoute extends Component {
     render() {
         const { path, Component } = this.props;
         return (
             <Route path={path} render={(routeProps) => {
-                if (localStorage.getItem(settings.userLogin)) {
-                    // if(localStorage.getItem(settings.maLoaiNguoiDung)){
-                    //     return <Component {...routeProps}/>
-                    // }
+                if (localStorage.getItem(settings.userLogin) && localStorage.getItem(settings.maLoaiNguoiDung) === "GV") {
                     return <Component {...routeProps} />
                 }
-                alert('Vui lòng Login');
-                return <Redirect to="/login" />
+                return <Redirect to="/home" />
             }} />
         )
     }
 }
 
-export default PrivateRoute;
+export default PrivateAdminRoute;
