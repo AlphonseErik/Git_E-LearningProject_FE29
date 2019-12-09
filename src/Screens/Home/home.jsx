@@ -9,9 +9,10 @@ import SideBar from "../../Layouts/SideBar/SideBar";
 import BottomSideBar from "../../Layouts/SideBar/BottomSideBar";
 import { userDetail } from "../../Redux/Action/userAction";
 import { settings } from "../../config/settings";
-import GetStarted from "../../Components/GetStarted/getStarted";
-import StudentSay from "../../Components/StudentSay/studentSay";
-import Footer from "../../Layouts/Footer/footer";
+import GetStarted from "../../Components/GetStarted/GetStarted";
+import StudentSay from "../../Components/StudentSay/StudentSay";
+import Footer from "../../Layouts/Footer/Footer";
+import FilterSearch from "../../Components/FilterSearch/FilterSearch";
 // import OwlCarousel from 'react-owl-carousel';
 // import 'owl.carousel/dist/assets/owl.carousel.css';
 // import 'owl.carousel/dist/assets/owl.theme.default.css';
@@ -40,7 +41,9 @@ const HomeScreen = props => {
         }
     }, []);
 
+    console.log("payload home",props.search);
     return (
+        
         <div>
             <SideBar />
             <BottomSideBar />
@@ -54,7 +57,10 @@ const HomeScreen = props => {
                             <p> with new additions published every month</p>
                         </div>
                     </div>
+                    
                     <Category />
+                    <FilterSearch />
+
                     <div>
                         <div className="container">
                             <div className="row" >
@@ -66,7 +72,11 @@ const HomeScreen = props => {
 
                             autoplayTimeout={5000}
                             nav> */}
-
+                              {/* {
+                                  props.courseList.filter(task =>
+                                      task.tenKhoaHoc.toLowerCase().indexOf(props.search.toLowerCase()) !== -1
+                                  )
+                              } */}
                                 {props.courseList.filter(item => item.danhMucKhoaHoc.maDanhMucKhoahoc === props.categoryChoosenList).map((item, index) => (
                                     <div key={index}>
                                         <CourseItem item={item} />
@@ -88,6 +98,7 @@ const HomeScreen = props => {
             </div>
 
             <Footer />
+
             {/* </Container> */}
         </div>
     )
@@ -98,6 +109,7 @@ const mapStateToProps = state => ({
     courseList: state.courseList,
     categoryChoosenList: state.categoryChoosenList,
     credentials: state.user.credentials,
+    search:state.SearchReducer
 });
 
 

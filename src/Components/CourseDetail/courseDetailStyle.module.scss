@@ -32,7 +32,7 @@
     font-size: 40px;
     position: relative;
     width: 350px;
-    height: 550px;
+    height: 650px;
     top: -150px;
     background-color: white;
     box-shadow: 0 0 1px 1px rgba(20, 23, 28, .1), 0 3px 1px 0 rgba(20, 23, 28, .1);
@@ -46,12 +46,26 @@
             font-size: 40px;
             padding-top: 20px;
             text-align: left !important;
+            padding-left: 30px;
         }
         p {
             font-size: 15px;
         }
         button {
             padding: 15px 110px;
+        }
+    }
+    .righttext {
+        padding-top: 15px;
+        font-size: 15px;
+        line-height: 10px;
+        padding-left: 10px;
+        h5 {
+            font-size: 18px;
+            font-weight: 300;
+        }
+        p {
+            font-weight: 300;
         }
     }
 }

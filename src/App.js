@@ -14,7 +14,7 @@ import UserScreen from "./Screens/UserScreen/userScreen";
 import Notfound from "./Screens/NotFound/notFound";
 // import CartItem from "./Components/CartItem/cartItem";
 import Cart from "./Screens/Cart/cart";
-import CourseDetail from "./Components/CourseDetail/courseDetail";
+import CourseDetail from "./Components/CourseDetail/CourseDetail";
 import PrivateAdminRoute from "./HOC/AdminAuth";
 import AdminScreen from "./Screens/AdminScreen/adminScreen";
 

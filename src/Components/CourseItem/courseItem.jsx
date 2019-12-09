@@ -35,14 +35,26 @@ const CourseItem = props => {
       <NavLink to={`/coursedetail/${maKhoaHoc}`}>
         <div className="container">
           <div className={classes.courseItem}>
-            <a className={classes.classA} href="#">
+            <a className={classes.classA}>
               <div className={classes.card}>
                 <img className="card-img-top" src={hinhAnh} />
                 <div className="card-body text-left">
                   <p className="card-title text-left">{_shortenStringTenKhoaHoc(tenKhoaHoc)}</p>
                   <hr></hr>
-                  <h4>{moTa}</h4>
+                  <div className={classes.star}>
+                  <i className="fa fa-star" />
+                                <i className="fa fa-star" />
+                                <i className="fa fa-star" />
+                                <i className="fa fa-star" />
+                                <i className="fa fa-star-o" />
+                                <span>4.7 ({luotXem})</span>
+                    </div>
+                  <div className="text-right">
+                     <span className={classes.span1}>50$</span>
+                     <span className="text-bold">25$</span>
+                     </div>
                 </div>
+                
               </div>
             </a>
           </div>
