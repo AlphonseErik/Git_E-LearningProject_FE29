@@ -3,7 +3,7 @@ import classes from "./courseItemStyle.module.scss";
 import Popup from 'reactjs-popup';
 import { connect } from 'react-redux';
 import { ADD_CART_ITEM } from "../../Redux/Action/actionType";
-import {NavLink} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const CourseItem = props => {
 
@@ -28,26 +28,25 @@ const CourseItem = props => {
   //   return string;
   // }
 
-  const { hinhAnh, tenKhoaHoc, moTa, luotXem, ngayTao, nguoiTao, soLuongHocVien,maKhoaHoc } = props.item;
+  const { hinhAnh, tenKhoaHoc, moTa, luotXem, ngayTao, nguoiTao, soLuongHocVien, maKhoaHoc } = props.item;
 
   return (
     <Popup trigger={
       <NavLink to={`/coursedetail/${maKhoaHoc}`}>
-      <div className="container">
-        <div className={classes.courseItem}>
-          <a className={classes.classA} href="#">
-            <div className={classes.card}>
-              <img className="card-img-top" src={hinhAnh} />
-              <div className="card-body text-left">
-                <p className="card-title text-left">{_shortenStringTenKhoaHoc(tenKhoaHoc)}</p>
-                   <hr></hr>
-                 <h4>{moTa}</h4>
+        <div className="container">
+          <div className={classes.courseItem}>
+            <a className={classes.classA} href="#">
+              <div className={classes.card}>
+                <img className="card-img-top" src={hinhAnh} />
+                <div className="card-body text-left">
+                  <p className="card-title text-left">{_shortenStringTenKhoaHoc(tenKhoaHoc)}</p>
+                  <hr></hr>
+                  <h4>{moTa}</h4>
+                </div>
               </div>
-            
-            </div>
-          </a>
+            </a>
+          </div>
         </div>
-      </div>
       </NavLink>}
       position={['top left', 'top right', 'bottom right', 'bottom left', 'right center', 'left center', 'top center', 'bottom center', 'center center']} on={"hover"}>
       <div className={classes.popup}>

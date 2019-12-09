@@ -40,20 +40,6 @@ const HomeScreen = props => {
         }
     }, []);
 
-    // useEffect(() => {
-    //     courseService.fetchCategory()
-    //         .then(res => {
-    //             props.dispatch({
-    //                 type: "FETCH_CATEGORY",
-    //                 payload: res.data
-    //             }, console.log(res.data));
-    //         }).catch(err => {
-    //             console.log(err);
-    //         })
-    // }, [])
-
-    // console.log("choosen", props.choosenCategoryList);
-
     return (
         <div>
             <SideBar />
@@ -61,11 +47,6 @@ const HomeScreen = props => {
             {/* <Container maxWidth="lg" > */}
             <div className={classes.home}>
                 <div>
-                    {/* {props.courseList.map((item, index) => (
-                        <div className="col-3" key={index}>
-                            <CourseItem item={item} />
-                        </div>
-                    ))} */}
                     <div className={classes.home__name}>
                         <h1>The world’s largest selection of courses</h1>
                         <div className={classes.home__p}>
@@ -98,14 +79,14 @@ const HomeScreen = props => {
                     </div>
                 </div>
             </div>
-            <div className="container-fluid bg-dark">          
-                   <GetStarted />        
+            <div className="container-fluid bg-dark">
+                <GetStarted />
             </div>
-            
+
             <div className="mt-3">
-                  <StudentSay />
+                <StudentSay />
             </div>
-            
+
             <Footer />
             {/* </Container> */}
         </div>

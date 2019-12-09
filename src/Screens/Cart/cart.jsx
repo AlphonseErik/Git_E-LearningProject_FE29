@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import CartItem from '../../Components/CartItem/cartItem';
 
 const Cart = props => {
+
     const renderCard = () => {
         console.log("item", props.cartItem);
         return props.cartItem.map((sanpham, index) => {

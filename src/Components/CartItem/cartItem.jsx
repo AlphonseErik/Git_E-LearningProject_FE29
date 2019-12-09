@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import classes from './cartItem.module.scss';
 import { DELETE_CART_ITEM } from '../../Redux/Action/actionType';
