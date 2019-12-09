@@ -42,7 +42,7 @@ const App = props => {
         <PrivateRoute path="/user" Component={UserScreen} />
         <PrivateRoute path="/user/profile" Component={UserProfile} />
         <PrivateRoute path="/cart" Component={Cart} />
-        <PrivateAdminRoute path="/admin/adprofile" exact Component={AdminScreen} />
+        <PrivateAdminRoute path="/admin/profile" exact Component={AdminScreen} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
 

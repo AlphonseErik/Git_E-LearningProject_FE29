@@ -7,30 +7,59 @@ import { makeStyles } from '@material-ui/core/styles';
 import classesStyle from "../Login/loginStyle.module.scss";
 import { Container } from "@material-ui/core";
 import { settings } from "../../config/settings";
-// import HomeScreen from "../../Screens/Home/home";
-import { Route, Redirect } from "react-router-dom";
-// import { IconButton } from "material-ui";
-// import Visibility from '@material-ui/icons/Visibility';
-// import VisibilityOff from '@material-ui/icons/VisibilityOff';
-// import clsx from 'clsx';
+
+import Visibility from '@material-ui/icons/Visibility';
+import VisibilityOff from '@material-ui/icons/VisibilityOff';
+import OutlinedInput from '@material-ui/core/OutlinedInput';
+import InputLabel from '@material-ui/core/InputLabel';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import FormControl from '@material-ui/core/FormControl';
+import clsx from 'clsx';
+import IconButton from '@material-ui/core/IconButton';
 
 function Login(props) {
 
-    let [user, setUser] = useState({
+    const useStylesPw = makeStyles(theme => ({
+        root: {
+            display: 'flex',
+            flexWrap: 'wrap',
+        },
+        margin: {
+            margin: theme.spacing(1),
+        },
+        withoutLabel: {
+            marginTop: theme.spacing(3),
+        },
+        textField: {
+            width: 200,
+        },
+    }));
+
+    // const classesPw = useStylesPw();
+    // const [values, setValues] = React.useState({
+    //     // amount: '',
+    //     // password: '',
+    //     showPassword: false,
+    // });
+
+    let [user, setUser] = React.useState({
         userLogin: {
             taiKhoan: '',
             matKhau: '',
         }, errors: {
             taiKhoan: '',
             matKhau: '',
-        }
+        },
+        showPassword: false,
     });
 
-    // const [values, setValues] = React.useState({
-    //     amount: '',
-    //     password: '',
-    //     showPassword: false,
-    //   });
+    const handleClickShowPassword = () => {
+        setUser({ ...user, showPassword: !user.showPassword });
+    };
+
+    const handleMouseDownPassword = event => {
+        event.preventDefault();
+    };
 
     const useStyles = makeStyles(theme => ({
         textField: {
@@ -61,20 +90,6 @@ function Login(props) {
         });
         console.log(user);
     }
-
-    //showPassword
-    // const handleChangePassword = prop => event => {
-    //     setValues({ ...values, [prop]: event.target.value });
-    //   };
-
-    // const handleClickShowPassword = () => {
-    //     setValues({ ...values, showPassword: !values.showPassword });
-    //   };
-
-    //   const handleMouseDownPassword = event => {
-    //     event.preventDefault();
-    //   };
-    //   //
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -110,8 +125,29 @@ function Login(props) {
                         <p className="text text-danger">{user.errors.taiKhoan}</p>
                     </div>
                     <div className="text-center">
-                        <TextField variant="outlined" name="matKhau" label="Password" className={classes.textField} type="password" autoComplete="current-password" margin="normal" onChange={handleChange}
+                        {/* <TextField variant="outlined" name="matKhau" label="Password" className={classes.textField} type="password" autoComplete="current-password" margin="normal" onChange={handleChange}
                         />
+                        <p className="text text-danger">{user.errors.matKhau}</p> */}
+                        <FormControl className={clsx(classes.margin, classes.textField)} variant="outlined">
+                            <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+                            <OutlinedInput
+                                name="matKhau"
+                                onChange={handleChange}
+                                type={user.showPassword ? 'text' : 'password'}
+                                endAdornment={
+                                    <InputAdornment position="end">
+                                        <IconButton
+                                            aria-label="toggle password visibility"
+                                            onClick={handleClickShowPassword}
+                                            onMouseDown={handleMouseDownPassword}
+                                            edge="end">
+                                            {user.showPassword ? <Visibility /> : <VisibilityOff />}
+                                        </IconButton>
+                                    </InputAdornment>
+                                }
+                                labelWidth={70}
+                            />
+                        </FormControl>
                         <p className="text text-danger">{user.errors.matKhau}</p>
                     </div>
                 </div>

@@ -1,29 +1,23 @@
 import React, { Component, useEffect } from "react";
-// import classesStyle from './headerStyle.module.scss';
 import { connect } from "react-redux";
 import CourseService from "../../Services/courseService";
 import CategoryItemHeader from "../../Components/CategoryItemHeader/categoryItemHeader";
 import { NavLink } from 'react-router-dom';
-import { FETCH_COURSES, LOGIN, ADD_CART_ITEM, CART_ITEM } from "../../Redux/Action/actionType";
+import { FETCH_COURSES, LOGIN } from "../../Redux/Action/actionType";
 import { makeStyles } from '@material-ui/core/styles';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
-import Button from '@material-ui/core/Button';
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-// import InboxIcon from '@material-ui/icons/MoveToInbox';
-// import MailIcon from '@material-ui/icons/Mail';
 import PersonIcon from '@material-ui/icons/Person';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
-import classmodule from './headerStyle.module.scss';
 import { Badge } from '@material-ui/core'
 import { withStyles } from "@material-ui/styles";
 import IconButton from '@material-ui/core/IconButton';
-
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-
+import classes from './headerStyle.module.scss';
 
 const courseService = new CourseService();
 
@@ -35,6 +29,7 @@ const useStyles = makeStyles({
         width: 'auto',
     },
 });
+
 const StyledBadge1 = withStyles(theme => ({
     badge: {
         right: -3,
@@ -131,30 +126,31 @@ const Header = props => {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     {
-                        props.credentials ? (
-                            <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
-                                <li className="nav-item active dropdown">
-                                    <a className="nav-link" data-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">
-                                        <i className="fa fa-th mr-2"></i>Category
-                            </a>
-                                    <div className="dropdown-menu">
-                                        {props.categoryList.map((item, index) => (
-                                            <div key={index}>
-                                                <CategoryItemHeader item={item} />
-                                            </div>
-                                        ))}
-                                    </div>
-                                </li>
-                                <li className="nav-item">
-                                    <div className="input-group ml-5">
-                                        <input type="text" className="form-control" placeholder="Search for anything" aria-label="Recipient's username" aria-describedby="basic-addon2" />
-                                        <div className="input-group-append">
-                                            <span className="input-group-text" id="basic-addon2"><i className="fa fa-search"></i></span>
+                        props.credentials ?
+                            (
+                                <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
+                                    <li className="nav-item active dropdown">
+                                        <NavLink className="nav-link" data-toggle="dropdown" to="#" aria-haspopup="true" aria-expanded="false">
+                                            <i className="fa fa-th mr-2"></i>Category
+                                    </NavLink>
+                                        <div className="dropdown-menu">
+                                            {props.categoryList.map((item, index) => (
+                                                <div key={index}>
+                                                    <CategoryItemHeader item={item} />
+                                                </div>
+                                            ))}
                                         </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        ) : (
+                                    </li>
+                                    <li className="nav-item">
+                                        <div className="input-group ml-5">
+                                            <input type="text" className="form-control" placeholder="Search for anything" aria-label="Recipient's username" aria-describedby="basic-addon2" />
+                                            <div className="input-group-append">
+                                                <span className="input-group-text" id="basic-addon2"><i className="fa fa-search"></i></span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            ) : (
                                 <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
                                     <li className="nav-item">
                                         <div className=" mr-4">
@@ -205,9 +201,6 @@ const Header = props => {
                                                 </StyledBadge1>
                                             )
                                     }
-                                    {/* <StyledBadge1 badgeContent={0} color="secondary">
-                                    <ShoppingCartIcon />
-                                </StyledBadge1> */}
                                 </IconButton>
                             </NavLink>
                         </li>
