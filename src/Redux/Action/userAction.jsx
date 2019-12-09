@@ -19,11 +19,12 @@ export const userSignupAction = (userSignup, history) => {
 
             //bỏ token lên header của tất cả request
             // restConnector.defaults.headers['Authorization'] = "Bearer " + res.data.accessToken;
+            alert('Create Account Success!! ');
 
             history.push('./login');
         }).catch(error => {
             console.log(error.response.data);
-            alert('Lỗi: ' + error.response.data);
+            alert('Error: ' + error.response.data);
         })
     }
 };
@@ -54,7 +55,7 @@ export const userLoginAction = (userLogin, history) => {
             history.push('./');
         }).catch(error => {
             console.log(error.response.data);
-            alert('Lỗi: ' + error.response.data)
+            alert('Error: ' + error.response.data)
         })
     }
 };

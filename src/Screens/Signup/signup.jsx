@@ -6,7 +6,33 @@ import { makeStyles } from '@material-ui/core/styles';
 import classesStyle from "../Signup/signupStyle.module.scss"
 import { userSignupAction } from "../../Redux/Action/userAction";
 
+import Visibility from '@material-ui/icons/Visibility';
+import VisibilityOff from '@material-ui/icons/VisibilityOff';
+import OutlinedInput from '@material-ui/core/OutlinedInput';
+import InputLabel from '@material-ui/core/InputLabel';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import FormControl from '@material-ui/core/FormControl';
+import clsx from 'clsx';
+import IconButton from '@material-ui/core/IconButton';
+
 function Signup(props) {
+
+    const useStylesPw = makeStyles(theme => ({
+        root: {
+            display: 'flex',
+            flexWrap: 'wrap',
+        },
+        margin: {
+            margin: theme.spacing(1),
+        },
+        withoutLabel: {
+            marginTop: theme.spacing(3),
+        },
+        textField: {
+            width: 200,
+        },
+    }));
+
     const [user, setUser] = useState({
         userSignup: {
             taiKhoan: '',
@@ -24,8 +50,17 @@ function Signup(props) {
             // maLoaiNguoiDung: 'HV',
             // maNhom: 'GP01',
             email: '',
-        }
+        },
+        showPassword: false,
     });
+
+    const handleClickShowPassword = () => {
+        setUser({ ...user, showPassword: !user.showPassword });
+    };
+
+    const handleMouseDownPassword = event => {
+        event.preventDefault();
+    };
 
     const useStyles = makeStyles(theme => ({
         textField: {
@@ -88,7 +123,28 @@ function Signup(props) {
                     <p className="text text-danger">{user.errors.taiKhoan}</p>
                 </div>
                 <div className="text-center">
-                    <TextField variant="outlined" name="matKhau" label="Password" className={classes.textField} margin="normal" onChange={handleChange} />
+                    {/* <TextField variant="outlined" name="matKhau" label="Password" className={classes.textField} margin="normal" onChange={handleChange} />
+                    <p className="text text-danger">{user.errors.matKhau}</p> */}
+                    <FormControl className={clsx(classes.margin, classes.textField)} variant="outlined">
+                        <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+                        <OutlinedInput
+                            name="matKhau"
+                            onChange={handleChange}
+                            type={user.showPassword ? 'text' : 'password'}
+                            endAdornment={
+                                <InputAdornment position="end">
+                                    <IconButton
+                                        aria-label="toggle password visibility"
+                                        onClick={handleClickShowPassword}
+                                        onMouseDown={handleMouseDownPassword}
+                                        edge="end">
+                                        {user.showPassword ? <Visibility /> : <VisibilityOff />}
+                                    </IconButton>
+                                </InputAdornment>
+                            }
+                            labelWidth={70}
+                        />
+                    </FormControl>
                     <p className="text text-danger">{user.errors.matKhau}</p>
                 </div>
                 <div className="text-center">
