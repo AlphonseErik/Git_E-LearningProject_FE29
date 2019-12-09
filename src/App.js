@@ -37,21 +37,19 @@ const App = props => {
       <Header />
       <Switch>
         {/* <HomeScreen /> */}
-        <Route path="/home" component={HomeScreen} />
+        <Route path="/home" exact component={HomeScreen} />
         <Route path="/coursedetail/:courseid" component={CourseDetail} />
         <PrivateRoute path="/user" Component={UserScreen} />
         <PrivateRoute path="/user/profile" Component={UserProfile} />
         <PrivateRoute path="/cart" Component={Cart} />
-        <PrivateAdminRoute path="/admin/adprofile" Component={AdminScreen}/>
+        <PrivateAdminRoute path="/admin/adprofile" exact Component={AdminScreen} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
 
-        <Route path="/" component={HomeScreen} />
+        <Route path="/" exact component={HomeScreen} />
         <Route component={Notfound} />
       </Switch>
-
     </BrowserRouter>
-
   )
 }
 
