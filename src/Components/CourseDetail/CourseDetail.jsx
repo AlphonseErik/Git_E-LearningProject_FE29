@@ -2,7 +2,7 @@ import React, { Component, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { fetchCourseDetail } from '../../Redux/Action/action';
 import classes from './courseDetailStyle.module.scss';
-import CustomSeparator from '../CustomSeparator/CustomSeparator';
+import CustomSeparator from '../CustomSeparator/customSeparator';
 import { ADD_CART_ITEM } from '../../Redux/Action/actionType';
 
 const CourseDetail = props => {
@@ -88,20 +88,20 @@ const CourseDetail = props => {
                                 <div className={classes.cartRightItem}>
                                     <h2 className="text-right">25$</h2>
                                     <button className="btn btn-danger" onClick={() => { addToCart(props.course) }}>Add To Cart</button>
-                               
+
                                 </div>
                                 <div className="container">
-                                <div className={classes.righttext}>
-                                <h5>This Coure in clude</h5>
-                                <i className="incentives__icon incentives__icon--bold udi udi-video-design"/>
-                                <div className="pl-3">
-                                <p>7 hours on-demand video</p>
-                                <p> 3 articles</p>
-                                <p>4 downloadable resources</p>
-                                <p>Full lifetime access</p>
-                                <p> Access on mobile and TV</p>
-                                </div>
-                                </div>
+                                    <div className={classes.righttext}>
+                                        <h5>This Coure in clude</h5>
+                                        <i className="incentives__icon incentives__icon--bold udi udi-video-design" />
+                                        <div className="pl-3">
+                                            <p>7 hours on-demand video</p>
+                                            <p> 3 articles</p>
+                                            <p>4 downloadable resources</p>
+                                            <p>Full lifetime access</p>
+                                            <p> Access on mobile and TV</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

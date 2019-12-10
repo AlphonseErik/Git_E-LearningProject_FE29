@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import classes from './GetStarted.module.scss';
+import classes from './getStartedStyle.module.scss';
 
 const GetStarted = props => {
      return (

@@ -4,9 +4,9 @@ import CategoryReducer from './categoryReducer';
 import ChoosenCategoryReducer from './categoryChoosenReducer';
 import UserReducer from "./userReducer";
 import UpdateUserReducer from "./updateUserReducer";
-import CartItemReducer from './CartItemReducer';
-import CourseDetailReducer from './CourseDetailReducer';
-import {SearchReducer} from './SearchReducer';
+import CartItemReducer from './cartItemReducer';
+import CourseDetailReducer from './courseDetailReducer';
+import SearchReducer from './searchReducer';
 
 const RootReducer = combineReducers({
   //toàn bộ state
@@ -17,7 +17,7 @@ const RootReducer = combineReducers({
   user: UserReducer,
   updatingUser: UpdateUserReducer,
   cartItem: CartItemReducer,
-  SearchReducer
+  search: SearchReducer,
 });
 
 export default RootReducer;

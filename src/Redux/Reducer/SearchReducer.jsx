@@ -1,21 +1,17 @@
+import { SEARCH_COURSE } from "../Action/actionType";
 
-let initialState ='';
+let initialState = [];
 
+const SearchReducer = (state = initialState, { payload, type }) => {
 
-export const SearchReducer = (state = initialState,{payload,type})=>{
-
-        
   switch (type) {
-      case "tim":{
-          console.log("padyload search",payload)
-          return payload;
-      }
-          
-  
-      default:
-return state;
+    case SEARCH_COURSE: {
+      console.log("payload search", payload)
+      return payload;
+    }
+    default:
+      return state;
   }
-
-
-
 }
+
+export default SearchReducer;
