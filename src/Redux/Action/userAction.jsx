@@ -1,4 +1,4 @@
-import { type, LOGIN, UPDATE_USER, USER_INFO, SIGNUP, UPDATE_USER_INFO, ADD_CART_ITEM } from './actionType';
+import { type, LOGIN, UPDATE_USER, USER_INFO, SIGNUP, UPDATE_USER_INFO, ADD_CART_ITEM,DANGKY_KHOAHOC } from './actionType';
 import { settings } from '../../config/settings';
 import reduxAction from "./action";
 import { restConnector } from '../../Services';
@@ -122,7 +122,7 @@ export const courseRegisting = (courseRegister) => {
     return dispatch => {
         restConnector({
             method: 'POST',
-            url: '/api/quanlykhoahoc/dangkykhoahoc',
+            url: '/api/QuanLyKhoaHoc/DangKyKhoaHoc',
             headers: {
                 "Authorization": "Bearer " + localStorage.getItem(settings.token),
             },
@@ -135,7 +135,7 @@ export const courseRegisting = (courseRegister) => {
             localStorage.setItem(settings.userProfile, JSON.stringify(res.data));
 
             //Lưu data lên store để render lại giao diện header
-            dispatch(reduxAction(ADD_CART_ITEM, res.data.taiKhoan));
+            dispatch(reduxAction(DANGKY_KHOAHOC, res.data.taiKhoan));
 
             //bỏ token lên header của tất cả request
 

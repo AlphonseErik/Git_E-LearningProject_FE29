@@ -1,4 +1,4 @@
-import { ADD_CART_ITEM, CART_ITEM, DELETE_CART_ITEM } from "../Action/actionType";
+import { ADD_CART_ITEM, CART_ITEM, DELETE_CART_ITEM,DANGKY_KHOAHOC } from "../Action/actionType";
 
 let initialCartItem = [];
 
@@ -30,6 +30,9 @@ const CartItemReducer = (state = initialCartItem, { payload, type }) => {
                 state.splice(index, 1);
             }
             return [...state];
+        }
+        case DANGKY_KHOAHOC:{
+            console.log("thanh toan",payload);
         }
         default:
             return state;

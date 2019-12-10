@@ -8,7 +8,7 @@ class PrivateRoute extends Component {
         const { path, Component } = this.props;
         return (
             <Route path={path} render={(routeProps) => {
-                if (localStorage.getItem(settings.userLogin)) {
+                if (localStorage.getItem(settings.userLogin)){
                     // if(localStorage.getItem(settings.maLoaiNguoiDung)){
                     //     return <Component {...routeProps}/>
                     // }

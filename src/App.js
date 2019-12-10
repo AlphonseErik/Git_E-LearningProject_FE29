@@ -17,6 +17,7 @@ import Cart from "./Screens/Cart/cart";
 import CourseDetail from "./Components/CourseDetail/CourseDetail";
 import PrivateAdminRoute from "./HOC/AdminAuth";
 import AdminScreen from "./Screens/AdminScreen/adminScreen";
+import Orders from './Screens/AdminScreen/orders';
 
 const App = props => {
 
@@ -45,6 +46,7 @@ const App = props => {
         <PrivateAdminRoute path="/admin/profile" exact Component={AdminScreen} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
+        <PrivateAdminRoute path ="/orders" component={Orders} />
 
         <Route path="/" exact component={HomeScreen} />
         <Route component={Notfound} />
