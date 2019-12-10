@@ -18,7 +18,7 @@ class PrivateRoute extends Component {
                 return <Redirect to="/login" />
             }} />
         )
-    }
+        }
 }
 
 export default PrivateRoute;

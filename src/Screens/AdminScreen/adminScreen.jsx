@@ -20,6 +20,8 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import { mainListItems, secondaryListItems } from './listItems';
+// import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+
 import Chart from './chart';
 import Deposits from './deposit';
 import Orders from './orders';
