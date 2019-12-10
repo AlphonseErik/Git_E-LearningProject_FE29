@@ -35,13 +35,6 @@ function Login(props) {
         },
     }));
 
-    // const classesPw = useStylesPw();
-    // const [values, setValues] = React.useState({
-    //     // amount: '',
-    //     // password: '',
-    //     showPassword: false,
-    // });
-
     let [user, setUser] = React.useState({
         userLogin: {
             taiKhoan: '',

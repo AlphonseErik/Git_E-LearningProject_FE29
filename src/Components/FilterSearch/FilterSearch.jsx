@@ -1,56 +1,66 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { SEARCH_COURSE } from '../../Redux/Action/actionType';
+import { SEARCH_COURSE, FETCH_COURSES } from '../../Redux/Action/actionType';
+// import CourseService from '../../Services/courseService';
+import reduxAction from '../../Redux/Action/action';
 
-class FilterSearch extends Component {
+// const courseService = new CourseService();
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      search: '',
-    };
-  }
-  handleChange = e => {
+function FilterSearch(props) {
+
+  // useEffect(() => {
+  //   courseService
+  //     .fetchCourse()
+  //     .then(res => {
+  //       props.dispatch(
+  //         reduxAction(FETCH_COURSES, res.data)
+  //       );
+  //     })
+  //     .catch(err => {
+  //       console.log(err);
+  //     });
+  // }, [])
+
+  let [state, setState] = React.useState({
+    search: '',
+  })
+
+  let handleChange = e => {
     console.log(e.target.name, e.target.value);
-    this.setState({
+    setState({
       [e.target.name]: e.target.value,
     });
   }
 
-  filterSearch = (payload) => {
-    this.props.dispatch({
-      type: SEARCH_COURSE,
-      payload
-    })
+  let filterSearch = () => {
+    props.dispatch(reduxAction(SEARCH_COURSE, state.search));
   }
 
-  render() {
-    return (
-      <div className="container mt-3">
-        <div className="row">
-          <div className="col-6"></div>
-          <div className="col-5">
-            <div className="form-group">
-              <input
-                type = "text"
-                name = "search"
-                onChange = {this.handleChange}
-                className = "form-control"
-                placeholder = "Tìm tên khóa học"
-              />
-            </div>
-          </div>
-          <div className="col-1">
-            <button className="btn btn-success" onClick={() => this.filterSearch(this.state.search)}>Tìm</button>
+  return (
+    <div className="container mt-3">
+      <div className="row">
+        <div className="col-6"></div>
+        <div className="col-5">
+          <div className="form-group">
+            <input
+              type="text"
+              name="search"
+              onChange={handleChange}
+              className="form-control"
+              placeholder="Tìm tên khóa học"
+            />
           </div>
         </div>
+        <div className="col-1">
+          <button className="btn btn-success" onClick={filterSearch}>Search</button>
+        </div>
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 const mapStateToProps = state => ({
-  courseList: state.courseList
+  courseList: state.courseList,
 });
 
 export default connect(mapStateToProps)(FilterSearch);

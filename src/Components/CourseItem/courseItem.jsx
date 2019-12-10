@@ -35,7 +35,7 @@ const CourseItem = props => {
       <NavLink to={`/coursedetail/${maKhoaHoc}`}>
         <div className="container">
           <div className={classes.courseItem}>
-            <a className={classes.classA}>
+            <div className={classes.classA}>
               <div className={classes.card}>
                 <img className="card-img-top" src={hinhAnh} />
                 <div className="card-body text-left">
@@ -56,7 +56,7 @@ const CourseItem = props => {
                 </div>
                 
               </div>
-            </a>
+            </div>
           </div>
         </div>
       </NavLink>}

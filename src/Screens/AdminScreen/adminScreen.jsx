@@ -17,13 +17,13 @@ import Paper from '@material-ui/core/Paper';
 import Link from '@material-ui/core/Link';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import { mainListItems, secondaryListItems } from './listItems';
 import Chart from './chart';
 import Deposits from './deposit';
 import Orders from './orders';
-<<<<<<< HEAD
-import {NavLink}from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 function Copyright() {
     return (
@@ -37,9 +37,6 @@ function Copyright() {
         </Typography>
     );
 }
-=======
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
->>>>>>> 75d8a539abdb1d1caffc10f01596f5c26991e7e8
 
 const drawerWidth = 240;
 
@@ -128,9 +125,7 @@ function AdminScreen(props) {
     const handleDrawer = () => {
         setOpen(!open);
     };
-    // const handleDrawerClose = () => {
-    //     setOpen(false);
-    // };
+    
     const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
     return (
