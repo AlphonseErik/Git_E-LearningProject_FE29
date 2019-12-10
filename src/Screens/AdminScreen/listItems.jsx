@@ -9,21 +9,26 @@ import PeopleIcon from '@material-ui/icons/People';
 import BarChartIcon from '@material-ui/icons/BarChart';
 import LayersIcon from '@material-ui/icons/Layers';
 import AssignmentIcon from '@material-ui/icons/Assignment';
+import { NavLink } from 'react-router-dom';
 
 export const mainListItems = (
     <div>
-        <ListItem button>
-            <ListItemIcon>
-                <DashboardIcon />
-            </ListItemIcon>
-            <ListItemText primary="Dashboard" />
-        </ListItem>
-        <ListItem button>
-            <ListItemIcon>
-                <ShoppingCartIcon />
-            </ListItemIcon>
-            <ListItemText primary="Orders" />
-        </ListItem>
+        <NavLink style={{ color: '#1e1e1e', textDecoration: 'none' }} to="/admin/profile">
+            <ListItem button>
+                <ListItemIcon>
+                    <DashboardIcon />
+                </ListItemIcon>
+                <ListItemText primary="Dashboard" />
+            </ListItem>
+        </NavLink>
+        <NavLink style={{ color: '#1e1e1e', textDecoration: 'none' }} to="/cart">
+            <ListItem button>
+                <ListItemIcon>
+                    <ShoppingCartIcon />
+                </ListItemIcon>
+                <ListItemText primary="Carts Order" />
+            </ListItem>
+        </NavLink>
         <ListItem button>
             <ListItemIcon>
                 <PeopleIcon />

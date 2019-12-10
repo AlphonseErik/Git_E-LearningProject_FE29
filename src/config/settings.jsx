@@ -5,5 +5,5 @@ export const settings = {
     maLoaiNguoiDung: 'maLoaiNguoiDung',
     domain: 'http://elearning0706.cybersoft.edu.vn',
     userProfile: 'userProfile',
-    userProfileEdit: 'userProfuleEdit',
+    userProfileEdit: 'userProfileEdit',
 }

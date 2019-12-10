@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import classes from './GetStarted.module.scss';
+import classes from './getStartedStyle.module.scss';
 
 const GetStarted = props => {
+     
      return (
           <div >
                <div className={classes.content}>

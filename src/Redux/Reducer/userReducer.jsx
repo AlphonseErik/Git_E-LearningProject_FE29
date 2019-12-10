@@ -1,7 +1,7 @@
 import { LOGIN, USER_INFO, SIGNUP, UPDATE_USER_INFO } from '../Action/actionType'
 
 let initialState = {
-    users: [],
+    // users: [],
     userDetail: null,
     credentials: null
 }
@@ -17,7 +17,7 @@ const UserReducer = (state = initialState, { type, payload }) => {
             return { ...state };
         }
         case UPDATE_USER_INFO: {
-            state.credentials = payload;
+            state.userDetail = payload;
             return { ...state };
         }
         case SIGNUP: {
@@ -28,4 +28,5 @@ const UserReducer = (state = initialState, { type, payload }) => {
             return state;
     }
 };
+
 export default UserReducer;
