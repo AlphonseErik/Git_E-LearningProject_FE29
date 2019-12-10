@@ -1,5 +1,5 @@
 import CourseService from "../../Services/courseService";
-import {FETCH_COURSE_DETAIL} from './actionType';
+import { FETCH_COURSE_DETAIL } from './actionType';
 
 const courseService = new CourseService();
 
@@ -10,15 +10,16 @@ const reduxAction = (type, payload) => {
     payload: payload
   };
 };
+
 //async action
-export const fetchCourseDetail=(courseid)=>{
-  return dispatch=>{
+export const fetchCourseDetail = (courseid) => {
+  return dispatch => {
     courseService.
-    fetchDetailKhoaHoc(courseid).then(res=>{
-      dispatch(reduxAction(FETCH_COURSE_DETAIL,res.data));
-    }).catch(err=>{
-      console.log(err);
-    })
+      fetchDetailKhoaHoc(courseid).then(res => {
+        dispatch(reduxAction(FETCH_COURSE_DETAIL, res.data));
+      }).catch(err => {
+        console.log(err);
+      })
   }
 }
 

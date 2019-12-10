@@ -6,7 +6,7 @@ const SearchReducer = (state = initialState, { payload, type }) => {
 
   switch (type) {
     case SEARCH_COURSE: {
-      console.log("payload search", payload)
+      console.log("payload search", payload);
       return payload;
     }
     default:
