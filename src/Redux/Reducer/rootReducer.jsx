@@ -4,8 +4,8 @@ import CategoryReducer from './categoryReducer';
 import ChoosenCategoryReducer from './categoryChoosenReducer';
 import UserReducer from "./userReducer";
 import UpdateUserReducer from "./updateUserReducer";
-import CartItemReducer from './cartItemReducer';
-import CourseDetailReducer from './courseDetailReducer';
+import CartItemReducer from './CartItemReducer';
+import CourseDetailReducer from './CourseDetailReducer';
 import SearchReducer from './searchReducer';
 
 const RootReducer = combineReducers({

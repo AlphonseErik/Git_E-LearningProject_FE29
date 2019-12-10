@@ -2,7 +2,7 @@ import React, { Component, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { fetchCourseDetail } from '../../Redux/Action/action';
 import classes from './courseDetailStyle.module.scss';
-import CustomSeparator from '../CustomSeparator/customSeparator';
+import CustomSeparator from '../CustomSeparator/CustomSeparator';
 import { ADD_CART_ITEM } from '../../Redux/Action/actionType';
 
 const CourseDetail = props => {
