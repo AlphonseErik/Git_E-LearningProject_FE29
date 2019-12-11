@@ -6,4 +6,5 @@ export const settings = {
     domain: 'http://elearning0706.cybersoft.edu.vn',
     userProfile: 'userProfile',
     userProfileEdit: 'userProfileEdit',
+    maKhoaHoc: 'maKhoaHoc',
 }

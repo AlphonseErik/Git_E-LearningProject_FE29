@@ -1,44 +1,28 @@
 import React, { Component, useState } from 'react';
 import { connect } from 'react-redux';
 import CartItem from '../../Components/CartItem/cartItem';
-import { courseRegisting } from '../../Redux/Action/userAction';
-import { settings } from '../../config/settings';
+// import { courseRegisting } from '../../Redux/Action/userAction';
+// import { settings } from '../../config/settings';
+import Payment from './Payment/payment';
 
 function Cart(props) {
 
     let renderCard = () => {
         return props.cartItem.map((sanpham, index) => {
-            console.log(sanpham.hinhAnh, sanpham.maKhoaHoc);
+            // console.log(sanpham.hinhAnh, sanpham.maKhoaHoc);
             return (
                 <CartItem key={index} cartItem={sanpham} />
             )
         })
     }
 
-    const userCourseRegister = props.cartItem;
-
-    const { maKhoaHoc, tenKhoaHoc } = JSON.stringify(userCourseRegister);
-
-    console.log(maKhoaHoc);
-
-    const userLocalStorage = localStorage.getItem(settings.taiKhoan);
-
-    const { taiKhoan } = userLocalStorage;
-
-    let [state, setState] = React.useState({
-        userRegisterCourse: {
-            taiKhoan: taiKhoan,
-            maKhoaHoc: props.cartItem.maKhoaHoc,
-        },
-        isBoolean: true,
-
-    })
-
-    let renderButton = () => {
-        setState({
-            isBoolean: false
+    let renderPayment = () => {
+        return props.cartItem.map((sanpham, index) => {
+            // console.log(sanpham.hinhAnh, sanpham.maKhoaHoc);
+            return (
+                <Payment key={index} cartItem={sanpham} />
+            )
         })
-        courseRegisting()
     }
 
     return (
@@ -49,12 +33,7 @@ function Cart(props) {
                     {renderCard()}
                 </div>
                 <div className="col-4">
-                    <div>
-                        <h3>Total: 50$</h3>
-                    </div>
-                    <div>
-                        {state.isBoolean ? <button className="btn btn-danger" onClick={renderButton}>Thanh Toán</button> : <button className="btn btn-success">Đang chờ ghi danh</button>}
-                    </div>
+                    {renderPayment()}
                 </div>
             </div>
         </div>

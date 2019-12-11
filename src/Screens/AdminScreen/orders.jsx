@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Link from '@material-ui/core/Link';
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
@@ -7,6 +7,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Title from './title';
+import { getUserUnregister } from "../../Redux/Action/adminAction";
 
 // Generate Order Data
 function createData(id, date, name, shipTo, paymentMethod, amount) {
@@ -31,7 +32,12 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-export default function Orders() {
+function Orders(props) {
+
+    useEffect(()=>{
+        getUserUnregister();
+    },[]);
+
     const classes = useStyles();
     return (
         <React.Fragment>
@@ -66,3 +72,5 @@ export default function Orders() {
         </React.Fragment>
     );
 }
+
+export default Orders;

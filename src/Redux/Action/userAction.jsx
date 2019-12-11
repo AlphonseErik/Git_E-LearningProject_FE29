@@ -1,4 +1,4 @@
-import { type, LOGIN, UPDATE_USER, USER_INFO, SIGNUP, UPDATE_USER_INFO, ADD_CART_ITEM, COURSE_REGISTING } from './actionType';
+import { type, LOGIN, USER_INFO, SIGNUP, UPDATE_USER_INFO, ADD_CART_ITEM, COURSE_REGISTING, LOGIN_ADMIN } from './actionType';
 import { settings } from '../../config/settings';
 import reduxAction from "./action";
 import { restConnector } from '../../Services';
@@ -41,18 +41,26 @@ export const userLoginAction = (userLogin, history) => {
             console.log(res.data);
             // alert('Đăng nhập thành công');
             //Đăng nhập thành công => Lưu thông tin user và token vào localstorage để request về những api yêu cầu token
-            localStorage.setItem(settings.userLogin, JSON.stringify(res.data));
-            localStorage.setItem(settings.token, res.data.accessToken);
-            localStorage.setItem(settings.taiKhoan, res.data.taiKhoan);
             localStorage.setItem(settings.maLoaiNguoiDung, res.data.maLoaiNguoiDung);
 
             //Lưu data lên store để render lại giao diện header
-            dispatch(reduxAction(LOGIN, res.data));
 
             //bỏ token lên header của tất cả request
             restConnector.defaults.headers['Authorization'] = "Bearer " + res.data.accessToken;
-
-            history.push('./');
+            if (localStorage.getItem(settings.maLoaiNguoiDung === "HV")) {
+                localStorage.setItem(settings.userLogin, JSON.stringify(res.data));
+                localStorage.setItem(settings.token, res.data.accessToken);
+                localStorage.setItem(settings.taiKhoan, res.data.taiKhoan);
+                dispatch(reduxAction(LOGIN, res.data));
+                history.push('./');
+                return;
+            }
+            localStorage.setItem(settings.userLogin, JSON.stringify(res.data));
+            localStorage.setItem(settings.token, res.data.accessToken);
+            localStorage.setItem(settings.taiKhoan, res.data.taiKhoan);
+            dispatch(reduxAction(LOGIN_ADMIN, res.data));
+            dispatch(reduxAction(LOGIN, res.data));
+            history.push('./admin/profile');
         }).catch(error => {
             console.log(error.response.data);
             alert('Error: ' + error.response.data)
@@ -79,7 +87,7 @@ export const userDetail = (userAccess) => {
             localStorage.setItem(settings.userProfile, JSON.stringify(res.data));
 
             //Lưu data lên store để render lại giao diện header
-            dispatch(reduxAction(UPDATE_USER_INFO, res.data.taiKhoan));
+            dispatch(reduxAction(USER_INFO, res.data.taiKhoan));
 
             //bỏ token lên header của tất cả request
 
@@ -118,11 +126,11 @@ export const userUpdateAction = (userProfile, history) => {
 }
 
 //Đăng ký khóa học
-export const courseRegisting = (courseRegister) => {
+export const courseRegisting = (courseRegister, history) => {
     return dispatch => {
         restConnector({
             method: 'POST',
-            url: '/api/QuanLyKhoaHoc/DangKyKhoaHoc',
+            url: '/api/quanlykhoahoc/dangkykhoahoc',
             headers: {
                 "Authorization": "Bearer " + localStorage.getItem(settings.token),
             },
@@ -131,13 +139,15 @@ export const courseRegisting = (courseRegister) => {
             console.log(res.data);
             //Đăng nhập thành công => Lưu thông tin user và token vào localstorage để request về những api yêu cầu token
             // localStorage.removeItem("userProfile");
-            userDetail(settings.taiKhoan);
+            // userDetail(settings.taiKhoan);
+            userDetail(localStorage.getItem(settings.taiKhoan));
             localStorage.setItem(settings.userProfile, JSON.stringify(res.data));
 
             //Lưu data lên store để render lại giao diện header
-            dispatch(reduxAction(COURSE_REGISTING, res.data.taiKhoan));
+            dispatch(reduxAction(COURSE_REGISTING, res.data));
+            dispatch(reduxAction(UPDATE_USER_INFO, res.data));
 
-            //bỏ token lên header của tất cả request
+            alert('Register Success!')
 
         }).catch(error => {
             console.log(error.response.data);

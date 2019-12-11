@@ -17,3 +17,11 @@ export const LOGIN = 'LOGIN';
 export const USER_INFO = 'USER_INFO';
 export const UPDATE_USER_INFO = 'UPDATE_USER_INFO';
 export const SIGNUP = 'SIGNUP';
+
+//Admin
+export const LOGIN_ADMIN = 'LOGIN_ADMIN';
+export const ADMIN_INFO = 'ADMIN_INFO';
+export const UPDATE_ADMIN_INFO = 'UPDATE_ADMIN_INFO';
+
+//lấy danh sách học viên chưa ghi danh
+export const GET_USER_UNREGISTER = "GET_USER_UNREGISTER";

@@ -33,6 +33,7 @@ const CartItemReducer = (state = initialCartItem, { payload, type }) => {
         }
         case COURSE_REGISTING: {
             console.log("thanh toan", payload);
+            return [...state];
         }
         default:
             return state;

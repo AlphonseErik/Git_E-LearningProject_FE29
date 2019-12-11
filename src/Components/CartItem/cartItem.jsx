@@ -12,6 +12,7 @@ const CartItem = props => {
         })
     }
     let { hinhAnh, tenKhoaHoc, moTa, maKhoaHoc } = props.cartItem;
+    
     return (
         <ul className={classes.shoping}>
             <div className={classes.item}>
