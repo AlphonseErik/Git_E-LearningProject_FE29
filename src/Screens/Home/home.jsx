@@ -79,7 +79,6 @@ const HomeScreen = props => {
                                     <div key={index}>
                                         <CourseItem item={item} />
                                     </div>
-
                                 ))}
                                 {/* </OwlCarousel> */}
                             </div>

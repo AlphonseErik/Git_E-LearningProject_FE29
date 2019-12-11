@@ -25,6 +25,7 @@ const Category = props => {
         })
     }
     // const { tenDanhMuc} = this.props.item;
+
     return (
         <div className="btn-group" className={classes.categoryItem} >
             {

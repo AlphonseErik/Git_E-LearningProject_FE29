@@ -2,6 +2,7 @@
 export const FETCH_COURSE_DETAIL = "FETCH_COURSE_DETAIL";
 export const FETCH_COURSES = "FETCH_COURSES";
 export const SEARCH_COURSE = "SEARCH_COURSE";
+export const COURSE_REGISTING = "COURSE_REGISTING";
 
 //Category
 export const FETCH_CATEGORY = "FETCH_CATEGORY";
@@ -16,4 +17,3 @@ export const LOGIN = 'LOGIN';
 export const USER_INFO = 'USER_INFO';
 export const UPDATE_USER_INFO = 'UPDATE_USER_INFO';
 export const SIGNUP = 'SIGNUP';
-export const DANGKY_KHOAHOC ="DANGKY_KHOAHOC";

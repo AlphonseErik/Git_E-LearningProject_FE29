@@ -19,12 +19,24 @@ const CategoryItemHeader = props => {
     //         })
     // }, [])
 
-    const { tenDanhMuc } = props.item;
+    // Lấy Mã Danh Mục Lưu Store
+    let choosenCategory = (maDanhMuc) => {
+        props.dispatch({
+            type: "SET_CATEGORY",
+            payload: maDanhMuc
+        })
+    }
 
     return (
         <div className={classes.categoryItem}>
             <div className={classes.categoryItem__dropDown}>
-                <span className="dropdown-item" >{tenDanhMuc}</span>
+                {
+                    props.categoryList.map((categoryChoose, index) => {
+                        return (
+                            <span className="dropdown-item" onClick={() => choosenCategory(categoryChoose.maDanhMuc)} key={index}> {categoryChoose.tenDanhMuc} </span>
+                        )
+                    })
+                }
             </div>
         </div>
     )

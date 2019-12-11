@@ -8,19 +8,6 @@ import reduxAction from '../../Redux/Action/action';
 
 function FilterSearch(props) {
 
-  // useEffect(() => {
-  //   courseService
-  //     .fetchCourse()
-  //     .then(res => {
-  //       props.dispatch(
-  //         reduxAction(FETCH_COURSES, res.data)
-  //       );
-  //     })
-  //     .catch(err => {
-  //       console.log(err);
-  //     });
-  // }, [])
-
   let [state, setState] = React.useState({
     search: '',
   })

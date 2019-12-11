@@ -1,58 +1,68 @@
-import React, { Component,useState } from 'react';
+import React, { Component, useState } from 'react';
 import { connect } from 'react-redux';
 import CartItem from '../../Components/CartItem/cartItem';
-import {courseRegisting} from '../../Redux/Action/userAction';
+import { courseRegisting } from '../../Redux/Action/userAction';
+import { settings } from '../../config/settings';
 
-class Cart extends Component {
-    constructor(props){
-        super(props);
-        this.state={
-          isboolean:true
-        }
-    }
-    renderButton =()=>{
-        this.setState({
-           isboolean:false
-        })
-         courseRegisting()
-       }
+function Cart(props) {
 
-
-       renderCard = () => {
-        return this.props.cartItem.map((sanpham, index) => {
+    let renderCard = () => {
+        return props.cartItem.map((sanpham, index) => {
             console.log(sanpham.hinhAnh, sanpham.maKhoaHoc);
             return (
                 <CartItem key={index} cartItem={sanpham} />
             )
         })
     }
-    
- render(){
 
-    
+    const userCourseRegister = props.cartItem;
 
+    const { maKhoaHoc, tenKhoaHoc } = JSON.stringify(userCourseRegister);
+
+    console.log(maKhoaHoc);
+
+    const userLocalStorage = localStorage.getItem(settings.taiKhoan);
+
+    const { taiKhoan } = userLocalStorage;
+
+    let [state, setState] = React.useState({
+        userRegisterCourse: {
+            taiKhoan: taiKhoan,
+            maKhoaHoc: props.cartItem.maKhoaHoc,
+        },
+        isBoolean: true,
+
+    })
+
+    let renderButton = () => {
+        setState({
+            isBoolean: false
+        })
+        courseRegisting()
+    }
 
     return (
         <div className="container">
             <h3>Course in Cart</h3>
             <div className="row">
                 <div className="col-8">
-                    {this.renderCard()}
+                    {renderCard()}
                 </div>
                 <div className="col-4">
                     <div>
                         <h3>Total: 50$</h3>
                     </div>
                     <div>
-                     {this.state.isboolean ? <button className="btn btn-danger" onClick={()=>this.renderButton()}>Thanh Toán</button>:<button className="btn btn-success">Đang chờ ghi danh</button> }
+                        {state.isBoolean ? <button className="btn btn-danger" onClick={renderButton}>Thanh Toán</button> : <button className="btn btn-success">Đang chờ ghi danh</button>}
                     </div>
                 </div>
             </div>
         </div>
     )
 }
-}
 
-const mapStateToProps = state => ({ cartItem: state.cartItem });
+const mapStateToProps = state => ({
+    cartItem: state.cartItem
+});
 
 export default connect(mapStateToProps)(Cart);

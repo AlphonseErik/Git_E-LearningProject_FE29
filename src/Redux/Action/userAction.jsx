@@ -1,4 +1,4 @@
-import { type, LOGIN, UPDATE_USER, USER_INFO, SIGNUP, UPDATE_USER_INFO, ADD_CART_ITEM,DANGKY_KHOAHOC } from './actionType';
+import { type, LOGIN, UPDATE_USER, USER_INFO, SIGNUP, UPDATE_USER_INFO, ADD_CART_ITEM, COURSE_REGISTING } from './actionType';
 import { settings } from '../../config/settings';
 import reduxAction from "./action";
 import { restConnector } from '../../Services';
@@ -135,7 +135,7 @@ export const courseRegisting = (courseRegister) => {
             localStorage.setItem(settings.userProfile, JSON.stringify(res.data));
 
             //Lưu data lên store để render lại giao diện header
-            dispatch(reduxAction(DANGKY_KHOAHOC, res.data.taiKhoan));
+            dispatch(reduxAction(COURSE_REGISTING, res.data.taiKhoan));
 
             //bỏ token lên header của tất cả request
 

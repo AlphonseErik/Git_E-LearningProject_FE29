@@ -21,7 +21,7 @@ export const mainListItems = (
                 <ListItemText primary="Dashboard" />
             </ListItem>
         </NavLink>
-        <NavLink style={{ color: '#1e1e1e', textDecoration: 'none' }} to="/cart">
+        <NavLink style={{ color: '#1e1e1e', textDecoration: 'none' }} to="/admin/order">
             <ListItem button>
                 <ListItemIcon>
                     <ShoppingCartIcon />

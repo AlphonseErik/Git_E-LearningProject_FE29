@@ -134,11 +134,9 @@ const Header = props => {
                                             <i className="fa fa-th mr-2"></i>Category
                                     </NavLink>
                                         <div className="dropdown-menu">
-                                            {props.categoryList.map((item, index) => (
-                                                <div key={index}>
-                                                    <CategoryItemHeader item={item} />
-                                                </div>
-                                            ))}
+                                            <div>
+                                                <CategoryItemHeader/>
+                                            </div>
                                         </div>
                                     </li>
                                     <li className="nav-item">
