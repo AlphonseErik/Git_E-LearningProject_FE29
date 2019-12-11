@@ -129,13 +129,14 @@ const Header = props => {
                         props.credentials ?
                             (
                                 <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
+
                                     <li className="nav-item active dropdown">
                                         <NavLink className="nav-link" data-toggle="dropdown" to="#" aria-haspopup="true" aria-expanded="false">
                                             <i className="fa fa-th mr-2"></i>Category
-                                    </NavLink>
+                                        </NavLink>
                                         <div className="dropdown-menu">
                                             <div>
-                                                <CategoryItemHeader/>
+                                                <CategoryItemHeader />
                                             </div>
                                         </div>
                                     </li>
@@ -212,6 +213,7 @@ const Header = props => {
 const mapStateToProps = state => ({
     categoryList: state.categoryList,
     credentials: state.user.credentials,
+    // credentialsAdmin: state.admin.credentials,
     cartItem: state.cartItem,
 });
 

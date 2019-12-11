@@ -22,6 +22,7 @@ export const SIGNUP = 'SIGNUP';
 export const LOGIN_ADMIN = 'LOGIN_ADMIN';
 export const ADMIN_INFO = 'ADMIN_INFO';
 export const UPDATE_ADMIN_INFO = 'UPDATE_ADMIN_INFO';
+export const ADD_NEW_USER = 'ADD_NEW_USER';
 
 //lấy danh sách học viên chưa ghi danh
 export const GET_USER_UNREGISTER = "GET_USER_UNREGISTER";

@@ -7,7 +7,6 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Title from './title';
-import { getUserUnregister } from "../../Redux/Action/adminAction";
 
 // Generate Order Data
 function createData(id, date, name, shipTo, paymentMethod, amount) {
@@ -33,10 +32,6 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function Orders(props) {
-
-    useEffect(()=>{
-        getUserUnregister();
-    },[]);
 
     const classes = useStyles();
     return (

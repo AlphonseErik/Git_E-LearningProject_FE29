@@ -5,10 +5,10 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import PeopleIcon from '@material-ui/icons/People';
 import BarChartIcon from '@material-ui/icons/BarChart';
 import LayersIcon from '@material-ui/icons/Layers';
 import AssignmentIcon from '@material-ui/icons/Assignment';
+import PersonAddIcon from '@material-ui/icons/PersonAdd';
 import { NavLink } from 'react-router-dom';
 
 export const mainListItems = (
@@ -29,12 +29,14 @@ export const mainListItems = (
                 <ListItemText primary="Carts Order" />
             </ListItem>
         </NavLink>
+        <NavLink style={{ color: '#1e1e1e', textDecoration: 'none' }} to="/admin/adduser">
         <ListItem button>
             <ListItemIcon>
-                <PeopleIcon />
+                <PersonAddIcon />
             </ListItemIcon>
-            <ListItemText primary="Customers" />
+            <ListItemText primary="Add New User" />
         </ListItem>
+        </NavLink>
         <ListItem button>
             <ListItemIcon>
                 <BarChartIcon />

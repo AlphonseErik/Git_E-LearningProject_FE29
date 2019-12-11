@@ -44,7 +44,7 @@ export default function Chart() {
                             style={{ textAnchor: 'middle', fill: theme.palette.text.primary }}
                         >
                             Sales ($)
-            </Label>
+                    </Label>
                     </YAxis>
                     <Line type="monotone" dataKey="amount" stroke={theme.palette.primary.main} dot={false} />
                 </LineChart>

@@ -21,24 +21,10 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import { mainListItems, secondaryListItems } from './listItems';
 // import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-
 import Chart from './chart';
 import Deposits from './deposit';
 import Orders from './orders';
-import { NavLink } from 'react-router-dom';
-
-function Copyright() {
-    return (
-        <Typography variant="body2" color="textSecondary" align="center">
-            {'Copyright © '}
-            <Link color="inherit" href="https://material-ui.com/">
-                Your Website
-            </Link>{' '}
-            {new Date().getFullYear()}
-            {'.'}
-        </Typography>
-    );
-}
+import AddNewUser from './addNewUser';
 
 const drawerWidth = 240;
 
@@ -171,6 +157,11 @@ function AdminScreen(props) {
                         <Grid item xs={12}>
                             <Paper className={classes.paper}>
                                 <Orders />
+                            </Paper>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <Paper className={classes.paper}>
+                                <AddNewUser />
                             </Paper>
                         </Grid>
                     </Grid>

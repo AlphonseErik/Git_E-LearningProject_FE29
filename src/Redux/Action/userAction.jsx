@@ -60,7 +60,7 @@ export const userLoginAction = (userLogin, history) => {
             localStorage.setItem(settings.taiKhoan, res.data.taiKhoan);
             dispatch(reduxAction(LOGIN_ADMIN, res.data));
             dispatch(reduxAction(LOGIN, res.data));
-            history.push('./admin/profile');
+            history.push('./admin');
         }).catch(error => {
             console.log(error.response.data);
             alert('Error: ' + error.response.data)
