@@ -19,12 +19,12 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import NotificationsIcon from '@material-ui/icons/Notifications';
-import { mainListItems, secondaryListItems } from './listItems';
+import { mainListItems, secondaryListItems } from '../../Components/AdminProfileScreen/ListItem/listItems';
 // import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import Chart from './chart';
-import Deposits from './deposit';
-import Orders from './orders';
-import AddNewUser from './addNewUser';
+import Chart from '../../Components/AdminProfileScreen/Chart/chart';
+import Deposits from '../../Components/AdminProfileScreen/Deposit/deposit';
+import Orders from '../../Components/AdminProfileScreen/Orders/orders';
+import AddNewUser from '../../Components/AdminProfileScreen/AdminAddNewUser/adminAddNewUser';
 
 const drawerWidth = 240;
 

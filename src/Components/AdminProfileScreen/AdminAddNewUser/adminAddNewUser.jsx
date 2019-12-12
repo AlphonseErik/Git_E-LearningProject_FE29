@@ -1,16 +1,15 @@
 import React from 'react';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
+import {Grid} from '@material-ui/core';
+import {Typography} from '@material-ui/core';
+import {TextField} from '@material-ui/core';
+import {FormControlLabel} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import InputLabel from '@material-ui/core/InputLabel';
-import FormHelperText from '@material-ui/core/FormHelperText';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
-import NativeSelect from '@material-ui/core/NativeSelect';
-import Title from './title';
+import {InputLabel} from '@material-ui/core';
+import {FormHelperText} from '@material-ui/core';
+import {FormControl} from '@material-ui/core';
+import {Select} from '@material-ui/core';
+import {NativeSelect} from '@material-ui/core';
+import Title from '../Title/title';
 
 
 const useStyles = makeStyles(theme => ({

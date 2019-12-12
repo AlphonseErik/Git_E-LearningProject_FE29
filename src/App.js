@@ -6,7 +6,7 @@ import HomeScreen from "./Screens/Home/home";
 import { restConnector } from "./Services";
 import reduxAction from "./Redux/Action/action";
 import { LOGIN, USER_INFO } from "./Redux/Action/actionType";
-import UserProfile from "./Screens/UserScreen/UserProfile/userProfile";
+import UserProfile from "./Components/UserProfileScreen/UserProfile/userProfile";
 import Login from "./Screens/Login/login";
 import Signup from "./Screens/Signup/signup";
 import PrivateRoute from "./HOC/Auth"
@@ -17,8 +17,9 @@ import Cart from "./Screens/Cart/cart";
 import CourseDetail from "./Components/CourseDetail/courseDetail";
 import PrivateAdminRoute from "./HOC/AdminAuth";
 import AdminScreen from "./Screens/AdminScreen/adminScreen";
-import Orders from './Screens/AdminScreen/orders';
-import AddNewUser from "./Screens/AdminScreen/addNewUser";
+import Orders from './Components/AdminProfileScreen/Orders/orders';
+import AddNewUser from "./Components/AdminProfileScreen/AdminAddNewUser/adminAddNewUser";
+import userCartProfile from "./Components/UserProfileScreen/UserCartProfile/userCartProfile";
 
 const App = props => {
 
@@ -43,6 +44,7 @@ const App = props => {
         <Route path="/coursedetail/:courseid" component={CourseDetail} />
         <PrivateRoute path="/user" Component={UserScreen} />
         <PrivateRoute path="/user/profile" Component={UserProfile} />
+        {/* <PrivateRoute path="/user/course"  Component={userCartProfile}/> */}
         <PrivateRoute path="/cart" Component={Cart} />
         <PrivateAdminRoute path="/admin" exact Component={AdminScreen} />
         <PrivateAdminRoute path ="/admin/order" Component={Orders} />

@@ -1,15 +1,11 @@
-import React from 'react'
-import { settings } from '../../../config/settings';
-import { courseRegisting } from '../../../Redux/Action/userAction';
+import React, { useEffect } from 'react'
+import { settings } from '../../config/settings';
+import { courseRegisting } from '../../Redux/Action/userAction';
+import { connect } from "react-redux";
 
 const Payment = props => {
 
-    let {maKhoaHoc} = props.cartItem;
-
-    // const userLocalStorage = localStorage.getItem(settings.taiKhoan);
-
-    // const { taiKhoan } = userLocalStorage;
-    // console.log(taiKhoan)
+    let { maKhoaHoc } = props.item;
 
     let [state, setState] = React.useState({
         userRegisterCourse: {
@@ -24,8 +20,8 @@ const Payment = props => {
         setState({
             isBoolean: false,
         });
-        console.log(state.userRegisterCourse)
-        courseRegisting(state.userRegisterCourse, props.history);
+        console.log(state.userRegisterCourse);
+        props.dispatch(courseRegisting(state.userRegisterCourse, props.history));
     }
 
     return (
@@ -40,4 +36,4 @@ const Payment = props => {
     )
 }
 
-export default Payment;
+export default connect()(Payment);

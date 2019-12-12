@@ -45,6 +45,8 @@ function UserProfile(props) {
 
     const { taiKhoan, hoTen, soDT, email } = userLocalStorage;
 
+    // console.log(chiTietKhoaHocGhiDanh);
+
     let [user, setUserProfile] = useState({
         userProfile: {
             taiKhoan: taiKhoan,

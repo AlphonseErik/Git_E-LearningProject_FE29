@@ -141,7 +141,7 @@ export const courseRegisting = (courseRegister, history) => {
             // localStorage.removeItem("userProfile");
             // userDetail(settings.taiKhoan);
             userDetail(localStorage.getItem(settings.taiKhoan));
-            localStorage.setItem(settings.userProfile, JSON.stringify(res.data));
+            // localStorage.setItem(settings.userProfile, JSON.stringify(res.data));
 
             //Lưu data lên store để render lại giao diện header
             dispatch(reduxAction(COURSE_REGISTING, res.data));

@@ -154,8 +154,8 @@ function Login(props) {
     )
 }
 
-const mapStateToProp = state => ({
-    credentials: state.user.credentials,
-});
+// const mapStateToProp = state => ({
+//     credentials: state.user.credentials,
+// });
 
-export default connect(mapStateToProp)(Login);
+export default connect()(Login);
