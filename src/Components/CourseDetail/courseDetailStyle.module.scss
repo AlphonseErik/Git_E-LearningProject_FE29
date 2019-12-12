@@ -1,3 +1,5 @@
+@import '../../Scss/Helper/mixin';
+@import '../../Scss/Helper/variable';
 .headerDetail {
     background-color: gainsboro;
     height: 40px;
@@ -52,20 +54,21 @@
             font-size: 15px;
         }
         button {
-            padding: 15px 110px;
+            @include btn_AddCard($color-white-0, $fs-1 +5, $pd-2, $pd-2 + 85, $color-red-0, $mg-1);
         }
     }
-    .righttext {
-        padding-top: 15px;
-        font-size: 15px;
-        line-height: 10px;
-        padding-left: 10px;
-        h5 {
-            font-size: 18px;
-            font-weight: 300;
-        }
-        p {
-            font-weight: 300;
-        }
+}
+
+.righttext {
+    padding-top: 15px;
+    font-size: 15px;
+    line-height: 10px;
+    padding-left: 10px;
+    h5 {
+        font-size: 18px;
+        font-weight: 300;
+    }
+    p {
+        font-weight: 300;
     }
 }

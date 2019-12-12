@@ -1,7 +1,28 @@
+@import '../../Scss/Helper/variable';
+@import '../../Scss/Helper/mixin';
 .giohang {
     border-radius: 50%;
     background-color: white;
     i {
         color: black;
+    }
+}
+
+.dangnhap {
+    button {
+        @include button_header($color-white-0, $color-black-0, $color-black-0, $pd-0, $pd-0, $border-radius);
+        @include text_style($color-red-0, $fs-2, $fw-normal);
+        a {
+            &:hover {
+                @include text_style($color-red-0, $fs-2, $fw-normal);
+            }
+        }
+    }
+}
+
+.dangky {
+    button {
+        @include button_header($color-red-0, $color-red-0, $color-white-0, $pd-0, $pd-0, $border-radius);
+        @include text_style($color-white-0, $fs-2, $fw-normal);
     }
 }

@@ -17,7 +17,7 @@ import { Badge } from '@material-ui/core'
 import { withStyles } from "@material-ui/styles";
 import IconButton from '@material-ui/core/IconButton';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import classes from './headerStyle.module.scss';
+import sass from './headerStyle.module.scss';
 
 const courseService = new CourseService();
 
@@ -172,18 +172,30 @@ const Header = props => {
                                     <SwipeableDrawer anchor="right" open={state.right} onClose={toggleDrawer('right', false)} onOpen={toggleDrawer('right', true)}> {sideList('right')} </SwipeableDrawer>
                                 </li>
                             ) : (
+                                   
                                     <li className="nav-item active" >
-                                        <NavLink className="nav-link" to="/login">Login</NavLink>
+                                         <div className={sass.dangnhap}>
+                                        <button className="btn">
+                                        <NavLink className="nav-link py-1" to="/login">Login</NavLink>
+                                        </button>
+                                        </div>
                                     </li>
+                                   
                                 )
                         }{
                             props.credentials ? (
                                 <li className="nav-item ">
                                 </li>
-                            ) : (
-                                    <li className="nav-item active" >
-                                        <NavLink className="nav-link" to="/signup">Sign Up</NavLink>
+                            ) : ( 
+                                  
+                                    <li className="nav-item active ml-2 mr-3" >
+                                        <div className={sass.dangky}>
+                                        <button className="btn">
+                                        <NavLink className="nav-link py-1" to="/signup">Sign Up</NavLink>
+                                        </button>
+                                        </div>
                                     </li>
+                                   
                                 )
                         }
                         <li className="nav-item ">
