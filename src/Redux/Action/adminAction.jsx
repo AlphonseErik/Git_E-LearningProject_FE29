@@ -1,7 +1,7 @@
 import { restConnector } from "../../Services"
 import { settings } from "../../config/settings";
 
-export const addNewUser = () => {
+export const addNewUser = (newUserInfo, history) => {
     return dispatch => {
         restConnector({
             method: 'POST',
@@ -9,9 +9,13 @@ export const addNewUser = () => {
             headers: {
                 "Authorization": "Bearer " + localStorage.getItem(settings.token),
             },
-            data: 'maKhoaHoc: Golang',
-        }).then(res =>{
+            data: newUserInfo,
+        }).then(res => {
             console.log(res.data);
+            alert("Add New User Success!! || New Username: " + res.data.taiKhoan + " || Password: " + res.data.matKhau);
+        }).catch(error => {
+            console.log(error.response.data);
+            alert('Error: ' + error.response.data)
         })
     }
 }

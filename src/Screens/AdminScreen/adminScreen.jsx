@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -25,6 +25,9 @@ import Chart from '../../Components/AdminProfileScreen/Chart/chart';
 import Deposits from '../../Components/AdminProfileScreen/Deposit/deposit';
 import Orders from '../../Components/AdminProfileScreen/Orders/orders';
 import AddNewUser from '../../Components/AdminProfileScreen/AdminAddNewUser/adminAddNewUser';
+import { connect } from 'react-redux';
+import { settings } from '../../config/settings';
+import { userDetail } from '../../Redux/Action/userAction';
 
 const drawerWidth = 240;
 
@@ -108,12 +111,23 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function AdminScreen(props) {
+
+    useEffect(() => {
+        //Lấy dữ liệu userDetail từ api
+        let userAccess = localStorage.getItem(settings.taiKhoan);
+        let userProfile = localStorage.getItem("userProfile");
+        // let userProfileEdit = localStorage.getItem(settings.userProfileEdit);
+        if (userAccess && !userProfile) {
+            props.dispatch(userDetail(userAccess));
+        }
+    }, []);
+
     const classes = useStyles();
     const [open, setOpen] = React.useState(true);
     const handleDrawer = () => {
         setOpen(!open);
     };
-    
+
     const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
     return (
@@ -171,4 +185,4 @@ function AdminScreen(props) {
     );
 }
 
-export default AdminScreen;
+export default connect()(AdminScreen);
