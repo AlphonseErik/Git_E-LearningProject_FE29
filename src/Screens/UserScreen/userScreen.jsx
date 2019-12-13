@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 // import CssBaseline from '@material-ui/core/CssBaseline';
 // import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
@@ -12,6 +12,8 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import UserCart from "../../Components/UserProfileScreen/UserCartProfile/userCartProfile";
 import { connect } from "react-redux";
+import { userDetail } from "../../Redux/Action/userAction";
+import { settings } from "../../config/settings";
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -49,12 +51,25 @@ const useStyles = makeStyles(theme => ({
 }));
 const UserScreen = props => {
 
+    
+    useEffect(() => {
+        //Lấy dữ liệu userDetail từ api
+        let userAccess = localStorage.getItem(settings.taiKhoan);
+        let userProfile = localStorage.getItem("userProfile");
+        // let userProfileEdit = localStorage.getItem(settings.userProfileEdit);
+        if (userAccess && !userProfile) {
+            props.dispatch(userDetail(userAccess));
+        }
+    },[]);
+
     const classes = useStyles();
     const [value, setValue] = React.useState(0);
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
+
+    const userLocalStorage = JSON.parse(localStorage.getItem(settings.userProfile));
 
     return (
         <React.Fragment>
@@ -69,7 +84,7 @@ const UserScreen = props => {
                     <UserProfile />
                 </TabPanel>
                 <TabPanel value={value} index={1}>
-                    <UserCart />
+                    <UserCart item={userLocalStorage}/>
                 </TabPanel>
                 <TabPanel value={value} index={2}>
                     Item Three
@@ -79,5 +94,9 @@ const UserScreen = props => {
         </React.Fragment>
     )
 }
+
+// const mapStateToProps = state => ({
+//     credentialsAdmin: state.admin.credentials,
+// })
 
 export default connect()(UserScreen);

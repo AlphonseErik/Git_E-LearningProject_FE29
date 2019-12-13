@@ -40,11 +40,11 @@ const App = props => {
       <Header />
       <Switch>
         {/* <HomeScreen /> */}
-        <Route path="/home" exact component={HomeScreen} />
+        <Route path="/home" component={HomeScreen} />
         <Route path="/coursedetail/:courseid" component={CourseDetail} />
         <PrivateRoute path="/user" Component={UserScreen} />
         <PrivateRoute path="/user/profile" Component={UserProfile} />
-        {/* <PrivateRoute path="/user/course"  Component={userCartProfile}/> */}
+        <PrivateRoute path="/user/cart"  Component={userCartProfile}/>
         <PrivateRoute path="/cart" Component={Cart} />
         <PrivateAdminRoute path="/admin" exact Component={AdminScreen} />
         <PrivateAdminRoute path ="/admin/order" Component={Orders} />

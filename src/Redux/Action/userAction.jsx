@@ -148,7 +148,37 @@ export const courseRegisting = (courseRegister, history) => {
             dispatch(reduxAction(UPDATE_USER_INFO, res.data));
 
             alert('Register Success!')
+            history.push('./user');
+        }).catch(error => {
+            console.log(error.response.data);
+        })
+    }
+};
 
+//Huỷ khoá học
+export const courseCanceling = (courseCanceling, history) => {
+    return dispatch => {
+        restConnector({
+            method: 'POST',
+            url: '/api/quanlykhoahoc/huyghidanh',
+            headers: {
+                "Authorization": "Bearer " + localStorage.getItem(settings.token),
+            },
+            data: courseCanceling,
+        }).then(res => {
+            console.log(res.data);
+            //Đăng nhập thành công => Lưu thông tin user và token vào localstorage để request về những api yêu cầu token
+            // localStorage.removeItem("userProfile");
+            // userDetail(settings.taiKhoan);
+            userDetail(localStorage.getItem(settings.taiKhoan));
+            // localStorage.setItem(settings.userProfile, JSON.stringify(res.data));
+
+            //Lưu data lên store để render lại giao diện header
+            dispatch(reduxAction(COURSE_REGISTING, res.data));
+            dispatch(reduxAction(UPDATE_USER_INFO, res.data));
+
+            alert('Cancel Success!')
+            history.push('./user');
         }).catch(error => {
             console.log(error.response.data);
         })

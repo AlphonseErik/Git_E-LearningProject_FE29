@@ -11,7 +11,7 @@ import { Select } from '@material-ui/core';
 import { NativeSelect } from '@material-ui/core';
 import Title from '../Title/title';
 import { addNewUser } from '../../../Redux/Action/adminAction';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
 
 const useStyles = makeStyles(theme => ({

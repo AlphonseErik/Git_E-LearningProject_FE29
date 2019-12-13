@@ -152,6 +152,7 @@ function UserProfile(props) {
 const mapStateToProps = state => ({
     updatingUser: state.updatingUser,
     credentials: state.user.credentials,
+    // credentialsAdmin: state.admin.credentials,
     courseList: state.courseList,
 });
 
