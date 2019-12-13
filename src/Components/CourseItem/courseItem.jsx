@@ -33,7 +33,7 @@ const CourseItem = props => {
   return (
     <Popup trigger={
       <NavLink to={`/coursedetail/${maKhoaHoc}`}>
-        <div className="container">
+        <div className="container mt-3">
           <div className={classes.courseItem}>
             <div className={classes.classA}>
               <div className={classes.card}>
@@ -58,7 +58,7 @@ const CourseItem = props => {
               </div>
             </div>
           </div>
-        </div>
+          </div>
       </NavLink>}
       position={['top left', 'top right', 'bottom right', 'bottom left', 'right center', 'left center', 'top center', 'bottom center', 'center center']} on={"hover"}>
       <div className={classes.popup}>

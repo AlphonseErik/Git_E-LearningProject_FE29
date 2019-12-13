@@ -93,7 +93,7 @@
             font-weight: $fw-normal;
         }
         button {
-            @include btn_AddCard($color-white-0, $fs-2 -2, $pd-1, $pd-2 +3, $color-red-0, $mg-1);
+            @include btn_AddCard($color-white-0, $fs-2 -2, $pd-1, $pd-2+3, $color-red-0, $mg-1);
         }
     }
 }

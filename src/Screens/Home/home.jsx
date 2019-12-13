@@ -59,9 +59,9 @@ const HomeScreen = props => {
                     </div>
                     <Category />
                     <FilterSearch />
-                    <div>
-                        <div className="container">
-                            <div className="row" >
+                    <div  className={classes.giaodiencourse }>
+                        <div className="container ">
+                            <div className="row " >
                                 {/* <OwlCarousel className="owl-theme"
                             loop
                             items={4}
