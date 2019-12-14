@@ -25,4 +25,5 @@ export const UPDATE_ADMIN_INFO = 'UPDATE_ADMIN_INFO';
 export const ADD_NEW_USER = 'ADD_NEW_USER';
 
 //lấy danh sách học viên chưa ghi danh
+export const ADMIN_GET_USER_REGIST_COURSE = "ADMIN_GET_USER_REGIST_COURSE";
 export const GET_USER_UNREGISTER = "GET_USER_UNREGISTER";

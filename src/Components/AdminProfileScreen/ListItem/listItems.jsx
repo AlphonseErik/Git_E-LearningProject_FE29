@@ -21,14 +21,14 @@ export const mainListItems = (
                 <ListItemText primary="Dashboard" />
             </ListItem>
         </NavLink>
-        <NavLink style={{ color: '#1e1e1e', textDecoration: 'none' }} to="/admin/order">
+        {/* <NavLink style={{ color: '#1e1e1e', textDecoration: 'none' }} to="/admin/order"> */}
             <ListItem button>
                 <ListItemIcon>
                     <ShoppingCartIcon />
                 </ListItemIcon>
                 <ListItemText primary="Carts Order" />
             </ListItem>
-        </NavLink>
+        {/* </NavLink> */}
         <NavLink style={{ color: '#1e1e1e', textDecoration: 'none' }} to="/admin/adduser">
         <ListItem button>
             <ListItemIcon>

@@ -225,7 +225,7 @@ const Header = props => {
 const mapStateToProps = state => ({
     categoryList: state.categoryList,
     credentials: state.user.credentials,
-    // credentialsAdmin: state.admin.credentials,
+    courseList: state.courseList,
     cartItem: state.cartItem,
 });
 

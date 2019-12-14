@@ -108,7 +108,7 @@ function AddNewUser(props) {
                     </Grid>
                     <Grid item xs={12} md={6}>
                         <FormControl required className={classes.formControl} >
-                            <InputLabel htmlFor="age-native-helper">User Code</InputLabel>
+                            <InputLabel>User Code</InputLabel>
                             <NativeSelect
                                 name="maLoaiNguoiDung"
                                 value={addNewUser.maLoaiNguoiDung}
@@ -121,7 +121,7 @@ function AddNewUser(props) {
                     </Grid>
                     <Grid item xs={12} md={6}>
                         <FormControl required className={classes.formControl} >
-                            <InputLabel htmlFor="age-native-helper">Group Code</InputLabel>
+                            <InputLabel>Group Code</InputLabel>
                             <NativeSelect
                                 name="maNhom"
                                 onChange={handleChange}

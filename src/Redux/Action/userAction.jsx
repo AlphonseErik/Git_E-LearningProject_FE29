@@ -130,7 +130,7 @@ export const courseRegisting = (courseRegister, history) => {
     return dispatch => {
         restConnector({
             method: 'POST',
-            url: '/api/quanlykhoahoc/dangkykhoahoc',
+            url: '/api/quanlykhoahoc/ghidanhkhoahoc',
             headers: {
                 "Authorization": "Bearer " + localStorage.getItem(settings.token),
             },

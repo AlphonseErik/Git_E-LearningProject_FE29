@@ -47,7 +47,7 @@ const App = props => {
         <PrivateRoute path="/user/cart"  Component={userCartProfile}/>
         <PrivateRoute path="/cart" Component={Cart} />
         <PrivateAdminRoute path="/admin" exact Component={AdminScreen} />
-        <PrivateAdminRoute path ="/admin/order" Component={Orders} />
+        {/* <PrivateAdminRoute path ="/admin/order" Component={Orders} /> */}
         <PrivateAdminRoute path="/admin/adduser" Component={AddNewUser}/>
 
         <Route path="/login" component={Login} />
