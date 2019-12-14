@@ -1,7 +1,9 @@
+    @import '../../Scss/Helper/variable';
+    @import '../../Scss/Helper/mixin';
     .home {
-        font-size: 20px;
-        color: #ff1744;
-        background-color: #fff;
+        font-size: $fs-2;
+        color: $color-red-0;
+        background-color: $color-white-0;
         text-align: left;
         .home__name {
             background-color: azure;
@@ -11,10 +13,13 @@
             .classh1 {
                 text-align: center;
                 animation: Bottom 0.5s ease-in-out infinite;
-                color: red;
-                font-weight: bold;
-                padding-top: 50px;
+                color: $color-red-0;
+                font-weight: $fw-bold;
+                padding-top: $pd-2 + 30;
             }
+        }
+        .classsale {
+            background-color: azure;
         }
         // .home__p {
         //     // p {
@@ -27,13 +32,13 @@
         // }
         .home_right {
             background-color: rgb(52, 58, 64);
-            padding: 20px 50px;
+            padding: $pd-2 $pd-2 +30;
         }
         .home_right_span {
             span {
-                margin: 20px;
-                padding: 150px;
-                font-weight: bold;
+                margin: $mg-2 -5;
+                padding: $pd-2 + 130;
+                font-weight: $fw-bold;
                 color: white;
             }
         }

@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Slider from "react-slick";
-import SaleItem from "./SaleItem";
-
+import SaleItem from './SaleItem/SaleItem';
 class Sale extends Component {
   renderSale =()=>{
     return this.props.card.map((item,i)=>{
@@ -20,12 +19,12 @@ class Sale extends Component {
   
     console.log("sale", this.props.card);
     return (
-      <div className="container">
-      <div className="row">
-        {this.renderSale()}
+      <div>
+       <div className="row">      
+           {this.renderSale()}
+        </div>
+        </div>
 
-        </div>
-        </div>
 
     );
   }
