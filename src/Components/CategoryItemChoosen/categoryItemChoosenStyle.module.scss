@@ -1,15 +1,16 @@
+@import '../../Scss/Helper/variable';
 .categoryItem {
-    font-size: 20px;
+    font-size: $fs-2;
     text-align: center;
-    padding: 0 5px;
-    padding-top: 15px;
+    padding: 0 $pd-0;
+    padding-top: $pd-1 + 5;
     button {
-        color: lightslategray;
-        background-color: white;
+        color: $color-black-light;
+        background-color: $color-white-0;
         border: none;
-        font-weight: bold;
+        font-weight: $fw-bold;
         box-shadow: 0 0 1px 1px rgba(20, 23, 28, .1), 0 3px 1px 0 rgba(20, 23, 28, .1);
-        margin: 0 10px;
+        margin: 0 $mg-1;
     }
      :hover {
         color: white;
@@ -17,7 +18,7 @@
         border: none;
     }
      :focus {
-        color: white;
+        color: $color-white-0;
         background-color: green;
         border: none;
     }

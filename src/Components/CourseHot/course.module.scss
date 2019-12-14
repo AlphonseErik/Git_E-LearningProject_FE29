@@ -1,14 +1,16 @@
+@import '../../Scss/Helper/variable';
 .tong {
-    color: black;
+    color: $color-black-0;
     h4 {
-        margin-left: 100px;
-        color: red;
+        margin-left: $mg-2 + 75;
+        color: $color-red-0;
     }
     .classangular {
-        padding-top: 50px;
-        padding-bottom: 50px;
+        padding-top: $pd-2 +30;
+        padding-bottom: $pd-2 + 30;
         .angulartext {
-            padding-left: 50px;
+            padding-left: $pd-2 + 30;
+            padding-top: $pd-2 + 80;
         }
     }
 }

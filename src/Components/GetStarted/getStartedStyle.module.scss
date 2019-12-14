@@ -1,24 +1,25 @@
+@import '../../Scss/Helper/variable';
 .content {
     width: 100%;
     text-align: left;
     i {
-        font-size: 40px;
+        font-size: $fs-2 + 20;
         color: mediumseagreen;
-        padding-top: 40px;
+        padding-top: $pd-2 + 20;
     }
     .getMid {
-        padding: 45px 0px;
+        padding: $pd-2 +20 0px;
         text-align: right;
         line-height: 40px;
         .itemMid {
             text-align: center;
-            padding-left: 40px;
+            padding-left: $pd-2 + 20;
             h2 {
-                font-size: 25px;
+                font-size: $fs-3 + 1;
             }
             button {
                 text-align: center;
-                padding: 10px 25px;
+                padding: $pd-1 $pd-2 +5;
             }
         }
     }

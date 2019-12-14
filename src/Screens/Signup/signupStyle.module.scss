@@ -1,11 +1,12 @@
+@import '../../Scss/Helper/variable';
 .signupStyle {
     div {
         h3 {
-            padding-top: 20px;
+            padding-top: $fs-2;
             text-align: center
         }
         p {
-            padding-left: 10px;
+            padding-left: $pd-1;
         }
     }
 }

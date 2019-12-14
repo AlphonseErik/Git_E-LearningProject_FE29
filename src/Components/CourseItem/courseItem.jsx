@@ -5,6 +5,9 @@ import Popup from 'reactjs-popup';
 import { connect } from 'react-redux';
 import { ADD_CART_ITEM } from "../../Redux/Action/actionType";
 import { NavLink } from 'react-router-dom';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+AOS.init();
 
 const CourseItem = props => {
 
@@ -35,7 +38,7 @@ const CourseItem = props => {
     <Popup trigger={
       <NavLink to={`/coursedetail/${maKhoaHoc}`}>
         <div className="container mt-3">
-          <div className={classes.courseItem}>
+          <div className={classes.courseItem} data-aos="zoom-out-up">
             <div className={classes.classA}>
               <div className={classes.card}>
                 <img className="card-img-top" src={hinhAnh} />

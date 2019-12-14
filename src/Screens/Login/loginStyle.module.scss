@@ -1,3 +1,4 @@
+@import '../../Scss/Helper/variable';
 .loginStyle {
     div {
         // h3 {
@@ -5,9 +6,9 @@
         //     text-align: center
         // }
         div {
-            h2{
-                padding-top: 40px;
-            }         
+            h2 {
+                padding-top: $fs-2 +20;
+            }
         }
     }
 }

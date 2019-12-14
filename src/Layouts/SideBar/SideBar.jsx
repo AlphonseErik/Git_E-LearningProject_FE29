@@ -3,6 +3,9 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from 'react-slick';
 import classes from './SideBar.module.scss';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+AOS.init();
 
 export default class SideBar extends Component {
     render() {
@@ -10,33 +13,15 @@ export default class SideBar extends Component {
             infinite: true,
             speed: 2000,
             slidesToShow: 1,
-            slidesToScroll: 1,   
-            
-          };
-        
+            slidesToScroll: 1,
+
+        };
+
         return (
-        <Slider {...settings}  > 
-        <div className={classes.tong}>   
-        <div className={classes.con}>
-        <h1>1111111111111111111111</h1>
-        <button className="btn">Click</button>
-        </div>
-        </div>
-        <div className={classes.tong}>
-        <div className={classes.con}>
-        <h2>222222222222222222</h2>
-        <button className="btn">Click</button>
-        </div>
-        </div>
-        <div className={classes.tong}>
-        <div className={classes.con}>
-        <h3>33333333333333333</h3>
-        <button className="btn">Click</button>
-        </div>
-        </div>
-        </Slider>
-      
-          
+            <Slider {...settings}  data-aos="fade-down-left">
+               <img src ="./img/banner1.jpg" height={500}/>
+            </Slider>
+                  
         )
     }
 }

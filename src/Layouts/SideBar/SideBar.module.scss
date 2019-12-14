@@ -1,41 +1,29 @@
+@import '../../Scss/Helper/variable';
 .tong {
     position: relative;
-    background-color: black;
+    background-color: $color-black-0;
     height: 500px;
-    animation: con 10s;
     img {
         width: 100%;
     }
     .con {
         position: absolute;
-        color: white;
-        font-size: 30px;
+        color: $color-white-0;
+        font-size: $fs-2 +10;
         top: 150px;
         left: 150px;
-        animation: con 5s;
-        transition-delay: initial;
         button {
             color: red;
             background-color: white;
-            animation: con 10s;
-        }
-        h1 {
-            animation: con 50s;
-        }
-        h2 {
-            animation: con 40s;
-        }
-        h3 {
-            animation: con 20s;
         }
     }
 }
 
-@keyframes con {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
+// @keyframes con {
+//     from {
+//         opacity: 0;
+//     }
+//     to {
+//         opacity: 1;
+//     }
+// }

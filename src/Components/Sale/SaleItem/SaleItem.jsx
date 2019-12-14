@@ -4,7 +4,9 @@ import Popup from 'reactjs-popup';
 import { ADD_CART_ITEM } from "../../../Redux/Action/actionType";
 import { NavLink } from 'react-router-dom';
 import {connect} from 'react-redux';
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+AOS.init();
 
  class SaleItem extends Component {
      addToCart = (khoahoc) => {
@@ -29,7 +31,7 @@ import {connect} from 'react-redux';
         return (
             <Popup trigger={
                 <NavLink to={`/coursedetail/${maKhoaHoc}`}>
-                    <div className={classes.courseItem}>
+                    <div className={classes.courseItem} data-aos="zoom-out-up">
                       <div className={classes.classA}>
                         <div className={classes.card}>
                           <img className="card-img-top" src={hinhAnh} />

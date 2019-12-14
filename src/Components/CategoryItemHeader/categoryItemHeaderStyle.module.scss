@@ -1,13 +1,14 @@
+@import '../../Scss/Helper/variable';
 .categoryItem {
-    font-size: 15px;
+    font-size: $fs-0;
     &__dropDown {
          :hover {
             background-color: rgb(83, 86, 90);
-            color: white;
+            color: $color-white-0;
         }
          :focus {
             background-color: rgb(58, 61, 65);
-            color: white;
+            color: $color-white-0;
         }
     }
 }

@@ -1,41 +1,42 @@
+    @import '../../Scss/Helper/variable';
     .contentSay {
-        background-color: white;
+        background-color: $color-white-0;
         width: 100%;
         .item {
             box-shadow: 0 0 1px 1px rgba(20, 23, 28, .1), 0 3px 1px 0 rgba(20, 23, 28, .1);
-            padding-left: 30px;
-            padding-top: 30px;
-            margin-top: 30px;
-            background-color: #fff;
+            padding-left: $pd-2 +10;
+            padding-top: $pd-2 +10;
+            margin-top: $pd-2 +10;
+            background-color: $color-white-0;
             img {
                 border-radius: 50%;
                 height: 70px;
                 width: 70px;
             }
             p {
-                padding: 20px 0;
+                padding: $pd-2 0;
             }
             span {
                 font-weight: normal;
-                font-size: 20px;
+                font-size: $fs-3 +1;
             }
         }
         .classThuongHieu {
             text-align: center;
-            padding-top: 40px;
+            padding-top: $pd-2 +20;
             img {
                 padding: 0;
             }
         }
         .classBecome {
             text-align: center;
-            padding-top: 40px;
-            padding-bottom: 30px;
+            padding-top: $pd-2 +20;
+            padding-bottom: $pd-2 +10;
             h3 {
-                font-size: 25px;
+                font-size: $fs-3 +1;
             }
             p {
-                font-size: 18px;
+                font-size: $fs-0 +3;
             }
         }
     }

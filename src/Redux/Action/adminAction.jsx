@@ -1,7 +1,8 @@
 import { restConnector } from "../../Services"
 import { settings } from "../../config/settings";
 import reduxAction from "./action";
-import { ADMIN_GET_USER_REGIST_COURSE } from "./actionType";
+import { ADMIN_GET_USER_REGIST_COURSE, COURSE_REGISTING, UPDATE_USER_INFO } from "./actionType";
+import { userDetail } from "./userAction";
 
 //Thêm người dùng mới
 export const addNewUser = (newUserInfo, history) => {
@@ -43,3 +44,33 @@ export const getUserRegistCourse = (userInfo, history) => {
         })
     }
 }
+
+//chấp nhận đăng ký khóa học
+export const courseRegisting = (courseRegister, history) => {
+    return dispatch => {
+        restConnector({
+            method: 'POST',
+            url: '/api/quanlykhoahoc/dangkykhoahoc',
+            headers: {
+                "Authorization": "Bearer " + localStorage.getItem(settings.token),
+            },
+            data: courseRegister,
+        }).then(res => {
+            console.log(res.data);
+            //Đăng nhập thành công => Lưu thông tin user và token vào localstorage để request về những api yêu cầu token
+            // localStorage.removeItem("userProfile");
+            // userDetail(settings.taiKhoan);
+            userDetail(localStorage.getItem(settings.taiKhoan));
+            // localStorage.setItem(settings.userProfile, JSON.stringify(res.data));
+
+            //Lưu data lên store để render lại giao diện header
+            dispatch(reduxAction(COURSE_REGISTING, res.data));
+            dispatch(reduxAction(UPDATE_USER_INFO, res.data));
+
+            alert('Register Success!')
+            history.push('./admin');
+        }).catch(error => {
+            console.log(error.response.data);
+        })
+    }
+};
