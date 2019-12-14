@@ -22,7 +22,7 @@ const UserReducer = (state = initialState, { type, payload }) => {
         }
         case SIGNUP: {
             payload = payload;
-            return { ...state };
+            return state;
         }
         default:
             return state;

@@ -16,12 +16,12 @@ function UserCart(props) {
             <UserCartItem item={chiTietKhoaHocGhiDanh} />
         )
     }
-    
+
     return (
         <div>
             <div className="row">
                 <div className="col-11">
-                <h4 className="text-center">User Course Register</h4>
+                    <h4 className="text-center">User Course Register</h4>
                     {renderCard()}
                 </div>
                 <div className="col-1">

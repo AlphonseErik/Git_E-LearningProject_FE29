@@ -122,6 +122,9 @@ function AdminScreen(props) {
         }
     }, []);
 
+    let item =props.courseList;
+    console.log('heloo',item);
+
     const classes = useStyles();
     const [open, setOpen] = React.useState(true);
     const handleDrawer = () => {
@@ -170,7 +173,7 @@ function AdminScreen(props) {
                         {/* Recent Orders */}
                         <Grid item xs={12}>
                             <Paper className={classes.paper}>
-                                <Orders />
+                                <Orders item={item}/>
                             </Paper>
                         </Grid>
                         <Grid item xs={12}>
@@ -185,4 +188,8 @@ function AdminScreen(props) {
     );
 }
 
-export default connect()(AdminScreen);
+const mapStateToProps = state => ({
+    courseList: state.courseList,
+})
+
+export default connect(mapStateToProps)(AdminScreen);
