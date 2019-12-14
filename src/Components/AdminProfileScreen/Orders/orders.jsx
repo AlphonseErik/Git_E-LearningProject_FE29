@@ -10,10 +10,16 @@ import Title from '../Title/title';
 import TableOfUser from '../TableOfUser/tableOfUser';
 import { connect } from 'react-redux';
 import { getUserRegistCourse } from '../../../Redux/Action/adminAction';
+import { FormControl, InputLabel, Select, Button } from '@material-ui/core';
+
 
 const useStyles = makeStyles(theme => ({
-    seeMore: {
-        marginTop: theme.spacing(3),
+    formControl: {
+        margin: theme.spacing(0),
+        minWidth: 120,
+    },
+    selectEmpty: {
+        marginTop: theme.spacing(),
     },
 }));
 
@@ -22,6 +28,12 @@ function Orders(props) {
     let [state, setState] = React.useState({
         maKhoaHoc: '',
     })
+
+    const inputLabel = React.useRef(null);
+    const [labelWidth, setLabelWidth] = React.useState(0);
+    React.useEffect(() => {
+        setLabelWidth(inputLabel.current.offsetWidth);
+    }, []);
 
     const onHandleChange = (e) => {
         let value = e.target.value;
@@ -51,27 +63,47 @@ function Orders(props) {
     return (
         <React.Fragment>
             <Title>Recent Orders</Title>
-            <table className="table">
-                <thead>
-                    <tr>
-                        <th>Username</th>
-                        <th>Code Name</th>
-                        <th>Full Name</th>
-                        <th>
-                            <select onChange={e => onHandleChange(e)}>
+            <Table className="table">
+                <TableHead>
+                    <TableRow>
+                        <TableCell>Username</TableCell>
+                        <TableCell>Code Name</TableCell>
+                        <TableCell>Full Name</TableCell>
+                        <TableCell>
+                            <FormControl variant="outlined" className={classes.formControl}>
+                                <InputLabel ref={inputLabel}>
+                                    Class Name
+                                </InputLabel>
+                                <Select
+                                    native
+                                    value={state.age}
+                                    onChange={e => onHandleChange(e)}
+                                    labelWidth={labelWidth}
+                                    inputProps={{
+                                        name: 'maKhoaHoc',
+                                        id: 'outlined-age-native-simple',
+                                    }}
+                                >
+                                    <option></option>
+                                    {props.item.map((item, index) => (
+                                        <option key={index} value={item.maKhoaHoc}>{item.tenKhoaHoc}</option>
+                                    ))}
+                                </Select>
+                            </FormControl>
+                            {/* <select onChange={e => onHandleChange(e)}>
                                 <option></option>
                                 {props.item.map((item, index) => (
                                     <option key={index} value={item.maKhoaHoc}>{item.tenKhoaHoc}</option>
                                 ))}
-                            </select>
-                        </th>
-                        <th>
-                            <button className="btn btn-danger" onClick={onButtonChange}>GET DATA</button>
-                        </th>
-                    </tr>
-                </thead>
-                <TableOfUser />
-            </table>
+                            </select> */}
+                        </TableCell>
+                        <TableCell>
+                            <Button variant="contained" color="primary" onClick={onButtonChange}>GET DATA</Button>
+                        </TableCell>
+                    </TableRow>
+                </TableHead>
+                <TableOfUser item={props.item}/>
+            </Table>
         </React.Fragment>
     );
 }

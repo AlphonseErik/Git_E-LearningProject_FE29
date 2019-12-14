@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 const Payment = props => {
 
     let maKhoaHoc = props.item;
-    console.log(maKhoaHoc)
+    // console.log(maKhoaHoc)
 
     let [state, setState] = React.useState({
         userRegisterCourse: {
