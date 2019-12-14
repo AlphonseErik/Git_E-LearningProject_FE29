@@ -7,7 +7,6 @@ import classes from './SideBar.module.scss';
 export default class SideBar extends Component {
     render() {
         const settings = {
-            dots: true,
             infinite: true,
             speed: 2000,
             slidesToShow: 1,
@@ -16,7 +15,7 @@ export default class SideBar extends Component {
           };
         
         return (
-        <Slider {...settings} autoplay > 
+        <Slider {...settings}  > 
         <div className={classes.tong}>   
         <div className={classes.con}>
         <h1>1111111111111111111111</h1>

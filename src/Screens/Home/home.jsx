@@ -13,6 +13,7 @@ import GetStarted from "../../Components/GetStarted/getStarted";
 import StudentSay from "../../Components/StudentSay/studentSay";
 import Footer from "../../Layouts/Footer/footer";
 import FilterSearch from "../../Components/FilterSearch/filterSearch";
+import Sale from '../../Components/Sale/Sale';
 // import OwlCarousel from 'react-owl-carousel';
 // import 'owl.carousel/dist/assets/owl.carousel.css';
 // import 'owl.carousel/dist/assets/owl.theme.default.css';
@@ -51,12 +52,15 @@ const HomeScreen = props => {
             <div className={classes.home}>
                 <div>
                     <div className={classes.home__name}>
-                        <h1>The world’s largest selection of courses</h1>
-                        <div className={classes.home__p}>
-                            <p>Choose from over 100,000 online video </p>
-                            <p> with new additions published every month</p>
+                        <div className={classes.classh1}>
+                        <h1> SALE 99%</h1>
                         </div>
+                        {/* <div className={classes.home__p}> */}
+                        {/* </div> */}
                     </div>
+                    <div>
+                    <Sale />
+                   </div>
                     <Category />
                     <FilterSearch />
                     <div  className={classes.giaodiencourse }>

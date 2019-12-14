@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 import classes from './BottomSideBar.module.scss';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+AOS.init();
 export default class BottomSideBar extends Component {
+    
     render() {
         return (
+<div data-aos="fade-up">
             <div className={classes.Bottom}>
             <div className="container">
                 <div className="row">
@@ -41,6 +46,7 @@ export default class BottomSideBar extends Component {
                            </div>
                          </div>
                 </div>
+            </div>
             </div>
             </div>
         )

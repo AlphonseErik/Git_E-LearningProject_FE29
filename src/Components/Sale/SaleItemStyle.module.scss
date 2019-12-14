@@ -1,0 +1,99 @@
+@import '../../Scss/Helper/variable';
+@import '../../Scss/Helper/mixin';
+.courseItem {
+    text-align: left;
+    margin: 0px 0;
+    padding: 0px 0;
+    margin-bottom: 30px;
+    // box-shadow: 0 0 1px 1px rgba(20, 23, 28, .1), 0 3px 1px 0 rgba(20, 23, 28, .1);
+    height: 350px;
+    width: 100%;
+    box-shadow: 0 0 1px 1px rgba(20, 23, 28, .1), 0 3px 1px 0 rgba(20, 23, 28, .1);
+    background-color: white;
+    color: black;
+    text-decoration: none !important;
+    border-radius: 5%;
+    div {
+        text-decoration: none !important;
+        .card {
+            height: 200px;
+            width: 255px;
+            padding: 0;
+            color: black;
+            text-decoration: none !important;
+            img {
+                width: 100%;
+                border-top-right-radius: 5%;
+                border-top-left-radius: 5%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+                text-decoration: none !important;
+            }
+            p {
+                text-align: center;
+                font-size: 20px;
+                font-weight: bold;
+                text-decoration: none !important;
+            }
+            .span1 {
+                font-size: 15px;
+                margin-right: 5px;
+                text-decoration: none !important;
+                text-decoration: line-through !important;
+            }
+            h5 {
+                font-size: 15px;
+            }
+            button {
+                text-align: center;
+                float: right;
+                background-color: lightgreen;
+            }
+            h4 {
+                font-size: $fs-0;
+                font-weight: $fw-normal;
+            }
+            .star {
+                color: $color-yellow;
+                font-size: $fs-0 + 1;
+                span {
+                    margin-left: $mg-0 + 3;
+                    color: $color-black-light;
+                }
+            }
+        }
+        .classTacGia {
+            font-size: $fs-0;
+            font-weight: $fw-normal;
+            margin-top: $mg-1;
+        }
+    }
+}
+
+.popup {
+    width: 300px;
+    height: auto;
+    .PopupCard {
+        color: $color-black-0;
+        .PopupNgayTao {
+            font-size: $fs-0;
+            margin-top: $mg-1;
+        }
+        h2 {
+            font-size: $fs-0 - 1;
+            font-weight: $fw-normal;
+        }
+        h4 {
+            font-size: $fs-2;
+            font-weight: $fw-normal;
+        }
+        h5 {
+            font-size: $fs-0;
+            font-weight: $fw-normal;
+        }
+        button {
+            @include btn_AddCard($color-white-0, $fs-2 -2, $pd-1, $pd-2+3, $color-red-0, $mg-1);
+        }
+    }
+}

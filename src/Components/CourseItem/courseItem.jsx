@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import classes from "./courseItemStyle.module.scss";
+
 import Popup from 'reactjs-popup';
 import { connect } from 'react-redux';
 import { ADD_CART_ITEM } from "../../Redux/Action/actionType";

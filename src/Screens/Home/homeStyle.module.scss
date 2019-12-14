@@ -1,40 +1,68 @@
-.home {
-    font-size: 20px;
-    color: #ff1744;
-    background-color: #fff;
-    text-align: center;
-    .home__name {
-        background-color: azure;
-        padding: 70px;
-        // h3 {
-        //     font-size: 40px;
+    .home {
+        font-size: 20px;
+        color: #ff1744;
+        background-color: #fff;
+        text-align: left;
+        .home__name {
+            background-color: azure;
+            // h3 {
+            //     font-size: 40px;
+            // }
+            .classh1 {
+                text-align: center;
+                animation: Bottom 0.5s ease-in-out infinite;
+                color: red;
+                font-weight: bold;
+                padding-top: 50px;
+            }
+        }
+        // .home__p {
+        //     // p {
+        //     //     font-size: 20px;
+        //     //     // line-height: 15px;
+        //     //     padding: 15px;
+        //     //     // padding-top: 20px;
+        //     //     color: #d50000;
+        //     // }
+        // }
+        .home_right {
+            background-color: rgb(52, 58, 64);
+            padding: 20px 50px;
+        }
+        .home_right_span {
+            span {
+                margin: 20px;
+                padding: 150px;
+                font-weight: bold;
+                color: white;
+            }
+        }
+        // .giaodiencourse {
+        //     // background-image: url(/img/react1.jpg);
+        //     // background-size: cover;
+        //     // background-repeat: no-repeat;
+        //     // background-attachment: fixed;
         // }
     }
-    .home__p {
-        p {
-            font-size: 20px;
-            // line-height: 15px;
-            padding: 15px;
-            // padding-top: 20px;
-            color: #d50000;
+    
+    @keyframes Bottom {
+        0% {
+            transform: translateX(0) rotate(0deg);
+        }
+        20% {
+            transform: translateX(-10px) rotate(-2deg);
+        }
+        40% {
+            transform: translateX(10px) rotate(2deg);
+        }
+        50% {}
+        60% {
+            transform: translateX(-10px) rotate(-2deg);
+        }
+        80% {
+            transform: translateX(10px) rotate(2deg);
+        }
+        100% {
+            transform: translateY(0) rotate(0deg);
         }
     }
-    .home_right {
-        background-color: rgb(52, 58, 64);
-        padding: 20px 50px;
-    }
-    .home_right_span {
-        span {
-            margin: 20px;
-            padding: 150px;
-            font-weight: bold;
-            color: white;
-        }
-    }
-    // .giaodiencourse {
-    //     // background-image: url(/img/react1.jpg);
-    //     // background-size: cover;
-    //     // background-repeat: no-repeat;
-    //     // background-attachment: fixed;
-    // }
-}
