@@ -1,6 +1,12 @@
 @import '../../Scss/Helper/variable';
 .tong {
-    color: $color-black-0;
+    color: $color-white-0;
+    background-image: url(/img/react1.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 500px;
     h4 {
         margin-left: $mg-2 + 75;
         color: $color-red-0;
@@ -8,6 +14,10 @@
     .classangular {
         padding-top: $pd-2 +30;
         padding-bottom: $pd-2 + 30;
+        img {
+            width: 100%;
+            height: 100%;
+        }
         .angulartext {
             padding-left: $pd-2 + 30;
             padding-top: $pd-2 + 80;

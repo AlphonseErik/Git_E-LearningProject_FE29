@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useState } from "react";
 import CourseService from "../../Services/courseService";
 import { connect } from "react-redux";
 import CourseItem from "../../Components/CourseItem/courseItem";
@@ -46,9 +46,11 @@ const HomeScreen = props => {
       props.dispatch(userDetail(userAccess));
     }
   }, []);
-
-  console.log("payload home", props.search);
-
+  // const [search,setSearch] = useState('');
+  console.log("search_home", props.courseList);
+    //  let changeFilterSearch =(search)=>{
+    //        setSearch(search);
+    //  }
   return (
     <div>
       <SideBar />
@@ -74,19 +76,12 @@ const HomeScreen = props => {
           <div>
             <div className="container ">
               <div className="row ">
-                {/* <OwlCarousel className="owl-theme"
-                            loop
-                            items={4}
-                            autoplay={true}
-                            margin={20}
-
-                            autoplayTimeout={5000}
-                            nav> */}
-                {/* {
-                                  props.courseList.filter(task =>
-                                      task.tenKhoaHoc.toLowerCase().indexOf(props.search.toLowerCase()) !== -1
-                                  )
-                              } */}
+                {/* {props.courseList.filter(
+                  task =>
+                    task.tenKhoaHoc
+                      .toLowerCase()
+                      .indexOf(props.search.toLowerCase()) !== -1
+                )}, */}
                 {props.courseList
                   .filter(
                     item =>
@@ -121,7 +116,7 @@ const mapStateToProps = state => ({
   courseList: state.courseList,
   categoryChoosenList: state.categoryChoosenList,
   // credentials: state.user.credentials,
-  search: state.search,
+  // search: state.search
 });
 
 export default connect(mapStateToProps)(HomeScreen);

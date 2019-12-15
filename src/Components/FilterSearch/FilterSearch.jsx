@@ -6,46 +6,48 @@ import reduxAction from '../../Redux/Action/action';
 
 // const courseService = new CourseService();
 
-function FilterSearch(props) {
+    class FilterSearch extends  Component {
+   constructor(props){
+     super(props);
+     this.state ={
+       search:''
+     }
+   }
 
-  let [state, setState] = React.useState({
-    search: '',
-  })
-
-  let handleChange = e => {
-    console.log(e.target.name, e.target.value);
-    setState({
+  handleChange = e => {
+    this.setState({
       [e.target.name]: e.target.value,
-    });
+    },()=>this.props.dispatch(reduxAction(SEARCH_COURSE, this.state.search))
+    
+    );
   }
 
-  let filterSearch = () => {
-    props.dispatch(reduxAction(SEARCH_COURSE, state.search));
-  }
-
+  // let filterSearch = () => {
+  //   props.dispatch(reduxAction(SEARCH_COURSE, state.search));
+  // }
+render(){
   return (
     <div className="container mt-3">
       <div className="row">
         <div className="col-6"></div>
-        <div className="col-5">
+        <div className="col-6">
           <div className="form-group">
             <input
               type="text"
               name="search"
-              onChange={handleChange}
+              // value={this.state.search}
+              onChange={this.handleChange}
               className="form-control"
-              placeholder="Tìm tên khóa học"
+              placeholder="Tìm  khóa học"
             />
           </div>
         </div>
-        <div className="col-1">
-          <button className="btn btn-success" onClick={filterSearch}>Search</button>
-        </div>
+       
       </div>
     </div>
   );
 }
-
+    }
 const mapStateToProps = state => ({
   courseList: state.courseList,
 });

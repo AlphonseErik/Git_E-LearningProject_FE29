@@ -12,7 +12,7 @@
             // }
             .classh1 {
                 text-align: center;
-                animation: Bottom 0.5s ease-in-out infinite;
+                // animation: Bottom 0.5s ease-in-out infinite;
                 color: $color-red-0;
                 font-weight: $fw-bold;
                 padding-top: $pd-2 + 30;
@@ -50,24 +50,24 @@
         // }
     }
     
-    @keyframes Bottom {
-        0% {
-            transform: translateX(0) rotate(0deg);
-        }
-        20% {
-            transform: translateX(-10px) rotate(-2deg);
-        }
-        40% {
-            transform: translateX(10px) rotate(2deg);
-        }
-        50% {}
-        60% {
-            transform: translateX(-10px) rotate(-2deg);
-        }
-        80% {
-            transform: translateX(10px) rotate(2deg);
-        }
-        100% {
-            transform: translateY(0) rotate(0deg);
-        }
-    }
+    // @keyframes Bottom {
+    //     0% {
+    //         transform: translateX(0) rotate(0deg);
+    //     }
+    //     20% {
+    //         transform: translateX(-10px) rotate(-2deg);
+    //     }
+    //     40% {
+    //         transform: translateX(10px) rotate(2deg);
+    //     }
+    //     50% {}
+    //     60% {
+    //         transform: translateX(-10px) rotate(-2deg);
+    //     }
+    //     80% {
+    //         transform: translateX(10px) rotate(2deg);
+    //     }
+    //     100% {
+    //         transform: translateY(0) rotate(0deg);
+    //     }
+    // }
