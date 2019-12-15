@@ -11,6 +11,12 @@ import TableOfUser from '../TableOfUser/tableOfUser';
 import { connect } from 'react-redux';
 import { getUserRegistCourse } from '../../../Redux/Action/adminAction';
 import { FormControl, InputLabel, Select, Button } from '@material-ui/core';
+import clsx from 'clsx';
+import CircularProgress from '@material-ui/core/CircularProgress';
+import { green } from '@material-ui/core/colors';
+import Fab from '@material-ui/core/Fab';
+import CheckIcon from '@material-ui/icons/Check';
+import SaveIcon from '@material-ui/icons/Save';
 
 
 const useStyles = makeStyles(theme => ({
@@ -21,9 +27,52 @@ const useStyles = makeStyles(theme => ({
     selectEmpty: {
         marginTop: theme.spacing(0),
     },
+    root: {
+        display: 'flex',
+        alignItems: 'center',
+    },
+    wrapper: {
+        margin: theme.spacing(1),
+        position: 'relative',
+    },
+    buttonSuccess: {
+        backgroundColor: green[500],
+        '&:hover': {
+            backgroundColor: green[700],
+        },
+    },
+    fabProgress: {
+        color: green[500],
+        position: 'absolute',
+        top: -6,
+        left: -6,
+        zIndex: 1,
+    },
+    buttonProgress: {
+        color: green[500],
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        marginTop: -12,
+        marginLeft: -12,
+    },
 }));
 
 function Orders(props) {
+    const classesLoad = useStyles();
+    const [loading, setLoading] = React.useState(false);
+    const [success, setSuccess] = React.useState(false);
+    const timer = React.useRef();
+
+    const buttonClassname = clsx({
+        [classesLoad.buttonSuccess]: success,
+    });
+
+    React.useEffect(() => {
+        return () => {
+            clearTimeout(timer.current);
+        };
+    }, []);
 
     let [state, setState] = React.useState({
         maKhoaHoc: '',
@@ -45,16 +94,24 @@ function Orders(props) {
     const onButtonChange = (e) => {
         e.preventDefault();
         let valid = true;
-        for (let valueNotFind in state) {
-            if (state[valueNotFind] === "") {
-                valid = false;
-            }
-        }
-        if (valid) {
-            props.dispatch(getUserRegistCourse(state.maKhoaHoc, props.history));
-        }
-        else {
-            alert('Item must be selected!');
+        if (!loading) {
+            setSuccess(false);
+            setLoading(true);
+            timer.current = setTimeout(() => {
+                setSuccess(true);
+                setLoading(false);
+                for (let valueNotFind in state) {
+                    if (state[valueNotFind] === "") {
+                        valid = false;
+                    }
+                }
+                if (valid) {
+                    props.dispatch(getUserRegistCourse(state.maKhoaHoc, props.history));
+                }
+                else {
+                    alert('Item must be selected!');
+                }
+            }, 1000);
         }
     }
 
@@ -68,17 +125,18 @@ function Orders(props) {
                     <TableRow>
                         <TableCell>
                             <FormControl variant="outlined" className={classes.formControl}>
-                                <InputLabel ref={inputLabel}>
+                                <InputLabel required ref={inputLabel}>
                                     Class Name
                                 </InputLabel>
                                 <Select
+                                
                                     native
                                     onChange={e => onHandleChange(e)}
                                     labelWidth={labelWidth}
-                                    // inputProps={{
-                                    //     name: 'maKhoaHoc',
-                                    //     id: 'outlined-age-native-simple',
-                                    // }}
+                                // inputProps={{
+                                //     name: 'maKhoaHoc',
+                                //     id: 'outlined-age-native-simple',
+                                // }}
                                 >
                                     <option></option>
                                     {props.item.map((item, index) => (
@@ -97,7 +155,17 @@ function Orders(props) {
                         <TableCell>Code Name</TableCell>
                         <TableCell>Full Name</TableCell>
                         <TableCell>
-                            <Button variant="contained" color="primary" onClick={onButtonChange}>GET DATA</Button>
+                            <div className={classesLoad.root}>
+                                <div className={classesLoad.wrapper}>
+                                    <Button
+                                        variant="contained"
+                                        color="primary"
+                                        className={buttonClassname}
+                                        disabled={loading}
+                                        onClick={onButtonChange}>GET DATA</Button>
+                                    {loading && <CircularProgress size={24} className={classes.buttonProgress} />}
+                                </div>
+                            </div>
                         </TableCell>
                     </TableRow>
                 </TableHead>
@@ -108,34 +176,3 @@ function Orders(props) {
 }
 
 export default connect()(Orders);
-
-{/* <React.Fragment>
-    <Title>Recent Orders</Title>
-    <Table size="small">
-        <TableHead>
-            <TableRow>
-                <TableCell>Date</TableCell>
-                <TableCell>Name</TableCell>
-                <TableCell>Ship To</TableCell>
-                <TableCell>Payment Method</TableCell>
-                <TableCell align="right">Sale Amount</TableCell>
-            </TableRow>
-        </TableHead>
-        <TableBody>
-            {rows.map(row => (
-                <TableRow key={row.id}>
-                    <TableCell>{row.date}</TableCell>
-                    <TableCell>{row.name}</TableCell>
-                    <TableCell>{row.shipTo}</TableCell>
-                    <TableCell>{row.paymentMethod}</TableCell>
-                    <TableCell align="right">{row.amount}</TableCell>
-                </TableRow>
-            ))}
-        </TableBody>
-    </Table>
-    <div className={classes.seeMore}>
-        <Link color="primary" href="#" onClick={preventDefault}>
-            See more orders
-        </Link>
-    </div>
-</React.Fragment> */}

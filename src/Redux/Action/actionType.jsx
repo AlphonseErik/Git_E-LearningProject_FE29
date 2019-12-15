@@ -23,6 +23,7 @@ export const ADMIN_LOGIN = 'ADMIN_LOGIN';
 export const ADMIN_INFO = 'ADMIN_INFO';
 export const UPDATE_ADMIN_INFO = 'UPDATE_ADMIN_INFO';
 export const ADD_NEW_USER = 'ADD_NEW_USER';
+export const GET_ALL_USER_INFOR = 'GET_ALL_USER_INFOR';
 
 //lấy danh sách học viên chưa ghi danh
 export const ADMIN_GET_USER_REGIST_COURSE = "ADMIN_GET_USER_REGIST_COURSE";

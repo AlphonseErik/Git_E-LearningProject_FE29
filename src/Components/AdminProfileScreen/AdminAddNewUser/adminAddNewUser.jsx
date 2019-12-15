@@ -17,7 +17,7 @@ import { connect } from 'react-redux';
 const useStyles = makeStyles(theme => ({
     formControl: {
         margin: theme.spacing(1),
-        minWidth: 200,
+        minWidth: 100,
     },
     selectEmpty: {
         marginTop: theme.spacing(2),
@@ -92,7 +92,7 @@ function AddNewUser(props) {
             <form className="container" onSubmit={handleSubmit}>
                 <Title>
                     Add New User
-            </Title>
+                </Title>
                 <Grid container spacing={3}>
                     <Grid item xs={12} md={6}>
                         <TextField required label="Username" name="taiKhoan" onChange={handleChange} fullWidth />
@@ -104,7 +104,7 @@ function AddNewUser(props) {
                         <TextField required label="Fullname" name="hoTen" onChange={handleChange} fullWidth />
                     </Grid>
                     <Grid item xs={12} md={6}>
-                        <TextField required label="Telephone Number" name="soDT" onChange={handleChange} fullWidth />
+                        <TextField required label="Tel Number" name="soDT" onChange={handleChange} fullWidth />
                     </Grid>
                     <Grid item xs={12} md={6}>
                         <FormControl required className={classes.formControl} >
@@ -142,7 +142,7 @@ function AddNewUser(props) {
                         <TextField required label="Email" name="email" onChange={handleChange} fullWidth />
                     </Grid>
                     <Grid item xs={12} md={6}>
-                        <Button type="submit" color="secondary" variant="contained" className={classes.button}>Add New User</Button>
+                        <Button type="submit" color="secondary" variant="contained" className={classes.button}>Add New</Button>
                     </Grid>
                 </Grid>
             </form>

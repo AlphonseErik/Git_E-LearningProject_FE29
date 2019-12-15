@@ -1,8 +1,25 @@
 import { restConnector } from "../../Services"
 import { settings } from "../../config/settings";
 import reduxAction from "./action";
-import { ADMIN_GET_USER_REGIST_COURSE, COURSE_REGISTING, UPDATE_USER_INFO } from "./actionType";
+import { ADMIN_GET_USER_REGIST_COURSE, COURSE_REGISTING, GET_ALL_USER_INFOR } from "./actionType";
 import { userDetail } from "./userAction";
+
+//Lấy danh sách người dùng
+export const getUserInfor = (userRight) => {
+    if (userRight === "GV") {
+        return dispatch => {
+            restConnector({
+                method: 'GET',
+                url: '/api/quanlynguoidung/laydanhsachnguoidung?manhom=GP01',
+            }).then(res => {
+                dispatch(reduxAction(GET_ALL_USER_INFOR, res.data));
+            }).catch(error => {
+                console.log(error.response.data);
+                alert('Error: ' + error.response.data)
+            })
+        }
+    }
+}
 
 //Thêm người dùng mới
 export const addNewUser = (newUserInfo, history) => {
@@ -66,9 +83,6 @@ export const courseRegistingAdmin = (courseRegister, history) => {
             //Lưu data lên store để render lại giao diện header
             dispatch(reduxAction(COURSE_REGISTING, res.data));
             // dispatch(reduxAction(UPDATE_USER_INFO, res.data));
-
-            alert('Register Success!')
-            // history.push('./admin');
         }).catch(error => {
             console.log(error.response.data);
         })

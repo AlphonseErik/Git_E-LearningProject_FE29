@@ -28,6 +28,10 @@ import AddNewUser from '../../Components/AdminProfileScreen/AdminAddNewUser/admi
 import { connect } from 'react-redux';
 import { settings } from '../../config/settings';
 import { userDetail } from '../../Redux/Action/userAction';
+import { getUserInfor } from '../../Redux/Action/adminAction';
+import UserService from '../../Services/userService';
+import { GET_ALL_USER_INFOR } from '../../Redux/Action/actionType';
+import GetUserList from '../../Components/AdminProfileScreen/GetUserList/getUserList';
 
 const drawerWidth = 240;
 
@@ -110,6 +114,8 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
+const userService = new UserService();
+
 function AdminScreen(props) {
 
     useEffect(() => {
@@ -119,16 +125,15 @@ function AdminScreen(props) {
         const userRightStr = localStorage.getItem('userRight');
         if (userLoginStr && userAccessToken && userRightStr === "GV") {
             let userAccess = localStorage.getItem(settings.taiKhoan);
-            let userProfile = localStorage.getItem("userProfile");
-            // let userProfileEdit = localStorage.getItem(settings.userProfileEdit);
-            if (userAccess && !userProfile) {
+            if (userAccess) {
                 props.dispatch(userDetail(userAccess));
+                props.dispatch(getUserInfor(userRightStr));
             }
         }
     }, []);
 
     let item = props.courseList;
-    console.log('heloo', item);
+    // console.log('heloo', item);
 
     const classes = useStyles();
     const [open, setOpen] = React.useState(true);
@@ -176,14 +181,19 @@ function AdminScreen(props) {
                             </Paper>
                         </Grid>
                         {/* Recent Orders */}
-                        <Grid item xs={12}>
+                        <Grid item xs={12} md={8} lg={8}>
                             <Paper className={classes.paper}>
                                 <Orders item={item} />
                             </Paper>
                         </Grid>
-                        <Grid item xs={12}>
+                        <Grid item xs={12} md={4} lg={4}>
                             <Paper className={classes.paper}>
                                 <AddNewUser />
+                            </Paper>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <Paper className={classes.paper}>
+                                <GetUserList />
                             </Paper>
                         </Grid>
                     </Grid>

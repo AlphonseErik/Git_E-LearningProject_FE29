@@ -89,7 +89,7 @@ const UserScreen = props => {
                     <UserProfile />
                 </TabPanel>
                 <TabPanel value={value} index={1}>
-                    <UserCart item={userLocalStorage}/>
+                    <UserCart item={userLocalStorage} />
                 </TabPanel>
                 <TabPanel value={value} index={2}>
                     Item Three

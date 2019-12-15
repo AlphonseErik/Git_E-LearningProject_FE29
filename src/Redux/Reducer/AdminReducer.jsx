@@ -1,8 +1,9 @@
-import { ADMIN_INFO, ADMIN_GET_USER_REGIST_COURSE, ADMIN_LOGIN } from '../Action/actionType'
+import { ADMIN_INFO, ADMIN_GET_USER_REGIST_COURSE, ADMIN_LOGIN, GET_ALL_USER_INFOR } from '../Action/actionType'
 
 let initialState = {
     usersDetailCourse: null,
-    userDetail: null,
+    adminDetail: null,
+    userDetail: [],
     credentials: null
 }
 
@@ -13,11 +14,15 @@ const AdminReducer = (state = initialState, { type, payload }) => {
             return { ...state };
         }
         case ADMIN_INFO: {
-            state.userDetail = payload;
+            state.adminDetail = payload;
             return { ...state };
         }
         case ADMIN_GET_USER_REGIST_COURSE: {
             state.usersDetailCourse = payload;
+            return { ...state };
+        }
+        case GET_ALL_USER_INFOR: {
+            state.userDetail = payload;
             return { ...state };
         }
         default:

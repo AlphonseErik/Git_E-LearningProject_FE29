@@ -3,8 +3,8 @@ import { restConnector } from ".";
 class UserService {
     fetchUserProfile(){
         return restConnector({
-            url: "/api/quanlynguoidung/laythongtintaikhoan",
-            method: "POST"
+            url: "api/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=GP01",
+            method: "GET",
         })
     }
 }
