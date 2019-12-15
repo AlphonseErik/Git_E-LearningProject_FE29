@@ -21,6 +21,10 @@ import Orders from './Components/AdminProfileScreen/Orders/orders';
 import AddNewUser from "./Components/AdminProfileScreen/AdminAddNewUser/adminAddNewUser";
 import userCartProfile from "./Components/UserProfileScreen/UserCartProfile/userCartProfile";
 
+import ReactLoading from 'react-loading';
+
+
+
 const App = props => {
 
   useEffect(() => {
@@ -41,7 +45,8 @@ const App = props => {
 
     }
   }, []);
-
+    
+  
   return (
     <BrowserRouter>
       <Header />
