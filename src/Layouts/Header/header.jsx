@@ -19,7 +19,7 @@ import IconButton from '@material-ui/core/IconButton';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
 import sass from './headerStyle.module.scss';
-import MessageIcon from '@material-ui/icons/Message';
+import ForumIcon from '@material-ui/icons/Forum';
 
 const courseService = new CourseService();
 
@@ -226,7 +226,7 @@ const Header = props => {
                         <li className="nav-item active">
                             {props.credentialsAdmin ? (
                                 <NavLink className="nav-link" to="#">
-                                    <MessageIcon />
+                                    <ForumIcon />
                                 </NavLink>
                             ) : (
                                     <NavLink to="/cart">
