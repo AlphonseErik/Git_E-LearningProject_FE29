@@ -17,7 +17,9 @@ import { Badge } from '@material-ui/core'
 import { withStyles } from "@material-ui/styles";
 import IconButton from '@material-ui/core/IconButton';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
 import sass from './headerStyle.module.scss';
+import MessageIcon from '@material-ui/icons/Message';
 
 const courseService = new CourseService();
 
@@ -120,7 +122,13 @@ const Header = props => {
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <div className="container">
-                <NavLink className="navbar-brand" to="/home"><i className="fa fa-magnet mr-2"></i>Udemy</NavLink>
+                {
+                    props.credentialsAdmin ? (
+                        <NavLink className="navbar-brand" to="/admin"><i className="fa fa-magnet mr-2"></i>Udemy Management</NavLink>
+                    ) : (
+                            <NavLink className="navbar-brand" to="/home"><i className="fa fa-magnet mr-2"></i>Udemy</NavLink>
+                        )
+                }
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon" />
                 </button>
@@ -129,17 +137,28 @@ const Header = props => {
                         props.credentials ?
                             (
                                 <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
+                                    {
+                                        props.credentialsAdmin ? (
+                                            <li className="nav-item">
+                                                <NavLink className="nav-link" to="/admin">
+                                                    <SupervisorAccountIcon />
+                                                </NavLink>
+                                            </li>
+                                        ) : (
+                                                <li className="nav-item active dropdown">
+                                                    <NavLink className="nav-link" data-toggle="dropdown" to="#" aria-haspopup="true" aria-expanded="false">
+                                                        <i className="fa fa-th mr-2"></i>Category
+                                                    </NavLink>
+                                                    <div className="dropdown-menu">
+                                                        <div>
+                                                            <CategoryItemHeader />
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            )
+                                    }
 
-                                    <li className="nav-item active dropdown">
-                                        <NavLink className="nav-link" data-toggle="dropdown" to="#" aria-haspopup="true" aria-expanded="false">
-                                            <i className="fa fa-th mr-2"></i>Category
-                                        </NavLink>
-                                        <div className="dropdown-menu">
-                                            <div>
-                                                <CategoryItemHeader />
-                                            </div>
-                                        </div>
-                                    </li>
+
                                     <li className="nav-item">
                                         <div className="input-group ml-5">
                                             <input type="text" className="form-control" placeholder="Search for anything" aria-label="Recipient's username" aria-describedby="basic-addon2" />
@@ -168,52 +187,65 @@ const Header = props => {
                         {
                             props.credentials ? (
                                 <li className="nav-item dropdown">
-                                    <a className="nav-link active" href="#" onClick={toggleDrawer('right', true)}>Hi, {props.credentials.hoTen}</a>
+                                    {
+                                        props.credentialsAdmin ? (
+                                            <a className="nav-link active" href="#" onClick={toggleDrawer('right', true)}>Welcome, {props.credentialsAdmin.hoTen}</a>
+                                        ) : (
+                                                <a className="nav-link active" href="#" onClick={toggleDrawer('right', true)}>Hi, {props.credentials.hoTen}</a>
+                                            )
+                                    }
                                     <SwipeableDrawer anchor="right" open={state.right} onClose={toggleDrawer('right', false)} onOpen={toggleDrawer('right', true)}> {sideList('right')} </SwipeableDrawer>
                                 </li>
                             ) : (
-                                   
+
                                     <li className="nav-item active" >
-                                         <div className={sass.dangnhap}>
-                                        <button className="btn">
-                                        <NavLink className="nav-link py-1" to="/login">Login</NavLink>
-                                        </button>
+                                        <div className={sass.dangnhap}>
+                                            <button className="btn">
+                                                <NavLink className="nav-link py-1" to="/login">Login</NavLink>
+                                            </button>
                                         </div>
                                     </li>
-                                   
+
                                 )
                         }{
                             props.credentials ? (
                                 <li className="nav-item ">
                                 </li>
-                            ) : ( 
-                                  
+                            ) : (
+
                                     <li className="nav-item active ml-2 mr-3" >
                                         <div className={sass.dangky}>
-                                        <button className="btn">
-                                        <NavLink className="nav-link py-1" to="/signup">Sign Up</NavLink>
-                                        </button>
+                                            <button className="btn">
+                                                <NavLink className="nav-link py-1" to="/signup">Sign Up</NavLink>
+                                            </button>
                                         </div>
                                     </li>
-                                   
+
                                 )
                         }
-                        <li className="nav-item ">
-                            <NavLink to="/cart">
-                                <IconButton arial-lable="cart">
-                                    {
-                                        props.cartItem ? (
-                                            <StyledBadge1 badgeContent={props.cartItem.length} color="secondary">
-                                                <ShoppingCartIcon />
-                                            </StyledBadge1>
-                                        ) : (
-                                                <StyledBadge1 badgeContent={0} color="secondary">
-                                                    <ShoppingCartIcon />
-                                                </StyledBadge1>
-                                            )
-                                    }
-                                </IconButton>
-                            </NavLink>
+                        <li className="nav-item active">
+                            {props.credentialsAdmin ? (
+                                <NavLink className="nav-link" to="#">
+                                    <MessageIcon />
+                                </NavLink>
+                            ) : (
+                                    <NavLink to="/cart">
+                                        <IconButton arial-lable="cart">
+                                            {
+                                                props.cartItem ? (
+                                                    <StyledBadge1 badgeContent={props.cartItem.length} color="secondary">
+                                                        <ShoppingCartIcon />
+                                                    </StyledBadge1>
+                                                ) : (
+                                                        <StyledBadge1 badgeContent={0}>
+                                                            <ShoppingCartIcon />
+                                                        </StyledBadge1>
+                                                    )
+                                            }
+                                        </IconButton>
+                                    </NavLink>
+                                )
+                            }
                         </li>
                     </ul>
                 </div>
@@ -228,6 +260,7 @@ const mapStateToProps = state => ({
     courseList: state.courseList,
     cartItem: state.cartItem,
     categoryChoosenList: state.categoryChoosenList,
+    credentialsAdmin: state.admin.credentials,
 });
 
 export default connect(mapStateToProps)(Header);
