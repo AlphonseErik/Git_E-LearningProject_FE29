@@ -15,6 +15,7 @@ import Footer from "../../Layouts/Footer/footer";
 import FilterSearch from "../../Components/FilterSearch/filterSearch";
 import Sale from "../../Components/Sale/Sale";
 import CourseHot from "../../Components/CourseHot/courseHot";
+import { FETCH_COURSES } from "../../Redux/Action/actionType";
 // import OwlCarousel from 'react-owl-carousel';
 // import 'owl.carousel/dist/assets/owl.carousel.css';
 // import 'owl.carousel/dist/assets/owl.theme.default.css';
@@ -28,7 +29,7 @@ const HomeScreen = props => {
       .then(res => {
         props.dispatch(
           {
-            type: "FETCH_COURSE",
+            type: FETCH_COURSES,
             payload: res.data
           },
           console.log(res.data)
@@ -67,7 +68,7 @@ const HomeScreen = props => {
               <Sale />
             </div>
           </div>
-           <CourseHot />
+          <CourseHot />
           <Category />
           <FilterSearch />
           <div>
@@ -119,8 +120,8 @@ const HomeScreen = props => {
 const mapStateToProps = state => ({
   courseList: state.courseList,
   categoryChoosenList: state.categoryChoosenList,
-  credentials: state.user.credentials,
-  search: state.search
+  // credentials: state.user.credentials,
+  search: state.search,
 });
 
 export default connect(mapStateToProps)(HomeScreen);

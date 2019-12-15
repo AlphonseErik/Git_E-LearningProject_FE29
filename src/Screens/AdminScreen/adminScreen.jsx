@@ -114,16 +114,21 @@ function AdminScreen(props) {
 
     useEffect(() => {
         //Lấy dữ liệu userDetail từ api
-        let userAccess = localStorage.getItem(settings.taiKhoan);
-        let userProfile = localStorage.getItem("userProfile");
-        // let userProfileEdit = localStorage.getItem(settings.userProfileEdit);
-        if (userAccess && !userProfile) {
-            props.dispatch(userDetail(userAccess));
+        const userLoginStr = localStorage.getItem('userLogin');
+        const userAccessToken = localStorage.getItem('accessToken');
+        const userRightStr = localStorage.getItem('userRight');
+        if (userLoginStr && userAccessToken && userRightStr === "GV") {
+            let userAccess = localStorage.getItem(settings.taiKhoan);
+            let userProfile = localStorage.getItem("userProfile");
+            // let userProfileEdit = localStorage.getItem(settings.userProfileEdit);
+            if (userAccess && !userProfile) {
+                props.dispatch(userDetail(userAccess));
+            }
         }
     }, []);
 
-    let item =props.courseList;
-    console.log('heloo',item);
+    let item = props.courseList;
+    console.log('heloo', item);
 
     const classes = useStyles();
     const [open, setOpen] = React.useState(true);
@@ -173,7 +178,7 @@ function AdminScreen(props) {
                         {/* Recent Orders */}
                         <Grid item xs={12}>
                             <Paper className={classes.paper}>
-                                <Orders item={item}/>
+                                <Orders item={item} />
                             </Paper>
                         </Grid>
                         <Grid item xs={12}>

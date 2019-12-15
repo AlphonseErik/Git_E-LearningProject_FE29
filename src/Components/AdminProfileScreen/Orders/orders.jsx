@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
         minWidth: 120,
     },
     selectEmpty: {
-        marginTop: theme.spacing(),
+        marginTop: theme.spacing(0),
     },
 }));
 
@@ -63,12 +63,9 @@ function Orders(props) {
     return (
         <React.Fragment>
             <Title>Recent Orders</Title>
-            <Table className="table">
+            <Table size="medium">
                 <TableHead>
                     <TableRow>
-                        <TableCell>Username</TableCell>
-                        <TableCell>Code Name</TableCell>
-                        <TableCell>Full Name</TableCell>
                         <TableCell>
                             <FormControl variant="outlined" className={classes.formControl}>
                                 <InputLabel ref={inputLabel}>
@@ -76,13 +73,12 @@ function Orders(props) {
                                 </InputLabel>
                                 <Select
                                     native
-                                    value={state.age}
                                     onChange={e => onHandleChange(e)}
                                     labelWidth={labelWidth}
-                                    inputProps={{
-                                        name: 'maKhoaHoc',
-                                        id: 'outlined-age-native-simple',
-                                    }}
+                                    // inputProps={{
+                                    //     name: 'maKhoaHoc',
+                                    //     id: 'outlined-age-native-simple',
+                                    // }}
                                 >
                                     <option></option>
                                     {props.item.map((item, index) => (
@@ -97,12 +93,15 @@ function Orders(props) {
                                 ))}
                             </select> */}
                         </TableCell>
+                        <TableCell>Username</TableCell>
+                        <TableCell>Code Name</TableCell>
+                        <TableCell>Full Name</TableCell>
                         <TableCell>
                             <Button variant="contained" color="primary" onClick={onButtonChange}>GET DATA</Button>
                         </TableCell>
                     </TableRow>
                 </TableHead>
-                <TableOfUser item={props.item}/>
+                <TableOfUser item={state.maKhoaHoc} />
             </Table>
         </React.Fragment>
     );

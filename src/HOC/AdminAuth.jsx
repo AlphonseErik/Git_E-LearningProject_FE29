@@ -8,7 +8,10 @@ class PrivateAdminRoute extends Component {
         const { path, Component } = this.props;
         return (
             <Route path={path} render={(routeProps) => {
-                if (localStorage.getItem(settings.userLogin) && localStorage.getItem(settings.maLoaiNguoiDung) === "GV") {
+                const userLoginStr = localStorage.getItem('userLogin');
+                const userAccessToken = localStorage.getItem('accessToken');
+                const userRightStr = localStorage.getItem('userRight');
+                if (userLoginStr && userAccessToken && userRightStr === "GV") {
                     return <Component {...routeProps} />
                 }
                 return <Redirect to="/home" />

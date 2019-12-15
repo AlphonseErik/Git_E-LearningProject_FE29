@@ -1,4 +1,4 @@
-import { LOGIN_ADMIN, ADMIN_INFO, ADMIN_GET_USER_REGIST_COURSE } from '../Action/actionType'
+import { ADMIN_INFO, ADMIN_GET_USER_REGIST_COURSE, ADMIN_LOGIN } from '../Action/actionType'
 
 let initialState = {
     usersDetailCourse: null,
@@ -8,7 +8,7 @@ let initialState = {
 
 const AdminReducer = (state = initialState, { type, payload }) => {
     switch (type) {
-        case LOGIN_ADMIN: {
+        case ADMIN_LOGIN: {
             state.credentials = payload;
             return { ...state };
         }
@@ -18,7 +18,7 @@ const AdminReducer = (state = initialState, { type, payload }) => {
         }
         case ADMIN_GET_USER_REGIST_COURSE: {
             state.usersDetailCourse = payload;
-            return {...state};
+            return { ...state };
         }
         default:
             return state;

@@ -18,11 +18,17 @@ const Payment = props => {
     })
 
     let renderButton = () => {
-        setState({
-            isBoolean: false,
-        });
-        console.log(state.userRegisterCourse);
-        props.dispatch(courseRegisting(state.userRegisterCourse, props.history));
+        const userLoginStr = localStorage.getItem('userLogin');
+        const userAccessToken = localStorage.getItem('accessToken');
+        if (userLoginStr && userAccessToken) {
+            setState({
+                isBoolean: false,
+            }); 
+            console.log(state.userRegisterCourse);
+            props.dispatch(courseRegisting(state.userRegisterCourse, props.history));
+        }
+        alert('You Have To Login First!!');
+        
     }
 
     return (
@@ -31,7 +37,7 @@ const Payment = props => {
                 <h3>Total: 50$</h3>
             </div>
             <div>
-                {state.isBoolean ? <button className="btn btn-danger" onClick={renderButton}>Payment</button> : <button className="btn btn-success">Please waiting for enrollment</button>}
+                {state.isBoolean ? <button className="btn btn-danger" onClick={renderButton}>Checkout</button> : <button className="btn btn-success">Please waiting for enrollment</button>}
             </div>
         </div>
     )

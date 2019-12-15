@@ -29,16 +29,6 @@ const useStyles = makeStyles(theme => ({
 
 function UserProfile(props) {
 
-    useEffect(() => {
-        //Lấy dữ liệu userDetail từ api
-        let userAccess = localStorage.getItem(settings.taiKhoan);
-        let userProfile = localStorage.getItem("userProfile");
-        // let userProfileEdit = localStorage.getItem(settings.userProfileEdit);
-        if (userAccess && !userProfile) {
-            props.dispatch(userDetail(userAccess));
-        }
-    }, []);
-
     const classes = useStyles();
 
     const userLocalStorage = JSON.parse(localStorage.getItem(settings.userProfile));

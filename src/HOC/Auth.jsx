@@ -9,10 +9,9 @@ class PrivateRoute extends Component {
         const { path, Component } = this.props;
         return (
             <Route path={path} render={(routeProps) => {
-                if (localStorage.getItem(settings.userLogin)){
-                    // if(localStorage.getItem(settings.maLoaiNguoiDung === "GV")){
-                    //     return <PrivateAdminRoute {...routeProps}/>
-                    // }
+                const userLoginStr = localStorage.getItem('userLogin');
+                const userAccessToken = localStorage.getItem('accessToken');
+                if (userLoginStr && userAccessToken){
                     return <Component {...routeProps} />
                 }
                 alert('Vui lòng Login');

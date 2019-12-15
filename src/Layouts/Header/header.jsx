@@ -227,6 +227,7 @@ const mapStateToProps = state => ({
     credentials: state.user.credentials,
     courseList: state.courseList,
     cartItem: state.cartItem,
+    categoryChoosenList: state.categoryChoosenList,
 });
 
 export default connect(mapStateToProps)(Header);

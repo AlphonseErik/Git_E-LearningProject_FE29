@@ -29,7 +29,7 @@ export const getUserRegistCourse = (userInfo, history) => {
     return dispatch => {
         restConnector({
             method: 'POST',
-            url: '/api/QuanLyNguoiDung/LayDanhSachHocVienChoXetDuyet',
+            url: '/api/QuanLyNguoiDung/laydanhsachhocvienchoxetduyet',
             headers: {
                 "Authorization": "Bearer " + localStorage.getItem(settings.token),
             },
@@ -46,11 +46,11 @@ export const getUserRegistCourse = (userInfo, history) => {
 }
 
 //chấp nhận đăng ký khóa học
-export const courseRegisting = (courseRegister, history) => {
+export const courseRegistingAdmin = (courseRegister, history) => {
     return dispatch => {
         restConnector({
             method: 'POST',
-            url: '/api/quanlykhoahoc/dangkykhoahoc',
+            url: '/api/quanlykhoahoc/ghidanhkhoahoc',
             headers: {
                 "Authorization": "Bearer " + localStorage.getItem(settings.token),
             },
@@ -65,10 +65,10 @@ export const courseRegisting = (courseRegister, history) => {
 
             //Lưu data lên store để render lại giao diện header
             dispatch(reduxAction(COURSE_REGISTING, res.data));
-            dispatch(reduxAction(UPDATE_USER_INFO, res.data));
+            // dispatch(reduxAction(UPDATE_USER_INFO, res.data));
 
             alert('Register Success!')
-            history.push('./admin');
+            // history.push('./admin');
         }).catch(error => {
             console.log(error.response.data);
         })

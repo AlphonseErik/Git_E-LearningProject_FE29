@@ -19,7 +19,7 @@ export const UPDATE_USER_INFO = 'UPDATE_USER_INFO';
 export const SIGNUP = 'SIGNUP';
 
 //Admin
-export const LOGIN_ADMIN = 'LOGIN_ADMIN';
+export const ADMIN_LOGIN = 'ADMIN_LOGIN';
 export const ADMIN_INFO = 'ADMIN_INFO';
 export const UPDATE_ADMIN_INFO = 'UPDATE_ADMIN_INFO';
 export const ADD_NEW_USER = 'ADD_NEW_USER';

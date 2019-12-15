@@ -7,4 +7,5 @@ export const settings = {
     userProfile: 'userProfile',
     userProfileEdit: 'userProfileEdit',
     maKhoaHoc: 'maKhoaHoc',
+    userRight: 'userRight',
 }

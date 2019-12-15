@@ -5,7 +5,7 @@ import Header from "./Layouts/Header/header";
 import HomeScreen from "./Screens/Home/home";
 import { restConnector } from "./Services";
 import reduxAction from "./Redux/Action/action";
-import { LOGIN, USER_INFO } from "./Redux/Action/actionType";
+import { LOGIN, USER_INFO, ADMIN_LOGIN } from "./Redux/Action/actionType";
 import UserProfile from "./Components/UserProfileScreen/UserProfile/userProfile";
 import Login from "./Screens/Login/login";
 import Signup from "./Screens/Signup/signup";
@@ -27,11 +27,18 @@ const App = props => {
     const userLoginStr = localStorage.getItem('userLogin');
     const userAccessToken = localStorage.getItem('accessToken');
     const userDetailStr = localStorage.getItem('userDetail');
-    if (userLoginStr && userAccessToken) {
+    const userRightStr = localStorage.getItem('userRight');
+    if (userLoginStr && userAccessToken && userRightStr) {
       restConnector.defaults.headers['Authorization'] = "Bearer " + userAccessToken;
-
+      if (userRightStr === "HV") {
+        props.dispatch(reduxAction(LOGIN, JSON.parse(userLoginStr)));
+        props.dispatch(reduxAction(USER_INFO, JSON.parse(userDetailStr)));
+        return;
+      }
       props.dispatch(reduxAction(LOGIN, JSON.parse(userLoginStr)));
+      props.dispatch(reduxAction(ADMIN_LOGIN, JSON.parse(userLoginStr)));
       props.dispatch(reduxAction(USER_INFO, JSON.parse(userDetailStr)));
+
     }
   }, []);
 
@@ -44,11 +51,10 @@ const App = props => {
         <Route path="/coursedetail/:courseid" component={CourseDetail} />
         <PrivateRoute path="/user" Component={UserScreen} />
         <PrivateRoute path="/user/profile" Component={UserProfile} />
-        <PrivateRoute path="/user/cart"  Component={userCartProfile}/>
-        <PrivateRoute path="/cart" Component={Cart} />
+        <PrivateRoute path="/user/cart" Component={userCartProfile} />
+        <Route path="/cart" component={Cart} />
         <PrivateAdminRoute path="/admin" exact Component={AdminScreen} />
-        {/* <PrivateAdminRoute path ="/admin/order" Component={Orders} /> */}
-        <PrivateAdminRoute path="/admin/adduser" Component={AddNewUser}/>
+        <PrivateAdminRoute path="/admin/adduser" Component={AddNewUser} />
 
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />

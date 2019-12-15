@@ -16,6 +16,7 @@ import { userDetail } from "../../Redux/Action/userAction";
 import { settings } from "../../config/settings";
 
 function TabPanel(props) {
+
     const { children, value, index, ...other } = props;
 
     return (
@@ -51,16 +52,20 @@ const useStyles = makeStyles(theme => ({
 }));
 const UserScreen = props => {
 
-    
     useEffect(() => {
         //Lấy dữ liệu userDetail từ api
-        let userAccess = localStorage.getItem(settings.taiKhoan);
-        let userProfile = localStorage.getItem("userProfile");
-        // let userProfileEdit = localStorage.getItem(settings.userProfileEdit);
-        if (userAccess && !userProfile) {
-            props.dispatch(userDetail(userAccess));
+        const userLoginStr = localStorage.getItem('userLogin');
+        const userAccessToken = localStorage.getItem('accessToken');
+        const userRightStr = localStorage.getItem('userRight');
+        if (userLoginStr && userAccessToken && userRightStr === "HV") {
+            let userAccess = localStorage.getItem(settings.taiKhoan);
+            let userProfile = localStorage.getItem("userProfile");
+            // let userProfileEdit = localStorage.getItem(settings.userProfileEdit);
+            if (userAccess && !userProfile) {
+                props.dispatch(userDetail(userAccess));
+            }
         }
-    },[]);
+    }, []);
 
     const classes = useStyles();
     const [value, setValue] = React.useState(0);

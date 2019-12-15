@@ -1,4 +1,4 @@
-import { type, LOGIN, USER_INFO, SIGNUP, UPDATE_USER_INFO, ADD_CART_ITEM, COURSE_REGISTING, LOGIN_ADMIN } from './actionType';
+import { type, LOGIN, USER_INFO, SIGNUP, UPDATE_USER_INFO, ADD_CART_ITEM, COURSE_REGISTING, ADMIN_LOGIN } from './actionType';
 import { settings } from '../../config/settings';
 import reduxAction from "./action";
 import { restConnector } from '../../Services';
@@ -42,25 +42,27 @@ export const userLoginAction = (userLogin, history) => {
             // alert('Đăng nhập thành công');
             //Đăng nhập thành công => Lưu thông tin user và token vào localstorage để request về những api yêu cầu token
             localStorage.setItem(settings.maLoaiNguoiDung, res.data.maLoaiNguoiDung);
-
+            localStorage.setItem(settings.userRight, res.data.maLoaiNguoiDung);
+            const userRightStr = localStorage.getItem('userRight');
             //Lưu data lên store để render lại giao diện header
 
             //bỏ token lên header của tất cả request
             restConnector.defaults.headers['Authorization'] = "Bearer " + res.data.accessToken;
-            if (localStorage.getItem(settings.maLoaiNguoiDung === "HV")) {
+            if (userRightStr === "HV") {
                 localStorage.setItem(settings.userLogin, JSON.stringify(res.data));
                 localStorage.setItem(settings.token, res.data.accessToken);
                 localStorage.setItem(settings.taiKhoan, res.data.taiKhoan);
                 dispatch(reduxAction(LOGIN, res.data));
                 history.push('./');
-                return;
+                // return;
+            } else {
+                localStorage.setItem(settings.userLogin, JSON.stringify(res.data));
+                localStorage.setItem(settings.token, res.data.accessToken);
+                localStorage.setItem(settings.taiKhoan, res.data.taiKhoan);
+                dispatch(reduxAction(ADMIN_LOGIN, res.data));
+                dispatch(reduxAction(LOGIN, res.data));
+                history.push('./admin');
             }
-            localStorage.setItem(settings.userLogin, JSON.stringify(res.data));
-            localStorage.setItem(settings.token, res.data.accessToken);
-            localStorage.setItem(settings.taiKhoan, res.data.taiKhoan);
-            dispatch(reduxAction(LOGIN_ADMIN, res.data));
-            dispatch(reduxAction(LOGIN, res.data));
-            history.push('./admin');
         }).catch(error => {
             console.log(error.response.data);
             alert('Error: ' + error.response.data)

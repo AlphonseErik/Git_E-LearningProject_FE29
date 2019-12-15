@@ -1,4 +1,4 @@
-import { FETCH_COURSES } from "../Action/actionType";
+import { FETCH_COURSES, COURSE_REGISTING } from "../Action/actionType";
 
 let initialState = [];
 
@@ -8,7 +8,10 @@ const CourseReducer = (state = initialState, { type, payload }) => {
             state = payload;
             return [...state];
         }
-
+        case COURSE_REGISTING: {
+            console.log("thanh toan", payload);
+            return [...state];
+        }
         default:
             return state;
     }
