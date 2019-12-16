@@ -23,25 +23,80 @@
         top: 200px;
         right: 0;
         position: fixed;
-        margin: 5px 0;
+        margin: $mg-0 +3 0;
         text-align: center;
         ul {
             margin-bottom: 0;
             list-style: none;
-            li {
-                background-color: #dbb80d;
-                margin: 3px 0;
-                padding: 10px 10px;
-                a {
-                    color: white;
+            .face {
+                 :hover {
+                    background-color: royalblue;
                 }
-                i {
-                    font-size: 20px;
-                    color: white;
+                li {
+                    background-color: rgb(59, 89, 152);
+                    padding: $pd-0 +1 $pd-1 +5;
+                    a {
+                        color: $color-white-0;
+                    }
+                    i {
+                        font-size: $fs-2;
+                        color: $color-white-0;
+                        margin: $mg-0 +2 0;
+                    }
                 }
-                .bar:hover {
-                    background-color: red;
-                    padding-right: 40px;
+            }
+            .twister {
+                 :hover {
+                    background-color: mediumslateblue;
+                }
+                li {
+                    background-color: rgb(29, 161, 242);
+                    padding: $pd-0 +1 $pd-1 +5;
+                    margin: $mg-0 +1 0;
+                    a {
+                        color: $color-white-0;
+                    }
+                    i {
+                        font-size: $fs-2;
+                        color: $color-white-0;
+                        margin: $mg-0 0;
+                    }
+                }
+            }
+            .youtube {
+                 :hover {
+                    background-color: $color-red-0;
+                }
+                li {
+                    background-color: tomato;
+                    padding: $pd-0 +1 $pd-1 +5;
+                    margin: $mg-0 +1 0;
+                    a {
+                        color: $color-white-0;
+                    }
+                    i {
+                        font-size: $fs-2;
+                        color: $color-white-0;
+                        margin: $mg-0 +2 0;
+                    }
+                }
+            }
+            .bar {
+                 :hover {
+                    background-color: gold;
+                }
+                li {
+                    background-color: goldenrod;
+                    padding: $pd-0 +1 $pd-1 +5;
+                    margin: $mg-0 +1 0;
+                    a {
+                        color: $color-white-0;
+                    }
+                    i {
+                        font-size: $fs-2;
+                        color: $color-white-0;
+                        margin: $mg-0 +2 0;
+                    }
                 }
             }
         }

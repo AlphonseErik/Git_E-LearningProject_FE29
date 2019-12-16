@@ -51,8 +51,8 @@ const Footer = props => {
       <div className="container">
         <div className="row">
           <div className="col-4">
-            <img src="https://www.udemy.com/staticx/udemy/images/v6/logo-coral.svg" width={100} height={100} />
-            <span className="ml-3 pt-2">Copyright © 2019 Udemy, Inc.</span>
+          <i class="fa fa-angellist"style={{fontSize:50}}></i>        
+              <span className="ml-3 pt-2">Copyright © 2019 H&T, Inc.</span>
           </div>
           <div className="col-8">
             <div className="text-right pt-3">

@@ -61,8 +61,12 @@ const HomeScreen = props => {
         <div>
           <div className={classes.home__name}>
             <div className={classes.classh1}>
-              <h1> SALE 70%</h1>
+              <h1 className="container text-left"> Sale <dateTime /> </h1>
+              <dateTime />
+
             </div>
+            <dateTime />
+
             {/* <div className={classes.home__p}> */}
             {/* </div> */}
           </div>

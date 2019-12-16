@@ -124,9 +124,9 @@ const Header = props => {
             <div className="container">
                 {
                     props.credentialsAdmin ? (
-                        <NavLink className="navbar-brand" to="/admin"><i className="fa fa-magnet mr-2"></i>Udemy Management</NavLink>
+                        <NavLink className="navbar-brand" to="/admin"><i className="fa fa-magnet mr-2"></i>H & T Management</NavLink>
                     ) : (
-                            <NavLink className="navbar-brand" to="/home"><i className="fa fa-magnet mr-2"></i>Udemy</NavLink>
+                            <NavLink className="navbar-brand" to="/home"><i className="fa fa-angellist mr-2"style={{fontSize:30}}></i>H & T</NavLink>
                         )
                 }
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -172,12 +172,12 @@ const Header = props => {
                                 <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
                                     <li className="nav-item">
                                         <div className=" mr-4">
-                                            <a className="nav-link" href="#"> udemy for Business</a>
+                                            <a className="nav-link" href="#"> H&T for Business</a>
                                         </div>
                                     </li>
                                     <li className="nav-item">
                                         <div className=" mr-3">
-                                            <a className="nav-link" href="#">Tech on Udemy</a>
+                                            <a className="nav-link" href="#">Tech on H&T</a>
                                         </div>
                                     </li>
                                 </ul>
