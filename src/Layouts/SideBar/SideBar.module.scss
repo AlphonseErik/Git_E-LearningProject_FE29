@@ -6,15 +6,44 @@
     img {
         width: 100%;
     }
-    .con {
+    // .con {
+    //     position: absolute;
+    //     color: $color-white-0;
+    //     font-size: $fs-2 +10;
+    //     top: 150px;
+    //     left: 150px;
+    //     button {
+    //         color: red;
+    //         background-color: white;
+    //     }
+    // }
+    .fff {
         position: absolute;
-        color: $color-white-0;
-        font-size: $fs-2 +10;
-        top: 150px;
-        left: 150px;
-        button {
-            color: red;
-            background-color: white;
+        z-index: 2000;
+        top: 200px;
+        right: 0;
+        position: fixed;
+        margin: 5px 0;
+        text-align: center;
+        ul {
+            margin-bottom: 0;
+            list-style: none;
+            li {
+                background-color: #dbb80d;
+                margin: 3px 0;
+                padding: 10px 10px;
+                a {
+                    color: white;
+                }
+                i {
+                    font-size: 20px;
+                    color: white;
+                }
+                .bar:hover {
+                    background-color: red;
+                    padding-right: 40px;
+                }
+            }
         }
     }
 }

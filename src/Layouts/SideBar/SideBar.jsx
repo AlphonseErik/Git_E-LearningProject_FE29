@@ -9,19 +9,27 @@ AOS.init();
 
 export default class SideBar extends Component {
     render() {
-        const settings = {
-            infinite: true,
-            speed: 2000,
-            slidesToShow: 1,
-            slidesToScroll: 1,
-
-        };
+      
 
         return (
-            <Slider {...settings}  data-aos="fade-down-left">
+            <div className={classes.tong}>
                <img src ="./img/banner1.jpg" height={500}/>
-            </Slider>
-                  
+               <div className={classes.fff}>      
+               <ul>   
+               <li>
+                   <div className={classes.bar}> 
+                    <a href="#"><i class="fa fa-bars"></i>
+                   </a>
+                   </div>
+              </li>
+
+                <li><a href="#"><i class="fa fa-envelope"></i></a></li>
+                <li><a href="https://www.youtube.com/channel/UCWc3ASTJcb0FeO2oFfX8IDQ"><i class="fa fa-youtube"></i></a></li>
+                <li><a href="https://www.facebook.com/lyhuy016"><i class="fa fa-bars"></i></a></li>
+               </ul>
+
+               </div>
+               </div>     
         )
     }
 }

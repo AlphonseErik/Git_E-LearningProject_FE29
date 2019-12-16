@@ -16,6 +16,7 @@ import FilterSearch from "../../Components/FilterSearch/filterSearch";
 import Sale from "../../Components/Sale/Sale";
 import CourseHot from "../../Components/CourseHot/courseHot";
 import { FETCH_COURSES } from "../../Redux/Action/actionType";
+import backToTop from "../../Components/BacktoTop/backToTop";
 // import OwlCarousel from 'react-owl-carousel';
 // import 'owl.carousel/dist/assets/owl.carousel.css';
 // import 'owl.carousel/dist/assets/owl.theme.default.css';
@@ -102,6 +103,8 @@ const HomeScreen = props => {
       <div className="container-fluid bg-dark">
         <GetStarted />
       </div>
+      <backToTop />
+
 
       <div className="mt-3">
         <StudentSay />
