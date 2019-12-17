@@ -17,28 +17,28 @@ export default class SideBar extends Component {
             <div className={classes.face}>
               <li>
                 <a href="https://www.facebook.com/lyhuy016"target="_blank">
-                  <i class="fa fa-facebook"></i>
+                  <i className="fa fa-facebook"></i>
                 </a>
               </li>
             </div>
             <div className={classes.twister}>
               <li>
                 <a href="https://twitter.com/GiaHan79629411"target="_blank">
-                <i class="fa fa-twitter"></i>         
+                <i className="fa fa-twitter"></i>         
                </a>
               </li>
             </div>
             <div className={classes.youtube}>
               <li>
                 <a href="https://www.youtube.com/channel/UCWc3ASTJcb0FeO2oFfX8IDQ"target="_blank">
-                  <i class="fa fa-youtube"></i>
+                  <i className="fa fa-youtube"></i>
                 </a>
               </li>
             </div>
             <div className={classes.bar}>
               <li>
                 <a href="#">
-                <i class="fa fa-bars"></i>
+                <i className="fa fa-bars"></i>
 
                 </a>
               </li>

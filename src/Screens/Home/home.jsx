@@ -17,6 +17,9 @@ import Sale from "../../Components/Sale/Sale";
 import CourseHot from "../../Components/CourseHot/courseHot";
 import { FETCH_COURSES } from "../../Redux/Action/actionType";
 import backToTop from "../../Components/BacktoTop/backToTop";
+import  CountdownTimer from '../../Components/CountdownTimer/CountdownTimer';
+
+
 // import OwlCarousel from 'react-owl-carousel';
 // import 'owl.carousel/dist/assets/owl.carousel.css';
 // import 'owl.carousel/dist/assets/owl.theme.default.css';
@@ -54,6 +57,7 @@ const HomeScreen = props => {
     //  }
   return (
     <div>
+      
       <SideBar />
       <BottomSideBar />
       {/* <Container maxWidth="lg" > */}
@@ -61,12 +65,8 @@ const HomeScreen = props => {
         <div>
           <div className={classes.home__name}>
             <div className={classes.classh1}>
-              <h1 className="container text-left"> Sale <dateTime /> </h1>
-              <dateTime />
-
+              <CountdownTimer />
             </div>
-            <dateTime />
-
             {/* <div className={classes.home__p}> */}
             {/* </div> */}
           </div>
@@ -107,7 +107,7 @@ const HomeScreen = props => {
       <div className="container-fluid bg-dark">
         <GetStarted />
       </div>
-      <backToTop />
+      {/* <backToTop /> */}
 
 
       <div className="mt-3">

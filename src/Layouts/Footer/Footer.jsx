@@ -51,7 +51,7 @@ const Footer = props => {
       <div className="container">
         <div className="row">
           <div className="col-4">
-          <i class="fa fa-angellist"style={{fontSize:50}}></i>        
+          <i className="fa fa-angellist"style={{fontSize:50}}></i>        
               <span className="ml-3 pt-2">Copyright © 2019 H&T, Inc.</span>
           </div>
           <div className="col-8">

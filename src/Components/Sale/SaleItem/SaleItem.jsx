@@ -6,7 +6,6 @@ import { NavLink } from 'react-router-dom';
 import {connect} from 'react-redux';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import dateTime from '../../DateTime/dateTime';
 AOS.init();
 
  class SaleItem extends Component {
