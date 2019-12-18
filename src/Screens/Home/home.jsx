@@ -72,7 +72,7 @@ const HomeScreen = props => {
           </div>
           <CourseHot />
           <Category />
-          <FilterSearch />
+          <FilterSearch item={props.courseList} />
           <div>
             <div className="container ">
               <div className="row ">

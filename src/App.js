@@ -49,12 +49,12 @@ const App = props => {
         {/* <HomeScreen /> */}
         <Route path="/home" component={HomeScreen} />
         <Route path="/coursedetail/:courseid" component={CourseDetail} />
+        <Route path="/cart" component={Cart} />
         <PrivateRoute path="/user" Component={UserScreen} />
         <PrivateRoute path="/user/profile" Component={UserProfile} />
         <PrivateRoute path="/user/cart" Component={userCartProfile} />
-        <Route path="/cart" component={Cart} />
         <PrivateAdminRoute path="/admin" exact Component={AdminScreen} />
-        <PrivateAdminRoute path="/admin/adduser" Component={AddNewUser} />
+        <PrivateAdminRoute path="/adduser" Component={AddNewUser} />
 
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />

@@ -1,55 +1,53 @@
-import React, { Component, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { SEARCH_COURSE, FETCH_COURSES } from '../../Redux/Action/actionType';
-// import CourseService from '../../Services/courseService';
 import reduxAction from '../../Redux/Action/action';
+import { SEARCH_COURSE } from '../../Redux/Action/actionType';
+import { NavLink } from 'react-router-dom';
 
-// const courseService = new CourseService();
+function FilterSearch(props) {
 
-    class FilterSearch extends  Component {
-   constructor(props){
-     super(props);
-     this.state ={
-       search:''
-     }
-   }
+  console.log('hihi', props.item);
 
-  handleChange = e => {
-    this.setState({
-      [e.target.name]: e.target.value,
-    },()=>this.props.dispatch(reduxAction(SEARCH_COURSE, this.state.search))
-    
+  const [searchTerm, setSearchTerm] = React.useState("");
+  const [searchResults, setSearchResults] = React.useState([]);
+  const handleChange = event => {
+    setSearchTerm(event.target.value);
+  };
+
+  React.useEffect(() => {
+    const results = props.item.filter(items =>
+      items.tenKhoaHoc.toLowerCase().trim().includes(searchTerm.toLowerCase().trim())
     );
+    setSearchResults(results);
+
+  }, [searchTerm]);
+
+  let handleSubmit = (e) => {
+    e.preventDefault();
+    
   }
 
-  // let filterSearch = () => {
-  //   props.dispatch(reduxAction(SEARCH_COURSE, state.search));
-  // }
-render(){
   return (
     <div className="container mt-3">
       <div className="row">
         <div className="col-6"></div>
         <div className="col-6">
-          <div className="form-group">
-            <input
-              type="text"
-              name="search"
-              // value={this.state.search}
-              onChange={this.handleChange}
-              className="form-control"
-              placeholder="Tìm  khóa học"
-            />
-          </div>
+          <form className="form-group" action={`/coursedetail/${searchTerm}`} method="get">
+            <input type="text" name="search" value={searchTerm} onChange={handleChange} className="form-control" placeholder="Search for course..." list="search"/>
+            {searchTerm && (
+              <datalist id="search">
+                {searchResults.map((item, index) => (
+                  <option value={item.tenKhoaHoc} key={index}>
+                    {item.maKhoaHoc}
+                  </option>
+                ))}
+              </datalist>
+            )}
+          </form>
         </div>
-       
       </div>
     </div>
   );
 }
-    }
-const mapStateToProps = state => ({
-  courseList: state.courseList,
-});
 
-export default connect(mapStateToProps)(FilterSearch);
+export default connect()(FilterSearch);

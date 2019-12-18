@@ -129,7 +129,6 @@ function Orders(props) {
                                     Class Name
                                 </InputLabel>
                                 <Select
-                                
                                     native
                                     onChange={e => onHandleChange(e)}
                                     labelWidth={labelWidth}
