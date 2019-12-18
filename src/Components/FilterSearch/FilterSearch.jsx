@@ -22,11 +22,6 @@ function FilterSearch(props) {
 
   }, [searchTerm]);
 
-  let handleSubmit = (e) => {
-    e.preventDefault();
-    
-  }
-
   return (
     <div className="container mt-3">
       <div className="row">
@@ -37,8 +32,8 @@ function FilterSearch(props) {
             {searchTerm && (
               <datalist id="search">
                 {searchResults.map((item, index) => (
-                  <option value={item.tenKhoaHoc} key={index}>
-                    {item.maKhoaHoc}
+                  <option value={item.maKhoaHoc} key={index}>
+                    {item.tenKhoaHoc}
                   </option>
                 ))}
               </datalist>
