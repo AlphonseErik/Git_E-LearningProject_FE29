@@ -56,13 +56,15 @@ function Login(props) {
 
     const useStyles = makeStyles(theme => ({
         textField: {
-            width: 400,
+            width: 350,
             fontSize: 16,
         },
         button: {
             width: 200,
-            height: 50,
+            height: 60,
             fontSize: 16,
+            marginTop:30,
+            borderRadius:25
         }
     }));
 
@@ -107,11 +109,14 @@ function Login(props) {
     }
 
     return (
-        <Container>
+        <div className={classesStyle.tong}>     
+               <Container>
             <form className="container" onSubmit={handleSubmit} className={classesStyle.loginStyle} autoComplete="on">
+               <div className={classesStyle.test}>
                 <div className="form-group card-block">
                     <div className="text-center">
-                        <h2 className="text text-danger"><i className="fa fa-lock"></i> Sign In</h2>
+                        {/* <h2>Wel Come to {props.hoTen} </h2> */}
+                        <h2 className="text text-danger"><i className="fa fa-lock"></i> Log In</h2>
                     </div>
                     <div className="text-center">
                         <TextField variant="outlined" name="taiKhoan" label="Username" onChange={handleChange} className={classes.textField} margin="normal" />
@@ -140,22 +145,31 @@ function Login(props) {
                                 }
                                 labelWidth={70}
                             />
+                  
                         </FormControl>
+                   
                         <p className="text text-danger">{user.errors.matKhau}</p>
                     </div>
                 </div>
                 <div className="form-group">
                     <div className="text-center">
-                        <Button type="submit" color="secondary" variant="contained" className={classes.button}>Sign In</Button>
+                        <Button type="submit" color="secondary" variant="contained" className={classes.button}>Log In</Button>
                     </div>
                 </div>
+            
+
+                </div>
+
+
             </form>
         </Container>
+        </div>
+
     )
 }
 
-// const mapStateToProp = state => ({
-//     credentials: state.user.credentials,
-// });
+const mapStateToProp = state => ({
+    credentials: state.user.credentials,
+});
 
-export default connect()(Login);
+export default connect(mapStateToProp)(Login);
