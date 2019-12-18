@@ -1,7 +1,7 @@
 import { restConnector } from "../../Services"
 import { settings } from "../../config/settings";
 import reduxAction from "./action";
-import { ADMIN_GET_USER_REGIST_COURSE, COURSE_REGISTING, GET_ALL_USER_INFOR } from "./actionType";
+import { ADMIN_GET_USER_REGIST_COURSE, COURSE_REGISTING, GET_ALL_USER_INFOR, SEARCH_COURSE, SEARCH_USER_DETAIL } from "./actionType";
 import { userDetail } from "./userAction";
 
 //Lấy danh sách người dùng
@@ -83,6 +83,20 @@ export const courseRegistingAdmin = (courseRegister, history) => {
             //Lưu data lên store để render lại giao diện header
             dispatch(reduxAction(COURSE_REGISTING, res.data));
             // dispatch(reduxAction(UPDATE_USER_INFO, res.data));
+        }).catch(error => {
+            console.log(error.response.data);
+        })
+    }
+};
+
+export const searchForUserByKey = (searchItem) => {
+    return dispatch => {
+        restConnector({
+            method: 'GET',
+            url: `api/QuanLyNguoiDung/TimKiemNguoiDung?MaNhom=GP01&tuKhoa=${searchItem}`,
+        }).then(res => {
+            console.log(res.data);
+            dispatch(reduxAction(SEARCH_USER_DETAIL, res.data));
         }).catch(error => {
             console.log(error.response.data);
         })

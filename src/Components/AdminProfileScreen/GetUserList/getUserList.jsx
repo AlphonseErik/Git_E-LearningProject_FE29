@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import Link from '@material-ui/core/Link';
 import { makeStyles } from '@material-ui/core/styles';
@@ -8,19 +8,20 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Title from '../Title/title';
+import SearchForUser from './searchForUser';
 
 const GetUserList = props => {
 
     console.log(props.userDetail);
-       const [user,setUser] =useState('');
+    const [user, setUser] = useState('');
 
-   
-       
+
+
     return (
         <div className="container">
             <Title>User List</Title>
             <div className="text-center pb-3 " >
-            <input className="form-control"name="searchUser" type="text" placeholder="Tìm tên user ..."></input>
+            <SearchForUser/>
             </div>
             <table className="table">
                 <thead>
