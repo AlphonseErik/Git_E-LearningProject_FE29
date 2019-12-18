@@ -35,6 +35,9 @@ AOS.init();
                       <div className={classes.classA}>
                         <div className={classes.card}>
                           <img className="card-img-top" src={hinhAnh} />
+                          <div className={classes.sale}>
+                           <h2 data-aos="zoom-out-up"> 70%</h2>
+                           </div>
                           <div className="card-body text-left">
                             <p className="card-title text-left">{this._shortenStringTenKhoaHoc(tenKhoaHoc)}</p>
                             <hr></hr>

@@ -3,18 +3,105 @@
     position: relative;
     background-color: $color-black-0;
     height: 500px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
     img {
         width: 100%;
     }
-    .con {
+    // .con {
+    //     position: absolute;
+    //     color: $color-white-0;
+    //     font-size: $fs-2 +10;
+    //     top: 150px;
+    //     left: 150px;
+    //     button {
+    //         color: red;
+    //         background-color: white;
+    //     }
+    // }
+    .fff {
         position: absolute;
-        color: $color-white-0;
-        font-size: $fs-2 +10;
-        top: 150px;
-        left: 150px;
-        button {
-            color: red;
-            background-color: white;
+        z-index: 2000;
+        top: 200px;
+        right: 0;
+        position: fixed;
+        margin: $mg-0 +3 0;
+        text-align: center;
+        ul {
+            margin-bottom: 0;
+            list-style: none;
+            .face {
+                 :hover {
+                    background-color: royalblue;
+                }
+                li {
+                    background-color: rgb(59, 89, 152);
+                    padding: $pd-0 +1 $pd-1 +5;
+                    a {
+                        color: $color-white-0;
+                    }
+                    i {
+                        font-size: $fs-2;
+                        color: $color-white-0;
+                        margin: $mg-0 +2 0;
+                    }
+                }
+            }
+            .twister {
+                 :hover {
+                    background-color: mediumslateblue;
+                }
+                li {
+                    background-color: rgb(29, 161, 242);
+                    padding: $pd-0 +1 $pd-1 +5;
+                    margin: $mg-0 +1 0;
+                    a {
+                        color: $color-white-0;
+                    }
+                    i {
+                        font-size: $fs-2;
+                        color: $color-white-0;
+                        margin: $mg-0 0;
+                    }
+                }
+            }
+            .youtube {
+                 :hover {
+                    background-color: $color-red-0;
+                }
+                li {
+                    background-color: tomato;
+                    padding: $pd-0 +1 $pd-1 +5;
+                    margin: $mg-0 +1 0;
+                    a {
+                        color: $color-white-0;
+                    }
+                    i {
+                        font-size: $fs-2;
+                        color: $color-white-0;
+                        margin: $mg-0 +2 0;
+                    }
+                }
+            }
+            .bar {
+                 :hover {
+                    background-color: gold;
+                }
+                li {
+                    background-color: goldenrod;
+                    padding: $pd-0 +1 $pd-1 +5;
+                    margin: $mg-0 +1 0;
+                    a {
+                        color: $color-white-0;
+                    }
+                    i {
+                        font-size: $fs-2;
+                        color: $color-white-0;
+                        margin: $mg-0 +2 0;
+                    }
+                }
+            }
         }
     }
 }
