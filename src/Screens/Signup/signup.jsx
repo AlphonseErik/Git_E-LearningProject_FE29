@@ -71,6 +71,7 @@ function Signup(props) {
             width: 200,
             height: 50,
             fontSize: 16,
+            borderRadius:25
         }
     }));
 
@@ -115,6 +116,7 @@ function Signup(props) {
     }
 
     return (
+        <div className={classesStyle.tong}>
         <form className="container" onSubmit={handleSubmit} className={classesStyle.signupStyle}>
             <div className="form-group">
                 <h2 className="text-danger text-center">Sign Up</h2>
@@ -170,6 +172,7 @@ function Signup(props) {
                 </div>
             </div>
         </form>
+        </div>
 
     )
 }

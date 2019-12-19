@@ -58,6 +58,8 @@ function Login(props) {
         textField: {
             width: 350,
             fontSize: 16,
+            
+            
         },
         button: {
             width: 200,
@@ -65,6 +67,7 @@ function Login(props) {
             fontSize: 16,
             marginTop:30,
             borderRadius:25
+            
         }
     }));
 

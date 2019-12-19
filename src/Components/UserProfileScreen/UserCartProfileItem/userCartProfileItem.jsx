@@ -15,7 +15,7 @@ const UserCartItem = props => {
                     <th></th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody> 
                 {
                     props.item.map((item, index) => {
                         return (

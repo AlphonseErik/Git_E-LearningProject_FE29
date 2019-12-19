@@ -45,7 +45,7 @@ export default function CountdownTimer() {
         <h1>Wel come to shop H & R</h1>
             <h2>Nhân dịp khai trương shop chúng tôi khuyến mãi những khóa học sau:</h2>
             <div className={classes.countt}>
-            <span>Kết thúc trong</span>  {timerComponents.length ?   timerComponents : <span>Time's up!</span>}
+            <span>Kết thúc trong :</span>  {timerComponents.length ?   timerComponents : <span>Time's up!</span>}
             </div>
        </div>
   );

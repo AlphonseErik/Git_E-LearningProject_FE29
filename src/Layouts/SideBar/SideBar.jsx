@@ -23,7 +23,7 @@ export default class SideBar extends Component {
             </div>
             <div className={classes.twister}>
               <li>
-                <a href="https://twitter.com/GiaHan79629411"target="_blank">
+                <a href="#"target="_blank">
                 <i className="fa fa-twitter"></i>         
                </a>
               </li>

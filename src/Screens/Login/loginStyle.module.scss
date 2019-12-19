@@ -6,20 +6,18 @@
     height: 100%;
     .loginStyle {
         position: relative;
-        border-radius: 25%;
         .test {
             box-shadow: 0 0 1px 3px rgba(20, 23, 28, .1), 0 3px 3000px 2000px rgba(20, 23, 28, .1);
             width: 400px;
-            margin-left: 400px;
-            margin-top: 40px;
-            padding: 50px 0;
-            background-color: white;
-            .textField {
-                width: 40px;
-            }
+            margin-left: 33%;
+            margin-top: $mg-2 +15;
+            padding: $pd-2 +30 0;
+            background-color: $color-white-0;
             button {
-                padding-top: 10px;
+                padding-top: $pd-2 -10;
                 height: 50px;
+                font-size: $fs-2;
+                letter-spacing: 2px;
             }
         }
         div {
