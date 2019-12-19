@@ -107,7 +107,7 @@ function UserProfile(props) {
         <div style={{ height: '500px', padding: '5vh', width: '310px' }}>
             <div className="container">
                 <form onSubmit={updateUser}>
-                    <h3 className="text text-danger ">User Profile</h3>
+                    <h3 className="text text-danger text-center">User Profile</h3>
                     <div className="form-group">
                         <TextField name="taiKhoan" label="Username" defaultValue={taiKhoan} className={classes.textField} margin="normal" InputProps={{ readOnly: true }} onChange={handleChange} />
                         <p className="text text-danger">{user.errors.taiKhoan}</p>

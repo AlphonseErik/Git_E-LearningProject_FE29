@@ -45,9 +45,12 @@ const useStyles = makeStyles(theme => ({
         backgroundColor: theme.palette.background.paper,
         display: 'flex',
         height: 224,
+        
     },
     tabs: {
         borderRight: `1px solid ${theme.palette.divider}`,
+        marginTop:50
+        
     },
 }));
 const UserScreen = props => {
@@ -78,15 +81,17 @@ const UserScreen = props => {
 
     return (
         <React.Fragment>
-            {/* <Container> */}
+            <Container>
             <div className={classes.root}>
-                <Tabs orientation="vertical" variant="scrollable" value={value} onChange={handleChange} aria-label="Vertical tabs example" className={classes.tabs}>
+                <Tabs orientation="vertical" variant="scrollable"value={value} onChange={handleChange} aria-label="Vertical tabs example" className={classes.tabs}>
+                    
                     <Tab label="Profile" {...a11yProps(0)} />
                     <Tab label="My Cart" {...a11yProps(1)} />
                     <Tab label="Item Three" {...a11yProps(2)} />
                 </Tabs>
                 <TabPanel value={value} index={0}>
                     <UserProfile />
+                    
                 </TabPanel>
                 <TabPanel value={value} index={1}>
                     <UserCart item={userLocalStorage} />
@@ -95,7 +100,7 @@ const UserScreen = props => {
                     Item Three
                     </TabPanel>
             </div>
-            {/* </Container> */}
+            </Container>
         </React.Fragment>
     )
 }
