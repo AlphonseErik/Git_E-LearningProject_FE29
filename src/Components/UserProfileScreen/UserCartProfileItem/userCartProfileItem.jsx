@@ -12,7 +12,6 @@ const UserCartItem = props => {
                     <th>Course Code</th>
                     <th>Course Name</th>
                     <th>Status</th>
-                    <th></th>
                 </tr>
             </thead> 
             <tbody> 

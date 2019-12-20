@@ -12,12 +12,12 @@ import { settings } from "../../config/settings";
 import GetStarted from "../../Components/GetStarted/getStarted";
 import StudentSay from "../../Components/StudentSay/studentSay";
 import Footer from "../../Layouts/Footer/footer";
-import FilterSearch from "../../Components/FilterSearch/filterSearch";
+import FilterSearch from "../../Components/FilterSearch/FilterSearch";
 import Sale from "../../Components/Sale/Sale";
 import CourseHot from "../../Components/CourseHot/courseHot";
 import { FETCH_COURSES } from "../../Redux/Action/actionType";
 import backToTop from "../../Components/BacktoTop/backToTop";
-import  CountdownTimer from '../../Components/CountdownTimer/countdownTimer';
+import  CountdownTimer from '../../Components/CountdownTimer/CountdownTimer';
 
 
 // import OwlCarousel from 'react-owl-carousel';
@@ -63,7 +63,7 @@ const HomeScreen = props => {
         <div>
           <div className={classes.home__name}>
             <div className={classes.classh1}>
-              {/* <CountdownTimer /> */}
+              <CountdownTimer />
             </div>
             {/* <div className={classes.home__p}> */}
             {/* </div> */}

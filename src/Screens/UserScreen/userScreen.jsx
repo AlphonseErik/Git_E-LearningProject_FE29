@@ -14,6 +14,7 @@ import UserCart from "../../Components/UserProfileScreen/UserCartProfile/userCar
 import { connect } from "react-redux";
 import { userDetail } from "../../Redux/Action/userAction";
 import { settings } from "../../config/settings";
+import Footer from "../../Layouts/Footer/footer";
 
 function TabPanel(props) {
 
@@ -100,6 +101,7 @@ const UserScreen = props => {
                     </TabPanel>
             </div>
             </Container>
+           <Footer />
         </React.Fragment>
     )
 }

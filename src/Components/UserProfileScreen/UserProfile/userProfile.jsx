@@ -14,6 +14,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Button } from "@material-ui/core";
 import { red } from "@material-ui/core/colors";
 import classessass from './userProfile.module.scss';
+import Footer from "../../../Layouts/Footer/footer";
 
 // const userService = new UserService();
 
@@ -138,6 +139,7 @@ function UserProfile(props) {
                 </form>
             </div>
             </div>
+            
     )
 }
 
