@@ -28,7 +28,7 @@ function FilterSearch(props) {
         <div className="col-6"></div>
         <div className="col-6">
           <form className="form-group" action={`/coursedetail/${searchTerm}`} method="get">
-            <input type="text" name="search" value={searchTerm} onChange={handleChange} className="form-control" placeholder="Search for course..." list="search"/>
+            <input type="text" name="search" value={searchTerm} onChange={handleChange} className="form-control" placeholder="Search for course..." list="search" />
             {searchTerm && (
               <datalist id="search">
                 {searchResults.map((item, index) => (
