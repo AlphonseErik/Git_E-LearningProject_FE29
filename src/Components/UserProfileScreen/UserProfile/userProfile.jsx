@@ -12,6 +12,8 @@ import Container from '@material-ui/core/Container';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import { Button } from "@material-ui/core";
+import { red } from "@material-ui/core/colors";
+import classessass from './userProfile.module.scss';
 
 // const userService = new UserService();
 
@@ -23,7 +25,7 @@ const useStyles = makeStyles(theme => ({
     textField: {
         // marginLeft: theme.spacing(1),
         // marginRight: theme.spacing(1),
-        width: 200,
+        width: 500,
     },
 }));
 
@@ -103,10 +105,11 @@ function UserProfile(props) {
     }
 
     return (
-        <div style={{ height: '500px', padding: '5vh', width: '310px' }}>
-            <div className="container">
-                <form onSubmit={updateUser}>
+        <div className ={classessass.tong}>
+            <div className="container text-center">
+                <form onSubmit={updateUser}style={{lineHeight:6}}>
                     <h3 className="text text-danger text-center">User Profile</h3>
+
                     <div className="form-group">
                         <TextField name="taiKhoan" label="Username" defaultValue={taiKhoan} className={classes.textField} margin="normal" InputProps={{ readOnly: true }} onChange={handleChange} />
                         <p className="text text-danger">{user.errors.taiKhoan}</p>
@@ -134,7 +137,7 @@ function UserProfile(props) {
                     }
                 </form>
             </div>
-        </div>
+            </div>
     )
 }
 

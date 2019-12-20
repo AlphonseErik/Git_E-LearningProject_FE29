@@ -34,11 +34,11 @@ const CartItem = props => {
                                         </div>
                                     </div>
                                     <div className="col-2 pt-3" >
-                                        <button className="btn btn-danger " onClick={() => { xoaCart(maKhoaHoc) }}>X</button>
+                                        <button className="btn" onClick={() => { xoaCart(maKhoaHoc) }}><i className="fa fa-times pt-2 "></i></button>
                                     </div>
                                     <div className="col-2 pt-3">
-                                        <h5 className="text-center">25$</h5>
-                                    </div>
+                                        <h5 className="text-center pt-3">25$</h5>
+                                     </div>
                                 </div>
                             </div>
                         </li>
