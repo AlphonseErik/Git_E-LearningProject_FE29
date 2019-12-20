@@ -17,7 +17,6 @@ import Cart from "./Screens/Cart/cart";
 import CourseDetail from "./Components/CourseDetail/courseDetail";
 import PrivateAdminRoute from "./HOC/AdminAuth";
 import AdminScreen from "./Screens/AdminScreen/adminScreen";
-import Orders from './Components/AdminProfileScreen/Orders/orders';
 import AddNewUser from "./Components/AdminProfileScreen/AdminAddNewUser/adminAddNewUser";
 import userCartProfile from "./Components/UserProfileScreen/UserCartProfile/userCartProfile";
 import 'moment-timezone';
@@ -33,7 +32,7 @@ const App = props => {
   useEffect(() => {
     const userLoginStr = localStorage.getItem('userLogin');
     const userAccessToken = localStorage.getItem('accessToken');
-    const userDetailStr = localStorage.getItem('userDetail');
+    const userDetailStr = localStorage.getItem('userProfile');
     const userRightStr = localStorage.getItem('userRight');
     if (userLoginStr && userAccessToken && userRightStr) {
       restConnector.defaults.headers['Authorization'] = "Bearer " + userAccessToken;

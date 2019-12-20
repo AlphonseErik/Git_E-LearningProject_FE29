@@ -31,7 +31,7 @@ function UserProfile(props) {
 
     const classes = useStyles();
 
-    const userLocalStorage = JSON.parse(localStorage.getItem(settings.userProfile));
+    const userLocalStorage = props.item;
 
     const { taiKhoan, hoTen, soDT, email } = userLocalStorage;
 
@@ -43,7 +43,7 @@ function UserProfile(props) {
             matKhau: '',
             hoTen: hoTen,
             soDT: soDT,
-            maLoaiNguoiDung: 'GV',
+            maLoaiNguoiDung: localStorage.getItem('userRight'),
             maNhom: 'GP01',
             email: email,
         }, errors: {
@@ -89,12 +89,11 @@ function UserProfile(props) {
             }
         }
         if (valid) {
-            props.dispatch(userUpdateAction(user.userProfile, props.history));
             setDisabled(!disabled);
+            props.dispatch(userUpdateAction(user.userProfile, props.history));           
         } else {
             alert('Please check your Email and Password');
         }
-
     }
 
     const [disabled, setDisabled] = useState(false);

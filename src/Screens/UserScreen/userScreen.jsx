@@ -60,15 +60,15 @@ const UserScreen = props => {
         const userLoginStr = localStorage.getItem('userLogin');
         const userAccessToken = localStorage.getItem('accessToken');
         const userRightStr = localStorage.getItem('userRight');
-        if (userLoginStr && userAccessToken && userRightStr === "HV") {
+        if (userLoginStr && userAccessToken && userRightStr) {
             let userAccess = localStorage.getItem(settings.taiKhoan);
             let userProfile = localStorage.getItem("userProfile");
-            // let userProfileEdit = localStorage.getItem(settings.userProfileEdit);
-            if (userAccess && !userProfile) {
+            let userProfileEdit = localStorage.getItem("userProfileEdit");
+            if (userAccess || userProfileEdit) {
                 props.dispatch(userDetail(userAccess));
             }
         }
-    }, []);
+    }, [props.userDetailEdit], [localStorage.getItem("userProfileEdit")]);
 
     const classes = useStyles();
     const [value, setValue] = React.useState(0);
@@ -77,7 +77,7 @@ const UserScreen = props => {
         setValue(newValue);
     };
 
-    const userLocalStorage = JSON.parse(localStorage.getItem(settings.userProfile));
+    const userLocalStorage = JSON.parse(localStorage.getItem("userProfile"));
 
     return (
         <React.Fragment>
@@ -90,7 +90,7 @@ const UserScreen = props => {
                     <Tab label="Item Three" {...a11yProps(2)} />
                 </Tabs>
                 <TabPanel value={value} index={0}>
-                    <UserProfile />
+                    <UserProfile item={userLocalStorage}/>
                     
                 </TabPanel>
                 <TabPanel value={value} index={1}>
@@ -105,8 +105,9 @@ const UserScreen = props => {
     )
 }
 
-// const mapStateToProps = state => ({
-//     credentialsAdmin: state.admin.credentials,
-// })
+const mapStateToProps = state => ({
+    userDetailEdit: state.user.userDetailEdit,
+    userUpdate: state.updatingUser,
+})
 
-export default connect()(UserScreen);
+export default connect(mapStateToProps)(UserScreen);

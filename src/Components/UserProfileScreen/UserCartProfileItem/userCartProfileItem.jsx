@@ -14,7 +14,7 @@ const UserCartItem = props => {
                     <th>Status</th>
                     <th></th>
                 </tr>
-            </thead>
+            </thead> 
             <tbody> 
                 {
                     props.item.map((item, index) => {

@@ -39,7 +39,6 @@ export const userLoginAction = (userLogin, history) => {
             data: userLogin,
         }).then(res => {
             console.log(res.data);
-            // alert('Đăng nhập thành công');
             //Đăng nhập thành công => Lưu thông tin user và token vào localstorage để request về những api yêu cầu token
             localStorage.setItem(settings.maLoaiNguoiDung, res.data.maLoaiNguoiDung);
             localStorage.setItem(settings.userRight, res.data.maLoaiNguoiDung);
@@ -83,13 +82,12 @@ export const userDetail = (userAccess) => {
                 "taiKhoan": userAccess,
             }
         }).then(res => {
-            console.log(res.data);
+            console.log('hehe',res.data);
             //Đăng nhập thành công => Lưu thông tin user và token vào localstorage để request về những api yêu cầu token
-            localStorage.removeItem("userProfile");
             localStorage.setItem(settings.userProfile, JSON.stringify(res.data));
 
             //Lưu data lên store để render lại giao diện header
-            dispatch(reduxAction(USER_INFO, res.data.taiKhoan));
+            dispatch(reduxAction(USER_INFO, res.data));
 
             //bỏ token lên header của tất cả request
 
@@ -113,10 +111,12 @@ export const userUpdateAction = (userProfile, history) => {
         }).then(res => {
             console.log(res.data);
             // localStorage.removeItem(settings.userProfile);
-            localStorage.setItem(settings.userProfile, JSON.stringify(res.data));
+            localStorage.setItem(settings.userProfileEdit, JSON.stringify(res.data));
             //Lưu data lên store để render lại giao diện header
+            // const userProfilBeforeEdit = localStorage.getItem('userProfile');
+            // const userProfilAfterEdit = localStorage.getItem('userProfileEdit');
             dispatch(reduxAction(USER_INFO, res.data));
-            // dispatch(reduxAction(UPDATE_USER, res.data));
+            dispatch(reduxAction(UPDATE_USER_INFO, res.data));
             // restConnector.defaults.headers['Authorization'] = "Bearer " + res.data.accessToken;
 
             // history.push('./');
@@ -127,30 +127,25 @@ export const userUpdateAction = (userProfile, history) => {
     }
 }
 
-//Đăng ký khóa học
+//Ghi danh khóa học
 export const courseRegisting = (courseRegister, history) => {
     return dispatch => {
         restConnector({
             method: 'POST',
-            url: '/api/quanlykhoahoc/ghidanhkhoahoc',
+            url: '/api/QuanLyKhoaHoc/GhiDanhKhoaHoc',
             headers: {
                 "Authorization": "Bearer " + localStorage.getItem(settings.token),
             },
             data: courseRegister,
         }).then(res => {
             console.log(res.data);
-            //Đăng nhập thành công => Lưu thông tin user và token vào localstorage để request về những api yêu cầu token
-            // localStorage.removeItem("userProfile");
-            // userDetail(settings.taiKhoan);
             userDetail(localStorage.getItem(settings.taiKhoan));
-            // localStorage.setItem(settings.userProfile, JSON.stringify(res.data));
-
             //Lưu data lên store để render lại giao diện header
             dispatch(reduxAction(COURSE_REGISTING, res.data));
             dispatch(reduxAction(UPDATE_USER_INFO, res.data));
 
             alert('Register Success!')
-            history.push('./user');
+            // history.push('./user');
         }).catch(error => {
             console.log(error.response.data);
         })

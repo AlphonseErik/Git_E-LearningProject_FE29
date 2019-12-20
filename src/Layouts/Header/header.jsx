@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import CourseService from "../../Services/courseService";
 import CategoryItemHeader from "../../Components/CategoryItemHeader/categoryItemHeader";
 import { NavLink } from 'react-router-dom';
-import { FETCH_COURSES, LOGIN } from "../../Redux/Action/actionType";
+import { FETCH_COURSES, LOGIN, FETCH_CATEGORY } from "../../Redux/Action/actionType";
 import { makeStyles } from '@material-ui/core/styles';
 import SwipeableDrawer from '@material-ui/core/SwipeableDrawer';
 import List from '@material-ui/core/List';
@@ -42,16 +42,29 @@ const StyledBadge1 = withStyles(theme => ({
 const Header = props => {
 
     useEffect(() => {
-        courseService.fetchCourse()
-            .then(res => {
-                props.dispatch({
-                    type: FETCH_COURSES,
-                    payload: res.data,
-                }, console.log(res.data));
-            })
-            .catch(err => {
-                console.log(err);
-            });
+        if (localStorage.getItem("userRight") === "HV") {
+            courseService.fetchCategory()
+                .then(res => {
+                    props.dispatch({
+                        type: FETCH_CATEGORY,
+                        payload: res.data,
+                    }, console.log(res.data));
+                })
+                .catch(err => {
+                    console.log(err);
+                });
+        } else {
+            courseService.fetchCourse()
+                .then(res => {
+                    props.dispatch({
+                        type: FETCH_COURSES,
+                        payload: res.data,
+                    }, console.log(res.data));
+                })
+                .catch(err => {
+                    console.log(err);
+                });
+        }
     }, []);
 
     // useEffect(()=>{
@@ -126,7 +139,7 @@ const Header = props => {
                     props.credentialsAdmin ? (
                         <NavLink className="navbar-brand" to="/admin"><i className="fa fa-magnet mr-2"></i>H & T Management</NavLink>
                     ) : (
-                            <NavLink className="navbar-brand" to="/home"><i className="fa fa-angellist mr-2"style={{fontSize:30}}></i>H & T</NavLink>
+                            <NavLink className="navbar-brand" to="/home"><i className="fa fa-angellist mr-2" style={{ fontSize: 30 }}></i>H & T</NavLink>
                         )
                 }
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

@@ -3,7 +3,8 @@ import { LOGIN, USER_INFO, SIGNUP, UPDATE_USER_INFO } from '../Action/actionType
 let initialState = {
     users: [],
     userDetail: null,
-    credentials: null
+    credentials: null,
+    userDetailEdit: null,
 }
 
 const UserReducer = (state = initialState, { type, payload }) => {
@@ -17,7 +18,9 @@ const UserReducer = (state = initialState, { type, payload }) => {
             return { ...state };
         }
         case UPDATE_USER_INFO: {
-            state.userDetail = payload;
+            state.userDetailEdit = payload;
+            return { ...state };
+
             return { ...state };
         }
         case SIGNUP: {

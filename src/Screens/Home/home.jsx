@@ -17,7 +17,7 @@ import Sale from "../../Components/Sale/Sale";
 import CourseHot from "../../Components/CourseHot/courseHot";
 import { FETCH_COURSES } from "../../Redux/Action/actionType";
 import backToTop from "../../Components/BacktoTop/backToTop";
-import  CountdownTimer from '../../Components/CountdownTimer/CountdownTimer';
+import  CountdownTimer from '../../Components/CountdownTimer/countdownTimer';
 
 
 // import OwlCarousel from 'react-owl-carousel';
@@ -50,11 +50,9 @@ const HomeScreen = props => {
       props.dispatch(userDetail(userAccess));
     }
   }, []);
-  // const [search,setSearch] = useState('');
+
   console.log("search_home", props.courseList);
-    //  let changeFilterSearch =(search)=>{
-    //        setSearch(search);
-    //  }
+    
   return (
     <div>
       
@@ -65,7 +63,7 @@ const HomeScreen = props => {
         <div>
           <div className={classes.home__name}>
             <div className={classes.classh1}>
-              <CountdownTimer />
+              {/* <CountdownTimer /> */}
             </div>
             {/* <div className={classes.home__p}> */}
             {/* </div> */}
@@ -122,7 +120,7 @@ const HomeScreen = props => {
 const mapStateToProps = state => ({
   courseList: state.courseList,
   categoryChoosenList: state.categoryChoosenList,
-  // credentials: state.user.credentials,
+  credentials: state.user.credentials,
   // search: state.search
 });
 

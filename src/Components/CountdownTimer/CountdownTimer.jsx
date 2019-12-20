@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import classes from './CountdownTimer.module.scss';
 
-export default function CountdownTimer() {
+function CountdownTimer(props) {
+  
   const calculateTimeLeft = () => {
     const difference = +new Date("2020-01-01") - + new Date();
     let timeLeft = {};
@@ -14,7 +15,6 @@ export default function CountdownTimer() {
         s: Math.floor((difference / 1000) % 60)
       };
     }
-
     return timeLeft;
   };
 
@@ -35,19 +35,20 @@ export default function CountdownTimer() {
 
     timerComponents.push(
       <span className={classes.fon}>
-             {timeLeft[interval]} {interval}{" "}
+        {timeLeft[interval]} {interval}{" "}
       </span>
     );
   });
 
-  return(
-       <div className={ classes.tong}>
-        <h1>Wel come to shop H & R</h1>
-            <h2>Nhân dịp khai trương shop chúng tôi khuyến mãi những khóa học sau:</h2>
-            <div className={classes.countt}>
-            <span>Kết thúc trong :</span>  {timerComponents.length ?   timerComponents : <span>Time's up!</span>}
-            </div>
-       </div>
+  return (
+    <div className={classes.tong}>
+      <h1>Wel come to shop H & R</h1>
+      <h2>Nhân dịp khai trương shop chúng tôi khuyến mãi những khóa học sau:</h2>
+      <div className={classes.countt}>
+        <span>Kết thúc trong :</span>  {timerComponents.length ? timerComponents : <span>Time's up!</span>}
+      </div>
+    </div>
   );
 }
 
+export default CountdownTimer;

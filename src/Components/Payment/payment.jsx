@@ -19,16 +19,16 @@ const Payment = props => {
 
     let renderButton = () => {
         const userLoginStr = localStorage.getItem('userLogin');
-        const userAccessToken = localStorage.getItem('accessToken');
-        if (userLoginStr && userAccessToken) {
+        if (userLoginStr) {
             setState({
                 isBoolean: false,
-            }); 
+            });
             console.log(state.userRegisterCourse);
             props.dispatch(courseRegisting(state.userRegisterCourse, props.history));
+        } else {
+            alert('You Have To Login First!!');
         }
-        alert('You Have To Login First!!');
-        
+
     }
 
     return (
