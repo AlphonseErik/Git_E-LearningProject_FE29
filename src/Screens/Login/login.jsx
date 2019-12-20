@@ -63,10 +63,10 @@ function Login(props) {
         },
         button: {
             width: 200,
-            height: 60,
             fontSize: 16,
             marginTop:30,
-            borderRadius:25
+            borderRadius:25,
+            
             
         }
     }));
@@ -119,7 +119,7 @@ function Login(props) {
                 <div className="form-group card-block">
                     <div className="text-center">
                         {/* <h2>Wel Come to {props.hoTen} </h2> */}
-                        <h2 className="text text-danger"><i className="fa fa-lock"></i> Log In</h2>
+                        <h1 className="text text-danger"> Log In</h1>
                     </div>
                     <div className="text-center">
                         <TextField variant="outlined" name="taiKhoan" label="Username" onChange={handleChange} className={classes.textField} margin="normal" />
@@ -156,7 +156,7 @@ function Login(props) {
                 </div>
                 <div className="form-group">
                     <div className="text-center">
-                        <Button type="submit" color="secondary" variant="contained" className={classes.button}>Log In</Button>
+                        <Button type="submit" className={classes.button}>Log In</Button>
                     </div>
                 </div>
             

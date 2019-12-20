@@ -8,6 +8,17 @@
     }
 }
 
+.colo {
+    background-color: #686f7a;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    a {
+        color: white !important;
+    }
+}
+
 .dangnhap {
     button {
         @include button_header($color-white-0, $color-black-0, $color-black-0, $pd-0, $pd-0, $border-radius);

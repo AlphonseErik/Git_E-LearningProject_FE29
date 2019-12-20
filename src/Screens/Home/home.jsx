@@ -12,7 +12,7 @@ import { settings } from "../../config/settings";
 import GetStarted from "../../Components/GetStarted/getStarted";
 import StudentSay from "../../Components/StudentSay/studentSay";
 import Footer from "../../Layouts/Footer/footer";
-import FilterSearch from "../../Components/FilterSearch/filterSearch";
+import FilterSearch from "../../Components/FilterSearch/FilterSearch";
 import Sale from "../../Components/Sale/Sale";
 import CourseHot from "../../Components/CourseHot/courseHot";
 import { FETCH_COURSES } from "../../Redux/Action/actionType";

@@ -184,14 +184,42 @@ const Header = props => {
                             )
                     }
                     <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
-                        {
+                     
+                        <li className="nav-item active mr-2">
+                        {props.credentialsAdmin ? (
+                            <NavLink className="nav-link" to="#">
+                                <ForumIcon />
+                            </NavLink>
+                        ) : (
+                                <NavLink to="/cart">
+                                    <IconButton arial-lable="cart" className="mr-3" >
+                                        {
+                                            props.cartItem ? (
+                                                <StyledBadge1 badgeContent={props.cartItem.length} color="secondary">
+                                                    <ShoppingCartIcon />
+                                                </StyledBadge1>
+                                            ) : (
+                                                    <StyledBadge1 badgeContent={0}>
+                                                        <ShoppingCartIcon />
+                                                    </StyledBadge1>
+                                                )
+                                        }
+                                    </IconButton>
+                                </NavLink>
+                            )
+                        }
+                    </li>
+                        
+                   {
                             props.credentials ? (
                                 <li className="nav-item dropdown">
                                     {
                                         props.credentialsAdmin ? (
                                             <a className="nav-link active" href="#" onClick={toggleDrawer('right', true)}>Welcome, {props.credentialsAdmin.hoTen}</a>
-                                        ) : (
-                                                <a className="nav-link active" href="#" onClick={toggleDrawer('right', true)}>Hi, {props.credentials.hoTen}</a>
+                                        ) : (   
+                                            <div className={sass.colo}>
+                                                <a className="nav-link  active" href="#" onClick={toggleDrawer('right', true)}>{props.credentials.hoTen}</a>
+                                                </div>
                                             )
                                     }
                                     <SwipeableDrawer anchor="right" open={state.right} onClose={toggleDrawer('right', false)} onOpen={toggleDrawer('right', true)}> {sideList('right')} </SwipeableDrawer>
@@ -207,7 +235,8 @@ const Header = props => {
                                     </li>
 
                                 )
-                        }{
+                        }
+                        {
                             props.credentials ? (
                                 <li className="nav-item ">
                                 </li>
@@ -223,7 +252,7 @@ const Header = props => {
 
                                 )
                         }
-                        <li className="nav-item active">
+                        {/* <li className="nav-item active">
                             {props.credentialsAdmin ? (
                                 <NavLink className="nav-link" to="#">
                                     <ForumIcon />
@@ -246,7 +275,7 @@ const Header = props => {
                                     </NavLink>
                                 )
                             }
-                        </li>
+                        </li> */}
                     </ul>
                 </div>
             </div>
