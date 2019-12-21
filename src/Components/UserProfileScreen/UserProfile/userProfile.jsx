@@ -112,7 +112,7 @@ function UserProfile(props) {
                     <h3 className="text text-danger text-center">User Profile</h3>
 
                     <div className="form-group">
-                        <TextField name="taiKhoan" label="Username" defaultValue={taiKhoan} className={classes.textField} margin="normal" InputProps={{ readOnly: true }} onChange={handleChange} />
+                        <TextField name="taiKhoan"  label="Username" defaultValue={taiKhoan} className={classes.textField} margin="normal" InputProps={{ readOnly: true }} onChange={handleChange} />
                         <p className="text text-danger">{user.errors.taiKhoan}</p>
                     </div>
                     <div className="form-group">

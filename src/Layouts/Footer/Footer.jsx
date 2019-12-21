@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import classes from './footerStyle.module.scss';
+import Chat from '../../Components/Chat/Chat';
 
 const Footer = props => {
   return (
@@ -44,6 +45,7 @@ const Footer = props => {
           </div>
           <div className="col-3">
             <button className="btn">EngLish</button>
+            <Chat />
           </div>
         </div>
       </div>
