@@ -15,13 +15,11 @@ function TableOfUser(props) {
                 (props.usersDetailCourse) ? (
                     props.usersDetailCourse.map((item, index) => (
                         <tr key={index}>
-                            <td align="center">{index + 1}</td>
+                            <td></td>
                             <td>{item.taiKhoan}</td>
                             <td>{item.biDanh}</td>
                             <td>{item.hoTen}</td>
                             <td>
-                                {/* <Button className="btn btn-success">Accept</Button> */}
-                                {/* <button className="btn btn-danger">Refuse</button> */}
                                 <AcceptCourseForUser item={item.taiKhoan} maKhoaHoc={props.item} />
                             </td>
                         </tr>
