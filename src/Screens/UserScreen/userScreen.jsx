@@ -15,6 +15,7 @@ import { connect } from "react-redux";
 import { userDetail } from "../../Redux/Action/userAction";
 import { settings } from "../../config/settings";
 import Footer from "../../Layouts/Footer/footer";
+import LoadingScreen from "../LoadingScreen/loadingScreen";
 
 function TabPanel(props) {
 
@@ -45,15 +46,26 @@ const useStyles = makeStyles(theme => ({
         flexGrow: 1,
         backgroundColor: theme.palette.background.paper,
         display: 'flex',
-        
+
     },
     tabs: {
         borderRight: `1px solid ${theme.palette.divider}`,
-        marginTop:50
-        
+        marginTop: 50
+
     },
 }));
 const UserScreen = props => {
+
+    let [state, setState] = React.useState({
+        isLoading: true,
+    });
+
+    let timerHandle = () => {
+        if (timerHandle) {
+            clearTimeout(timerHandle);
+            timerHandle = 0;
+        }
+    }
 
     useEffect(() => {
         //Lấy dữ liệu userDetail từ api
@@ -66,6 +78,7 @@ const UserScreen = props => {
             let userProfileEdit = localStorage.getItem("userProfileEdit");
             if (userAccess || userProfileEdit) {
                 props.dispatch(userDetail(userAccess));
+                timerHandle = setTimeout(() => setState({ isLoading: false }), 1000);
             }
         }
     }, [props.userDetailEdit], [localStorage.getItem("userProfileEdit")]);
@@ -81,27 +94,33 @@ const UserScreen = props => {
 
     return (
         <React.Fragment>
-            <Container>
-            <div className={classes.root}>
-                <Tabs orientation="vertical" variant="scrollable"value={value} onChange={handleChange} aria-label="Vertical tabs example" className={classes.tabs}>
-                    
-                    <Tab label="Profile" {...a11yProps(0)} />
-                    <Tab label="My Cart" {...a11yProps(1)} />
-                    <Tab label="Item Three" {...a11yProps(2)} />
-                </Tabs>
-                <TabPanel value={value} index={0}>
-                    <UserProfile item={userLocalStorage}/>
-                    
-                </TabPanel>
-                <TabPanel value={value} index={1}>
-                    <UserCart item={userLocalStorage} />
-                </TabPanel>
-                <TabPanel value={value} index={2}>
-                    Item Three
-                    </TabPanel>
-            </div>
-            </Container>
-           <Footer />
+            {state.isLoading ? (
+                <LoadingScreen />
+            ) : (
+                    <Container>
+                        <div className={classes.root}>
+                            <Tabs orientation="vertical" variant="scrollable" value={value} onChange={handleChange} aria-label="Vertical tabs example" className={classes.tabs}>
+
+                                <Tab label="Profile" {...a11yProps(0)} />
+                                <Tab label="My Cart" {...a11yProps(1)} />
+                                <Tab label="Item Three" {...a11yProps(2)} />
+                            </Tabs>
+                            <TabPanel value={value} index={0}>
+                                <UserProfile item={userLocalStorage} />
+
+                            </TabPanel>
+                            <TabPanel value={value} index={1}>
+                                <UserCart item={userLocalStorage} />
+                            </TabPanel>
+                            <TabPanel value={value} index={2}>
+                                Item Three
+                        </TabPanel>
+                        </div>
+                    </Container>
+                )
+            }
+
+            <Footer />
         </React.Fragment>
     )
 }

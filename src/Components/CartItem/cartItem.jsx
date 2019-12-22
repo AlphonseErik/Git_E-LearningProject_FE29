@@ -38,7 +38,7 @@ const CartItem = props => {
                                     </div>
                                     <div className="col-2 pt-3">
                                         <h5 className="text-center pt-3">25$</h5>
-                                     </div>
+                                    </div>
                                 </div>
                             </div>
                         </li>

@@ -4,6 +4,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 AOS.init();
 const StudentSay = props => {
+
   return (
     <div className={classes.contentSay}>
       <div className="container">
@@ -12,8 +13,8 @@ const StudentSay = props => {
           <div className="col-4">
             <div className="container">
               <div className={classes.item} data-aos="fade-right"
-     data-aos-offset="300"
-     data-aos-easing="ease-in-sine">
+                data-aos-offset="300"
+                data-aos-easing="ease-in-sine">
                 <img src="./img/hanly.jpg" width={50} height={50} />
                 <span className="ml-3">Han Ly</span>
                 <div>
@@ -29,7 +30,7 @@ const StudentSay = props => {
           <div className="col-4">
             <div className="container">
               <div className={classes.item} data-aos="fade-left"
-     data-aos-duration="3000">
+                data-aos-duration="3000">
                 <img src="./img/tungson.jpg" width={50} height={50} />
                 <span className="ml-3">Son Tung</span>
                 <div>
@@ -44,9 +45,9 @@ const StudentSay = props => {
           </div>
           <div className="col-4">
             <div className="container">
-              <div className={classes.item}data-aos="fade-left"
-     data-aos-offset="300"
-     data-aos-easing="ease-in-sine" >
+              <div className={classes.item} data-aos="fade-left"
+                data-aos-offset="300"
+                data-aos-easing="ease-in-sine" >
                 <img src="./img/tungson.jpg" width={50} height={50} />
                 <span className="ml-3">Bill Gate</span>
                 <div>

@@ -25,7 +25,6 @@ function SearchForUser(props) {
                 </div>
             </form>
                 <ModalPopup/>
-
         </div>
     )
 }

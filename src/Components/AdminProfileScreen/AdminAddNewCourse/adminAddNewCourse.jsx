@@ -65,22 +65,30 @@ function AdminAddNewCourse(props) {
 
     const [newUser, setNewUser] = React.useState({
         addNewUser: {
-            taiKhoan: '',
-            matKhau: '',
-            hoTen: '',
-            soDT: '',
-            maLoaiNguoiDung: '',
+            maKhoaHoc: '',
+            biDanh: '',
+            tenKhoaHoc: '',
+            moTa: '',
+            luotXem: '',
+            danhGia: '',
+            hinhAnh: '',
             maNhom: '',
-            email: '',
+            ngayTao: '',
+            maDanhMucKhoaHoc: '',
+            taiKhoanNguoiTao: '',
         },
         errors: {
-            taiKhoan: '',
-            matKhau: '',
-            hoTen: '',
-            soDT: '',
-            maLoaiNguoiDung: '',
+            maKhoaHoc: '',
+            biDanh: '',
+            tenKhoaHoc: '',
+            moTa: '',
+            luotXem: '',
+            danhGia: '',
+            hinhAnh: '',
             maNhom: '',
-            email: '',
+            ngayTao: '',
+            maDanhMucKhoaHoc: '',
+            taiKhoanNguoiTao: '',
         },
     });
 
@@ -145,23 +153,35 @@ function AdminAddNewCourse(props) {
                         </Title>
                         <Grid container spacing={3}>
                             <Grid item xs={12}>
-                                <TextField required label="Username" name="taiKhoan" onChange={handleChange} fullWidth />
+                                <TextField required label="Course Code" name="maKhoaHoc" onChange={handleChange} fullWidth />
                             </Grid>
                             <Grid item xs={12}>
-                                <TextField required label="Password" name="matKhau" onChange={handleChange} type="password" fullWidth />
+                                <TextField required label="Code Name" name="biDanh" onChange={handleChange} type="password" fullWidth />
                             </Grid>
                             <Grid item xs={12}>
-                                <TextField required label="Fullname" name="hoTen" onChange={handleChange} fullWidth />
+                                <TextField required label="Course Name" name="tenKhoaHoc" onChange={handleChange} fullWidth />
                             </Grid>
                             <Grid item xs={12}>
-                                <TextField required label="Tel Number" name="soDT" onChange={handleChange} fullWidth />
+                                <TextField required label="Picture" name="hinhAnh" onChange={handleChange} fullWidth />
+                            </Grid>
+                            {/* <Grid item xs={12}>
+                                <TextField required label="Group Code" name="maNhom" onChange={handleChange} fullWidth />
+                            </Grid> */}
+                            <Grid item xs={12}>
+                                <TextField required label="Date" name="ngayTao" onChange={handleChange} fullWidth />
+                            </Grid>
+                            <Grid item xs={12}>
+                                <TextField required label="Ma Danh muc" name="maDanhMucKhoaHoc" onChange={handleChange} fullWidth />
+                            </Grid>
+                            <Grid item xs={12}>
+                                <TextField required label="Creator" name="taiKhoanNguoiTao" onChange={handleChange} fullWidth />
                             </Grid>
                             <Grid item xs={12} md={5}>
                                 <FormControl required className={classes.formControl} >
                                     <InputLabel>User Code</InputLabel>
                                     <NativeSelect
-                                        name="maLoaiNguoiDung"
-                                        value={addNewUser.maLoaiNguoiDung}
+                                        name="maDanhMucKhoaHoc"
+                                        value={addNewUser.maDanhMucKhoaHoc}
                                         onChange={handleChange}
                                     >
                                         <option value="HV">HV</option>
@@ -187,9 +207,6 @@ function AdminAddNewCourse(props) {
                                         <option value="GP09">GP09</option>
                                     </NativeSelect>
                                 </FormControl>
-                            </Grid>
-                            <Grid item xs={12}>
-                                <TextField required label="Email" name="email" onChange={handleChange} fullWidth />
                             </Grid>
                             <Grid item xs={12}>
                                 <Button type="submit" color="secondary" variant="contained" className={classes.button}>Add New</Button>
