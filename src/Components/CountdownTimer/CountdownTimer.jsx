@@ -4,7 +4,7 @@ import classes from './CountdownTimer.module.scss';
 function CountdownTimer(props) {
   
   const calculateTimeLeft = () => {
-    const difference = +new Date("2020-01-01") - + new Date();
+    const difference = +new Date("2020-01-25") - + new Date();
     let timeLeft = {};
 
     if (difference > 0) {
@@ -42,10 +42,10 @@ function CountdownTimer(props) {
 
   return (
     <div className={classes.tong}>
-      <h1>Wel come to shop H & R</h1>
-      <h2>Nhân dịp khai trương shop chúng tôi khuyến mãi những khóa học sau:</h2>
+      <h1 className="text-danger"> Sắp Tết rồi!!! Chỉ còn....</h1>
+      {/* <h2>Nhân dịp khai trương shop chúng tôi khuyến mãi những khóa học sau:</h2> */}
       <div className={classes.countt}>
-        <span>Kết thúc trong :</span>  {timerComponents.length ? timerComponents : <span>Time's up!</span>}
+       {timerComponents.length ? timerComponents : <span>Time's up!</span>}
       </div>
     </div>
   );

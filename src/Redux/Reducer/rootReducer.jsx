@@ -7,7 +7,7 @@ import UpdateUserReducer from "./updateUserReducer";
 import CartItemReducer from './cartItemReducer';
 import CourseDetailReducer from './courseDetailReducer';
 import SearchReducer from './searchReducer';
-import AdminReducer from "./AdminReducer";
+import AdminReducer from "./adminReducer";
 
 const RootReducer = combineReducers({
   //toàn bộ state

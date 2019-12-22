@@ -17,7 +17,7 @@ import Sale from "../../Components/Sale/sale";
 import CourseHot from "../../Components/CourseHot/courseHot";
 import { FETCH_COURSES } from "../../Redux/Action/actionType";
 import backToTop from "../../Components/BacktoTop/backToTop";
-import  CountdownTimer from '../../Components/CountdownTimer/countdownTimer';
+import  CountdownTimer from '../../Components/CountdownTimer/CountdownTimer';
 
 
 // import OwlCarousel from 'react-owl-carousel';
@@ -63,7 +63,7 @@ const HomeScreen = props => {
         <div>
           <div className={classes.home__name}>
             <div className={classes.classh1}>
-              {/* <CountdownTimer /> */}
+              <CountdownTimer />
             </div>
             {/* <div className={classes.home__p}> */}
             {/* </div> */}

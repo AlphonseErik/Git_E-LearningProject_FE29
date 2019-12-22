@@ -11,7 +11,7 @@ export default class SideBar extends Component {
   render() {
     return (
       <div className={classes.tong}>
-        <img src="./img/banner1.jpg" height={500} />
+        <img src="//laz-img-cdn.alicdn.com/images/ims-web/TB1WNBrrlr0gK0jSZFnXXbRRXXa.jpg_1200x1200.jpg" height={500} />
         <div className={classes.fff}>
           <ul>
             <div className={classes.face}>
