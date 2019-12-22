@@ -69,6 +69,14 @@ export const userLoginAction = (userLogin, history) => {
     }
 };
 
+//Đăng xuất
+export const userSignoutAction = (history) => {
+    return dispatch => {
+        localStorage.clear("accessToken");
+        dispatch(reduxAction(LOGIN, ""));
+    }
+};
+
 //Lấy dữ liệu người dùng trên api
 export const userDetail = (userAccess) => {
     return dispatch => {
@@ -82,7 +90,7 @@ export const userDetail = (userAccess) => {
                 "taiKhoan": userAccess,
             }
         }).then(res => {
-            console.log('hehe',res.data);
+            console.log('hehe', res.data);
             //Đăng nhập thành công => Lưu thông tin user và token vào localstorage để request về những api yêu cầu token
             localStorage.setItem(settings.userProfile, JSON.stringify(res.data));
 

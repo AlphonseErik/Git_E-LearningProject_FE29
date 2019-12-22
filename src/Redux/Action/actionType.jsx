@@ -29,3 +29,8 @@ export const SEARCH_USER_DETAIL = "SEARCH_USER_DETAIL";
 //lấy danh sách học viên chưa ghi danh
 export const ADMIN_GET_USER_REGIST_COURSE = "ADMIN_GET_USER_REGIST_COURSE";
 export const GET_USER_UNREGISTER = "GET_USER_UNREGISTER";
+
+//Auth
+export const SUCCESS = "SUCCESS"
+
+export const FAILURE = "FAILURE"

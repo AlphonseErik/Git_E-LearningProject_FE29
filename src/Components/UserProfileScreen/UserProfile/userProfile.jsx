@@ -73,16 +73,16 @@ function UserProfile(props) {
         };
     }, []);
 
-    const handleButtonClick = () => {
-        if (!loading) {
-            setSuccess(false);
-            setLoading(true);
-            timer.current = setTimeout(() => {
-                setSuccess(true);
-                setLoading(false);
-            }, 2000);
-        }
-    };
+    // const handleButtonClick = () => {
+    //     if (!loading) {
+    //         setSuccess(false);
+    //         setLoading(true);
+    //         timer.current = setTimeout(() => {
+    //             setSuccess(true);
+    //             setLoading(false);
+    //         }, 2000);
+    //     }
+    // };
 
     const userLocalStorage = props.item;
 

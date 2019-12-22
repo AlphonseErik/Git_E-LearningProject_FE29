@@ -24,7 +24,7 @@ import Moment from 'react-moment';
 
 import ReactLoading from 'react-loading';
 import dateTime from "./Components/DateTime/dateTime";
-import CountdownTimer from "./Components/CountdownTimer/CountdownTimer";
+// import CountdownTimer from "./Components/CountdownTimer/CountdownTimer";
 
 
 
@@ -55,7 +55,7 @@ const App = props => {
       <Header />
       <Switch>
         {/* <HomeScreen /> */}
-        <Route path="/home" component={HomeScreen} />
+        <Route path="/home" exact component={HomeScreen} />
         <Route path="/coursedetail/:courseid" component={CourseDetail} />
         <Route path="/cart" component={Cart} />
         <PrivateRoute path="/user" Component={UserScreen} />

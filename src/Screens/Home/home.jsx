@@ -17,24 +17,23 @@ import Sale from "../../Components/Sale/sale";
 import CourseHot from "../../Components/CourseHot/courseHot";
 import { FETCH_COURSES } from "../../Redux/Action/actionType";
 import backToTop from "../../Components/BacktoTop/backToTop";
-import CountdownTimer from '../../Components/CountdownTimer/CountdownTimer';
+import CountdownTimer from '../../Components/CountdownTimer/countdownTimer';
 import LoadingScreen from "../LoadingScreen/loadingScreen";
-
-
-
-// import OwlCarousel from 'react-owl-carousel';
-// import 'owl.carousel/dist/assets/owl.carousel.css';
-// import 'owl.carousel/dist/assets/owl.theme.default.css';
 
 const courseService = new CourseService();
 
 const HomeScreen = props => {
 
+  const timer = React.useRef();
   let [state, setState] = React.useState({
     isLoading: true,
   });
 
-  const timerHandle = React.useRef();
+  React.useEffect(() => {
+    return () => {
+      clearTimeout(timer.current);
+    };
+  }, []);
 
   useEffect(() => {
     courseService
@@ -51,7 +50,7 @@ const HomeScreen = props => {
       .catch(err => {
         console.log(err);
       });
-    timerHandle.current = setTimeout(() => setState({ isLoading: false }), 400);
+    timer.current = setTimeout(() => setState({ isLoading: false }), 400);
     //Lấy dữ liệu userDetail từ api
     let userAccess = localStorage.getItem(settings.taiKhoan);
     let userProfile = localStorage.getItem("userProfile");
@@ -59,7 +58,7 @@ const HomeScreen = props => {
     if (userAccess && !userProfile) {
       props.dispatch(userDetail(userAccess));
     }
-  }, [props]);
+  }, []);
 
   console.log("search_home", props.courseList);
 
@@ -133,7 +132,6 @@ const HomeScreen = props => {
 const mapStateToProps = state => ({
   courseList: state.courseList,
   categoryChoosenList: state.categoryChoosenList,
-  credentials: state.user.credentials,
 });
 
 export default connect(mapStateToProps)(HomeScreen);

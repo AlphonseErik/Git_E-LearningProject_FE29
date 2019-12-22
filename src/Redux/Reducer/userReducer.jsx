@@ -20,8 +20,7 @@ const UserReducer = (state = initialState, { type, payload }) => {
         case UPDATE_USER_INFO: {
             state.userDetailEdit = payload;
             return { ...state };
-
-            return { ...state };
+            // return { ...state };
         }
         case SIGNUP: {
             payload = payload;

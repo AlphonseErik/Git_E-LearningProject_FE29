@@ -20,6 +20,7 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
 import sass from './headerStyle.module.scss';
 import ForumIcon from '@material-ui/icons/Forum';
+import { userSignoutAction } from "../../Redux/Action/userAction";
 
 const courseService = new CourseService();
 
@@ -65,13 +66,13 @@ const Header = props => {
                     console.log(err);
                 });
         }
-    }, []);
+    }, [props.credentials], [props.userDetail]);
 
-    // useEffect(()=>{
-    //     if(props.cartItem){
-    //         props.dispatch(CART_ITEM, props.payload);
-    //     }
-    // });
+    const logoutHandleButton = e => {
+        setTimeout(() => {
+            props.dispatch(userSignoutAction(props.history));
+        }, 200);
+    }
 
     const classes = useStyles();
 
@@ -119,7 +120,7 @@ const Header = props => {
                 </NavLink>
             </List>
             <List>
-                <NavLink style={{ color: '#0277bd', textDecoration: 'none' }} to="./login" onClick={() => { localStorage.clear(); props.dispatch(LOGIN, props.credentials) }}>
+                <NavLink style={{ color: '#0277bd', textDecoration: 'none' }} to="./login" onClick={logoutHandleButton}>
                     <ListItem button key="Logout">
                         <ListItemIcon>
                             <ExitToAppIcon />
@@ -133,12 +134,7 @@ const Header = props => {
     );
 
     return (
-       <>
-       <div>
-          
-       </div>
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            
             <div className="container">
                 {
                     props.credentialsAdmin ? (
@@ -202,41 +198,41 @@ const Header = props => {
                             )
                     }
                     <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
-                     
+
                         <li className="nav-item active mr-2">
-                        {props.credentialsAdmin ? (
-                            <NavLink className="nav-link" to="#">
-                                <ForumIcon />
-                            </NavLink>
-                        ) : (
-                                <NavLink to="/cart">
-                                    <IconButton arial-lable="cart" className="mr-3" >
-                                        {
-                                            props.cartItem ? (
-                                                <StyledBadge1 badgeContent={props.cartItem.length} color="secondary">
-                                                    <ShoppingCartIcon />
-                                                </StyledBadge1>
-                                            ) : (
-                                                    <StyledBadge1 badgeContent={0}>
+                            {props.credentialsAdmin ? (
+                                <NavLink className="nav-link" to="#">
+                                    <ForumIcon />
+                                </NavLink>
+                            ) : (
+                                    <NavLink to="/cart">
+                                        <IconButton arial-lable="cart" className="mr-3" >
+                                            {
+                                                props.cartItem ? (
+                                                    <StyledBadge1 badgeContent={props.cartItem.length} color="secondary">
                                                         <ShoppingCartIcon />
                                                     </StyledBadge1>
-                                                )
-                                        }
-                                    </IconButton>
-                                </NavLink>
-                            )
-                        }
-                    </li>
-                        
-                   {
+                                                ) : (
+                                                        <StyledBadge1 badgeContent={0}>
+                                                            <ShoppingCartIcon />
+                                                        </StyledBadge1>
+                                                    )
+                                            }
+                                        </IconButton>
+                                    </NavLink>
+                                )
+                            }
+                        </li>
+
+                        {
                             props.credentials ? (
                                 <li className="nav-item dropdown">
                                     {
                                         props.credentialsAdmin ? (
                                             <a className="nav-link active" href="#" onClick={toggleDrawer('right', true)}>Welcome, {props.credentialsAdmin.hoTen}</a>
-                                        ) : (   
-                                            <div className={sass.colo}>
-                                                <a className="nav-link  active" href="#" onClick={toggleDrawer('right', true)}>{props.credentials.hoTen}</a>
+                                        ) : (
+                                                <div className={sass.colo}>
+                                                    <a className="nav-link  active" href="#" onClick={toggleDrawer('right', true)}>{props.credentials.hoTen}</a>
                                                 </div>
                                             )
                                     }
@@ -298,7 +294,6 @@ const Header = props => {
                 </div>
             </div>
         </nav >
-        </>
     )
 }
 
@@ -309,6 +304,7 @@ const mapStateToProps = state => ({
     cartItem: state.cartItem,
     categoryChoosenList: state.categoryChoosenList,
     credentialsAdmin: state.admin.credentials,
+    userDetail: state.user.userDetail,
 });
 
 export default connect(mapStateToProps)(Header);
