@@ -21,6 +21,7 @@ import CountdownTimer from '../../Components/CountdownTimer/CountdownTimer';
 import LoadingScreen from "../LoadingScreen/loadingScreen";
 
 
+
 // import OwlCarousel from 'react-owl-carousel';
 // import 'owl.carousel/dist/assets/owl.carousel.css';
 // import 'owl.carousel/dist/assets/owl.theme.default.css';
@@ -33,12 +34,7 @@ const HomeScreen = props => {
     isLoading: true,
   });
 
-  // let timerHandle = () => {
-  //   if (timerHandle.current) {
-  //     clearTimeout(timerHandle);
-  //     timerHandle = 0;
-  //   }
-  // }
+  const timerHandle = React.useRef();
 
   useEffect(() => {
     courseService
@@ -55,7 +51,7 @@ const HomeScreen = props => {
       .catch(err => {
         console.log(err);
       });
-    var timerHandle = setTimeout(() => setState({ isLoading: false }), 400);
+    timerHandle.current = setTimeout(() => setState({ isLoading: false }), 400);
     //Lấy dữ liệu userDetail từ api
     let userAccess = localStorage.getItem(settings.taiKhoan);
     let userProfile = localStorage.getItem("userProfile");

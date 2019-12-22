@@ -15,8 +15,9 @@ import { Button } from "@material-ui/core";
 import { red } from "@material-ui/core/colors";
 import classessass from './userProfile.module.scss';
 import Footer from "../../../Layouts/Footer/footer";
-
-// const userService = new UserService();
+import { green } from '@material-ui/core/colors';
+import clsx from 'clsx';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 const useStyles = makeStyles(theme => ({
     container: {
@@ -24,26 +25,75 @@ const useStyles = makeStyles(theme => ({
         flexWrap: 'wrap',
     },
     textField: {
-        // marginLeft: theme.spacing(1),
-        // marginRight: theme.spacing(1),
         width: 500,
+    },
+    wrapper: {
+        margin: theme.spacing(1),
+        position: 'relative',
+    },
+    buttonSuccess: {
+        backgroundColor: green[500],
+        '&:hover': {
+            backgroundColor: green[700],
+        },
+    },
+    fabProgress: {
+        color: green[500],
+        position: 'absolute',
+        top: -6,
+        left: -6,
+        zIndex: 1,
+    },
+    buttonProgress: {
+        color: green[500],
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        marginTop: -12,
+        marginLeft: -12,
     },
 }));
 
 function UserProfile(props) {
 
+    console.log(props.userDetail);
+
     const classes = useStyles();
+    const [loading, setLoading] = React.useState(false);
+    const [success, setSuccess] = React.useState(false);
+    const timer = React.useRef();
+
+    const buttonClassname = clsx({
+        [classes.buttonSuccess]: success,
+    });
+
+    React.useEffect(() => {
+        return () => {
+            clearTimeout(timer.current);
+        };
+    }, []);
+
+    const handleButtonClick = () => {
+        if (!loading) {
+            setSuccess(false);
+            setLoading(true);
+            timer.current = setTimeout(() => {
+                setSuccess(true);
+                setLoading(false);
+            }, 2000);
+        }
+    };
 
     const userLocalStorage = props.item;
 
-    const { taiKhoan, hoTen, soDT, email } = userLocalStorage;
+    const { taiKhoan, hoTen, soDT, email, matKhau } = userLocalStorage;
 
     // console.log(chiTietKhoaHocGhiDanh);
 
     let [user, setUserProfile] = useState({
         userProfile: {
             taiKhoan: taiKhoan,
-            matKhau: '',
+            matKhau: matKhau,
             hoTen: hoTen,
             soDT: soDT,
             maLoaiNguoiDung: localStorage.getItem('userRight'),
@@ -79,24 +129,45 @@ function UserProfile(props) {
     const updateUser = e => {
         e.preventDefault();
         let valid = true;
-        for (let errorName in user.errors) {
-            if (user.errors[errorName] !== "") //1 trong các thuộc tính user.errors ! rỗng  
-            {
-                valid = false;
-            }
+        if (!loading) {
+            setSuccess(false);
+            setLoading(true);
+            timer.current = setTimeout(() => {
+                setLoading(false);
+                for (let errorName in user.errors) {
+                    if (user.errors[errorName] !== "")
+                    {
+                        valid = false;
+                        setSuccess(false);
+                    }
+                }
+                for (let valueNotFind in user.userProfile) {
+                    if (user.userProfile[valueNotFind] === "")
+                    {
+                        valid = false;
+                        setSuccess(false);
+                    }
+                }
+                if(user.userProfile.matKhau !== props.userDetail.matKhau)
+                {
+                    valid = false;
+                    setSuccess(false);
+                }
+                if(user.userProfile.taiKhoan !== props.userDetail.taiKhoan)
+                {
+                    valid = false;
+                    setSuccess(false);
+                }
+                if (valid) {
+                    setDisabled(!disabled);
+                    props.dispatch(userUpdateAction(user.userProfile, props.history));
+                    setSuccess(true);
+                } else {
+                    alert('Please check your Password');
+                }
+            }, 2000);
         }
-        for (let valueNotFind in user.userLogin) {
-            if (user.userProfile[valueNotFind] === "") //2 trong các thuộc tính user.userLogin = rỗng 
-            {
-                valid = false;
-            }
-        }
-        if (valid) {
-            setDisabled(!disabled);
-            props.dispatch(userUpdateAction(user.userProfile, props.history));           
-        } else {
-            alert('Please check your Email and Password');
-        }
+
     }
 
     const [disabled, setDisabled] = useState(false);
@@ -106,13 +177,13 @@ function UserProfile(props) {
     }
 
     return (
-        <div className ={classessass.tong}>
+        <div className={classessass.tong}>
             <div className="container text-center">
-                <form onSubmit={updateUser}style={{lineHeight:6}}>
+                <form onSubmit={updateUser} style={{ lineHeight: 6 }}>
                     <h3 className="text text-danger text-center">User Profile</h3>
 
                     <div className="form-group">
-                        <TextField name="taiKhoan"  label="Username" defaultValue={taiKhoan} className={classes.textField} margin="normal" InputProps={{ readOnly: true }} onChange={handleChange} />
+                        <TextField name="taiKhoan" label="Username" defaultValue={taiKhoan} className={classes.textField} margin="normal" InputProps={{ readOnly: true }} onChange={handleChange} />
                         <p className="text text-danger">{user.errors.taiKhoan}</p>
                     </div>
                     <div className="form-group">
@@ -127,9 +198,20 @@ function UserProfile(props) {
                         <TextField name="soDT" label="Telephone Number" defaultValue={soDT} className={classes.textField} margin="normal" disabled={!disabled} onChange={handleChange} />
                         <p className="text text-danger">{user.errors.soDt}</p>
                     </div>
+                    <div className="form-group">
+                        <TextField name="matKhau" label="Password" InputProps={{ readOnly: true }} defaultValue={matKhau} type="password" className={classes.textField} margin="normal" onChange={handleChange} />
+                        <p className="text text-danger">{user.errors.email}</p>
+                    </div>
                     {disabled ? (
                         <div>
-                            <Button variant="contained" color="primary" type="submit">Save</Button>
+                            <Button
+                                variant="contained"
+                                color="primary"
+                                type="submit"
+                                disabled={loading}
+                                className={buttonClassname}
+                            >Save</Button>
+                            {loading && <CircularProgress size={24} className={classes.buttonProgress} />}
                             <Button variant="contained" color="secondary" onClick={handleOnClickEditText}>Cancel</Button>
                         </div>
                     ) : (
@@ -138,16 +220,16 @@ function UserProfile(props) {
                     }
                 </form>
             </div>
-            </div>
-            
+        </div>
+
     )
 }
 
 const mapStateToProps = state => ({
     updatingUser: state.updatingUser,
     credentials: state.user.credentials,
-    // credentialsAdmin: state.admin.credentials,
     courseList: state.courseList,
+    userDetail: state.user.userDetail,
 });
 
 export default connect(mapStateToProps)(UserProfile);

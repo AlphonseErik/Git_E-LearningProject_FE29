@@ -14,8 +14,7 @@ const reduxAction = (type, payload) => {
 //async action
 export const fetchCourseDetail = (courseid) => {
   return dispatch => {
-    courseService.
-      fetchDetailKhoaHoc(courseid).then(res => {
+    courseService.fetchDetailKhoaHoc(courseid).then(res => {
         dispatch(reduxAction(FETCH_COURSE_DETAIL, res.data));
       }).catch(err => {
         console.log(err);
