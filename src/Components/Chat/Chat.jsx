@@ -27,16 +27,16 @@ class Chat extends Component {
   }
   render() {
     return (<div>
-        <Launcher
-          agentProfile={{
-            teamName: 'react-chat-window',
-            imageUrl: 'https://a.slack-edge.com/66f9/img/avatars-teams/ava_0001-34.png'
-          }}
-          onMessageWasSent={this._onMessageWasSent.bind(this)}
-          messageList={this.state.messageList}
-          showEmoji
-        />
-      </div>)
+      <Launcher
+        agentProfile={{
+          teamName: 'react-chat-window',
+          imageUrl: 'https://a.slack-edge.com/66f9/img/avatars-teams/ava_0001-34.png'
+        }}
+        onMessageWasSent={this._onMessageWasSent.bind(this)}
+        messageList={this.state.messageList}
+        showEmoji
+      />
+    </div>)
   }
 }
 

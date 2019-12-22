@@ -7,7 +7,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Title from '../Title/title';
-import TableOfUser from '../TableOfUser/tableOfUser';
+import TableOfUser from './tableOfUser';
 import { connect } from 'react-redux';
 import { getUserRegistCourse } from '../../../Redux/Action/adminAction';
 import { FormControl, InputLabel, Select, Button } from '@material-ui/core';
@@ -98,15 +98,16 @@ function Orders(props) {
             setSuccess(false);
             setLoading(true);
             timer.current = setTimeout(() => {
-                setSuccess(true);
                 setLoading(false);
                 for (let valueNotFind in state) {
                     if (state[valueNotFind] === "") {
                         valid = false;
+                        setSuccess(false);
                     }
                 }
                 if (valid) {
                     props.dispatch(getUserRegistCourse(state.maKhoaHoc, props.history));
+                    setSuccess(true);
                 }
                 else {
                     alert('Item must be selected!');
@@ -120,56 +121,61 @@ function Orders(props) {
     return (
         <React.Fragment>
             <Title>Recent Orders</Title>
-            <Table size="medium">
+            {/* <Table size="medium">
                 <TableHead>
-                    <TableRow>
-                        <TableCell>
-                            <FormControl variant="outlined" className={classes.formControl}>
-                                <InputLabel required ref={inputLabel}>
-                                    Class Name
+                    <TableRow> */}
+            {/* <TableCell> */}
+            <div className="row">
+                <div className="col-9">
+                    <FormControl variant="outlined" className={classes.formControl} fullWidth>
+                        <InputLabel required ref={inputLabel}>
+                            Class Name
                                 </InputLabel>
-                                <Select
-                                    native
-                                    onChange={e => onHandleChange(e)}
-                                    labelWidth={labelWidth}
-                                // inputProps={{
-                                //     name: 'maKhoaHoc',
-                                //     id: 'outlined-age-native-simple',
-                                // }}
-                                >
-                                    <option></option>
-                                    {props.item.map((item, index) => (
-                                        <option key={index} value={item.maKhoaHoc}>{item.tenKhoaHoc}</option>
-                                    ))}
-                                </Select>
-                            </FormControl>
-                            {/* <select onChange={e => onHandleChange(e)}>
+                        <Select
+                            native
+                            onChange={e => onHandleChange(e)}
+                            labelWidth={labelWidth}
+                        // inputProps={{
+                        //     name: 'maKhoaHoc',
+                        //     id: 'outlined-age-native-simple',
+                        // }}
+                        >
+                            <option></option>
+                            {props.item.map((item, index) => (
+                                <option key={index} value={item.maKhoaHoc}>{item.tenKhoaHoc}</option>
+                            ))}
+                        </Select>
+                    </FormControl>
+                </div>
+                <div className="col-3">
+                    <div className={classesLoad.root}>
+                        <div className={classesLoad.wrapper}>
+                            <Button
+                                variant="contained"
+                                color="primary"
+                                className={buttonClassname}
+                                disabled={loading}
+                                onClick={onButtonChange}>GET DATA</Button>
+                            {loading && <CircularProgress size={24} className={classes.buttonProgress} />}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* <select onChange={e => onHandleChange(e)}>
                                 <option></option>
                                 {props.item.map((item, index) => (
                                     <option key={index} value={item.maKhoaHoc}>{item.tenKhoaHoc}</option>
                                 ))}
                             </select> */}
-                        </TableCell>
-                        <TableCell>Username</TableCell>
-                        <TableCell>Code Name</TableCell>
-                        <TableCell>Full Name</TableCell>
-                        <TableCell>
-                            <div className={classesLoad.root}>
-                                <div className={classesLoad.wrapper}>
-                                    <Button
-                                        variant="contained"
-                                        color="primary"
-                                        className={buttonClassname}
-                                        disabled={loading}
-                                        onClick={onButtonChange}>GET DATA</Button>
-                                    {loading && <CircularProgress size={24} className={classes.buttonProgress} />}
-                                </div>
-                            </div>
-                        </TableCell>
-                    </TableRow>
-                </TableHead>
-                <TableOfUser item={state.maKhoaHoc} />
-            </Table>
+            {/* </TableCell>
+                        <TableCell> */}
+
+            {/* </TableCell> */}
+            {/* </TableRow>
+                </TableHead> */}
+            <TableOfUser item={state.maKhoaHoc} />
+            {/* </Table> */}
         </React.Fragment>
     );
 }

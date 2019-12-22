@@ -23,7 +23,7 @@ import { mainListItems, secondaryListItems } from '../../Components/AdminProfile
 // import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import Chart from '../../Components/AdminProfileScreen/Chart/chart';
 import Deposits from '../../Components/AdminProfileScreen/Deposit/deposit';
-import Orders from '../../Components/AdminProfileScreen/Orders/orders';
+import Orders from '../../Components/AdminProfileScreen/UserOrders/orders';
 import AddNewUser from '../../Components/AdminProfileScreen/AdminAddNewUser/adminAddNewUser';
 import { connect } from 'react-redux';
 import { settings } from '../../config/settings';
@@ -32,6 +32,8 @@ import { getUserInfor } from '../../Redux/Action/adminAction';
 import UserService from '../../Services/userService';
 import { GET_ALL_USER_INFOR } from '../../Redux/Action/actionType';
 import GetUserList from '../../Components/AdminProfileScreen/GetUserList/getUserList';
+import AdminAddNewCourse from '../../Components/AdminProfileScreen/AdminAddNewCourse/adminAddNewCourse';
+import AdminAddNewUser from '../../Components/AdminProfileScreen/AdminAddNewUser/adminAddNewUser';
 
 const drawerWidth = 240;
 
@@ -188,7 +190,14 @@ function AdminScreen(props) {
                         </Grid>
                         <Grid item xs={12} md={4} lg={4}>
                             <Paper className={classes.paper}>
-                                <AddNewUser />
+                                <div className="row">
+                                    <div className="col-6">
+                                        <AdminAddNewUser />
+                                    </div>
+                                    <div className="col-6">
+                                        <AdminAddNewCourse />
+                                    </div>
+                                </div>
                             </Paper>
                         </Grid>
                         <Grid item xs={12}>

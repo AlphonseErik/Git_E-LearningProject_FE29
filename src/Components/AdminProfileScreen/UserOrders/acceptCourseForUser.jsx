@@ -1,5 +1,5 @@
 import React from 'react'
-import { courseRegistingAdmin } from '../../../../Redux/Action/adminAction';
+import { courseRegistingAdmin } from '../../../Redux/Action/adminAction';
 import { connect } from 'react-redux';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
@@ -71,7 +71,6 @@ const AcceptCourseForUser = props => {
             setSuccess(false);
             setLoading(true);
             timer.current = setTimeout(() => {
-                setSuccess(true);
                 setLoading(false);
                 setState({
                     isBoolean: false,
@@ -79,11 +78,12 @@ const AcceptCourseForUser = props => {
                 if (valid) {
                     console.log(state.userRegisterCourse)
                     props.dispatch(courseRegistingAdmin(state.userRegisterCourse, props.history));
+                    setSuccess(true);
                 }
                 else {
                     alert('Invalid input!!');
                 }
-            }, 2000);
+            }, 1000);
         }
     }
 

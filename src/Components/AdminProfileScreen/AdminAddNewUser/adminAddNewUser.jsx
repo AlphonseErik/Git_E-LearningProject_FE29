@@ -19,8 +19,10 @@ function rand() {
 }
 
 function getModalStyle() {
-    const top = 50 + rand();
-    const left = 50 + rand();
+    const top = 50
+    //  + rand();
+    const left = 50
+    // + rand();
 
     return {
         top: `${top}%`,
@@ -39,15 +41,15 @@ const useStyles = makeStyles(theme => ({
     },
     paper: {
         position: 'absolute',
-        width: 400,
+        width: 700,
         backgroundColor: theme.palette.background.paper,
-        border: '2px solid #000',
-        boxShadow: theme.shadows[5],
+        border: '1px solid #000',
+        boxShadow: theme.shadows[4],
         padding: theme.spacing(2, 4, 3),
     },
 }));
 
-function AddNewUser(props) {
+function AdminAddNewUser(props) {
 
     const classes = useStyles();
     const [modalStyle] = React.useState(getModalStyle);
@@ -130,9 +132,9 @@ function AddNewUser(props) {
             <Modal
                 disablePortal
                 disableEnforceFocus
-                disableAutoFocus
-                aria-labelledby="simple-modal-title"
-                aria-describedby="simple-modal-description"
+                // disableAutoFocus
+                // aria-labelledby="simple-modal-title"
+                // aria-describedby="simple-modal-description"
                 open={open}
                 onClose={handleClose}
             >
@@ -142,19 +144,19 @@ function AddNewUser(props) {
                             Add New User
                         </Title>
                         <Grid container spacing={3}>
-                            <Grid item xs={12} md={6}>
+                            <Grid item xs={12}>
                                 <TextField required label="Username" name="taiKhoan" onChange={handleChange} fullWidth />
                             </Grid>
-                            <Grid item xs={12} md={6}>
+                            <Grid item xs={12}>
                                 <TextField required label="Password" name="matKhau" onChange={handleChange} type="password" fullWidth />
                             </Grid>
-                            <Grid item xs={12} md={6}>
+                            <Grid item xs={12}>
                                 <TextField required label="Fullname" name="hoTen" onChange={handleChange} fullWidth />
                             </Grid>
-                            <Grid item xs={12} md={6}>
+                            <Grid item xs={12}>
                                 <TextField required label="Tel Number" name="soDT" onChange={handleChange} fullWidth />
                             </Grid>
-                            <Grid item xs={12} md={6}>
+                            <Grid item xs={12} md={5}>
                                 <FormControl required className={classes.formControl} >
                                     <InputLabel>User Code</InputLabel>
                                     <NativeSelect
@@ -167,14 +169,14 @@ function AddNewUser(props) {
                                     </NativeSelect>
                                 </FormControl>
                             </Grid>
-                            <Grid item xs={12} md={6}>
+                            <Grid item xs={12} md={7}>
                                 <FormControl required className={classes.formControl} >
                                     <InputLabel>Group Code</InputLabel>
                                     <NativeSelect
                                         name="maNhom"
                                         onChange={handleChange}
                                     >
-                                        <option value="GP01">GP01</option>
+                                        <option value="GP01">GP01 (Default)</option>
                                         <option value="GP02">GP02</option>
                                         <option value="GP03">GP03</option>
                                         <option value="GP04">GP04</option>
@@ -186,10 +188,10 @@ function AddNewUser(props) {
                                     </NativeSelect>
                                 </FormControl>
                             </Grid>
-                            <Grid item xs={12} md={6}>
+                            <Grid item xs={12}>
                                 <TextField required label="Email" name="email" onChange={handleChange} fullWidth />
                             </Grid>
-                            <Grid item xs={12} md={6}>
+                            <Grid item xs={12}>
                                 <Button type="submit" color="secondary" variant="contained" className={classes.button}>Add New</Button>
                             </Grid>
                         </Grid>
@@ -200,4 +202,4 @@ function AddNewUser(props) {
     );
 }
 
-export default connect()(AddNewUser);
+export default connect()(AdminAddNewUser);
