@@ -31,19 +31,6 @@ const useStyles = makeStyles(theme => ({
         margin: theme.spacing(1),
         position: 'relative',
     },
-    buttonSuccess: {
-        backgroundColor: green[500],
-        '&:hover': {
-            backgroundColor: green[700],
-        },
-    },
-    fabProgress: {
-        color: green[500],
-        position: 'absolute',
-        top: -6,
-        left: -6,
-        zIndex: 1,
-    },
     buttonProgress: {
         color: green[500],
         position: 'absolute',
@@ -72,17 +59,6 @@ function UserProfile(props) {
             clearTimeout(timer.current);
         };
     }, []);
-
-    // const handleButtonClick = () => {
-    //     if (!loading) {
-    //         setSuccess(false);
-    //         setLoading(true);
-    //         timer.current = setTimeout(() => {
-    //             setSuccess(true);
-    //             setLoading(false);
-    //         }, 2000);
-    //     }
-    // };
 
     const userLocalStorage = props.item;
 
@@ -148,17 +124,31 @@ function UserProfile(props) {
                         setSuccess(false);
                     }
                 }
-                if(user.userProfile.matKhau !== props.userDetail.matKhau)
-                {
-                    valid = false;
-                    setSuccess(false);
-                    alert('Input Valid Password To Finish Edit');
-                    return;
+                if(!props.credentialsAdmin){
+                    if(user.userProfile.taiKhoan !== props.userDetail.taiKhoan){
+                        valid = false;
+                        setSuccess(false);
+                    }
+                    if(user.userProfile.matKhau !== props.userDetail.matKhau)
+                    {
+                        valid = false;
+                        setSuccess(false);
+                        alert('Input Valid Password To Finish Edit');
+                        return;
+                    }
                 }
-                if(user.userProfile.taiKhoan !== props.userDetail.taiKhoan)
-                {
-                    valid = false;
-                    setSuccess(false);
+                if(props.credentialsAdmin){
+                    if(user.userProfile.taiKhoan !== props.adminDetail.taiKhoan){
+                        valid = false;
+                        setSuccess(false);
+                    }
+                    if(user.userProfile.matKhau !== props.adminDetail.matKhau)
+                    {
+                        valid = false;
+                        setSuccess(false);
+                        alert('Input Valid Password To Finish Edit');
+                        return;
+                    }   
                 }
                 if (valid) {
                     setDisabled(!disabled);
@@ -182,8 +172,20 @@ function UserProfile(props) {
         <div className={classessass.tong}>
             <div className="container text-center">
                 <form onSubmit={updateUser} style={{ lineHeight: 6 }}>
-                    <h3 className="text text-danger text-center">User Profile</h3>
-
+                    <div>
+                        {
+                            props.credentialsAdmin ? (
+                                <h3 className="text text-danger text-center">
+                                    Admin Profile
+                                </h3>
+                            ) : (
+                                <h3 className="text text-danger text-center">
+                                    User Profile
+                                </h3>
+                            )
+                        }
+                    </div>
+                    
                     <div className="form-group">
                         <TextField name="taiKhoan" label="Username" defaultValue={taiKhoan} className={classes.textField} margin="normal" InputProps={{ readOnly: true }} onChange={handleChange} />
                         <p className="text text-danger">{user.errors.taiKhoan}</p>
@@ -213,7 +215,6 @@ function UserProfile(props) {
                                 disabled={loading}
                                 className={buttonClassname}
                             >Save</Button>
-                            {loading && <CircularProgress size={24} className={classes.buttonProgress} />}
                             <Button variant="contained" color="secondary" onClick={handleOnClickEditText}>Cancel</Button>
                         </div>
                     ) : (
@@ -232,6 +233,8 @@ const mapStateToProps = state => ({
     credentials: state.user.credentials,
     courseList: state.courseList,
     userDetail: state.user.userDetail,
+    credentialsAdmin: state.admin.credentials,
+    adminDetail: state.admin.adminDetail,
 });
 
 export default connect(mapStateToProps)(UserProfile);

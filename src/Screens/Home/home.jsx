@@ -54,8 +54,9 @@ const HomeScreen = props => {
     //Lấy dữ liệu userDetail từ api
     let userAccess = localStorage.getItem(settings.taiKhoan);
     let userProfile = localStorage.getItem("userProfile");
+    let userRightStr = localStorage.getItem('userRight');
     // let userProfileEdit = localStorage.getItem(settings.userProfileEdit);
-    if (userAccess && !userProfile) {
+    if (userAccess && !userProfile && !props.credentialsAdmin) {
       props.dispatch(userDetail(userAccess));
     }
   }, []);
@@ -132,6 +133,7 @@ const HomeScreen = props => {
 const mapStateToProps = state => ({
   courseList: state.courseList,
   categoryChoosenList: state.categoryChoosenList,
+  credentialsAdmin: state.admin.credentials,
 });
 
 export default connect(mapStateToProps)(HomeScreen);
