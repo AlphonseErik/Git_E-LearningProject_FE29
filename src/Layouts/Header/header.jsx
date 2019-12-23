@@ -71,7 +71,7 @@ const Header = props => {
     const logoutHandleButton = e => {
         setTimeout(() => {
             props.dispatch(userSignoutAction(props.history));
-        }, 200);
+        }, 2000);
     }
 
     const classes = useStyles();
