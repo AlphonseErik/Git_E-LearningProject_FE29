@@ -100,7 +100,7 @@ export const userDetail = (userAccess) => {
             localStorage.setItem(settings.userProfile, JSON.stringify(res.data));
             const userRightStr = localStorage.getItem('userRight');
             //Lưu data lên store để render lại giao diện header
-            if(userRightStr === "HV"){
+            if (userRightStr === "HV") {
                 dispatch(reduxAction(USER_INFO, res.data));
             } else {
                 dispatch(reduxAction(ADMIN_INFO, res.data));

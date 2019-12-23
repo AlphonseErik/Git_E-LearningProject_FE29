@@ -102,23 +102,44 @@ const UserScreen = props => {
                             <LoadingScreen />
                         ) : (
                                 <Container>
-                                    <div className={classes.root}>
-                                        <Tabs orientation="vertical" variant="scrollable" value={value} onChange={handleChange} aria-label="Vertical tabs example" className={classes.tabs}>
-
-                                            <Tab label="Profile" {...a11yProps(0)} />
-                                            <Tab label="My Cart" {...a11yProps(1)} />
-                                            <Tab label="Item Three" {...a11yProps(2)} />
-                                        </Tabs>
-                                        <TabPanel value={value} index={0}>
-                                            <UserProfile item={userLocalStorage} />
-
-                                        </TabPanel>
-                                        <TabPanel value={value} index={1}>
-                                            <UserCart item={userLocalStorage} />
-                                        </TabPanel>
-                                        <TabPanel value={value} index={2}>
-                                            Item Three
-                                        </TabPanel>
+                                    <div>
+                                        {
+                                            props.credentialsAdmin ? (
+                                                <div className={classes.root}>
+                                                    <Tabs orientation="vertical" variant="scrollable" value={value} onChange={handleChange} aria-label="Vertical tabs example" className={classes.tabs}>
+                                                        <Tab label="Admin Profile" {...a11yProps(0)} />
+                                                        {/* <Tab label="My Cart" {...a11yProps(1)} />
+                                                        <Tab label="Item Three" {...a11yProps(2)} /> */}
+                                                    </Tabs>
+                                                    <TabPanel value={value} index={0}>
+                                                        <UserProfile item={userLocalStorage} />
+                                                    </TabPanel>
+                                                    {/* <TabPanel value={value} index={1}>
+                                                        <UserCart item={userLocalStorage} />
+                                                    </TabPanel>
+                                                    <TabPanel value={value} index={2}>
+                                                        Item Three
+                                                    </TabPanel> */}
+                                                </div>
+                                            ) : (
+                                                    <div className={classes.root}>
+                                                        <Tabs orientation="vertical" variant="scrollable" value={value} onChange={handleChange} aria-label="Vertical tabs example" className={classes.tabs}>
+                                                            <Tab label="My Profile" {...a11yProps(0)} />
+                                                            {/* <Tab label="My Cart" {...a11yProps(1)} />
+                                                            <Tab label="Item Three" {...a11yProps(2)} /> */}
+                                                        </Tabs>
+                                                        <TabPanel value={value} index={0}>
+                                                            <UserProfile item={userLocalStorage} />
+                                                        </TabPanel>
+                                                        {/* <TabPanel value={value} index={1}>
+                                                            <UserCart item={userLocalStorage} />
+                                                        </TabPanel>
+                                                        <TabPanel value={value} index={2}>
+                                                            Item Three
+                                                        </TabPanel> */}
+                                                    </div>
+                                                )
+                                        }
                                     </div>
                                 </Container>
                             )
@@ -137,6 +158,7 @@ const mapStateToProps = state => ({
     userDetailEdit: state.user.userDetailEdit,
     userUpdate: state.updatingUser,
     isLogin: state.user.isLogin,
+    credentialsAdmin: state.admin.credentials,
 })
 
 export default connect(mapStateToProps)(UserScreen);

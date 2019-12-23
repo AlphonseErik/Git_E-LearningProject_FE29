@@ -69,7 +69,7 @@ function UserProfile(props) {
     let [user, setUserProfile] = useState({
         userProfile: {
             taiKhoan: taiKhoan,
-            matKhau: matKhau,
+            matKhau: '',
             hoTen: hoTen,
             soDT: soDT,
             maLoaiNguoiDung: localStorage.getItem('userRight'),
@@ -111,44 +111,40 @@ function UserProfile(props) {
             timer.current = setTimeout(() => {
                 setLoading(false);
                 for (let errorName in user.errors) {
-                    if (user.errors[errorName] !== "")
-                    {
+                    if (user.errors[errorName] !== "") {
                         valid = false;
                         setSuccess(false);
                     }
                 }
                 for (let valueNotFind in user.userProfile) {
-                    if (user.userProfile[valueNotFind] === "")
-                    {
+                    if (user.userProfile[valueNotFind] === "") {
                         valid = false;
                         setSuccess(false);
                     }
                 }
-                if(!props.credentialsAdmin){
-                    if(user.userProfile.taiKhoan !== props.userDetail.taiKhoan){
+                if (!props.credentialsAdmin) {
+                    if (user.userProfile.taiKhoan !== props.userDetail.taiKhoan) {
                         valid = false;
                         setSuccess(false);
                     }
-                    if(user.userProfile.matKhau !== props.userDetail.matKhau)
-                    {
+                    if (user.userProfile.matKhau !== props.userDetail.matKhau) {
                         valid = false;
                         setSuccess(false);
-                        alert('Input Valid Password To Finish Edit');
+                        alert('Invalid Password');
                         return;
                     }
                 }
-                if(props.credentialsAdmin){
-                    if(user.userProfile.taiKhoan !== props.adminDetail.taiKhoan){
+                if (props.credentialsAdmin) {
+                    if (user.userProfile.taiKhoan !== props.adminDetail.taiKhoan) {
                         valid = false;
                         setSuccess(false);
                     }
-                    if(user.userProfile.matKhau !== props.adminDetail.matKhau)
-                    {
+                    if (user.userProfile.matKhau !== props.adminDetail.matKhau) {
                         valid = false;
                         setSuccess(false);
-                        alert('Input Valid Password To Finish Edit');
+                        alert('Invalid Password');
                         return;
-                    }   
+                    }
                 }
                 if (valid) {
                     setDisabled(!disabled);
@@ -179,13 +175,13 @@ function UserProfile(props) {
                                     Admin Profile
                                 </h3>
                             ) : (
-                                <h3 className="text text-danger text-center">
-                                    User Profile
+                                    <h3 className="text text-danger text-center">
+                                        User Profile
                                 </h3>
-                            )
+                                )
                         }
                     </div>
-                    
+
                     <div className="form-group">
                         <TextField name="taiKhoan" label="Username" defaultValue={taiKhoan} className={classes.textField} margin="normal" InputProps={{ readOnly: true }} onChange={handleChange} />
                         <p className="text text-danger">{user.errors.taiKhoan}</p>

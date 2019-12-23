@@ -15,7 +15,7 @@ const Chat = props => {
 
   const [nameInput, setNameInput] = React.useState("");
   const [room, setRoom] = React.useState("");
-  
+
   const [state, setState] = React.useState({
     messageList: [],
   })
