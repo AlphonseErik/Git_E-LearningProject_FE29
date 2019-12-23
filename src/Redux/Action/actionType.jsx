@@ -17,6 +17,7 @@ export const LOGIN = 'LOGIN';
 export const USER_INFO = 'USER_INFO';
 export const UPDATE_USER_INFO = 'UPDATE_USER_INFO';
 export const SIGNUP = 'SIGNUP';
+export const LOGOUT = 'LOGOUT';
 
 //Admin
 export const ADMIN_LOGIN = 'ADMIN_LOGIN';
@@ -25,6 +26,7 @@ export const UPDATE_ADMIN_INFO = 'UPDATE_ADMIN_INFO';
 export const ADD_NEW_USER = 'ADD_NEW_USER';
 export const GET_ALL_USER_INFOR = 'GET_ALL_USER_INFOR';
 export const SEARCH_USER_DETAIL = "SEARCH_USER_DETAIL";
+export const ADMIN_LOGOUT = 'ADMIN_LOGOUT';
 
 //lấy danh sách học viên chưa ghi danh
 export const ADMIN_GET_USER_REGIST_COURSE = "ADMIN_GET_USER_REGIST_COURSE";
@@ -32,5 +34,4 @@ export const GET_USER_UNREGISTER = "GET_USER_UNREGISTER";
 
 //Auth
 export const SUCCESS = "SUCCESS"
-
 export const FAILURE = "FAILURE"

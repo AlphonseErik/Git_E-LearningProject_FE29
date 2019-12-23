@@ -14,6 +14,7 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import FormControl from '@material-ui/core/FormControl';
 import clsx from 'clsx';
 import IconButton from '@material-ui/core/IconButton';
+import { Redirect } from "react-router-dom";
 
 function Signup(props) {
 
@@ -71,7 +72,7 @@ function Signup(props) {
             width: 200,
             height: 50,
             fontSize: 16,
-            borderRadius:25
+            borderRadius: 25
         }
     }));
 
@@ -116,65 +117,70 @@ function Signup(props) {
     }
 
     return (
-        <div className={classesStyle.tong}>
-        <form className="container" onSubmit={handleSubmit} className={classesStyle.signupStyle}>
-            <div className="form-group">
-                <h2 className="text-danger text-center">Sign Up</h2>
-                <div className="text-center">
-                    <TextField variant="outlined" name="taiKhoan" label="Username" className={classes.textField} margin="normal" onChange={handleChange} />
-                    <p className="text text-danger">{user.errors.taiKhoan}</p>
-                </div>
-                <div className="text-center">
-                    {/* <TextField variant="outlined" name="matKhau" label="Password" className={classes.textField} margin="normal" onChange={handleChange} />
-                    <p className="text text-danger">{user.errors.matKhau}</p> */}
-                    <FormControl className={clsx(classes.margin, classes.textField)} variant="outlined">
-                        <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
-                        <OutlinedInput
-                            name="matKhau"
-                            onChange={handleChange}
-                            type={user.showPassword ? 'text' : 'password'}
-                            endAdornment={
-                                <InputAdornment position="end">
-                                    <IconButton
-                                        aria-label="toggle password visibility"
-                                        onClick={handleClickShowPassword}
-                                        onMouseDown={handleMouseDownPassword}
-                                        edge="end">
-                                        {user.showPassword ? <Visibility /> : <VisibilityOff />}
-                                    </IconButton>
-                                </InputAdornment>
-                            }
-                            labelWidth={70}
-                        />
-                    </FormControl>
-                    <p className="text text-danger">{user.errors.matKhau}</p>
-                </div>
-                <div className="text-center">
-                    <TextField variant="outlined" name="hoTen" label="Full Name" className={classes.textField} margin="normal" onChange={handleChange} />
-                    <p className="text text-danger">{user.errors.hoTen}</p>
-                </div>
-                <div className="text-center">
-                    <TextField variant="outlined" name="email" label="Email" className={classes.textField} margin="normal" onChange={handleChange} />
-                    <p className="text text-danger">{user.errors.email}</p>
-                </div>
-                <div className="text-center">
-                    <TextField variant="outlined" name="soDT" label="Telephone Number" className={classes.textField} margin="normal" onChange={handleChange} />
-                    <p className="text text-danger">{user.errors.soDT}</p>
-                </div>
-                {/* <div className="text-center">
-                    <TextField variant="outlined" name="maNhom" label="Group Code" className={classes.textField} margin="normal" onChange={handleChange} />
-                    <p className="text text-danger">{user.errors.soDT}</p>
-                </div> */}
-            </div>
-            <div className="form-group">
-                <div className="text-center">
-                    <Button color="secondary" variant="contained" type="submit" className={classes.button}>Sign Up</Button>
-                </div>
-            </div>
-        </form>
+        <div>
+            {
+                props.isLogin ? (
+                    <Redirect to="/" />
+                ) : (
+                        <div className={classesStyle.tong}>
+                            <form className="container" onSubmit={handleSubmit} className={classesStyle.signupStyle}>
+                                <div className="form-group">
+                                    <h2 className="text-danger text-center">Sign Up</h2>
+                                    <div className="text-center">
+                                        <TextField variant="outlined" name="taiKhoan" label="Username" className={classes.textField} margin="normal" onChange={handleChange} />
+                                        <p className="text text-danger">{user.errors.taiKhoan}</p>
+                                    </div>
+                                    <div className="text-center">
+                                        <FormControl className={clsx(classes.margin, classes.textField)} variant="outlined">
+                                            <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+                                            <OutlinedInput
+                                                name="matKhau"
+                                                onChange={handleChange}
+                                                type={user.showPassword ? 'text' : 'password'}
+                                                endAdornment={
+                                                    <InputAdornment position="end">
+                                                        <IconButton
+                                                            aria-label="toggle password visibility"
+                                                            onClick={handleClickShowPassword}
+                                                            onMouseDown={handleMouseDownPassword}
+                                                            edge="end">
+                                                            {user.showPassword ? <Visibility /> : <VisibilityOff />}
+                                                        </IconButton>
+                                                    </InputAdornment>
+                                                }
+                                                labelWidth={70}
+                                            />
+                                        </FormControl>
+                                        <p className="text text-danger">{user.errors.matKhau}</p>
+                                    </div>
+                                    <div className="text-center">
+                                        <TextField variant="outlined" name="hoTen" label="Full Name" className={classes.textField} margin="normal" onChange={handleChange} />
+                                        <p className="text text-danger">{user.errors.hoTen}</p>
+                                    </div>
+                                    <div className="text-center">
+                                        <TextField variant="outlined" name="email" label="Email" className={classes.textField} margin="normal" onChange={handleChange} />
+                                        <p className="text text-danger">{user.errors.email}</p>
+                                    </div>
+                                    <div className="text-center">
+                                        <TextField variant="outlined" name="soDT" label="Telephone Number" className={classes.textField} margin="normal" onChange={handleChange} />
+                                        <p className="text text-danger">{user.errors.soDT}</p>
+                                    </div>
+                                </div>
+                                <div className="form-group">
+                                    <div className="text-center">
+                                        <Button color="secondary" variant="contained" type="submit" className={classes.button}>Sign Up</Button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    )
+            }
         </div>
-
     )
 }
 
-export default connect(null)(Signup);
+const mapStateToProp = state => ({
+    isLogin: state.user.isLogin,
+});
+
+export default connect(mapStateToProp)(Signup);

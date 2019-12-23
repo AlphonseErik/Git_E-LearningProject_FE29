@@ -60,14 +60,13 @@ const App = props => {
         <Route path="/cart" component={Cart} />
         <PrivateRoute path="/user" Component={UserScreen} />
         <PrivateRoute path="/user/profile" Component={UserProfile} />
-        <PrivateRoute path="/user/cart" Component={userCartProfile} />
         <PrivateAdminRoute path="/admin" exact Component={AdminScreen} />
-        <PrivateAdminRoute path="/adduser" Component={AddNewUser} />
 
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
 
-        <Route path="/" exact component={HomeScreen} />
+        <Route path="/"
+         component={HomeScreen} />
         <Route component={Notfound} />
       </Switch>
     </BrowserRouter>

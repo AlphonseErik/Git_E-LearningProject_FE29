@@ -1,4 +1,4 @@
-import { type, LOGIN, USER_INFO, SIGNUP, UPDATE_USER_INFO, ADD_CART_ITEM, COURSE_REGISTING, ADMIN_LOGIN } from './actionType';
+import { type, LOGIN, USER_INFO, SIGNUP, UPDATE_USER_INFO, ADD_CART_ITEM, COURSE_REGISTING, ADMIN_LOGIN, LOGOUT, ADMIN_LOGOUT } from './actionType';
 import { settings } from '../../config/settings';
 import reduxAction from "./action";
 import { restConnector } from '../../Services';
@@ -52,7 +52,7 @@ export const userLoginAction = (userLogin, history) => {
                 localStorage.setItem(settings.token, res.data.accessToken);
                 localStorage.setItem(settings.taiKhoan, res.data.taiKhoan);
                 dispatch(reduxAction(LOGIN, res.data));
-                history.push('./');
+                history.push('./home');
                 // return;
             } else {
                 localStorage.setItem(settings.userLogin, JSON.stringify(res.data));
@@ -72,8 +72,15 @@ export const userLoginAction = (userLogin, history) => {
 //Đăng xuất
 export const userSignoutAction = (history) => {
     return dispatch => {
-        localStorage.clear("accessToken");
-        dispatch(reduxAction(LOGIN, ""));
+        const userRightStr = localStorage.getItem('userRight');
+        if (userRightStr === "HV") {
+            localStorage.clear();
+            dispatch(reduxAction(LOGOUT, ""));
+        }
+        localStorage.clear();
+        dispatch(reduxAction(LOGOUT, ""));
+        dispatch(reduxAction(ADMIN_LOGOUT, ""));
+
     }
 };
 

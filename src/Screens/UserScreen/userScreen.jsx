@@ -16,6 +16,7 @@ import { userDetail } from "../../Redux/Action/userAction";
 import { settings } from "../../config/settings";
 import Footer from "../../Layouts/Footer/footer";
 import LoadingScreen from "../LoadingScreen/loadingScreen";
+import { Redirect } from "react-router-dom";
 
 function TabPanel(props) {
 
@@ -93,41 +94,49 @@ const UserScreen = props => {
     const userLocalStorage = JSON.parse(localStorage.getItem("userProfile"));
 
     return (
-        <React.Fragment>
-            {state.isLoading ? (
-                <LoadingScreen />
-            ) : (
-                    <Container>
-                        <div className={classes.root}>
-                            <Tabs orientation="vertical" variant="scrollable" value={value} onChange={handleChange} aria-label="Vertical tabs example" className={classes.tabs}>
+        <div>
+            {
+                props.isLogin ? (
+                    <React.Fragment>
+                        {state.isLoading ? (
+                            <LoadingScreen />
+                        ) : (
+                                <Container>
+                                    <div className={classes.root}>
+                                        <Tabs orientation="vertical" variant="scrollable" value={value} onChange={handleChange} aria-label="Vertical tabs example" className={classes.tabs}>
 
-                                <Tab label="Profile" {...a11yProps(0)} />
-                                <Tab label="My Cart" {...a11yProps(1)} />
-                                <Tab label="Item Three" {...a11yProps(2)} />
-                            </Tabs>
-                            <TabPanel value={value} index={0}>
-                                <UserProfile item={userLocalStorage} />
+                                            <Tab label="Profile" {...a11yProps(0)} />
+                                            <Tab label="My Cart" {...a11yProps(1)} />
+                                            <Tab label="Item Three" {...a11yProps(2)} />
+                                        </Tabs>
+                                        <TabPanel value={value} index={0}>
+                                            <UserProfile item={userLocalStorage} />
 
-                            </TabPanel>
-                            <TabPanel value={value} index={1}>
-                                <UserCart item={userLocalStorage} />
-                            </TabPanel>
-                            <TabPanel value={value} index={2}>
-                                Item Three
-                        </TabPanel>
-                        </div>
-                    </Container>
-                )
+                                        </TabPanel>
+                                        <TabPanel value={value} index={1}>
+                                            <UserCart item={userLocalStorage} />
+                                        </TabPanel>
+                                        <TabPanel value={value} index={2}>
+                                            Item Three
+                                        </TabPanel>
+                                    </div>
+                                </Container>
+                            )
+                        }
+                        <Footer />
+                    </React.Fragment>
+                ) : (
+                        < Redirect to="/" />
+                    )
             }
-
-            <Footer />
-        </React.Fragment>
+        </div>
     )
 }
 
 const mapStateToProps = state => ({
     userDetailEdit: state.user.userDetailEdit,
     userUpdate: state.updatingUser,
+    isLogin: state.user.isLogin,
 })
 
 export default connect(mapStateToProps)(UserScreen);
