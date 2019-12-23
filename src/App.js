@@ -43,9 +43,8 @@ const App = props => {
         return;
       }
       props.dispatch(reduxAction(LOGIN, JSON.parse(userLoginStr)));
-      props.dispatch(reduxAction(ADMIN_LOGIN, JSON.parse(userLoginStr)));
-      props.dispatch(reduxAction(USER_INFO, JSON.parse(userDetailStr)));
-
+      props.dispatch(reduxAction(ADMIN_LOGIN, JSON.parse(userDetailStr)));
+      // props.dispatch(reduxAction(USER_INFO, JSON.parse(userDetailStr)));
     }
   }, []);
     
