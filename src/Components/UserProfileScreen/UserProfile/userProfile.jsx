@@ -152,6 +152,8 @@ function UserProfile(props) {
                 {
                     valid = false;
                     setSuccess(false);
+                    alert('Input Valid Password To Finish Edit');
+                    return;
                 }
                 if(user.userProfile.taiKhoan !== props.userDetail.taiKhoan)
                 {
@@ -199,7 +201,7 @@ function UserProfile(props) {
                         <p className="text text-danger">{user.errors.soDt}</p>
                     </div>
                     <div className="form-group">
-                        <TextField name="matKhau" label="Password" InputProps={{ readOnly: true }} defaultValue={matKhau} type="password" className={classes.textField} margin="normal" onChange={handleChange} />
+                        <TextField name="matKhau" label="Password" disabled={!disabled} type="password" className={classes.textField} margin="normal" onChange={handleChange} />
                         <p className="text text-danger">{user.errors.email}</p>
                     </div>
                     {disabled ? (
