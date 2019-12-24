@@ -1,20 +1,45 @@
 @import '../../Scss/Helper/variable';
+@import '../../Scss/Helper/mixin';
 .Bottom {
     font-size: $fs-2;
     background: linear-gradient(-45deg, #6E1A52 0%, rgb(5, 76, 130)100%);
     color: $color-white-0;
-    display: flex;
+    @include MediaQuery(large) {
+        height: auto;
+    }
     // animation: Bottom 0.5s ease-in-out infinite;
-    ;
+    @include MediaQuery(small) {
+        text-align: center;
+    }
     i {
         font-size: $fs-2 +20;
+        @include MediaQuery(large) {
+            font-size: 40px;
+        }
+        @include MediaQuery(small) {
+            padding-left: 50px;
+        }
     }
     span {
         font-size: $fs-2;
         font-weight: $fw-bold;
+        @include MediaQuery(large) {
+            font-size: 18px;
+            padding-left: 20px;
+        }
+        @include MediaQuery(medium) {
+            font-size: 13px;
+        }
     }
     p {
         font-size: $fs-0;
+        @include MediaQuery(large) {
+            font-size: 15px;
+            padding-left: 20px;
+        }
+        @include MediaQuery(medium) {
+            font-size: 13px;
+        }
     }
 }
 

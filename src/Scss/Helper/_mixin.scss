@@ -22,3 +22,15 @@
 }
 
 @mixin buttoncontact() {}
+
+@mixin MediaQuery($breakpoint) {
+    @if map-has-key($map: $breakpoints, $key: $breakpoint) {
+        $value: map-get($map: $breakpoints, $key: $breakpoint);
+        @media screen and(max-width: $value) {
+            @content
+        }
+    }
+    @else {
+        @warn "`{$breakpoint}` isn't in breakpoints";
+    }
+}

@@ -18,7 +18,7 @@ export default class BottomSideBar extends Component {
                                         <i className="fa fa-recycle pt-3"></i>
                                     </div>
                                     <div className="col-10 pt-2">
-                                        <span className="">100,000 online courses</span>
+                                        <span className="">100,000 online </span>
                                         <p className="">Explore a variety of fresh topics</p>
                                     </div>
                                 </div>
@@ -30,7 +30,7 @@ export default class BottomSideBar extends Component {
                                         <i className="fa fa-recycle pt-3"></i>
                                     </div>
                                     <div className="col-10 pt-2">
-                                        <span className="">Expert instruction</span>
+                                        <span className="">Expert </span>
                                         <p className="">Find the right instructor for you</p>
                                     </div>
                                 </div>
@@ -41,7 +41,7 @@ export default class BottomSideBar extends Component {
                                         <i className="fa fa-recycle pt-3"></i>
                                     </div>
                                     <div className="col-10 pt-2">
-                                        <span className="">Lifetime access</span>
+                                        <span className="">Lifetime </span>
                                         <p className="">Learn on your schedule</p>
                                     </div>
                                 </div>

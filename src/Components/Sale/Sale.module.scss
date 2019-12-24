@@ -1,0 +1,13 @@
+@import '../../Scss/Helper/variable';
+@import '../../Scss/Helper/mixin';
+.testt {
+    @include MediaQuery(large) {
+        padding-left: 15%;
+    }
+    @include MediaQuery(medium) {
+        padding-left: 20%;
+    }
+    @include MediaQuery(small) {
+        padding-left: 25%;
+    }
+}
