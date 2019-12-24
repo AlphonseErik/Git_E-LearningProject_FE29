@@ -1,4 +1,4 @@
-import { type, LOGIN, USER_INFO, SIGNUP, UPDATE_USER_INFO, ADD_CART_ITEM, COURSE_REGISTING, ADMIN_LOGIN, LOGOUT, ADMIN_LOGOUT } from './actionType';
+import { type, LOGIN, USER_INFO, SIGNUP, UPDATE_USER_INFO, ADD_CART_ITEM, COURSE_REGISTING, ADMIN_LOGIN, LOGOUT, ADMIN_LOGOUT, ADMIN_INFO } from './actionType';
 import { settings } from '../../config/settings';
 import reduxAction from "./action";
 import { restConnector } from '../../Services';
@@ -70,17 +70,15 @@ export const userLoginAction = (userLogin, history) => {
 };
 
 //Đăng xuất
-export const userSignoutAction = (history) => {
+export const userSignoutAction = () => {
     return dispatch => {
         const userRightStr = localStorage.getItem('userRight');
         if (userRightStr === "HV") {
             localStorage.clear();
             dispatch(reduxAction(LOGOUT, ""));
         }
-        localStorage.clear();
         dispatch(reduxAction(LOGOUT, ""));
         dispatch(reduxAction(ADMIN_LOGOUT, ""));
-
     }
 };
 
@@ -100,12 +98,14 @@ export const userDetail = (userAccess) => {
             console.log('hehe', res.data);
             //Đăng nhập thành công => Lưu thông tin user và token vào localstorage để request về những api yêu cầu token
             localStorage.setItem(settings.userProfile, JSON.stringify(res.data));
-
+            const userRightStr = localStorage.getItem('userRight');
             //Lưu data lên store để render lại giao diện header
-            dispatch(reduxAction(USER_INFO, res.data));
-
+            if (userRightStr === "HV") {
+                dispatch(reduxAction(USER_INFO, res.data));
+            } else {
+                dispatch(reduxAction(ADMIN_INFO, res.data));
+            }
             //bỏ token lên header của tất cả request
-
         }).catch(error => {
             console.log(error.response.data);
         })
@@ -114,6 +114,36 @@ export const userDetail = (userAccess) => {
 
 //Cập nhật dữ liệu người dùng
 export const userUpdateAction = (userProfile, history) => {
+    return dispatch => {
+        //Gọi ajax backend thông qua api đưa data userProfile về server
+        restConnector({
+            method: 'PUT',
+            url: '/api/quanlynguoidung/capnhatthongtinnguoidung',
+            headers: {
+                "Authorization": "Bearer " + localStorage.getItem(settings.token),
+            },
+            data: userProfile,
+        }).then(res => {
+            console.log('lala',res.data);
+            // localStorage.removeItem(settings.userProfile);
+            localStorage.setItem(settings.userProfileEdit, JSON.stringify(res.data));
+            //Lưu data lên store để render lại giao diện header
+            // const userProfilBeforeEdit = localStorage.getItem('userProfile');
+            // const userProfilAfterEdit = localStorage.getItem('userProfileEdit');
+            dispatch(reduxAction(USER_INFO, res.data));
+            dispatch(reduxAction(UPDATE_USER_INFO, res.data));
+            // restConnector.defaults.headers['Authorization'] = "Bearer " + res.data.accessToken;
+
+            // history.push('./');
+            alert('User profile is update success!');
+        }).catch(error => {
+            console.log(error.response.data);
+        })
+    }
+}
+
+//Cập nhật mật khẩu người dùng
+export const userUpdatePaswordAction = (userProfile, history) => {
     return dispatch => {
         //Gọi ajax backend thông qua api đưa data userProfile về server
         restConnector({

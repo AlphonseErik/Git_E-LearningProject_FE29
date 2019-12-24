@@ -34,6 +34,7 @@ import { GET_ALL_USER_INFOR } from '../../Redux/Action/actionType';
 import GetUserList from '../../Components/AdminProfileScreen/GetUserList/getUserList';
 import AdminAddNewCourse from '../../Components/AdminProfileScreen/AdminAddNewCourse/adminAddNewCourse';
 import AdminAddNewUser from '../../Components/AdminProfileScreen/AdminAddNewUser/adminAddNewUser';
+import Chat from '../../Components/Chat/chat';
 
 const drawerWidth = 240;
 
@@ -146,74 +147,85 @@ function AdminScreen(props) {
     const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
     return (
-
-        <div className={classes.root}>
-            <Drawer
-                variant="permanent"
-                classes={{
-                    paper: clsx(classes.drawerPaper, !open && classes.drawerPaperClose),
-                }}
-                open={open}>
-                <div className={classes.toolbarIcon}>
-                    {!open ? (<IconButton onClick={handleDrawer}>
-                        <ChevronRightIcon />
-                    </IconButton>) : (<IconButton onClick={handleDrawer}>
-                        <ChevronLeftIcon />
-                    </IconButton>)}
-                </div>
-                <Divider />
-                <List>{mainListItems}</List>
-                <Divider />
-                <List>{secondaryListItems}</List>
-            </Drawer>
-            <main className={classes.content}>
-                <div className={classes.appBarSpacer} />
-                <Container maxWidth="lg" className={classes.container}>
-                    <Grid container spacing={3}>
-                        {/* Chart */}
-                        <Grid item xs={12} md={8} lg={9}>
-                            <Paper className={fixedHeightPaper}>
-                                <Chart />
-                            </Paper>
-                        </Grid>
-                        {/* Recent Deposits */}
-                        <Grid item xs={12} md={4} lg={3}>
-                            <Paper className={fixedHeightPaper}>
-                                <Deposits />
-                            </Paper>
-                        </Grid>
-                        {/* Recent Orders */}
-                        <Grid item xs={12} md={8} lg={8}>
-                            <Paper className={classes.paper}>
-                                <Orders item={item} />
-                            </Paper>
-                        </Grid>
-                        <Grid item xs={12} md={4} lg={4}>
-                            <Paper className={classes.paper}>
-                                <div className="row">
-                                    <div className="col-6">
-                                        <AdminAddNewUser />
-                                    </div>
-                                    <div className="col-6">
-                                        <AdminAddNewCourse />
-                                    </div>
-                                </div>
-                            </Paper>
-                        </Grid>
-                        <Grid item xs={12}>
-                            <Paper className={classes.paper}>
-                                <GetUserList />
-                            </Paper>
-                        </Grid>
-                    </Grid>
-                </Container>
-            </main>
+        <div>
+            {
+                props.credentialsAdmin ? (
+                    <div className={classes.root}>
+                        <Drawer
+                            variant="permanent"
+                            classes={{
+                                paper: clsx(classes.drawerPaper, !open && classes.drawerPaperClose),
+                            }}
+                            open={open}>
+                            <div className={classes.toolbarIcon}>
+                                {!open ? (<IconButton onClick={handleDrawer}>
+                                    <ChevronRightIcon />
+                                </IconButton>) : (<IconButton onClick={handleDrawer}>
+                                    <ChevronLeftIcon />
+                                </IconButton>)}
+                            </div>
+                            <Divider />
+                            <List>{mainListItems}</List>
+                            <Divider />
+                            <List>{secondaryListItems}</List>
+                        </Drawer>
+                        <main className={classes.content}>
+                            <div className={classes.appBarSpacer} />
+                            <Container maxWidth="lg" className={classes.container}>
+                                <Grid container spacing={3}>
+                                    {/* Chart */}
+                                    <Grid item xs={12} md={8} lg={9}>
+                                        <Paper className={fixedHeightPaper}>
+                                            <Chart />
+                                        </Paper>
+                                    </Grid>
+                                    {/* Recent Deposits */}
+                                    <Grid item xs={12} md={4} lg={3}>
+                                        <Paper className={fixedHeightPaper}>
+                                            <Deposits />
+                                        </Paper>
+                                    </Grid>
+                                    {/* Recent Orders */}
+                                    <Grid item xs={12} md={8} lg={8}>
+                                        <Paper className={classes.paper}>
+                                            <Orders item={item} />
+                                        </Paper>
+                                    </Grid>
+                                    <Grid item xs={12} md={4} lg={4}>
+                                        <Paper className={classes.paper}>
+                                            <div className="row">
+                                                <div className="col-6">
+                                                    <AdminAddNewUser />
+                                                </div>
+                                                <div className="col-6">
+                                                    <AdminAddNewCourse />
+                                                </div>
+                                            </div>
+                                        </Paper>
+                                    </Grid>
+                                    <Grid item xs={12}>
+                                        <Paper className={classes.paper}>
+                                            <GetUserList />
+                                        </Paper>
+                                    </Grid>
+                                </Grid>
+                            </Container>
+                            <Chat />
+                        </main>
+                    </div>
+                ) : (
+                        <div>
+                            <h1>NOT ALLOW</h1>
+                        </div>
+                    )
+            }
         </div>
     );
 }
 
 const mapStateToProps = state => ({
     courseList: state.courseList,
+    credentialsAdmin: state.admin.credentials,
 })
 
 export default connect(mapStateToProps)(AdminScreen);

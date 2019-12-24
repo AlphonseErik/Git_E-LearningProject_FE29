@@ -70,8 +70,8 @@ const Header = props => {
 
     const logoutHandleButton = e => {
         setTimeout(() => {
-            props.dispatch(userSignoutAction(props.history));
-        }, 200);
+            props.dispatch(userSignoutAction());
+        }, 1000);
     }
 
     const classes = useStyles();
@@ -87,7 +87,6 @@ const Header = props => {
         if (event && event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
             return;
         }
-
         setState({ ...state, [side]: open });
     };
 
@@ -120,7 +119,7 @@ const Header = props => {
                 </NavLink>
             </List>
             <List>
-                <NavLink style={{ color: '#0277bd', textDecoration: 'none' }} to="./login" onClick={logoutHandleButton}>
+                <NavLink style={{ color: '#0277bd', textDecoration: 'none' }} to="./" onClick={logoutHandleButton}>
                     <ListItem button key="Logout">
                         <ListItemIcon>
                             <ExitToAppIcon />

@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { settings } from '../../config/settings';
 import { courseRegisting } from '../../Redux/Action/userAction';
 import { connect } from "react-redux";
+import { Redirect } from 'react-router-dom';
 
 const Payment = props => {
 
@@ -18,8 +19,7 @@ const Payment = props => {
     })
 
     let renderButton = () => {
-        const userLoginStr = localStorage.getItem('userLogin');
-        if (userLoginStr) {
+        if (props.isLogin) {
             setState({
                 isBoolean: false,
             });
@@ -43,4 +43,8 @@ const Payment = props => {
     )
 }
 
-export default connect()(Payment);
+const mapStateToProps = state => ({
+    isLogin: state.user.isLogin,
+})
+
+export default connect(mapStateToProps)(Payment);

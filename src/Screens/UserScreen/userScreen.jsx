@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 // import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import UserProfile from "../../Components/UserProfileScreen/UserProfile/userProfile";
-import { Button, Link } from "@material-ui/core";
+// import { Button, Link } from "@material-ui/core";
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import Tabs from '@material-ui/core/Tabs';
@@ -17,6 +17,7 @@ import { settings } from "../../config/settings";
 import Footer from "../../Layouts/Footer/Footer";
 import LoadingScreen from "../LoadingScreen/loadingScreen";
 import { Redirect } from "react-router-dom";
+import UserProfileChangePassword from "../../Components/UserProfileScreen/UserProfileChangePassword/userProfileChangePassword";
 
 function TabPanel(props) {
 
@@ -75,14 +76,14 @@ const UserScreen = props => {
         const userRightStr = localStorage.getItem('userRight');
         if (userLoginStr && userAccessToken && userRightStr) {
             let userAccess = localStorage.getItem(settings.taiKhoan);
-            let userProfile = localStorage.getItem("userProfile");
+            // let userProfile = localStorage.getItem("userProfile");
             let userProfileEdit = localStorage.getItem("userProfileEdit");
             if (userAccess || userProfileEdit) {
                 props.dispatch(userDetail(userAccess));
                 timerHandle = setTimeout(() => setState({ isLoading: false }), 1000);
             }
         }
-    }, [props.userDetailEdit], [localStorage.getItem("userProfileEdit")]);
+    }, [props.userDetailEdit], [props.userDetail]);
 
     const classes = useStyles();
     const [value, setValue] = React.useState(0);
@@ -102,23 +103,44 @@ const UserScreen = props => {
                             <LoadingScreen />
                         ) : (
                                 <Container>
-                                    <div className={classes.root}>
-                                        <Tabs orientation="vertical" variant="scrollable" value={value} onChange={handleChange} aria-label="Vertical tabs example" className={classes.tabs}>
-
-                                            <Tab label="Profile" {...a11yProps(0)} />
-                                            <Tab label="My Cart" {...a11yProps(1)} />
-                                            <Tab label="Item Three" {...a11yProps(2)} />
-                                        </Tabs>
-                                        <TabPanel value={value} index={0}>
-                                            <UserProfile item={userLocalStorage} />
-
-                                        </TabPanel>
-                                        <TabPanel value={value} index={1}>
-                                            <UserCart item={userLocalStorage} />
-                                        </TabPanel>
-                                        <TabPanel value={value} index={2}>
-                                            Item Three
-                                        </TabPanel>
+                                    <div>
+                                        {
+                                            props.credentialsAdmin ? (
+                                                <div className={classes.root}>
+                                                    <Tabs orientation="vertical" variant="scrollable" value={value} onChange={handleChange} aria-label="Vertical tabs example" className={classes.tabs}>
+                                                        <Tab label="Admin Profile" {...a11yProps(0)} />
+                                                        <Tab label="My Cart" {...a11yProps(1)} />
+                                                        <Tab label="Change Password" {...a11yProps(2)} />
+                                                    </Tabs>
+                                                    <TabPanel value={value} index={0}>
+                                                        <UserProfile item={userLocalStorage} />
+                                                    </TabPanel>
+                                                    <TabPanel value={value} index={1}>
+                                                        <UserCart item={userLocalStorage} />
+                                                    </TabPanel>
+                                                    <TabPanel value={value} index={2}>
+                                                        <UserProfileChangePassword item={userLocalStorage} />
+                                                    </TabPanel>
+                                                </div>
+                                            ) : (
+                                                    <div className={classes.root}>
+                                                        <Tabs orientation="vertical" variant="scrollable" value={value} onChange={handleChange} aria-label="Vertical tabs example" className={classes.tabs}>
+                                                            <Tab label="My Profile" {...a11yProps(0)} />
+                                                            <Tab label="My Cart" {...a11yProps(1)} />
+                                                            <Tab label="Change Password" {...a11yProps(2)} />
+                                                        </Tabs>
+                                                        <TabPanel value={value} index={0}>
+                                                            <UserProfile item={userLocalStorage} />
+                                                        </TabPanel>
+                                                        <TabPanel value={value} index={1}>
+                                                            <UserCart item={userLocalStorage} />
+                                                        </TabPanel>
+                                                        <TabPanel value={value} index={2}>
+                                                            <UserProfileChangePassword item={userLocalStorage} />
+                                                        </TabPanel>
+                                                    </div>
+                                                )
+                                        }
                                     </div>
                                 </Container>
                             )
@@ -137,6 +159,8 @@ const mapStateToProps = state => ({
     userDetailEdit: state.user.userDetailEdit,
     userUpdate: state.updatingUser,
     isLogin: state.user.isLogin,
+    credentialsAdmin: state.admin.credentials,
+    userDetail: state.user.userDetail,
 })
 
 export default connect(mapStateToProps)(UserScreen);
