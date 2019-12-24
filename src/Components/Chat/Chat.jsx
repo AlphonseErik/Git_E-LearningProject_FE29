@@ -1,14 +1,17 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { Launcher } from "react-chat-window";
 import useSocket from 'use-socket.io-client';
 
-
+const MESSAGE_LISTENER_KEY = 'listener-key';
 
 const Chat = props => {
 
-  // // const [socket] = useSocket('socket-url')
-  // const [id, setId] = React.useState("");
-  // const [socket] = useSocket('<https://open-chat-naostsaecf.now.sh>');
+  const [friends, setFriends] = useState([]);
+  const [selectedFriend, setSelectedFriend] = useState(null);
+  const [chat, setChat] = useState([]);
+  const [chatIsLoading, setChatIsLoading] = useState(false);
+  const [friendisLoading, setFriendisLoading] = useState(true);
+  const [message, setMessage] = useState('');
 
   // socket.connect();
   // console.log(socket);
@@ -24,6 +27,7 @@ const Chat = props => {
     setState({
       messageList: [...state.messageList, message]
     })
+    // socket.emit('chat message', input, room);
   }
 
   const _sendMessage = (text) => {

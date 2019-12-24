@@ -24,7 +24,7 @@ function CountdownTimer(props) {
     setTimeout(() => {
       setTimeLeft(calculateTimeLeft());
     }, 1000);
-  }, [timeLeft], [setTimeLeft]);
+  },[]);
 
   const timeComponents = [];
 

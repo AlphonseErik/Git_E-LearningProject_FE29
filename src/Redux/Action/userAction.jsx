@@ -124,6 +124,36 @@ export const userUpdateAction = (userProfile, history) => {
             },
             data: userProfile,
         }).then(res => {
+            console.log('lala',res.data);
+            // localStorage.removeItem(settings.userProfile);
+            localStorage.setItem(settings.userProfileEdit, JSON.stringify(res.data));
+            //Lưu data lên store để render lại giao diện header
+            // const userProfilBeforeEdit = localStorage.getItem('userProfile');
+            // const userProfilAfterEdit = localStorage.getItem('userProfileEdit');
+            dispatch(reduxAction(USER_INFO, res.data));
+            dispatch(reduxAction(UPDATE_USER_INFO, res.data));
+            // restConnector.defaults.headers['Authorization'] = "Bearer " + res.data.accessToken;
+
+            // history.push('./');
+            alert('User profile is update success!');
+        }).catch(error => {
+            console.log(error.response.data);
+        })
+    }
+}
+
+//Cập nhật mật khẩu người dùng
+export const userUpdatePaswordAction = (userProfile, history) => {
+    return dispatch => {
+        //Gọi ajax backend thông qua api đưa data userProfile về server
+        restConnector({
+            method: 'PUT',
+            url: '/api/quanlynguoidung/capnhatthongtinnguoidung',
+            headers: {
+                "Authorization": "Bearer " + localStorage.getItem(settings.token),
+            },
+            data: userProfile,
+        }).then(res => {
             console.log(res.data);
             // localStorage.removeItem(settings.userProfile);
             localStorage.setItem(settings.userProfileEdit, JSON.stringify(res.data));
