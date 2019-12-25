@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import classes from './footerStyle.module.scss';
-import Chat from '../../Components/Chat/Chat';
+import Chat from '../../Components/Chat/chat';
 
 const Footer = props => {
   return (

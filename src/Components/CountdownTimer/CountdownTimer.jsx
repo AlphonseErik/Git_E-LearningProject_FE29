@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import classes from './CountdownTimer.module.scss';
+import classes from './countdownTimer.module.scss';
 
 function CountdownTimer(props) {
 
