@@ -51,7 +51,7 @@ class SaleItem extends Component {
                   </div>
                   <div className="text-right">
                     <span className={classes.span1}>50$</span>
-                    <span className="text-bold">15$</span>
+                    <span className={classes.span2}>15$</span>
                   </div>
                 </div>
 

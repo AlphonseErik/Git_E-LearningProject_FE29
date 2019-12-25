@@ -1,0 +1,17 @@
+@import '../../Scss/Helper/variable';
+@import '../../Scss/Helper/mixin';
+.inputTong {
+    padding-top: 25px;
+    width: 80%;
+    margin: auto;
+    .classinput {
+        @include MediaQuery(extra-large) {}
+        @include MediaQuery(small) {}
+        input {
+            padding: 25px 20px;
+            border-radius: 25px;
+            letter-spacing: 3px;
+            width: 100%;
+        }
+    }
+}

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import reduxAction from '../../Redux/Action/action';
 import { SEARCH_COURSE } from '../../Redux/Action/actionType';
 import { NavLink } from 'react-router-dom';
+import classes from './FilterSearch.module.scss';
 
 function FilterSearch(props) {
 
@@ -23,11 +24,9 @@ function FilterSearch(props) {
   }, [searchTerm]);
 
   return (
-    <div className="container mt-3">
-      <div className="row">
-        <div className="col-6"></div>
-        <div className="col-6">
+    <div className={classes.inputTong}> 
           <form className="form-group" action={`/coursedetail/${searchTerm}`} method="get">
+            <div className={classes.classinput}>
             <input type="text" name="search" value={searchTerm} onChange={handleChange} className="form-control" placeholder="Search for course..." list="search" />
             {searchTerm && (
               <datalist id="search">
@@ -38,10 +37,9 @@ function FilterSearch(props) {
                 ))}
               </datalist>
             )}
+            </div>
           </form>
-        </div>
       </div>
-    </div>
   );
 }
 

@@ -11,6 +11,10 @@
     color: $color-black-0;
     text-decoration: none !important;
     border-radius: 10%;
+    @include MediaQuery(medium) {
+        width: 90%;
+        height: 300px;
+    }
     div {
         text-decoration: none !important;
         .card {
@@ -28,6 +32,9 @@
                 top: -0px;
                 right: -0px;
                 background-color: rgba($color: firebrick, $alpha: 1.2);
+                @include MediaQuery(medium) {
+                    margin-right: 23px;
+                }
                 h2 {
                     font-size: 25px;
                     text-align: center;
@@ -45,6 +52,10 @@
                 margin: 0;
                 padding: 0;
                 text-decoration: none !important;
+                @include MediaQuery(medium) {
+                    width: 90%;
+                    height: 150px;
+                }
             }
             p {
                 text-align: center;
@@ -57,6 +68,14 @@
                 margin-right: $mg-0 +3;
                 text-decoration: none !important;
                 text-decoration: line-through !important;
+                text-align: right;
+            }
+            .span2 {
+                font-size: 20px;
+                @include MediaQuery(medium) {
+                    padding-right: 10%;
+                    margin-top: 15%;
+                }
             }
             h5 {
                 font-size: $fs-0;

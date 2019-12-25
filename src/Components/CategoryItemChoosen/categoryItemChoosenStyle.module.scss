@@ -1,9 +1,16 @@
 @import '../../Scss/Helper/variable';
+@import '../../Scss/Helper/mixin';
 .categoryItem {
     font-size: $fs-2;
     text-align: center;
-    padding: 0 $pd-0;
+    padding: 0 15px;
     padding-top: $pd-1 + 5;
+    @include MediaQuery(extra-large) {
+        text-align: left;
+    }
+    @include MediaQuery(medium) {
+        text-align: left;
+    }
     button {
         color: $color-black-light;
         background-color: $color-white-0;
@@ -11,15 +18,20 @@
         font-weight: $fw-bold;
         box-shadow: 0 0 1px 1px rgba(20, 23, 28, .1), 0 3px 1px 0 rgba(20, 23, 28, .1);
         margin: 0 $mg-1;
+        border-radius: 30px;
+        padding: 10px 10px;
+        @include MediaQuery(extra-large) {
+            margin-top: 10px;
+        }
     }
      :hover {
-        color: white;
-        background-color: rgb(47, 105, 47);
+        color: darkgreen;
+        background: linear-gradient(to right, #B8D705, #B8D705);
         border: none;
     }
      :focus {
         color: $color-white-0;
         background-color: green;
-        border: none;
+        border: none !important;
     }
 }

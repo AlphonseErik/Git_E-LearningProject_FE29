@@ -27,7 +27,7 @@ const Category = props => {
     // const { tenDanhMuc} = this.props.item;
 
     return (
-        <div className="btn-group" className={classes.categoryItem} >
+        <div className="btn-group" className={classes.categoryItem}>
             {
                 props.categoryList.map((danhmuc, index) => {
                     return (

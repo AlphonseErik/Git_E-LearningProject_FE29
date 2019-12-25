@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import classes from './footerStyle.module.scss';
-import Chat from '../../Components/Chat/chat';
+// import Chat from '../../Components/Chat/chat';
 
 const Footer = props => {
   return (
@@ -45,7 +45,7 @@ const Footer = props => {
           </div>
           <div className="col-3">
             <button className="btn">EngLish</button>
-            <Chat />
+            {/* <Chat /> */}
           </div>
         </div>
       </div>
