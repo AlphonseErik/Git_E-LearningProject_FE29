@@ -52,11 +52,11 @@ const Footer = props => {
       <hr className="mt-3"></hr>
       <div className="container">
         <div className="row">
-          <div className="col-4">
+          <div className="col-5 col-md-6 col-sm-6">
             <i className="fa fa-angellist" style={{ fontSize: 50 }}></i>
             <span className="ml-3 pt-2">Copyright © 2019 H&T, Inc.</span>
           </div>
-          <div className="col-8">
+          <div className="col-7 col-md-6 col-sm-6">
             <div className="text-right pt-3">
               <a href="#">Terms</a>
               <a className="mx-2" href="#">Privacy Policy and Cookie Policy</a>

@@ -12,7 +12,8 @@
             width: 300px;
             height: 10%;
             @include MediaQuery(small) {
-                display: block;
+                width: 100px;
+                height: 5%;
             }
             img {
                 border-radius: 50%;
@@ -35,6 +36,10 @@
             background-color: $color-white-0;
             width: 300px;
             height: 10%;
+            @include MediaQuery(small) {
+                width: 100px;
+                height: 5%;
+            }
             img {
                 border-radius: 50%;
                 height: 70px;
@@ -56,6 +61,10 @@
             background-color: $color-white-0;
             width: 300px;
             height: 10%;
+            @include MediaQuery(small) {
+                width: 100px;
+                height: 5%;
+            }
             img {
                 border-radius: 50%;
                 height: 70px;
@@ -72,14 +81,20 @@
         .classThuongHieu {
             text-align: center;
             padding-top: $pd-2 +20;
+            font-size: 60px !important;
+            padding-left: 15px;
+            padding-right: 15px;
             img {
-                padding: 0;
+                margin: 0 10px;
             }
         }
         .classBecome {
             text-align: center;
             padding-top: $pd-2 +20;
             padding-bottom: $pd-2 +10;
+            @include MediaQuery(medium) {
+                display: none;
+            }
             h3 {
                 font-size: $fs-3 +1;
             }

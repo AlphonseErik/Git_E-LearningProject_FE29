@@ -43,7 +43,7 @@ const StudentSay = props => {
               </div>
             </div>
           </div>
-          <div className="  col-4  col-lg-4 col-md-12 col-sm-12 .col-12">
+          <div className="  col-4  col-lg-4 col-md-12 col-sm-12 ">
             <div className="container">
               <div className={classes.item2} data-aos="fade-left"
                 data-aos-offset="300"
@@ -64,24 +64,17 @@ const StudentSay = props => {
         <div className={classes.classThuongHieu}>
           <div className="container">
             <div className="row">
-              <div className="col-2">
+              <div className="col-4 col-sm-4">
                 <div className="item">
                   <img src="https://i.udemycdn.com/partner-logos/booking-logo.svg" />
                 </div>
               </div>
-              <div className="col-2">
-                <img src="https://i.udemycdn.com/partner-logos/volkswagen-logo.svg" />
-              </div>
-              <div className="col-2">
-                <img src="https://i.udemycdn.com/partner-logos/mercedes-logo.svg" />
-              </div>
-              <div className="col-2">
-                <img src="https://i.udemycdn.com/partner-logos/pinterest-logo.svg" />
-              </div>
-              <div className="col-2">
+              
+              
+              <div className="col-4 col-sm-4">
                 <img src="https://i.udemycdn.com/partner-logos/adidas-logo.svg" />
               </div>
-              <div className="col-2">
+              <div className="col-4 col-sm-4">
                 <img src="https://i.udemycdn.com/partner-logos/eventbrite-logo.svg" />
               </div>
             </div>

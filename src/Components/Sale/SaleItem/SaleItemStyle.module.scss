@@ -33,7 +33,7 @@
                 right: -0px;
                 background-color: rgba($color: firebrick, $alpha: 1.2);
                 @include MediaQuery(medium) {
-                    margin-right: $mg-2 -2;
+                    margin-right: 24px;
                 }
                 h2 {
                     font-size: $mg-2;
