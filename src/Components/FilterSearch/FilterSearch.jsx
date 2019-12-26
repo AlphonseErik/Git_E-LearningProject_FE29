@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import reduxAction from '../../Redux/Action/action';
 import { SEARCH_COURSE } from '../../Redux/Action/actionType';
 import { NavLink } from 'react-router-dom';
-import classes from './FilterSearch.module.scss';
+import classes from './filterSearchStyle.module.scss';
 
 function FilterSearch(props) {
 

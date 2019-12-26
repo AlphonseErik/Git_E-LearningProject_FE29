@@ -14,7 +14,7 @@ import UserCart from "../../Components/UserProfileScreen/UserCartProfile/userCar
 import { connect } from "react-redux";
 import { userDetail } from "../../Redux/Action/userAction";
 import { settings } from "../../config/settings";
-import Footer from "../../Layouts/Footer/Footer";
+import Footer from "../../Layouts/Footer/footer";
 import LoadingScreen from "../LoadingScreen/loadingScreen";
 import { Redirect } from "react-router-dom";
 import UserProfileChangePassword from "../../Components/UserProfileScreen/UserProfileChangePassword/userProfileChangePassword";

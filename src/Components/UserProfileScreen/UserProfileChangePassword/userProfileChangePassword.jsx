@@ -14,7 +14,7 @@ import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import { Button } from "@material-ui/core";
 import { red } from "@material-ui/core/colors";
-import Footer from "../../../Layouts/Footer/Footer";
+import Footer from "../../../Layouts/Footer/footer";
 import { green } from '@material-ui/core/colors';
 import clsx from 'clsx';
 import CircularProgress from '@material-ui/core/CircularProgress';
