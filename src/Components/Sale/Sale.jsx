@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Slider from "react-slick";
-import SaleItem from './SaleItem/saleItem';
+import SaleItem from './SaleItem/SaleItem';
 import classes from './saleStyle.module.scss';
 
 

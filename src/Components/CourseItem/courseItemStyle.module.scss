@@ -2,7 +2,7 @@
 @import '../../Scss/Helper/mixin';
 .courseItem {
     text-align: left;
-    margin-bottom: 30px;
+    margin-bottom: $mg-2 +5;
     // box-shadow: 0 0 1px 1px rgba(20, 23, 28, .1), 0 3px 1px 0 rgba(20, 23, 28, .1);
     height: 350px;
     width: 100%;
@@ -11,6 +11,10 @@
     color: $color-black-0;
     text-decoration: none !important;
     border-radius: 10%;
+    @include MediaQuery(medium) {
+        width: 90%;
+        height: 300px;
+    }
     div {
         text-decoration: none !important;
         .card {
@@ -27,11 +31,14 @@
                 top: -0px;
                 right: -0px;
                 background-color: rgba($color: firebrick, $alpha: 1.2);
+                @include MediaQuery(medium) {
+                    margin-left: $mg-2 +25;
+                }
                 h2 {
-                    font-size: 25px;
+                    font-size: $fs-2 +5;
                     text-align: center;
                     line-height: 50px;
-                    color: white;
+                    color: $color-white-0;
                     font-weight: 500 !important;
                     opacity: 1 !important;
                 }
@@ -44,6 +51,10 @@
                 margin: 0;
                 padding: 0;
                 text-decoration: none !important;
+                @include MediaQuery(medium) {
+                    width: 90%;
+                    height: 150px;
+                }
             }
             p {
                 text-align: center;
@@ -56,6 +67,13 @@
                 margin-right: $mg-0 +3;
                 text-decoration: none !important;
                 text-decoration: line-through !important;
+            }
+            .span2 {
+                font-size: $fs-2;
+                @include MediaQuery(medium) {
+                    padding-right: 10%;
+                    margin-top: 15%;
+                }
             }
             h5 {
                 font-size: $fs-0;

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import classes from './saleItemStyle.module.scss';
+import classes from './SaleItemStyle.module.scss';
 import Popup from 'reactjs-popup';
 import { ADD_CART_ITEM } from "../../../Redux/Action/actionType";
 import { NavLink } from 'react-router-dom';

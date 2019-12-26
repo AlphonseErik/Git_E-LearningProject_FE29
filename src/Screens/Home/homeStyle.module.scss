@@ -62,6 +62,18 @@
         // }
     }
     
+    .ahihi {
+        @include MediaQuery(large) {
+            padding-left: 10%;
+        }
+        @include MediaQuery(medium) {
+            padding-left: 20%;
+        }
+        @include MediaQuery(small) {
+            padding-left: 15%;
+        }
+    }
+    
     // @keyframes Bottom {
     //     0% {
     //         transform: translateX(0) rotate(0deg);

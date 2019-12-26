@@ -58,7 +58,7 @@ const CourseItem = props => {
                     </div>
                   <div className="text-right">
                      <span className={classes.span1}>50$</span>
-                     <span className="text-bold">25$</span>
+                     <span className={classes.span2}>25$</span>
                      </div>
                 </div>
                 

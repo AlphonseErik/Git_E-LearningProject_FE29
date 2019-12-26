@@ -1,4 +1,5 @@
     @import '../../Scss/Helper/variable';
+    @import '../../Scss/Helper/mixin';
     .contentSay {
         background-color: $color-white-0;
         width: 100%;
@@ -8,6 +9,53 @@
             padding-top: $pd-2 +10;
             margin-top: $pd-2 +10;
             background-color: $color-white-0;
+            width: 300px;
+            height: 10%;
+            @include MediaQuery(small) {
+                display: block;
+            }
+            img {
+                border-radius: 50%;
+                height: 70px;
+                width: 70px;
+            }
+            p {
+                padding: $pd-2 0;
+            }
+            span {
+                font-weight: normal;
+                font-size: $fs-3 +1;
+            }
+        }
+        .item1 {
+            box-shadow: 0 0 1px 1px rgba(20, 23, 28, .1), 0 3px 1px 0 rgba(20, 23, 28, .1);
+            padding-left: $pd-2 +10;
+            padding-top: $pd-2 +10;
+            margin-top: $pd-2 +10;
+            background-color: $color-white-0;
+            width: 300px;
+            height: 10%;
+            img {
+                border-radius: 50%;
+                height: 70px;
+                width: 70px;
+            }
+            p {
+                padding: $pd-2 0;
+            }
+            span {
+                font-weight: normal;
+                font-size: $fs-3 +1;
+            }
+        }
+        .item2 {
+            box-shadow: 0 0 1px 1px rgba(20, 23, 28, .1), 0 3px 1px 0 rgba(20, 23, 28, .1);
+            padding-left: $pd-2 +10;
+            padding-top: $pd-2 +10;
+            margin-top: $pd-2 +10;
+            background-color: $color-white-0;
+            width: 300px;
+            height: 10%;
             img {
                 border-radius: 50%;
                 height: 70px;

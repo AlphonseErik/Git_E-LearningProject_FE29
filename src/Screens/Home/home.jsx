@@ -10,10 +10,10 @@ import BottomSideBar from "../../Layouts/SideBar/BottomSideBar";
 import { userDetail } from "../../Redux/Action/userAction";
 import { settings } from "../../config/settings";
 import GetStarted from "../../Components/GetStarted/getStarted";
-import StudentSay from "../../Components/StudentSay/studentSay";
+import StudentSay from "../../Components/StudentSay/StudentSay";
 import Footer from "../../Layouts/Footer/footer";
 import FilterSearch from "../../Components/FilterSearch/filterSearch";
-import Sale from "../../Components/Sale/sale";
+import Sale from "../../Components/Sale/Sale";
 import CourseHot from "../../Components/CourseHot/courseHot";
 import { FETCH_COURSES } from "../../Redux/Action/actionType";
 import backToTop from "../../Components/BacktoTop/backToTop";
@@ -93,13 +93,8 @@ const HomeScreen = props => {
                 <FilterSearch item={props.courseList} />
                 <div>
                   <div className="container ">
+                  <div className={classes.ahihi}>
                     <div className="row ">
-                      {/* {props.courseList.filter(
-                  task =>
-                    task.tenKhoaHoc
-                      .toLowerCase()
-                      .indexOf(props.search.toLowerCase()) !== -1
-                )}, */}
                       {props.courseList
                         .filter(
                           item =>
@@ -107,10 +102,11 @@ const HomeScreen = props => {
                             props.categoryChoosenList
                         )
                         .map((item, index) => (
-                          <div key={index}>
+                          <div key={index} >
                             <CourseItem item={item} />
                           </div>
                         ))}
+                        </div>
                       {/* </OwlCarousel> */}
                     </div>
                   </div>
