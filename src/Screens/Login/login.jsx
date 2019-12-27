@@ -66,7 +66,7 @@ function Login(props) {
 
     const useStyles = makeStyles(theme => ({
         textField: {
-            width: 350,
+            width: 300,
             fontSize: 16,
 
 

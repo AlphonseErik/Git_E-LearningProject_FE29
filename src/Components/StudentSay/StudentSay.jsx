@@ -10,7 +10,7 @@ const StudentSay = props => {
       <div className="container">
         <h3>Các học viên nói gì về chúng tôi</h3>
         <div className="row" >
-          <div className="  col-4 col-lg-4 col-md-12 col-sm-12 ">
+          <div className=" col">
             <div className="container">
               <div className={classes.item} data-aos="fade-right"
                 data-aos-offset="300"
@@ -27,7 +27,7 @@ const StudentSay = props => {
               </div>
             </div>
           </div>
-          <div className="col-4 col-lg-4 col-md-12 col-sm-12">
+          <div className="col">
             <div className="container">
               <div className={classes.item1} data-aos="fade-left"
                 data-aos-duration="3000">
@@ -43,7 +43,7 @@ const StudentSay = props => {
               </div>
             </div>
           </div>
-          <div className="  col-4  col-lg-4 col-md-12 col-sm-12 ">
+          <div className="col">
             <div className="container">
               <div className={classes.item2} data-aos="fade-left"
                 data-aos-offset="300"

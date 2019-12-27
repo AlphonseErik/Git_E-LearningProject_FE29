@@ -1,7 +1,7 @@
 @import '../../Scss/Helper/variable';
 @import '../../Scss/Helper/mixin';
 .inputTong {
-    padding-top: 25px;
+    padding-top: $pd-2 +5;
     text-align: right;
     .classinput {
         width: 600px;
@@ -23,7 +23,7 @@
             width: 250px;
         }
         input {
-            padding: 25px 20px;
+            padding: $pd-2 +5 $pd-2;
             border-radius: 25px;
             letter-spacing: 3px;
             box-shadow: 0 0 1px 1px rgba(20, 23, 28, 0.1), 0 3px 1px 0 rgba(20, 23, 28, 0.1);

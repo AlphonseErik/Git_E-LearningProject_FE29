@@ -65,14 +65,38 @@ function Signup(props) {
 
     const useStyles = makeStyles(theme => ({
         textField: {
-            width: 400,
+            width: 380,
             fontSize: 16,
+            [theme.breakpoints.up('xs')]:{
+                width:250,
+                height:50,
+                
+                
+             },
+            [theme.breakpoints.up('sm')]:{
+               width:280,
+               height:50
+               
+            },
+            [theme.breakpoints.up('md')]:{
+                width:360,
+                height:60
+             }
         },
         button: {
             width: 200,
             height: 50,
             fontSize: 16,
             borderRadius: 25
+
+            ,[theme.breakpoints.up('xs')]:{
+               width:150,
+               height:40
+             }
+             ,[theme.breakpoints.up('md')]:{
+                width:200,
+                height:50
+              }
         }
     }));
 
