@@ -68,6 +68,8 @@ const CourseDetail = props => {
                                         </div>
                                     </div>
                                 </div>
+                                <div className={classes.textcourse}>
+
                                 <div className="row">
                                     <div className="col-8">
                                         <div className="tenKhoaHoc">
@@ -87,19 +89,21 @@ const CourseDetail = props => {
                                         </div>
                                         <p className="mt-2">{ngayTao}</p>
                                     </div>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
                         <div className="whatYouLearn">
                             <div className="row">
-                                <div className="col-8">
+                                <div className="col-8 col-lg-8 col-md-8 col-sm-6 ">
                                 </div>
-                                <div className="col-4">
+                                <div className="col-4 col-lg-4 col-md-4 col-sm-6 ">
                                     <div className={classes.right_course}>
                                         <div className="cartRight text-center pt-1">
                                             <img src={hinhAnh} />
                                         </div>
-                                        <div className="text-danger text-center">{tenKhoaHoc}</div>
+                                        <h1 className="text-danger">{tenKhoaHoc}</h1>
                                         <div className="container">
                                             <div className={classes.cartRightItem}>
                                                 <h2 className="text-right">25$</h2>
