@@ -13,7 +13,7 @@ function Cart(props) {
     }
 
     return (
-        <div className="container">
+        <div className="container-fluid">
             <h3>Course in Cart</h3>
             {renderCard()}
         </div>

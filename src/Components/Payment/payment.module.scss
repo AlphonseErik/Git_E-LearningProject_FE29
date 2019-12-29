@@ -1,0 +1,23 @@
+@import '../../Scss/Helper/variable';
+@import '../../Scss/Helper/mixin';
+.pay {
+    @include MediaQuery(large) {
+        margin-left: 20px;
+    }
+    @include MediaQuery(small) {
+        margin-right: 10%;
+    }
+    h3 {
+        @include MediaQuery(medium) {
+            font-size: 25px;
+        }
+        @include MediaQuery(small) {
+            font-size: 18px;
+        }
+    }
+    button {
+        @include MediaQuery(small) {
+            margin-right: 40px;
+        }
+    }
+}

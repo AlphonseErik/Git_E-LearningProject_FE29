@@ -1,11 +1,74 @@
+@import '../../Scss/Helper/mixin';
+@import '../../Scss/Helper/variable';
 .shoping {
     list-style: none;
     margin-bottom: 0;
+    padding: 0;
+    @include MediaQuery(large) {}
+    @include MediaQuery(medium) {}
     .item {
         border: solid 1px #dedfe0;
         i {
             font-size: 35px;
             color: #dc3545;
+        }
+        img {
+            @include MediaQuery(medium) {
+                width: 120px;
+                height: 100px;
+            }
+            @include MediaQuery(small) {
+                width: 80px;
+                height: 80px;
+            }
+        }
+        .textkhoa {
+            h2 {
+                @include MediaQuery(large) {
+                    font-size: 20px;
+                }
+                @include MediaQuery(medium) {
+                    font-size: 15px;
+                }
+            }
+            p {
+                @include MediaQuery(medium) {
+                    font-size: 13px;
+                }
+            }
+            @include MediaQuery(extra-large) {
+                padding-left: 10px;
+            }
+            @include MediaQuery(large) {
+                margin-left: 20px;
+            }
+            @include MediaQuery(medium) {
+                margin-left: 20px;
+            }
+            @include MediaQuery(small) {
+                margin-left: 20px;
+            }
+        }
+        .classbutton {
+            @include MediaQuery(medium) {
+                i {
+                    font-size: 25px;
+                }
+            }
+            @include MediaQuery(small) {
+                i {
+                    font-size: 20px;
+                    margin-right: 10px;
+                }
+            }
+        }
+        .gia {
+            @include MediaQuery(medium) {
+                font-size: 20px;
+            }
+            @include MediaQuery(small) {
+                margin-right: 20px;
+            }
         }
     }
 }

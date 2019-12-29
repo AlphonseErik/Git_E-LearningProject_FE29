@@ -20,6 +20,7 @@ const CartItem = props => {
         <div className="row">
             <div className="col-8">
                 <ul className={classes.shoping}>
+
                     <div className={classes.item}>
                         <li>
                             <div className="cart p-2">
@@ -28,16 +29,20 @@ const CartItem = props => {
                                         <img src={hinhAnh} width={150} height={100} />
                                     </div>
                                     <div className="col-5">
-                                        <div className="pt-2">
+                                        <div className={classes.textkhoa}>
                                             <h2> {tenKhoaHoc} </h2>
                                             <p>{moTa}</p>
                                         </div>
                                     </div>
                                     <div className="col-2 pt-3" >
+                                        <div className={classes.classbutton}>
                                         <button className="btn" onClick={() => { xoaCart(maKhoaHoc) }}><i className="fa fa-times pt-2 "></i></button>
+                                        </div>
                                     </div>
                                     <div className="col-2 pt-3">
+                                        <div className={classes.gia}>
                                         <h5 className="text-center pt-3">25$</h5>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

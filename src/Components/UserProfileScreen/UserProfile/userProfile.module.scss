@@ -1,6 +1,14 @@
 @import '../../../Scss/Helper/variable';
+@import '../../../Scss/Helper/mixin';
 .tong {
     border: dotted!important;
     margin-left: 150px;
     width: 100%;
+    @include MediaQuery(extra-large) {
+        margin-left: 100px;
+    }
+    @include MediaQuery(large) {
+        margin-left: 150px;
+        width: 80%;
+    }
 }
