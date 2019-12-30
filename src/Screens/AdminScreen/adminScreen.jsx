@@ -34,7 +34,7 @@ import { GET_ALL_USER_INFOR } from '../../Redux/Action/actionType';
 import GetUserList from '../../Components/AdminProfileScreen/GetUserList/getUserList';
 import AdminAddNewCourse from '../../Components/AdminProfileScreen/AdminAddNewCourse/adminAddNewCourse';
 import AdminAddNewUser from '../../Components/AdminProfileScreen/AdminAddNewUser/adminAddNewUser';
-import Chat from '../../Components/Chat/Chat';
+import Chat from '../../Components/Chat/chat';
 
 const drawerWidth = 240;
 
