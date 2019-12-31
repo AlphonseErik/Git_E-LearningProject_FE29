@@ -21,7 +21,6 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import { mainListItems, secondaryListItems } from '../../Components/AdminProfileScreen/ListItem/listItems';
 // import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import Chart from '../../Components/AdminProfileScreen/Chart/chart';
 import Deposits from '../../Components/AdminProfileScreen/Deposit/deposit';
 import Orders from '../../Components/AdminProfileScreen/UserOrders/orders';
 import AddNewUser from '../../Components/AdminProfileScreen/AdminAddNewUser/adminAddNewUser';
@@ -34,7 +33,6 @@ import { GET_ALL_USER_INFOR } from '../../Redux/Action/actionType';
 import GetUserList from '../../Components/AdminProfileScreen/GetUserList/getUserList';
 import AdminAddNewCourse from '../../Components/AdminProfileScreen/AdminAddNewCourse/adminAddNewCourse';
 import AdminAddNewUser from '../../Components/AdminProfileScreen/AdminAddNewUser/adminAddNewUser';
-import Chat from '../../Components/Chat/chat';
 
 const drawerWidth = 240;
 
@@ -176,7 +174,6 @@ function AdminScreen(props) {
                                     {/* Chart */}
                                     <Grid item xs={12} md={8} lg={9}>
                                         <Paper className={fixedHeightPaper}>
-                                            <Chart />
                                         </Paper>
                                     </Grid>
                                     {/* Recent Deposits */}
@@ -210,7 +207,6 @@ function AdminScreen(props) {
                                     </Grid>
                                 </Grid>
                             </Container>
-                            <Chat />
                         </main>
                     </div>
                 ) : (

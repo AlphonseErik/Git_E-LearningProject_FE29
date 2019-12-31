@@ -4,11 +4,11 @@
     border: dotted!important;
     margin-left: 150px;
     width: 100%;
-    @include MediaQuery(extra-large) {
-        margin-left: 100px;
-    }
-    @include MediaQuery(large) {
-        margin-left: 150px;
-        width: 80%;
-    }
+    // @include MediaQuery(large) {
+    //     margin-left: 150px;
+    //     width: 80%;
+    // }
+    // @include MediaQuery(medium) {
+    //     width: 60%;
+    // }
 }

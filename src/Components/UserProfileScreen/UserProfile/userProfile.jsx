@@ -21,7 +21,9 @@ const useStyles = makeStyles(theme => ({
         flexWrap: 'wrap',
     },
     textField: {
-        width: 500,
+        width:500 ,
+              
+        
     },
     wrapper: {
         margin: theme.spacing(1),
@@ -32,8 +34,7 @@ const useStyles = makeStyles(theme => ({
         position: 'absolute',
         top: '50%',
         left: '50%',
-        marginTop: -12,
-        marginLeft: -12,
+        
     },
 }));
 
@@ -201,6 +202,7 @@ function UserProfile(props) {
                                 variant="contained"
                                 color="primary"
                                 type="submit"
+                                
                                 disabled={loading}
                                 className={buttonClassname}
                             >Save</Button>
