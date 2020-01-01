@@ -21,7 +21,19 @@ const useStyles = makeStyles(theme => ({
         flexWrap: 'wrap',
     },
     textField: {
-        width:500 ,
+        [theme.breakpoints.up('xs')]:{
+            width:200,
+           
+          },
+        [theme.breakpoints.up('sm')]:{
+               width:300,
+             },
+             [theme.breakpoints.up('md')]:{
+                width:400,
+            
+              },[theme.breakpoints.up('lg')]:{
+                width:600,
+              }
               
         
     },
@@ -161,7 +173,7 @@ function UserProfile(props) {
     return (
         <div className={classessass.tong}>
             <div className="container text-center">
-                <form onSubmit={updateUser} style={{ lineHeight: 6 }}>
+                <form onSubmit={updateUser} style={{ lineHeight: 4 }}>
                     <div>
                         {
                             props.credentialsAdmin ? (

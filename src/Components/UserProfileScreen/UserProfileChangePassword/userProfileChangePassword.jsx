@@ -25,7 +25,21 @@ const useStyles = makeStyles(theme => ({
         flexWrap: 'wrap',
     },
     textField: {
-        width: 500,
+        [theme.breakpoints.up('xs')]:{
+            width:200,
+           
+          },
+        [theme.breakpoints.up('sm')]:{
+               width:300,
+             },
+             [theme.breakpoints.up('md')]:{
+                width:400,
+            
+              },[theme.breakpoints.up('lg')]:{
+                width:600,
+              }
+              
+
     },
     wrapper: {
         margin: theme.spacing(1),

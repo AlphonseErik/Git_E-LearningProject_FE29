@@ -6,7 +6,7 @@ import { courseCanceling } from "../../../Redux/Action/userAction";
 const UserCartItem = props => {
 
     return (
-        <table className="table">
+        <table className="table ml-3">
             <thead>
                 <tr>
                     <th>Course Code</th>

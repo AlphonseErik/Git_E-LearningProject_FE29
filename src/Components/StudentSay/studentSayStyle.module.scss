@@ -11,10 +11,6 @@
             background-color: $color-white-0;
             width: 300px;
             height: 10%;
-            @include MediaQuery(small) {
-                width: 100px;
-                height: 5%;
-            }
             img {
                 border-radius: 50%;
                 height: 70px;
@@ -36,10 +32,6 @@
             background-color: $color-white-0;
             width: 300px;
             height: 10%;
-            @include MediaQuery(small) {
-                width: 100px;
-                height: 5%;
-            }
             img {
                 border-radius: 50%;
                 height: 70px;
@@ -61,10 +53,6 @@
             background-color: $color-white-0;
             width: 300px;
             height: 10%;
-            @include MediaQuery(small) {
-                width: 100px;
-                height: 5%;
-            }
             img {
                 border-radius: 50%;
                 height: 70px;

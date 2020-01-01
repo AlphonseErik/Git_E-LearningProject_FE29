@@ -10,6 +10,9 @@
     // animation: Bottom 0.5s ease-in-out infinite;
     @include MediaQuery(small) {
         text-align: center;
+        opacity: 0;
+        padding: 0;
+        margin: 0;
     }
     i {
         font-size: $fs-2 +20;
